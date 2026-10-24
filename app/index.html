@@ -289,8 +289,6 @@ const CONFIG = {
     messagingSenderId: "767985574187",
     appId: "1:767985574187:web:256f82bd7d80dc972d256e"
   },
-  // Nota que va al final de cada convocatoria
-  notaConvocatoria: "Todos los niños no convocados son bienvenidos al vestuario, en el banquillo no podrán estar.",
   // Campo donde jugamos en casa (para «Cómo llegar» cuando la liga no da el campo).
   campoCasa: "Espartinas, Sevilla",
   equipos: [
@@ -300,6 +298,7 @@ const CONFIG = {
       detalle: "Liga Educa, Alevín de 2º año",
       clave: "AlevinECF",                  // clave que reparten a las familias
       claveDelegado: "delegado-alevin",    // clave para editar partidos, goles y clasificación
+      notaConvocatoria: "Todos los niños no convocados son bienvenidos al vestuario, en el banquillo no podrán estar.",
       ligaUrl: "https://www.educationleague.es/?id_lan=1&id_geo=8&id_spo=1&id_com_gro0=439&sea=2026&id_rac=1&id_age=77&id_com_gro1=466&id_com_sea=1832&id_com_sta=2271&id_sec=335"
     },
     {
@@ -308,6 +307,7 @@ const CONFIG = {
       detalle: "Benjamín de 1º año",
       clave: "BenjaminECF",
       claveDelegado: "delegado-benjamin",
+      notaConvocatoria: "Cada niño y cada niña, que se lleve su botella de agua.",
       ligaUrl: "https://www.educationleague.es/?id_lan=1&id_geo=8&id_spo=1&id_com_gro0=439&sea=2026&id_rac=1&id_age=75&id_com_gro1=465&id_com_sea=1831&id_com_sta=2254&id_sec=335"
     }
   ]
@@ -558,7 +558,7 @@ function vPartidos(){
           <div class="fact" style="grid-column:1/-1"><b>${esc(next.campo || "Campo por confirmar")}</b><span>${esc(next.direccion || "")}</span></div>
         </div>
         ${S.session.me && (next.convocados || []).length ? ((next.convocados.includes(S.session.me))
-          ? `<div class="demo-note" style="margin:0"><b>¡Estás convocado!</b> ${next.citacion ? "Citación a las " + esc(next.citacion) + "." : "Nos vemos en el campo."}</div>`
+          ? `<div class="demo-note" style="margin:0"><b>¡Estás en la convocatoria!</b> ${next.citacion ? "Citación a las " + esc(next.citacion) + "." : "Nos vemos en el campo."}</div>`
           : `<div class="demo-note" style="margin:0"><b>Esta vez descansas.</b> ¡Te esperamos en el vestuario para animar!</div>`) : ""}
         ${htmlPrevia(next)}
         <div class="kit">${equipacion(next, 52)}<div><b>Equipación</b><div class="muted" style="font-size:.88rem">${esc(textoKit(next))}</div></div></div>
@@ -754,7 +754,7 @@ function textoConvocatoria(p){
   const desc = descansanDe(p);
   if(desc.length) l.push("", "Descansan:", "", ...desc.map(j => j.nombre));
   l.push("", `Camiseta *${CAMISETAS[k.camiseta]}*`, `Pantalón *${PANTALONES[k.pantalon]}*`, `Medias *${MEDIAS[k.medias]}*`);
-  if(CONFIG.notaConvocatoria) l.push("", CONFIG.notaConvocatoria);
+  if(S.team.notaConvocatoria) l.push("", S.team.notaConvocatoria);
   if(p.notas) l.push("", p.notas);
   return l.join("\n");
 }
@@ -765,7 +765,7 @@ function htmlConvocatoria(p){
     <p style="margin:0 0 10px"><b>${p.citacion ? "Citación " + esc(p.citacion) + " h" : "Citación por confirmar"}</b> · ${p.hora ? "partido " + esc(p.hora) + " h" : "hora del partido por confirmar"}, ${esc(lugarTexto(p))}</p>
     <ol class="conv-list">${conv.map(j => `<li class="${j.id === me ? "yo" : ""}">${avatar(j, 26)}<span>${esc(j.nombre)}</span>${j.dorsal ? `<small>${esc(j.dorsal)}</small>` : ""}</li>`).join("")}</ol>
     ${desc.length ? `<p class="muted" style="margin:10px 0 0;font-size:.85rem"><b>Descansan:</b> ${esc(desc.map(j => j.nombre).join(", "))}</p>` : ""}
-    ${CONFIG.notaConvocatoria ? `<p class="muted" style="margin:8px 0 0;font-size:.8rem">${esc(CONFIG.notaConvocatoria)}</p>` : ""}
+    ${S.team.notaConvocatoria ? `<p class="muted" style="margin:8px 0 0;font-size:.8rem">${esc(S.team.notaConvocatoria)}</p>` : ""}
   </div>`;
 }
 
@@ -931,7 +931,7 @@ function abrirPin(j, msg = ""){
   setTimeout(() => $("#sheet-panel .pin")?.focus(), 50);
 }
 function abrirPinNuevo(j, msg = ""){
-  abrirSheet(`${cabecera("¡Bienvenido!")}
+  abrirSheet(`${cabecera("¡Hola, " + esc(j.nombre.split(" ")[0]) + "!")}
     <form data-form="pin-nuevo" data-id="${j.id}" class="block">
       <p class="muted" style="margin-top:0">Pon tu nombre, tu número y un PIN de 4 cifras que solo sepas tú (y tu familia).</p>
       <div class="form-grid">
