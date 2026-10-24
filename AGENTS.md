@@ -38,7 +38,7 @@ Colores del club: azul (#1450B4), marino (#0A2A63). Primera equipación azul a r
 Ruta base: `equipos/{equipoId}` con `equipoId` = `alevin` | `benjamin`.
 - `jugadores/{id}`: `{ nombre, dorsal, foto? (dataURL), pin? ("" o ausente = 0000 sin estrenar) }`
 - `partidos/{id}`: `{ jornada (texto), fecha "YYYY-MM-DD", hora "HH:MM", citacion "HH:MM", rival, local: bool, campo, direccion, equipacion "azul"|"roja", notas, gf, gc ("" si no jugado), goles: { [jugadorId]: n }, convocados: [jugadorId], mapa? (url de Maps de la liga) }`
-- `votos/{partidoId}_{votanteId}`: `{ partido, votante, notas: { [jugadorId]: 3|4|5 } }`
+- `votos/{partidoId}_{votanteId}`: `{ partido, votante, notas: { [jugadorId]: 3|4|5 } }, enviado: ms }`. Solo se escribe al pulsar «Enviar votación» (con todos los compañeros votados) y después no se puede cambiar; antes es un borrador en `localStorage` (`ecf-borrador-{equipo}-{jugador}-{partido}`).
 - `liga/tabla`: `{ filas: [{ equipo, pos?, pj?, pg, pe, pp, gf?, gc?, dif?, pts? }], actualizado: ms, fuente?: url }` (si vienen `pj`/`pts`/`dif` la app los usa; si no, los calcula; si viene `pos` ordena por ella).
 - Partidos del robot: id `liga-j{jornada}`, o el del delegado si ya había uno con esa jornada. Solo escribe `jornada, fecha, rival, local`, y `hora`/`campo`/`mapa`/`gf`/`gc` cuando la web los trae (`updateMask`). Nunca toca `goles, convocados, citacion, equipacion, notas, direccion`.
 - El robot marca los enlaces a mapas de cada celda como `[[MAPA:url]]` y guarda el HTML de nuestras filas en `robot/copia/{equipo}-filas.html` (para comprobar cómo publica la liga la ubicación).

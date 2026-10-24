@@ -128,6 +128,12 @@ main{max-width:44rem;margin:0 auto;padding:16px 14px 100px}
 .aviso span{font-size:.8rem;color:var(--muted)}
 .progreso{margin-bottom:12px}
 .progreso span{font-size:.85rem;font-weight:600}
+.enviado{display:grid;gap:2px;padding:10px 12px;border-radius:12px;margin-bottom:10px;background:color-mix(in srgb,var(--ok) 14%,var(--card))}
+.enviado b{color:var(--ok)}
+.enviado span{font-size:.82rem;color:var(--muted)}
+.notas button:disabled{cursor:default;opacity:.55}
+.notas button.on:disabled{opacity:1}
+.btn:disabled{opacity:.5;cursor:default}
 .vrow{display:flex;align-items:center;gap:10px;padding:4px 0}
 .vname{min-width:0;font-weight:600;font-size:.92rem;overflow-wrap:anywhere}
 .notas{flex:none;display:flex;gap:5px}
@@ -405,7 +411,11 @@ const golesDe = jid => S.partidos.reduce((n, p) => n + (Number(p.goles?.[jid]) |
 // Documento votos/{partido}_{votante} = { partido, votante, notas: { [jugador]: 3|4|5 } }. Solo se muestran sumas.
 const miVoto = (pid, jid) => S.votos.find(v => v.partido === pid && v.votante === jid);
 const companeros = jid => S.jugadores.filter(j => j.id !== jid);
-const votoCompleto = (pid, jid) => { const n = miVoto(pid, jid)?.notas || {}; return companeros(jid).every(j => n[j.id]); };
+// Un voto solo existe en la base de datos cuando se envía (y ya no se puede cambiar).
+// Mientras tanto es un borrador guardado en el propio móvil.
+const votoCompleto = (pid, jid) => !!miVoto(pid, jid);
+const claveBorrador = (pid, jid) => `ecf-borrador-${S.team?.id}-${jid}-${pid}`;
+const borrador = (pid, jid) => LS.get(claveBorrador(pid, jid), {});
 function puntosPartido(pid){
   const t = {};
   S.votos.filter(v => v.partido === pid).forEach(v => Object.entries(v.notas || {}).forEach(([j, n]) => { if(jug(j)) t[j] = (t[j] || 0) + (+n || 0); }));
@@ -787,13 +797,17 @@ function bloqueVotos(p){
   if(total < 2) return html + `<p class="muted" style="margin:0">Hacen falta al menos dos jugadores en la plantilla.</p></div>`;
   const hecho = me && votoCompleto(p.id, me);
   if(me){
-    const notas = miVoto(p.id, me)?.notas || {}, comp = jugadoresOrden().filter(j => j.id !== me);
-    const llevo = comp.filter(j => notas[j.id]).length;
-    html += `<p class="muted" style="margin-top:0">Vota a todos tus compañeros: 3, 4 o 5 estrellas. Tus votos son secretos.</p>
-      <div class="progreso"><span>${hecho ? "¡Has votado a todos!" : `Llevas ${llevo} de ${comp.length}`}</span><div class="bar"><i style="width:${Math.round(llevo / comp.length * 100)}%"></i></div></div>
-      <div class="vote-list">${comp.map(j => `<div class="vrow">${avatar(j, 34)}<span class="grow vname">${esc(j.nombre)}</span><div class="notas" role="group" aria-label="Nota para ${esc(j.nombre)}">
-        ${[3, 4, 5].map(n => `<button class="${notas[j.id] === n ? "on" : ""}" data-act="nota" data-id="${p.id}" data-j="${j.id}" data-n="${n}" aria-pressed="${notas[j.id] === n}">${n}<span>★</span></button>`).join("")}
+    const enviado = miVoto(p.id, me), notas = enviado?.notas || borrador(p.id, me);
+    const comp = jugadoresOrden().filter(j => j.id !== me && (!enviado || notas[j.id]));
+    const llevo = comp.filter(j => notas[j.id]).length, completo = llevo === comp.length;
+    html += enviado
+      ? `<div class="enviado"><b>✓ Votación enviada</b><span>Ya no se puede cambiar. Estos fueron tus votos (solo los ves tú):</span></div>`
+      : `<p class="muted" style="margin-top:0">Vota a todos tus compañeros con 3, 4 o 5 estrellas y pulsa «Enviar votación». Tus votos son secretos.</p>
+      <div class="progreso"><span>${completo ? "¡Has votado a todos! Ya puedes enviarla." : `Llevas ${llevo} de ${comp.length}`}</span><div class="bar"><i style="width:${Math.round(llevo / comp.length * 100)}%"></i></div></div>`;
+    html += `<div class="vote-list">${comp.map(j => `<div class="vrow">${avatar(j, 34)}<span class="grow vname">${esc(j.nombre)}</span><div class="notas" role="group" aria-label="Nota para ${esc(j.nombre)}">
+        ${[3, 4, 5].map(n => `<button class="${notas[j.id] === n ? "on" : ""}" ${enviado ? "disabled" : `data-act="nota" data-id="${p.id}" data-j="${j.id}" data-n="${n}"`} aria-pressed="${notas[j.id] === n}">${n}<span>★</span></button>`).join("")}
       </div></div>`).join("")}</div>`;
+    if(!enviado) html += `<button class="btn block" style="margin-top:12px" data-act="enviar-votos" data-id="${p.id}" ${completo ? "" : "disabled"}>${completo ? "Enviar votación" : `Enviar votación (te faltan ${comp.length - llevo})`}</button>`;
   } else {
     html += `<p class="muted" style="margin-top:0">Entra con tu nombre y tu PIN para votar.</p><button class="btn small" data-act="quien">Entrar con mi nombre</button>`;
   }
@@ -990,12 +1004,23 @@ const ACT = {
   "nuevo-partido": () => formPartido(null),
   "editar-partido": t => formPartido(S.partidos.find(x => x.id === t.dataset.id)),
   "borrar-partido": async t => { if(!confirm("¿Borrar este partido?")) return; await S.store.del("partidos", t.dataset.id); cerrarSheet(); toast("Partido borrado"); },
-  nota: async t => {
+  nota: t => {
     const me = S.session.me, pid = t.dataset.id, n = +t.dataset.n;
-    if(!me || t.dataset.j === me || ![3, 4, 5].includes(n)) return;
-    const notas = { ...(miVoto(pid, me)?.notas || {}), [t.dataset.j]: n };
-    await S.store.set("votos", pid + "_" + me, { partido: pid, votante: me, notas });
-    if(votoCompleto(pid, me)) toast("¡Has votado a todos!");
+    if(!me || miVoto(pid, me) || t.dataset.j === me || ![3, 4, 5].includes(n)) return;
+    LS.set(claveBorrador(pid, me), { ...borrador(pid, me), [t.dataset.j]: n });
+    refrescarSheet();
+  },
+  "enviar-votos": async t => {
+    const me = S.session.me, pid = t.dataset.id;
+    if(!me || miVoto(pid, me)) return;
+    const b = borrador(pid, me), notas = Object.fromEntries(companeros(me).filter(j => b[j.id]).map(j => [j.id, b[j.id]]));
+    if(Object.keys(notas).length < companeros(me).length) return toast("Te falta votar a algún compañero");
+    if(!confirm("¿Enviar tu votación? Una vez enviada no podrás cambiarla.")) return;
+    try{
+      await S.store.set("votos", pid + "_" + me, { partido: pid, votante: me, notas, enviado: Date.now() });
+      LS.del(claveBorrador(pid, me));
+      toast("¡Votación enviada!");
+    }catch(e){ toast("No se pudo enviar. Revisa la conexión y vuelve a intentarlo."); }
   },
   "compartir-conv": async t => {
     const p = S.partidos.find(x => x.id === t.dataset.id); if(!p) return;
