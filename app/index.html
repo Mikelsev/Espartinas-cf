@@ -477,8 +477,9 @@ function filasLiga(){
     const pg = +f.pg || 0, pe = +f.pe || 0, pp = +f.pp || 0, gf = +f.gf || 0, gc = +f.gc || 0;
     const pj = Number.isFinite(+f.pj) && f.pj !== "" && f.pj != null ? +f.pj : pg + pe + pp;
     const pts = Number.isFinite(+f.pts) && f.pts !== "" && f.pts != null ? +f.pts : pg * 3 + pe;
-    return { ...f, pg, pe, pp, gf, gc, pj, pts, dg: gf - gc };
-  }).sort((a, b) => b.pts - a.pts || b.dg - a.dg || b.gf - a.gf);
+    const dg = f.dif != null && f.dif !== "" ? +f.dif : gf - gc; // la Liga Educa solo da la diferencia
+    return { ...f, pg, pe, pp, gf, gc, pj, pts, dg };
+  }).sort((a, b) => (+a.pos || 0) - (+b.pos || 0) || b.pts - a.pts || b.dg - a.dg || b.gf - a.gf); // orden oficial si viene «pos»
 }
 function vLiga(){
   const filas = filasLiga();
