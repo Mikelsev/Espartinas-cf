@@ -289,8 +289,8 @@ const CONFIG = {
     messagingSenderId: "767985574187",
     appId: "1:767985574187:web:256f82bd7d80dc972d256e"
   },
-  // Campo donde jugamos en casa (para «Cómo llegar» cuando la liga no da el campo).
-  campoCasa: "Espartinas, Sevilla",
+  // Campo del Espartinas en Google Maps: «Cómo llegar» de los partidos en casa.
+  mapaCasa: "https://maps.app.goo.gl/SsANTYSx55Wi2okn9",
   equipos: [
     {
       id: "alevin",
@@ -411,9 +411,11 @@ const mvpsDe = jid => jugados().filter(p => mvpPartido(p.id).includes(jid)).leng
 const votantes = pid => S.jugadores.filter(j => votoCompleto(pid, j.id));
 const pendientesDeVotar = jid => jid && jug(jid) && S.jugadores.length > 1 ? jugados().filter(p => !votoCompleto(p.id, jid)) : [];
 const fechaLarga = p => fechaDe(p).toLocaleDateString("es-ES", { weekday: "long", day: "numeric", month: "long" });
-// Ubicación: el enlace de Maps que publica la liga, si no la dirección o el campo, y si jugamos en casa el campo de casa.
-const destino = p => p.direccion || p.campo || (p.local ? CONFIG.campoCasa : "") || "";
-const mapsUrl = p => p.mapa || (destino(p) ? "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(destino(p)) : "");
+// Ubicación: el enlace de Maps que publica la liga; si no, la dirección que ponga el delegado;
+// en casa, nuestro campo; fuera, el nombre del campo.
+const destino = p => p.direccion || p.campo || "";
+const rutaA = texto => "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(texto);
+const mapsUrl = p => p.mapa || (p.direccion ? rutaA(p.direccion) : p.local ? CONFIG.mapaCasa : p.campo ? rutaA(p.campo) : "");
 const equipos = p => p.local ? [CONFIG.club, p.rival] : [p.rival, CONFIG.club];
 function resultado(p){ if(!jugado(p)) return ""; const gf = +p.gf, gc = +p.gc; return gf > gc ? "w" : gf < gc ? "l" : "d"; }
 const marcador = p => p.local ? `${p.gf}-${p.gc}` : `${p.gc}-${p.gf}`;
@@ -555,7 +557,7 @@ function vPartidos(){
         <div class="facts">
           <div class="fact"><b>${esc(next.hora || "Por confirmar")}</b><span>Hora del partido</span></div>
           <div class="fact"><b>${esc(next.citacion || "–")}</b><span>Hora de llegada</span></div>
-          <div class="fact" style="grid-column:1/-1"><b>${esc(next.campo || "Campo por confirmar")}</b><span>${esc(next.direccion || "")}</span></div>
+          <div class="fact" style="grid-column:1/-1"><b>${esc(next.campo || (next.local ? "Campo del " + CONFIG.club : "Campo por confirmar"))}</b><span>${esc(next.direccion || "")}</span></div>
         </div>
         ${S.session.me && (next.convocados || []).length ? ((next.convocados.includes(S.session.me))
           ? `<div class="demo-note" style="margin:0"><b>¡Estás en la convocatoria!</b> ${next.citacion ? "Citación a las " + esc(next.citacion) + "." : "Nos vemos en el campo."}</div>`
@@ -718,7 +720,7 @@ function htmlPartido(p){
       <div class="fact" style="grid-column:1/-1"><b class="cap1">${esc(fechaLarga(p))}</b><span>${p.jornada ? "Jornada " + esc(p.jornada) + ", " : ""}${p.local ? "en casa" : "fuera"}</span></div>
       <div class="fact"><b>${esc(p.hora || "–")}</b><span>Hora del partido</span></div>
       <div class="fact"><b>${esc(p.citacion || "–")}</b><span>Hora de llegada</span></div>
-      <div class="fact" style="grid-column:1/-1"><b>${esc(p.campo || "Campo por confirmar")}</b><span>${esc(p.direccion || "")}</span></div>
+      <div class="fact" style="grid-column:1/-1"><b>${esc(p.campo || (p.local ? "Campo del " + CONFIG.club : "Campo por confirmar"))}</b><span>${esc(p.direccion || "")}</span></div>
     </div>
     <div class="kit" style="margin-top:12px">${equipacion(p, 52)}<span>${esc(textoKit(p))}</span></div>
     ${p.notas ? `<p class="muted" style="margin-bottom:0">${esc(p.notas)}</p>` : ""}

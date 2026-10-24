@@ -19,7 +19,7 @@ Colores del club: azul (#1450B4), marino (#0A2A63). Primera equipación azul a r
 7. Cada niño **entra con su nombre y PIN**: la primera vez usa `0000` y elige su PIN de 4 cifras. El delegado puede reiniciarlo a `0000`.
 8. Cada niño puede **subir su foto** (se recorta a 320×320 JPEG y se guarda en base64 en Firestore; no se usa Firebase Storage porque exige plan de pago).
 9. Alojamiento **gratuito**.
-10. **Cómo llegar** en cada partido (enlace de Maps que publica la liga → `mapa`; si no, dirección o campo; en casa `CONFIG.campoCasa`).
+10. **Cómo llegar** en cada partido (enlace de Maps que publica la liga → `mapa`; si no, dirección o campo; en casa `CONFIG.mapaCasa`, el enlace de Maps del campo del Espartinas).
 11. **La previa** de cada partido sin jugar: frase para los niños según la clasificación del rival + frase de ánimo (función `previa()`).
 
 ## Arquitectura
