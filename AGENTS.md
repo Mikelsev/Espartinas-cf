@@ -40,7 +40,7 @@ Ruta base: `equipos/{equipoId}` con `equipoId` = `alevin` | `benjamin`.
 ## Tareas pendientes (por orden)
 1. **Validar el robot contra la web real.** No se pudo acceder a educationleague.es al crearlo, así que la extracción es heurística (busca `<table>` con cabeceras tipo Equipo/PJ/G/E/P/GF/GC/Pts). Descarga la página real, revisa su estructura (puede cargar datos por JS o por una petición XHR/JSON: si existe un endpoint JSON, úsalo en lugar de leer el HTML) y ajusta `interpretar()`. Añade un test con un HTML guardado.
    - URL Benjamín: `https://www.educationleague.es/?id_lan=1&id_geo=8&id_spo=1&id_com_gro0=439&sea=2026&id_rac=1&id_age=75&id_com_gro1=465&id_com_sea=1831&id_com_sta=2254&id_sec=335`
-   - URL Alevín: **pendiente**, pedírsela al usuario (enlace corto que dio: https://share.google/qDlgUgdXPaJ3atl9r).
+   - URL Alevín: `https://www.educationleague.es/?id_lan=1&id_geo=8&id_spo=1&id_com_gro0=439&sea=2026&id_rac=1&id_age=77&id_com_gro1=466&id_com_sea=1832&id_com_sta=2271&id_sec=335`
 2. **Calendario y resultados automáticos** desde la misma web: crear/actualizar `partidos` del Espartinas CF con ids deterministas (p. ej. `liga-j{jornada}`) actualizando solo los campos oficiales (`fecha`, `hora`, `rival`, `local`, `campo`, `direccion`, `gf`, `gc`, `jornada`) mediante `updateMask`, para **no pisar** lo que mete el delegado (`goles`, `citacion`, `equipacion`, `notas`).
 3. **Publicar la app gratis** con GitHub Pages desde la carpeta `app/` del mismo repositorio (o Netlify) y documentarlo.
 4. Opcional: mejorar la seguridad (las claves están en el código; Firestore abierto). Algo sencillo y gratuito, sin obligar a las familias a crear cuentas.

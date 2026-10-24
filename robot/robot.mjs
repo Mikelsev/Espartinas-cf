@@ -9,7 +9,10 @@ const LIGAS = [
     equipo: "benjamin", // "benjamin" o "alevin", igual que en la app
     url: "https://www.educationleague.es/?id_lan=1&id_geo=8&id_spo=1&id_com_gro0=439&sea=2026&id_rac=1&id_age=75&id_com_gro1=465&id_com_sea=1831&id_com_sta=2254&id_sec=335"
   },
-  // { equipo: "alevin", url: "PEGA AQUÍ LA DIRECCIÓN DEL ALEVÍN" },
+  {
+    equipo: "alevin",
+    url: "https://www.educationleague.es/?id_lan=1&id_geo=8&id_spo=1&id_com_gro0=439&sea=2026&id_rac=1&id_age=77&id_com_gro1=466&id_com_sea=1832&id_com_sta=2271&id_sec=335"
+  },
 ];
 
 const PROJECT = process.env.FIREBASE_PROJECT_ID;
