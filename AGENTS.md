@@ -1,0 +1,54 @@
+# Espartinas CF – App de los equipos (instrucciones para el agente)
+
+Responde y escribe la interfaz siempre en **español de España**. El usuario es un padre, no programador: explica los pasos manuales de forma sencilla.
+
+## Qué es
+Web app (móvil primero) para dos equipos de fútbol base del **Espartinas CF** (Espartinas, Sevilla):
+- **Alevín** (2º año, Liga Educa / Education Football League) – juega Markel.
+- **Benjamín** (1º año) – juega Martin.
+
+Colores del club: azul (#1450B4), marino (#0A2A63). Primera equipación azul a rayas blancas; segunda roja (#D62839). Escudo oficial en `app/escudo-original.jpg` (ya incrustado en base64 en `app/index.html`).
+
+## Requisitos funcionales (todos implementados en `app/index.html`)
+1. Acceso con **clave del equipo** (una por equipo). Clave aparte de **delegado** para editar.
+2. **Calendario** de partidos: fecha, hora, hora de llegada, rival, casa/fuera, campo, dirección, equipación.
+3. Botón **Cómo llegar** → `https://www.google.com/maps/dir/?api=1&destination=<dirección>`.
+4. **Clasificación de la liga**.
+5. El delegado mete **resultados y goles por jugador** → **ranking de goleadores** automático.
+6. Cada niño se **autovalora** en cada partido jugado con **3, 4 o 5 estrellas** (no existen notas menores).
+7. **Votación MVP** por partido (un voto por jugador, no puede votarse a sí mismo, se puede cambiar).
+8. Cada niño puede **subir su foto** (se recorta a 320×320 JPEG y se guarda en base64 en Firestore; no se usa Firebase Storage porque exige plan de pago).
+9. Alojamiento **gratuito**.
+
+## Arquitectura
+- `app/index.html`: un único archivo HTML + CSS + JS sin build. Bloque `CONFIG` al principio del script (club, `firebase`, equipos con `clave`, `claveDelegado`, `ligaUrl`).
+  - `CONFIG.firebase = null` → modo prueba con `localStorage` (clase `LocalStore`).
+  - Con config de Firebase → Firestore en tiempo real (clase `FireStore`, SDK compat 10.12.2 desde jsDelivr).
+  - Ambas clases exponen `watch(col, cb)`, `set(col, id, obj)` (reemplaza el documento), `del(col, id)`, `stop()`.
+- `robot/robot.mjs`: Playwright (Node 20) abre la web de la Liga Educa, extrae la tabla de clasificación de forma heurística y la escribe en Firestore vía REST (las reglas permiten escritura sin auth). Guarda copia del HTML y de las tablas en `robot/copia/` para depurar.
+- `.github/workflows/actualizar.yml`: ejecuta el robot a diario y fines de semana por la tarde.
+- `firestore.rules`: reglas actuales (abiertas bajo `equipos/`).
+
+## Modelo de datos (Firestore)
+Ruta base: `equipos/{equipoId}` con `equipoId` = `alevin` | `benjamin`.
+- `jugadores/{id}`: `{ nombre, dorsal, foto? (dataURL) }`
+- `partidos/{id}`: `{ jornada, fecha "YYYY-MM-DD", hora "HH:MM", citacion "HH:MM", rival, local: bool, campo, direccion, equipacion "azul"|"roja", notas, gf, gc ("" si no jugado), goles: { [jugadorId]: n } }`
+- `valoraciones/{partidoId}_{jugadorId}`: `{ partido, jugador, estrellas: 3|4|5 }`
+- `mvp/{partidoId}_{votanteId}`: `{ partido, votante, votado }`
+- `liga/tabla`: `{ filas: [{ equipo, pj?, pg, pe, pp, gf, gc, pts? }], actualizado: ms, fuente?: url }` (si vienen `pj`/`pts` la app los usa; si no, los calcula).
+
+## Tareas pendientes (por orden)
+1. **Validar el robot contra la web real.** No se pudo acceder a educationleague.es al crearlo, así que la extracción es heurística (busca `<table>` con cabeceras tipo Equipo/PJ/G/E/P/GF/GC/Pts). Descarga la página real, revisa su estructura (puede cargar datos por JS o por una petición XHR/JSON: si existe un endpoint JSON, úsalo en lugar de leer el HTML) y ajusta `interpretar()`. Añade un test con un HTML guardado.
+   - URL Benjamín: `https://www.educationleague.es/?id_lan=1&id_geo=8&id_spo=1&id_com_gro0=439&sea=2026&id_rac=1&id_age=75&id_com_gro1=465&id_com_sea=1831&id_com_sta=2254&id_sec=335`
+   - URL Alevín: **pendiente**, pedírsela al usuario (enlace corto que dio: https://share.google/qDlgUgdXPaJ3atl9r).
+2. **Calendario y resultados automáticos** desde la misma web: crear/actualizar `partidos` del Espartinas CF con ids deterministas (p. ej. `liga-j{jornada}`) actualizando solo los campos oficiales (`fecha`, `hora`, `rival`, `local`, `campo`, `direccion`, `gf`, `gc`, `jornada`) mediante `updateMask`, para **no pisar** lo que mete el delegado (`goles`, `citacion`, `equipacion`, `notas`).
+3. **Publicar la app gratis** con GitHub Pages desde la carpeta `app/` del mismo repositorio (o Netlify) y documentarlo.
+4. Opcional: mejorar la seguridad (las claves están en el código; Firestore abierto). Algo sencillo y gratuito, sin obligar a las familias a crear cuentas.
+5. Opcional: convertir en PWA (manifest + service worker) para instalar en el móvil.
+
+## Reglas para cambios
+- Mantener `app/index.html` como archivo único sin paso de compilación.
+- No romper el modo prueba con `localStorage`.
+- Estrellas solo 3–5. Textos de la interfaz en español, tono cercano.
+- Accesible y responsive; modo claro y oscuro (variables CSS en `:root`).
+- Antes de terminar: `node --check robot/robot.mjs` y abrir `app/index.html` en un navegador para comprobar que carga.
