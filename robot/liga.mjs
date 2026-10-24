@@ -60,6 +60,8 @@ export function interpretar(tablas) {
   return mejor;
 }
 
+// Celda con el día (y a veces la hora): «V-30» en «Próxima jornada», «Vie 30 18:00» en la página de la jornada.
+const DIA = /^(?:[LMXJVSD]-|(?:lun|mar|mi[eé]|jue|vie|s[aá]b|dom)[a-zé]*\.?\s+)(\d{1,2})(?:\s+(\d{1,2}:\d{2}))?$/i;
 const ESTADOS = ["finalizado", "pendiente", "aplazado", "suspendido", "descansa", "enjuego", "programado", "anulado"];
 const iso = d => d.toISOString().slice(0, 10);
 
@@ -107,13 +109,13 @@ export function partidosDeTablas(tablas, equipos, club = /espartinas/i) {
       const p = { jornada, local: club.test(local), rival: club.test(local) ? visitante : local };
       const marcador = celdas.map(c => c.match(/^(\d+)\s*-\s*(\d+)$/)).find(Boolean);
       if (marcador) { const [a, b] = [+marcador[1], +marcador[2]]; [p.gf, p.gc] = p.local ? [a, b] : [b, a]; }
-      const hora = celdas.find(c => /^\d{1,2}:\d{2}$/.test(c));
+      const dia = celdas.map(c => c.match(DIA)).find(Boolean);
+      const hora = celdas.find(c => /^\d{1,2}:\d{2}$/.test(c)) || dia?.[2];
       if (hora) p.hora = hora.padStart(5, "0");
-      const dia = celdas.map(c => c.match(/^[LMXJVSD]-(\d{1,2})$/i)).find(Boolean);
       p.fecha = fechaPartido(base, dia ? +dia[1] : null);
       const estado = celdas.find(c => ESTADOS.includes(norm(c)));
       if (estado) p.estado = estado;
-      const campo = celdas.slice(0, iLocal).find(c => tieneLetras(c) && !ESTADOS.includes(norm(c)) && !/^[LMXJVSD]-\d/i.test(c));
+      const campo = celdas.slice(0, iLocal).find(c => tieneLetras(c) && !ESTADOS.includes(norm(c)) && !DIA.test(c));
       if (campo) p.campo = campo;
       porJornada.set(jornada, { ...porJornada.get(jornada), ...p });
     }

@@ -34,6 +34,25 @@ test("partido fuera: el marcador se da la vuelta y el campo se guarda", () => {
   ]);
 });
 
+test("partido sin jugar (filas reales): «Vie 30\\n18:00» es día y hora, no el campo; sin marcador", () => {
+  const tablas = [[
+    ["Benjamines - Benjamín 1º Año - 1º Año Grupo Único -  Jornada: 3 (30/10/2026)"],
+    ["Vie 30\n18:00", "", "Espartinas CF", "", "-", "", 'CF Comarca los Alcores "A"', "", ""]
+  ], [
+    ["Benjamines - Benjamín 1º Año - 1º Año Grupo Único -  Jornada: 4 (06/11/2026)"],
+    ["", "", "EDM Bormujos", "", "-", "", "Espartinas CF", "", ""]
+  ]];
+  assert.deepEqual(partidosDeTablas(tablas, ["Espartinas CF", 'CF Comarca los Alcores "A"', "EDM Bormujos"]), [
+    { jornada: 3, local: true, rival: 'CF Comarca los Alcores "A"', hora: "18:00", fecha: "2026-10-30" },
+    { jornada: 4, local: false, rival: "EDM Bormujos", fecha: "2026-11-06" }
+  ]);
+});
+
+test("jornada en la que descansamos: no se crea partido", () => {
+  const tablas = [[["Alevines - Jornada: 12 (29/01/2027)"], ["", "", "EF Rio Grande", "", "-", "", "CD Atco. San Juan", "", ""]]];
+  assert.deepEqual(partidosDeTablas(tablas, ["EF Rio Grande", "CD Atco. San Juan", "Espartinas CF"]), []);
+});
+
 test("no pisa lo del delegado: solo campos oficiales y reutiliza su partido de la misma jornada", () => {
   const oficiales = [
     { jornada: 2, local: true, rival: "EEMM Villamanrique", gf: 3, gc: 4, fecha: "2026-10-23" },
