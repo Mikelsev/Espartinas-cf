@@ -231,7 +231,7 @@ const CONFIG = {
       id: "alevin",
       nombre: "Alevín",
       detalle: "Liga Educa, Alevín de 2º año",
-      clave: "espartinas-alevin",          // clave que reparten a las familias
+      clave: "AlevinECF",                  // clave que reparten a las familias
       claveDelegado: "delegado-alevin",    // clave para editar partidos, goles y clasificación
       ligaUrl: "https://www.educationleague.es/?id_lan=1&id_geo=8&id_spo=1&id_com_gro0=439&sea=2026&id_rac=1&id_age=77&id_com_gro1=466&id_com_sea=1832&id_com_sta=2271&id_sec=335"
     },
@@ -239,7 +239,7 @@ const CONFIG = {
       id: "benjamin",
       nombre: "Benjamín",
       detalle: "Benjamín de 1º año",
-      clave: "espartinas-benjamin",
+      clave: "BenjaminECF",
       claveDelegado: "delegado-benjamin",
       ligaUrl: "https://www.educationleague.es/?id_lan=1&id_geo=8&id_spo=1&id_com_gro0=439&sea=2026&id_rac=1&id_age=75&id_com_gro1=465&id_com_sea=1831&id_com_sta=2254&id_sec=335"
     }
@@ -378,7 +378,7 @@ function renderLogin(msg = ""){
         <button class="btn" type="submit">Entrar</button>
       </div>
       <div class="err">${esc(msg)}</div>
-      ${S.online ? "" : `<p class="hint">Modo prueba. Claves de ejemplo: ${CONFIG.equipos.map(e => `<code>${esc(e.clave)}</code>`).join(" y ")}</p>`}
+      ${S.online ? "" : `<p class="hint">Modo prueba: los datos se guardan solo en este dispositivo.</p>`}
     </form>
   </div>`;
 }

@@ -3,7 +3,7 @@
 App para las familias del Alevín y del Benjamín: partidos, cómo llegar, clasificación, goleadores, valoraciones con estrellas, MVP y fotos.
 
 ## Probar
-Abre `app/index.html` en el navegador. Claves de prueba: `espartinas-alevin` / `espartinas-benjamin`. Clave de delegado: `delegado-alevin` / `delegado-benjamin` (pestaña «Yo»).
+Abre `app/index.html` en el navegador. Las claves de los equipos están en el bloque `CONFIG` de `app/index.html`. Clave de delegado: `delegado-alevin` / `delegado-benjamin` (pestaña «Yo»).
 
 ## Poner en marcha
 1. **Firebase** (gratis): crea un proyecto, activa Firestore, pega `firestore.rules` en Reglas y copia la configuración de la app web en `CONFIG.firebase` de `app/index.html`.
