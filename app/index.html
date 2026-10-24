@@ -85,7 +85,11 @@ h1,h2,h3{font-family:var(--display);letter-spacing:.01em;margin:0;line-height:1}
 .top-inner > div{min-width:0}
 .top-inner h1{font-size:1.4rem;font-weight:900;text-transform:uppercase}
 .top-inner small{display:block;color:#C9D7F2;font-size:.76rem;margin-top:2px;font-family:var(--body);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.badge-admin{margin-left:auto;background:var(--oro);color:#2a2100;font-weight:700;font-size:.75rem;padding:4px 8px;border-radius:999px}
+.top-acc{margin-left:auto;display:flex;align-items:center;gap:8px;flex:none}
+.salir-btn{display:inline-flex;align-items:center;gap:5px;border:1.5px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;border-radius:10px;padding:6px 10px;font-weight:700;font-size:.8rem}
+.salir-btn svg{width:17px;height:17px}
+.salir-btn:hover{background:rgba(255,255,255,.18)}
+.badge-admin{background:var(--oro);color:#2a2100;font-weight:700;font-size:.75rem;padding:4px 8px;border-radius:999px}
 
 main{max-width:44rem;margin:0 auto;padding:16px 14px 100px}
 .section-h{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:22px 2px 10px}
@@ -249,6 +253,8 @@ tbody tr+tr td{border-top:1px solid var(--line)}
   .form-grid{grid-template-columns:1fr}
   .facts{grid-template-columns:1fr 1fr}
   .tab{font-size:.62rem}
+  .salir-btn span{display:none}
+  .salir-btn{padding:6px 8px}
   .notas button{width:40px}
   .map-link{width:36px;height:36px;margin-right:8px}
 }
@@ -461,6 +467,7 @@ const ICON = {
   liga: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 4h8v5a4 4 0 0 1-8 0zM12 13v4M8 20h8M16 6h3a3 3 0 0 1-3 3M8 6H5a3 3 0 0 0 3 3"/></svg>',
   goles: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7l4 3-1.5 4.5h-5L8 10z" fill="currentColor" stroke="none"/></svg>',
   ranking: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8 6.6 19.7l1.1-6.1L3.2 9.4l6.1-.8z"/></svg>',
+  salir: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M10 17l5-5-5-5M15 12H4"/></svg>',
   mapa: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
   equipo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M9 3 5 5 2 9l3 3 2-1.5V21h10V10.5l2 1.5 3-3-3-4-4-2q-3 3-6 0Z"/></svg>',
   yo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>'
@@ -514,7 +521,10 @@ function render(){
       <div class="top-inner">
         <img class="escudo" src="${ESCUDO}" alt="">
         <div><h1>${esc(S.team.nombre)}</h1><small>${esc(CONFIG.club)}, ${esc(S.team.detalle)}</small></div>
-        ${S.session.admin ? `<span class="badge-admin">Delegado</span>` : ""}
+        <div class="top-acc">
+          ${S.session.admin ? `<span class="badge-admin">Delegado</span>` : ""}
+          <button class="salir-btn" data-act="cerrar-sesion" title="Cerrar sesión" aria-label="Cerrar sesión">${ICON.salir}<span>Salir</span></button>
+        </div>
       </div>
     </header>
     <main>${vista}</main>
@@ -1020,6 +1030,7 @@ const ACT = {
   },
   "no-soy": () => { S.session.me = null; S.session.pinOk = false; guardarSesion(); render(); abrirQuienSoy(); },
   "admin-salir": () => { S.session.admin = false; guardarSesion(); render(); },
+  "cerrar-sesion": () => { if(confirm("¿Cerrar sesión? Para volver a entrar necesitarás la clave del equipo" + (S.session.me ? " y tu PIN." : "."))) ACT.salir(); },
   salir: () => { S.store?.stop(); S.store = null; S.team = null; S.session = null; LS.del("ecf-sesion"); S.tab = "partidos"; renderLogin(); }
 };
 document.addEventListener("click", e => {
