@@ -226,7 +226,14 @@ tbody tr+tr td{border-top:1px solid var(--line)}
 .chip input{position:absolute;opacity:0;pointer-events:none}
 .chip:has(input:checked){border-color:var(--azul);background:color-mix(in srgb,var(--azul) 14%,var(--card))}
 .chip:has(input:focus-visible){outline:3px solid var(--oro);outline-offset:2px}
-.convocados{display:flex;flex-wrap:wrap;gap:6px}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;background:var(--soft);border-radius:12px;margin-bottom:6px}
+.seg button{border:0;background:none;border-radius:9px;padding:8px;font-weight:700;font-size:.88rem;color:var(--muted)}
+.seg button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 4px rgba(10,30,70,.12)}
+.conv-list{margin:0;padding:0;list-style:none;counter-reset:c;columns:2 12rem;column-gap:14px}
+.conv-list li{counter-increment:c;display:flex;align-items:center;gap:8px;padding:4px 0;break-inside:avoid;font-size:.9rem;font-weight:600}
+.conv-list li::before{content:counter(c);width:18px;text-align:right;font-family:var(--display);font-weight:800;color:var(--muted)}
+.conv-list li small{color:var(--muted);font-weight:500}
+.conv-list li.yo{color:var(--azul)}
 .liga-edit input{padding:8px 3px;border-radius:8px;text-align:center;min-width:0}
 .liga-edit .eqn{text-align:left}
 .liga-edit input[type=number]{-moz-appearance:textfield;appearance:textfield}
@@ -282,6 +289,8 @@ const CONFIG = {
     messagingSenderId: "767985574187",
     appId: "1:767985574187:web:256f82bd7d80dc972d256e"
   },
+  // Nota que va al final de cada convocatoria
+  notaConvocatoria: "Todos los niños no convocados son bienvenidos al vestuario, en el banquillo no podrán estar.",
   // Campo donde jugamos en casa (para «Cómo llegar» cuando la liga no da el campo).
   campoCasa: "Espartinas, Sevilla",
   equipos: [
@@ -419,7 +428,26 @@ function camiseta(tipo, size = 44){
     <path d="M13 4 L7 6.5 L2 12.5 L6.5 17 L9.5 14.5 L9.5 36 L30.5 36 L30.5 14.5 L33.5 17 L38 12.5 L33 6.5 L27 4 Q20 9 13 4 Z" fill="${fill}" stroke="rgba(0,0,0,.25)" stroke-width="1"/>
   </svg>`;
 }
-const nombreKit = t => t === "roja" ? "Segunda: roja" : "Primera: azul a rayas blancas";
+// Equipación completa del partido. Si faltan pantalón o medias, los de siempre con esa camiseta.
+const CAMISETAS = { azul: "Azul y blanca nueva", roja: "Roja nueva" };
+const PANTALONES = { azul: "Azul", blanco: "Blanco", rojo: "Rojo" };
+const MEDIAS = { blancas: "Blancas", rojas: "Rojas", azules: "Azules" };
+const COLOR = { azul: "#1450B4", azules: "#1450B4", blanco: "#FFFFFF", blancas: "#FFFFFF", rojo: "#D62839", rojas: "#D62839" };
+function kitDe(p){
+  const camiseta = p.equipacion === "roja" ? "roja" : "azul";
+  return { camiseta, pantalon: p.pantalon || (camiseta === "roja" ? "blanco" : "azul"), medias: p.medias || (camiseta === "roja" ? "rojas" : "blancas") };
+}
+const textoKit = p => { const k = kitDe(p); return `Camiseta ${CAMISETAS[k.camiseta].toLowerCase()}, pantalón ${PANTALONES[k.pantalon].toLowerCase()} y medias ${MEDIAS[k.medias].toLowerCase()}`; };
+function equipacion(p, size = 56){
+  const k = kitDe(p), id = "e" + (++kitN), borde = "rgba(0,0,0,.28)";
+  const shirt = k.camiseta === "roja" ? "#D62839" : `url(#${id})`;
+  return `<svg width="${size * 40 / 64}" height="${size}" viewBox="0 0 40 64" aria-hidden="true">
+    <defs><pattern id="${id}" width="8" height="40" patternUnits="userSpaceOnUse"><rect width="8" height="40" fill="#1450B4"/><rect x="5" width="3" height="40" fill="#fff"/></pattern></defs>
+    <path d="M13 2 L7 4.5 L2 10.5 L6.5 15 L9.5 12.5 L9.5 32 L30.5 32 L30.5 12.5 L33.5 15 L38 10.5 L33 4.5 L27 2 Q20 7 13 2 Z" fill="${shirt}" stroke="${borde}"/>
+    <path d="M9.5 33 H30.5 L31.5 45 H21.5 L20 39 L18.5 45 H8.5 Z" fill="${COLOR[k.pantalon]}" stroke="${borde}"/>
+    <path d="M10 47 h7 v15 h-7 z M23 47 h7 v15 h-7 z" fill="${COLOR[k.medias]}" stroke="${borde}"/>
+  </svg>`;
+}
 function avatar(j, size = 44){
   if(!j) return `<div class="av" style="width:${size}px;height:${size}px">?</div>`;
   const ini = j.nombre.split(/\s+/).map(w => w[0]).slice(0, 2).join("").toUpperCase();
@@ -529,9 +557,11 @@ function vPartidos(){
           <div class="fact"><b>${esc(next.citacion || "–")}</b><span>Hora de llegada</span></div>
           <div class="fact" style="grid-column:1/-1"><b>${esc(next.campo || "Campo por confirmar")}</b><span>${esc(next.direccion || "")}</span></div>
         </div>
-        ${S.session.me && (next.convocados || []).includes(S.session.me) ? `<div class="demo-note" style="margin:0"><b>¡Estás convocado!</b> Nos vemos en el campo.</div>` : ""}
+        ${S.session.me && (next.convocados || []).length ? ((next.convocados.includes(S.session.me))
+          ? `<div class="demo-note" style="margin:0"><b>¡Estás convocado!</b> ${next.citacion ? "Citación a las " + esc(next.citacion) + "." : "Nos vemos en el campo."}</div>`
+          : `<div class="demo-note" style="margin:0"><b>Esta vez descansas.</b> ¡Te esperamos en el vestuario para animar!</div>`) : ""}
         ${htmlPrevia(next)}
-        <div class="kit">${camiseta(next.equipacion, 40)}<div><b>Equipación</b><div class="muted" style="font-size:.9rem">${nombreKit(next.equipacion)}</div></div></div>
+        <div class="kit">${equipacion(next, 52)}<div><b>Equipación</b><div class="muted" style="font-size:.88rem">${esc(textoKit(next))}</div></div></div>
         <div class="row">
           ${mapsUrl(next) ? `<a class="btn grow" href="${esc(mapsUrl(next))}" target="_blank" rel="noopener">Cómo llegar</a>` : ""}
           <button class="btn ghost grow" data-act="partido" data-id="${next.id}">Ver detalles</button>
@@ -585,21 +615,23 @@ function avisoVotos(){
 const filaRanking = (pos, j, valor, sub, clase = "") => `<div class="scorer ${pos === 1 ? "top1" : ""}"><span class="rank">${pos}</span>${avatar(j, 40)}<div class="grow" style="min-width:0"><b>${esc(j.nombre)}</b>${sub ? `<div class="muted" style="font-size:.8rem">${sub}</div>` : ""}</div><span class="goals ${clase}">${valor}</span></div>`;
 function conPosiciones(lista, clave){ let pos = 0, prev = null; return lista.map((x, i) => { if(x[clave] !== prev){ pos = i + 1; prev = x[clave]; } return { ...x, pos }; }); }
 function vRanking(){
-  let html = avisoVotos();
+  const vista = S.rankVista === "goles" ? "goles" : "puntos";
+  let html = avisoVotos() + `<div class="seg" role="tablist">${[["puntos", "Puntuación"], ["goles", "Goleadores"]].map(([k, l]) =>
+    `<button role="tab" class="${vista === k ? "on" : ""}" aria-selected="${vista === k}" data-act="rank-vista" data-v="${k}">${l}</button>`).join("")}</div>`;
+  if(vista === "goles") return html + vGoles();
   const nj = jugados().length;
   const tabla = conPosiciones(S.jugadores.map(j => ({ j, pts: puntosDe(j.id), mvp: mvpsDe(j.id) }))
     .sort((a, b) => b.pts - a.pts || b.mvp - a.mvp || a.j.nombre.localeCompare(b.j.nombre)), "pts");
-  html += `<div class="section-h" style="margin-top:6px"><h2>Ranking de votos</h2><span class="muted">${nj} ${nj === 1 ? "partido" : "partidos"}</span></div>`;
+  html += `<div class="section-h" style="margin-top:6px"><h2>Ranking de puntuación</h2><span class="muted">${nj} ${nj === 1 ? "partido" : "partidos"}</span></div>`;
   html += !tabla.some(x => x.pts) ? `<div class="empty"><b>Aún no hay votos</b>Después de cada partido, cada jugador vota a sus compañeros con 3, 4 o 5 estrellas. Aquí se suman todos los puntos.</div>`
     : `<div class="list">${tabla.map(x => filaRanking(x.pos, x.j, x.pts, x.mvp ? `${x.mvp} ${x.mvp === 1 ? "vez" : "veces"} MVP` : "", "pts")).join("")}</div>
        <p class="muted" style="font-size:.8rem">Los votos son secretos: solo se ve la suma de puntos. El MVP de cada partido es quien más puntos saca.</p>`;
-  html += vGoles();
   return html;
 }
 function vGoles(){
   const lista = S.jugadores.map(j => ({ j, g: golesDe(j.id) })).filter(x => x.g > 0).sort((a, b) => b.g - a.g || a.j.nombre.localeCompare(b.j.nombre));
   const total = jugados().reduce((n, p) => n + (+p.gf || 0), 0);
-  let html = `<div class="section-h"><h2>Goleadores</h2><span class="muted">${total} goles del equipo</span></div>`;
+  let html = `<div class="section-h" style="margin-top:6px"><h2>Ranking de goleadores</h2><span class="muted">${total} goles del equipo</span></div>`;
   if(!lista.length) return html + `<div class="empty"><b>Todavía no hay goles apuntados</b>Aparecerán aquí en cuanto se metan los resultados.</div>`;
   let pos = 0, prev = null;
   html += `<div class="list">${lista.map((x, i) => { if(x.g !== prev){ pos = i + 1; prev = x.g; }
@@ -642,6 +674,7 @@ function vYo(){
       </div>
       <div class="row wrap" style="margin-top:14px">
         <button class="btn small" data-act="foto" data-id="${me.id}">${me.foto ? "Cambiar mi foto" : "Subir mi foto"}</button>
+        <button class="btn small ghost" data-act="mis-datos">Mi nombre y número</button>
         <button class="btn small ghost" data-act="no-soy">Cambiar de jugador</button>
       </div>`;
   } else {
@@ -687,12 +720,12 @@ function htmlPartido(p){
       <div class="fact"><b>${esc(p.citacion || "–")}</b><span>Hora de llegada</span></div>
       <div class="fact" style="grid-column:1/-1"><b>${esc(p.campo || "Campo por confirmar")}</b><span>${esc(p.direccion || "")}</span></div>
     </div>
-    <div class="kit" style="margin-top:12px">${camiseta(p.equipacion, 40)}<span>${nombreKit(p.equipacion)}</span></div>
-    ${(p.convocados || []).length ? `<h3 style="margin:14px 0 8px">Convocados (${p.convocados.length})</h3><div class="convocados">${jugadoresOrden().filter(j => p.convocados.includes(j.id)).map(j => `<span class="chip">${avatar(j, 26)}<span>${esc(j.nombre)}</span></span>`).join("")}</div>` : ""}
+    <div class="kit" style="margin-top:12px">${equipacion(p, 52)}<span>${esc(textoKit(p))}</span></div>
     ${p.notas ? `<p class="muted" style="margin-bottom:0">${esc(p.notas)}</p>` : ""}
     ${mapsUrl(p) ? `<a class="btn block" style="margin-top:14px" href="${esc(mapsUrl(p))}" target="_blank" rel="noopener">Cómo llegar con Google Maps</a>` : ""}
   </div>`;
 
+  html += htmlConvocatoria(p);
   if(!jugado(p)){
     html += `<div class="block">${htmlPrevia(p)}</div><div class="block"><h3>Votaciones</h3><p class="muted" style="margin:0">Se abren cuando haya resultado.</p></div>`;
   } else {
@@ -707,6 +740,33 @@ function htmlPartido(p){
     html += `<div class="row"><button class="btn grow" data-act="editar-partido" data-id="${p.id}">${jugado(p) ? "Editar partido" : "Editar o poner resultado"}</button><button class="btn red" data-act="borrar-partido" data-id="${p.id}">Borrar</button></div>`;
   }
   return html;
+}
+
+// Convocatoria con el mismo formato que se manda al grupo de WhatsApp
+const convocadosDe = p => (p.convocados || []).map(jug).filter(Boolean);
+const descansanDe = p => jugadoresOrden().filter(j => !(p.convocados || []).includes(j.id));
+function lugarTexto(p){ return p.local ? "en casa" : `${p.campo ? "en " + p.campo : "fuera"}, jugamos como visitantes`; }
+function textoConvocatoria(p){
+  const k = kitDe(p), l = [];
+  l.push(`*CONVOCATORIA*${p.citacion ? " " + p.citacion + "h" : ""}`, "");
+  l.push(`${p.hora ? "Partido " + p.hora + " h. " : "Partido "}${lugarTexto(p)}${p.rival ? " contra " + p.rival : ""}`, "");
+  convocadosDe(p).forEach((j, i) => l.push(`${i + 1} ${j.nombre}`));
+  const desc = descansanDe(p);
+  if(desc.length) l.push("", "Descansan:", "", ...desc.map(j => j.nombre));
+  l.push("", `Camiseta *${CAMISETAS[k.camiseta]}*`, `Pantalón *${PANTALONES[k.pantalon]}*`, `Medias *${MEDIAS[k.medias]}*`);
+  if(CONFIG.notaConvocatoria) l.push("", CONFIG.notaConvocatoria);
+  if(p.notas) l.push("", p.notas);
+  return l.join("\n");
+}
+function htmlConvocatoria(p){
+  const conv = convocadosDe(p); if(!conv.length) return "";
+  const desc = descansanDe(p), me = S.session.me;
+  return `<div class="block conv"><div class="section-h" style="margin:0 0 8px"><h3 style="margin:0">Convocatoria</h3><button class="btn small ghost" data-act="compartir-conv" data-id="${p.id}">Compartir</button></div>
+    <p style="margin:0 0 10px"><b>${p.citacion ? "Citación " + esc(p.citacion) + " h" : "Citación por confirmar"}</b> · ${p.hora ? "partido " + esc(p.hora) + " h" : "hora del partido por confirmar"}, ${esc(lugarTexto(p))}</p>
+    <ol class="conv-list">${conv.map(j => `<li class="${j.id === me ? "yo" : ""}">${avatar(j, 26)}<span>${esc(j.nombre)}</span>${j.dorsal ? `<small>${esc(j.dorsal)}</small>` : ""}</li>`).join("")}</ol>
+    ${desc.length ? `<p class="muted" style="margin:10px 0 0;font-size:.85rem"><b>Descansan:</b> ${esc(desc.map(j => j.nombre).join(", "))}</p>` : ""}
+    ${CONFIG.notaConvocatoria ? `<p class="muted" style="margin:8px 0 0;font-size:.8rem">${esc(CONFIG.notaConvocatoria)}</p>` : ""}
+  </div>`;
 }
 
 function bloqueVotos(p){
@@ -786,7 +846,8 @@ function formPartido(p){
       ${f("hora", "Hora del partido", p.hora, "time")}
       ${f("citacion", "Hora de llegada", p.citacion, "time")}
       <div class="f"><label for="f-local">Dónde</label><select class="input" id="f-local" name="local"><option value="1" ${p.local ? "selected" : ""}>En casa</option><option value="0" ${!p.local ? "selected" : ""}>Fuera</option></select></div>
-      <div class="f"><label for="f-eq">Equipación</label><select class="input" id="f-eq" name="equipacion"><option value="azul" ${p.equipacion !== "roja" ? "selected" : ""}>Azul a rayas</option><option value="roja" ${p.equipacion === "roja" ? "selected" : ""}>Roja</option></select></div>
+      ${(() => { const k = kitDe(p), sel = (n, l, ops, v) => `<div class="f"><label for="f-${n}">${l}</label><select class="input" id="f-${n}" name="${n}">${Object.entries(ops).map(([val, t]) => `<option value="${val}" ${v === val ? "selected" : ""}>${t}</option>`).join("")}</select></div>`;
+        return sel("equipacion", "Camiseta", CAMISETAS, k.camiseta) + sel("pantalon", "Pantalón", PANTALONES, k.pantalon) + sel("medias", "Medias", MEDIAS, k.medias); })()}
       ${f("campo", "Nombre del campo", p.campo, "text", "full")}
       ${f("direccion", "Dirección para Google Maps", p.direccion, "text", "full")}
       <div class="f full"><label for="f-notas">Notas</label><textarea class="input" id="f-notas" name="notas" rows="2">${esc(p.notas || "")}</textarea></div>
@@ -862,7 +923,7 @@ function abrirPin(j, msg = ""){
   abrirSheet(`${cabecera("Hola, " + esc(j.nombre))}
     <form data-form="pin" data-id="${j.id}" class="block">
       <div class="row" style="margin-bottom:12px">${avatar(j, 48)}<span class="muted">${pinDe(j) === PIN_INICIAL ? "Es tu primera vez: escribe 0000 y luego elegirás tu PIN." : "Escribe tu PIN de 4 cifras."}</span></div>
-      <div class="row"><input class="input grow pin" name="pin" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="••••" aria-label="PIN"><button class="btn" type="submit">Entrar</button></div>
+      <div class="row"><input class="input grow pin" name="pin" type="password" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="••••" aria-label="PIN"><button class="btn" type="submit">Entrar</button></div>
       <div class="err">${esc(msg)}</div>
     </form>
     <p class="muted" style="font-size:.8rem">¿Has olvidado tu PIN? El delegado puede reiniciarlo a 0000.</p>
@@ -870,17 +931,18 @@ function abrirPin(j, msg = ""){
   setTimeout(() => $("#sheet-panel .pin")?.focus(), 50);
 }
 function abrirPinNuevo(j, msg = ""){
-  abrirSheet(`${cabecera("Elige tu PIN")}
+  abrirSheet(`${cabecera("¡Bienvenido!")}
     <form data-form="pin-nuevo" data-id="${j.id}" class="block">
-      <p class="muted" style="margin-top:0">Inventa un PIN de 4 cifras que solo sepas tú (y tu familia). Será tu PIN para entrar a partir de ahora.</p>
+      <p class="muted" style="margin-top:0">Pon tu nombre, tu número y un PIN de 4 cifras que solo sepas tú (y tu familia).</p>
       <div class="form-grid">
-        <div class="f"><label for="pn1">PIN nuevo</label><input class="input pin" id="pn1" name="pin1" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="••••"></div>
-        <div class="f"><label for="pn2">Repítelo</label><input class="input pin" id="pn2" name="pin2" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="••••"></div>
+        <div class="f"><label for="pn-n">Tu nombre</label><input class="input" id="pn-n" name="nombre" required maxlength="30" value="${esc(j.nombre)}"></div>
+        <div class="f"><label for="pn-d">Tu número</label><input class="input" id="pn-d" name="dorsal" inputmode="numeric" maxlength="2" value="${esc(j.dorsal || "")}"></div>
+        <div class="f"><label for="pn1">PIN nuevo</label><input class="input pin" id="pn1" name="pin1" type="password" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="••••"></div>
+        <div class="f"><label for="pn2">Repítelo</label><input class="input pin" id="pn2" name="pin2" type="password" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="••••"></div>
       </div>
       <div class="err">${esc(msg)}</div>
-      <button class="btn block" type="submit">Guardar mi PIN</button>
+      <button class="btn block" type="submit">Guardar y entrar</button>
     </form>`);
-  setTimeout(() => $("#pn1")?.focus(), 50);
 }
 
 /* ---------- Fotos ---------- */
@@ -923,6 +985,14 @@ const ACT = {
     await S.store.set("votos", pid + "_" + me, { partido: pid, votante: me, notas });
     if(votoCompleto(pid, me)) toast("¡Has votado a todos!");
   },
+  "compartir-conv": async t => {
+    const p = S.partidos.find(x => x.id === t.dataset.id); if(!p) return;
+    const texto = textoConvocatoria(p);
+    try{
+      if(navigator.share) await navigator.share({ text: texto });
+      else { await navigator.clipboard.writeText(texto); toast("Convocatoria copiada: pégala en WhatsApp"); }
+    }catch(e){ if(e?.name !== "AbortError") toast("No se pudo compartir"); }
+  },
   "conv-todos": () => { document.querySelectorAll('[name="conv"]').forEach(x => x.checked = true); pintarGoles(); },
   "conv-nadie": () => { document.querySelectorAll('[name="conv"]').forEach(x => x.checked = false); pintarGoles(); },
   "pin-reset": async t => {
@@ -938,6 +1008,14 @@ const ACT = {
   foto: t => { fotoPara = t.dataset.id; $("#foto-input").click(); },
   quien: abrirQuienSoy,
   soy: t => { const j = jug(t.dataset.id); if(j) abrirPin(j); },
+  "rank-vista": t => { S.rankVista = t.dataset.v; render(); },
+  "mis-datos": () => {
+    const j = jug(S.session.me); if(!j) return;
+    abrirSheet(`${cabecera("Mis datos")}<form data-form="mis-datos" class="block"><div class="form-grid">
+      <div class="f"><label for="md-n">Mi nombre</label><input class="input" id="md-n" name="nombre" required maxlength="30" value="${esc(j.nombre)}"></div>
+      <div class="f"><label for="md-d">Mi número</label><input class="input" id="md-d" name="dorsal" inputmode="numeric" maxlength="2" value="${esc(j.dorsal || "")}"></div>
+      </div><div class="err"></div><button class="btn block" type="submit">Guardar</button></form>`);
+  },
   "no-soy": () => { S.session.me = null; S.session.pinOk = false; guardarSesion(); render(); abrirQuienSoy(); },
   "admin-salir": () => { S.session.admin = false; guardarSesion(); render(); },
   salir: () => { S.store?.stop(); S.store = null; S.team = null; S.session = null; LS.del("ecf-sesion"); S.tab = "partidos"; renderLogin(); }
@@ -969,7 +1047,7 @@ const FORMS = {
     const { id: _, ...prev } = S.partidos.find(x => x.id === id) || {};
     const p = { ...prev, convocados,
       rival: d.rival.trim(), fecha: d.fecha, jornada: d.jornada, hora: d.hora, citacion: d.citacion,
-      local: d.local === "1", equipacion: d.equipacion, campo: d.campo.trim(), direccion: d.direccion.trim(), notas: d.notas.trim(),
+      local: d.local === "1", equipacion: d.equipacion, pantalon: d.pantalon, medias: d.medias, campo: d.campo.trim(), direccion: d.direccion.trim(), notas: d.notas.trim(),
       gf: d.gf === "" ? "" : Math.max(0, +d.gf), gc: d.gc === "" ? "" : Math.max(0, +d.gc), goles
     };
     const suma = Object.values(goles).reduce((a, b) => a + b, 0);
@@ -993,14 +1071,20 @@ const FORMS = {
     if(pinDe(j) === PIN_INICIAL) return abrirPinNuevo(j);
     S.session.me = j.id; S.session.pinOk = true; guardarSesion(); cerrarSheet(); render(); toast("¡Hola, " + j.nombre + "!");
   },
+  "mis-datos": async fm => {
+    const j = jug(S.session.me); if(!j) return;
+    const nombre = fm.nombre.value.trim(), dorsal = fm.dorsal.value.trim();
+    if(!nombre || (dorsal && !/^\d{1,2}$/.test(dorsal))){ fm.querySelector(".err").textContent = !nombre ? "Escribe tu nombre." : "El número tiene que ser de 1 o 2 cifras."; return; }
+    await S.store.set("jugadores", j.id, { ...j, nombre, dorsal }); cerrarSheet(); toast("Datos guardados");
+  },
   "pin-nuevo": async fm => {
     const j = jug(fm.dataset.id); if(!j) return;
-    const a = fm.pin1.value.trim(), b = fm.pin2.value.trim();
-    if(!/^\d{4}$/.test(a)) return abrirPinNuevo(j, "Tienen que ser 4 cifras.");
-    if(a === PIN_INICIAL) return abrirPinNuevo(j, "Elige uno distinto de 0000.");
-    if(a !== b) return abrirPinNuevo(j, "Los dos PIN no coinciden.");
-    await S.store.set("jugadores", j.id, { ...j, pin: a });
-    S.session.me = j.id; S.session.pinOk = true; guardarSesion(); cerrarSheet(); render(); toast("¡PIN guardado! Hola, " + j.nombre);
+    const a = fm.pin1.value.trim(), b = fm.pin2.value.trim(), nombre = fm.nombre.value.trim(), dorsal = fm.dorsal.value.trim();
+    const error = !nombre ? "Escribe tu nombre." : dorsal && !/^\d{1,2}$/.test(dorsal) ? "El número tiene que ser de 1 o 2 cifras."
+      : !/^\d{4}$/.test(a) ? "El PIN tienen que ser 4 cifras." : a === PIN_INICIAL ? "Elige un PIN distinto de 0000." : a !== b ? "Los dos PIN no coinciden." : "";
+    if(error){ fm.querySelector(".err").textContent = error; return; }
+    await S.store.set("jugadores", j.id, { ...j, nombre, dorsal, pin: a });
+    S.session.me = j.id; S.session.pinOk = true; guardarSesion(); cerrarSheet(); render(); toast("¡Listo! Hola, " + nombre);
   },
   jugador: async fm => {
     const id = fm.dataset.id || "j" + uid();
