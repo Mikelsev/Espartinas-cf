@@ -14,11 +14,13 @@ Colores del club: azul (#1450B4), marino (#0A2A63). Primera equipación azul a r
 2. **Calendario** de partidos: fecha, hora, hora de llegada, rival, casa/fuera, campo, dirección, equipación.
 3. Botón **Cómo llegar** → `https://www.google.com/maps/dir/?api=1&destination=<dirección>`.
 4. **Clasificación de la liga**.
-5. El delegado mete **resultados y goles por jugador** → **ranking de goleadores** automático.
-6. Cada niño se **autovalora** en cada partido jugado con **3, 4 o 5 estrellas** (no existen notas menores).
-7. **Votación MVP** por partido (un voto por jugador, no puede votarse a sí mismo, se puede cambiar).
+5. El delegado mete la **convocatoria** de cada partido y el **resultado**; cada gol se asigna con un desplegable entre los convocados → **ranking de goleadores** automático.
+6. **Votaciones**: en cada partido jugado, cada jugador vota a **todos** sus compañeros (toda la plantilla, no a sí mismo) con **3, 4 o 5 estrellas**. Los votos son **secretos**: solo se ven sumas. El ranking del partido se ve al terminar de votar (el delegado siempre); el **MVP** es quien más puntos saca. Pestaña **Ranking** con el total acumulado y goleadores. Aviso si te faltan partidos por votar.
+7. Cada niño **entra con su nombre y PIN**: la primera vez usa `0000` y elige su PIN de 4 cifras. El delegado puede reiniciarlo a `0000`.
 8. Cada niño puede **subir su foto** (se recorta a 320×320 JPEG y se guarda en base64 en Firestore; no se usa Firebase Storage porque exige plan de pago).
 9. Alojamiento **gratuito**.
+10. **Cómo llegar** en cada partido (enlace de Maps que publica la liga → `mapa`; si no, dirección o campo; en casa `CONFIG.campoCasa`).
+11. **La previa** de cada partido sin jugar: frase para los niños según la clasificación del rival + frase de ánimo (función `previa()`).
 
 ## Arquitectura
 - `app/index.html`: un único archivo HTML + CSS + JS sin build. Bloque `CONFIG` al principio del script (club, `firebase`, equipos con `clave`, `claveDelegado`, `ligaUrl`).
@@ -34,12 +36,12 @@ Colores del club: azul (#1450B4), marino (#0A2A63). Primera equipación azul a r
 
 ## Modelo de datos (Firestore)
 Ruta base: `equipos/{equipoId}` con `equipoId` = `alevin` | `benjamin`.
-- `jugadores/{id}`: `{ nombre, dorsal, foto? (dataURL) }`
-- `partidos/{id}`: `{ jornada (texto), fecha "YYYY-MM-DD", hora "HH:MM", citacion "HH:MM", rival, local: bool, campo, direccion, equipacion "azul"|"roja", notas, gf, gc ("" si no jugado), goles: { [jugadorId]: n } }`
-- `valoraciones/{partidoId}_{jugadorId}`: `{ partido, jugador, estrellas: 3|4|5 }`
-- `mvp/{partidoId}_{votanteId}`: `{ partido, votante, votado }`
+- `jugadores/{id}`: `{ nombre, dorsal, foto? (dataURL), pin? ("" o ausente = 0000 sin estrenar) }`
+- `partidos/{id}`: `{ jornada (texto), fecha "YYYY-MM-DD", hora "HH:MM", citacion "HH:MM", rival, local: bool, campo, direccion, equipacion "azul"|"roja", notas, gf, gc ("" si no jugado), goles: { [jugadorId]: n }, convocados: [jugadorId], mapa? (url de Maps de la liga) }`
+- `votos/{partidoId}_{votanteId}`: `{ partido, votante, notas: { [jugadorId]: 3|4|5 } }`
 - `liga/tabla`: `{ filas: [{ equipo, pos?, pj?, pg, pe, pp, gf?, gc?, dif?, pts? }], actualizado: ms, fuente?: url }` (si vienen `pj`/`pts`/`dif` la app los usa; si no, los calcula; si viene `pos` ordena por ella).
-- Partidos del robot: id `liga-j{jornada}`, o el del delegado si ya había uno con esa jornada. Solo escribe `jornada, fecha, rival, local`, y `hora`/`campo`/`gf`/`gc` cuando la web los trae (`updateMask`). Nunca toca `goles, citacion, equipacion, notas, direccion`.
+- Partidos del robot: id `liga-j{jornada}`, o el del delegado si ya había uno con esa jornada. Solo escribe `jornada, fecha, rival, local`, y `hora`/`campo`/`mapa`/`gf`/`gc` cuando la web los trae (`updateMask`). Nunca toca `goles, convocados, citacion, equipacion, notas, direccion`.
+- El robot marca los enlaces a mapas de cada celda como `[[MAPA:url]]` y guarda el HTML de nuestras filas en `robot/copia/{equipo}-filas.html` (para comprobar cómo publica la liga la ubicación).
 
 ## Tareas pendientes (por orden)
 1. ✅ **Validar el robot contra la web real** (hecho con las copias del 24/10/2026 de Benjamín y Alevín; los partidos sin jugar traen «Vie 30\n18:00» en la primera celda y «-» como marcador; si descansamos no hay fila). No se pudo acceder a educationleague.es al crearlo, así que la extracción es heurística (busca `<table>` con cabeceras tipo Equipo/PJ/G/E/P/GF/GC/Pts). Descarga la página real, revisa su estructura (puede cargar datos por JS o por una petición XHR/JSON: si existe un endpoint JSON, úsalo en lugar de leer el HTML) y ajusta `interpretar()`. Añade un test con un HTML guardado.

@@ -48,6 +48,17 @@ test("partido sin jugar (filas reales): «Vie 30\\n18:00» es día y hora, no el
   ]);
 });
 
+test("enlace de Maps publicado por la liga: se guarda como «mapa» y no ensucia el campo", () => {
+  const tablas = [[
+    ["Jornada: 3 (30/10/2026)"],
+    ["Vie 30\n18:00", "Campo Municipal [[MAPA:https://maps.google.com/?q=37.38,-6.12]]", "CD Isidro Reguera \"A\"", "", "-", "", "Espartinas CF", "", ""]
+  ]];
+  const [p] = partidosDeTablas(tablas, ['CD Isidro Reguera "A"', "Espartinas CF"]);
+  assert.equal(p.campo, "Campo Municipal");
+  assert.equal(p.mapa, "https://maps.google.com/?q=37.38,-6.12");
+  assert.equal(planPartidos([p], [])[0].campos.mapa, "https://maps.google.com/?q=37.38,-6.12");
+});
+
 test("jornada en la que descansamos: no se crea partido", () => {
   const tablas = [[["Alevines - Jornada: 12 (29/01/2027)"], ["", "", "EF Rio Grande", "", "-", "", "CD Atco. San Juan", "", ""]]];
   assert.deepEqual(partidosDeTablas(tablas, ["EF Rio Grande", "CD Atco. San Juan", "Espartinas CF"]), []);

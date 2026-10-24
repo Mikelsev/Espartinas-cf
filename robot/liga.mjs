@@ -96,7 +96,9 @@ export function partidosDeTablas(tablas, equipos, club = /espartinas/i) {
       const cab = f.length === 1 && texto.match(/Jornada:?\s*(\d+)\s*\((\d{2})\/(\d{2})\/(\d{4})\)/);
       if (cab) { jornada = +cab[1]; base = new Date(Date.UTC(+cab[4], cab[3] - 1, +cab[2])); continue; }
       if (jornada == null || f.length < 2) continue;
-      const celdas = f.map(c => c.replace(/\s+/g, " ").trim());
+      // Enlace al mapa que añade el robot («[[MAPA:url]]»): se guarda aparte y se quita del texto
+      const mapa = f.map(c => c.match(/\[\[MAPA:(\S+?)\]\]/)?.[1]).find(Boolean);
+      const celdas = f.map(c => c.replace(/\s*\[\[MAPA:\S+?\]\]/g, "").replace(/\s+/g, " ").trim());
       let local, visitante, iLocal;
       const juntos = celdas.map(pareja).find(Boolean);
       if (juntos) { [local, visitante] = juntos; iLocal = celdas.findIndex(pareja); }
@@ -117,6 +119,7 @@ export function partidosDeTablas(tablas, equipos, club = /espartinas/i) {
       if (estado) p.estado = estado;
       const campo = celdas.slice(0, iLocal).find(c => tieneLetras(c) && !ESTADOS.includes(norm(c)) && !DIA.test(c));
       if (campo) p.campo = campo;
+      if (mapa) p.mapa = mapa;
       porJornada.set(jornada, { ...porJornada.get(jornada), ...p });
     }
   }
@@ -127,6 +130,7 @@ export function partidosDeTablas(tablas, equipos, club = /espartinas/i) {
 // `existentes`: [{ id, ...campos }] ya guardados. Devuelve [{ id, campos }]: solo se escriben esos campos.
 // - Si el delegado ya creó a mano el partido de esa jornada, se actualiza ese mismo en vez de duplicarlo.
 // - Nunca se tocan goles, citacion, equipacion, notas ni direccion.
+// - «mapa» es el enlace de Google Maps que publica la liga junto a la hora.
 // - El marcador solo se escribe cuando la web ya lo tiene; la hora y el campo solo si la web los trae.
 export function planPartidos(oficiales, existentes) {
   return oficiales.map(o => {
@@ -136,6 +140,7 @@ export function planPartidos(oficiales, existentes) {
     const campos = { jornada: String(o.jornada), fecha: o.fecha, rival: o.rival, local: o.local };
     if (o.hora) campos.hora = o.hora;
     if (o.campo) campos.campo = o.campo;
+    if (o.mapa) campos.mapa = o.mapa;
     if (o.gf != null) { campos.gf = o.gf; campos.gc = o.gc; }
     else if (!previo) { campos.gf = ""; campos.gc = ""; }
     return { id: previo ? previo.id : id, campos };

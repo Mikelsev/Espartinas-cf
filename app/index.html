@@ -113,8 +113,28 @@ main{max-width:44rem;margin:0 auto;padding:16px 14px 100px}
 
 /* Lists */
 .list{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.item{display:flex;align-items:center;gap:11px;padding:11px 14px;border-top:1px solid var(--line);width:100%;background:none;border-left:0;border-right:0;border-bottom:0;text-align:left}
+.item{display:flex;align-items:center;border-top:1px solid var(--line)}
 .item:first-child{border-top:0}
+.item-open{flex:1;min-width:0;display:flex;align-items:center;gap:11px;padding:11px 14px;background:none;border:0;text-align:left}
+.map-link{flex:none;display:grid;place-items:center;width:40px;height:40px;margin-right:10px;border-radius:12px;background:var(--soft);color:var(--azul)}
+.map-link svg{width:21px;height:21px}
+.aviso{display:flex;align-items:center;gap:12px;background:color-mix(in srgb,var(--oro) 20%,var(--card));border:1px solid color-mix(in srgb,var(--oro) 55%,transparent);border-radius:14px;padding:10px 12px;margin-bottom:14px}
+.aviso > svg{flex:none;width:24px;height:24px;color:#B98A00}
+.aviso b{display:block;font-size:.92rem}
+.aviso span{font-size:.8rem;color:var(--muted)}
+.progreso{margin-bottom:12px}
+.progreso span{font-size:.85rem;font-weight:600}
+.vrow{display:flex;align-items:center;gap:10px;padding:4px 0}
+.vname{min-width:0;font-weight:600;font-size:.92rem;overflow-wrap:anywhere}
+.notas{flex:none;display:flex;gap:5px}
+.notas button{width:46px;height:40px;border:1.5px solid var(--line);background:var(--card);border-radius:11px;font-weight:700;font-size:.95rem;display:flex;align-items:center;justify-content:center;gap:1px}
+.notas button span{color:var(--oro);font-size:.85rem}
+.notas button.on{border-color:var(--oro);background:color-mix(in srgb,var(--oro) 22%,var(--card))}
+.previa h3{font-size:1.05rem;font-weight:800;margin:0 0 6px}
+.previa p{margin:0;font-size:.9rem}
+.previa .animo{margin-top:8px;font-weight:600;color:var(--azul)}
+.input.pin{letter-spacing:.4em;font-size:1.3rem;text-align:center;font-weight:700;min-width:0}
+.goals.pts::after{content:" pts";font-size:.8rem;font-family:var(--body);font-weight:600;color:var(--muted)}
 .date-chip{flex:none;width:44px;text-align:center;border-radius:10px;background:var(--soft);padding:5px 0}
 .date-chip b{display:block;font-family:var(--display);font-size:1.25rem;font-weight:800;line-height:1}
 .date-chip span{font-size:.68rem;color:var(--muted);text-transform:capitalize}
@@ -167,11 +187,6 @@ tbody tr+tr td{border-top:1px solid var(--line)}
 
 /* Stars */
 .stars{color:var(--oro);letter-spacing:1px}
-.rate{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.rate button{border:1.5px solid var(--line);background:var(--card);border-radius:14px;padding:12px 6px;display:grid;gap:2px;justify-items:center}
-.rate button .stars{font-size:1.05rem}
-.rate button span{font-size:.85rem;font-weight:600}
-.rate button.on{border-color:var(--oro);background:color-mix(in srgb,var(--oro) 16%,var(--card))}
 
 /* MVP */
 .vote-list{display:grid;gap:8px}
@@ -205,6 +220,13 @@ tbody tr+tr td{border-top:1px solid var(--line)}
 .f label{display:block;font-size:.8rem;font-weight:600;color:var(--muted);margin-bottom:5px}
 .goal-row{display:flex;align-items:center;gap:10px;padding:6px 0}
 .goal-row input{width:72px;text-align:center}
+.goal-row label{flex:none;width:52px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.convoca{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px 4px 4px;border:1.5px solid var(--line);border-radius:99px;font-size:.85rem;font-weight:600;cursor:pointer;background:var(--card)}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip:has(input:checked){border-color:var(--azul);background:color-mix(in srgb,var(--azul) 14%,var(--card))}
+.chip:has(input:focus-visible){outline:3px solid var(--oro);outline-offset:2px}
+.convocados{display:flex;flex-wrap:wrap;gap:6px}
 .liga-edit input{padding:8px 3px;border-radius:8px;text-align:center;min-width:0}
 .liga-edit .eqn{text-align:left}
 .liga-edit input[type=number]{-moz-appearance:textfield;appearance:textfield}
@@ -220,6 +242,8 @@ tbody tr+tr td{border-top:1px solid var(--line)}
   .form-grid{grid-template-columns:1fr}
   .facts{grid-template-columns:1fr 1fr}
   .tab{font-size:.62rem}
+  .notas button{width:40px}
+  .map-link{width:36px;height:36px;margin-right:8px}
 }
 /* Ordenador y tableta grande: dos columnas y barra de pestañas flotante */
 @media (min-width:960px){
@@ -258,6 +282,8 @@ const CONFIG = {
     messagingSenderId: "767985574187",
     appId: "1:767985574187:web:256f82bd7d80dc972d256e"
   },
+  // Campo donde jugamos en casa (para «Cómo llegar» cuando la liga no da el campo).
+  campoCasa: "Espartinas, Sevilla",
   equipos: [
     {
       id: "alevin",
@@ -288,7 +314,7 @@ const LS = {
   del(k){ try{ localStorage.removeItem(k); }catch(e){} }
 };
 const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
-const COLLS = ["jugadores", "partidos", "valoraciones", "mvp", "liga"];
+const COLLS = ["jugadores", "partidos", "votos", "liga"];
 const hoyISO = () => { const d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); return d.toISOString().slice(0, 10); };
 
 function toast(msg){ const t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("show"), 2200); }
@@ -306,7 +332,7 @@ function semilla(teamId){
       rival: "Rival de ejemplo", local: true, campo: "Campo municipal de Espartinas",
       direccion: "Espartinas, Sevilla", equipacion: "azul", notas: "Partido de ejemplo: el delegado puede editarlo o borrarlo."
     }},
-    valoraciones: {}, mvp: {},
+    votos: {},
     liga: { tabla: { filas: [{ equipo: CONFIG.club, pg: 0, pe: 0, pp: 0, gf: 0, gc: 0 }] } }
   };
 }
@@ -346,7 +372,7 @@ async function initFirebase(){
 /* ---------- Estado ---------- */
 const S = {
   online: false, session: LS.get("ecf-sesion", null), team: null, store: null,
-  jugadores: [], partidos: [], valoraciones: [], mvp: [], liga: [],
+  jugadores: [], partidos: [], votos: [], liga: [],
   tab: "partidos", sheet: null
 };
 const guardarSesion = () => LS.set("ecf-sesion", S.session);
@@ -360,13 +386,25 @@ const proximos = () => S.partidos.filter(p => !jugado(p) && (p.fecha || "") >= h
 const jugados = () => S.partidos.filter(p => jugado(p)).sort((a, b) => fechaDe(b) - fechaDe(a));
 const pendientes = () => S.partidos.filter(p => !jugado(p) && (p.fecha || "") < hoyISO()).sort((a, b) => fechaDe(b) - fechaDe(a));
 const golesDe = jid => S.partidos.reduce((n, p) => n + (Number(p.goles?.[jid]) || 0), 0);
-function votosPartido(pid){ const t = {}; S.mvp.filter(v => v.partido === pid).forEach(v => { t[v.votado] = (t[v.votado] || 0) + 1; }); return t; }
-function ganadoresMvp(pid){ const t = votosPartido(pid); const max = Math.max(0, ...Object.values(t)); return max ? Object.keys(t).filter(k => t[k] === max) : []; }
-const mvpsDe = jid => jugados().filter(p => ganadoresMvp(p.id).includes(jid)).length;
-function mediaDe(jid){ const v = S.valoraciones.filter(x => x.jugador === jid); return v.length ? v.reduce((a, b) => a + b.estrellas, 0) / v.length : null; }
-const fmtMedia = m => m == null ? "–" : m.toFixed(1).replace(".", ",");
+// Votaciones: en cada partido jugado cada jugador da 3, 4 o 5 estrellas a cada compañero.
+// Documento votos/{partido}_{votante} = { partido, votante, notas: { [jugador]: 3|4|5 } }. Solo se muestran sumas.
+const miVoto = (pid, jid) => S.votos.find(v => v.partido === pid && v.votante === jid);
+const companeros = jid => S.jugadores.filter(j => j.id !== jid);
+const votoCompleto = (pid, jid) => { const n = miVoto(pid, jid)?.notas || {}; return companeros(jid).every(j => n[j.id]); };
+function puntosPartido(pid){
+  const t = {};
+  S.votos.filter(v => v.partido === pid).forEach(v => Object.entries(v.notas || {}).forEach(([j, n]) => { if(jug(j)) t[j] = (t[j] || 0) + (+n || 0); }));
+  return t;
+}
+function mvpPartido(pid){ const t = puntosPartido(pid); const max = Math.max(0, ...Object.values(t)); return max ? Object.keys(t).filter(k => t[k] === max) : []; }
+const puntosDe = jid => jugados().reduce((n, p) => n + (puntosPartido(p.id)[jid] || 0), 0);
+const mvpsDe = jid => jugados().filter(p => mvpPartido(p.id).includes(jid)).length;
+const votantes = pid => S.jugadores.filter(j => votoCompleto(pid, j.id));
+const pendientesDeVotar = jid => jid && jug(jid) && S.jugadores.length > 1 ? jugados().filter(p => !votoCompleto(p.id, jid)) : [];
 const fechaLarga = p => fechaDe(p).toLocaleDateString("es-ES", { weekday: "long", day: "numeric", month: "long" });
-const mapsUrl = p => "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(p.direccion || p.campo || "");
+// Ubicación: el enlace de Maps que publica la liga, si no la dirección o el campo, y si jugamos en casa el campo de casa.
+const destino = p => p.direccion || p.campo || (p.local ? CONFIG.campoCasa : "") || "";
+const mapsUrl = p => p.mapa || (destino(p) ? "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(destino(p)) : "");
 const equipos = p => p.local ? [CONFIG.club, p.rival] : [p.rival, CONFIG.club];
 function resultado(p){ if(!jugado(p)) return ""; const gf = +p.gf, gc = +p.gc; return gf > gc ? "w" : gf < gc ? "l" : "d"; }
 const marcador = p => p.local ? `${p.gf}-${p.gc}` : `${p.gc}-${p.gf}`;
@@ -392,6 +430,8 @@ const ICON = {
   partidos: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
   liga: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 4h8v5a4 4 0 0 1-8 0zM12 13v4M8 20h8M16 6h3a3 3 0 0 1-3 3M8 6H5a3 3 0 0 0 3 3"/></svg>',
   goles: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7l4 3-1.5 4.5h-5L8 10z" fill="currentColor" stroke="none"/></svg>',
+  ranking: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8 6.6 19.7l1.1-6.1L3.2 9.4l6.1-.8z"/></svg>',
+  mapa: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
   equipo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M9 3 5 5 2 9l3 3 2-1.5V21h10V10.5l2 1.5 3-3-3-4-4-2q-3 3-6 0Z"/></svg>',
   yo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>'
 };
@@ -401,7 +441,7 @@ function renderLogin(msg = ""){
   $("#app").innerHTML = `
   <div class="login">
     <div class="login-band stripes">
-      <div class="crest"><img class="escudo" src="${ESCUDO}" alt="Escudo del Espartinas CF"><div><h1>${esc(CONFIG.club)}</h1><p>La app del equipo: partidos, liga, goles y MVP</p></div></div>
+      <div class="crest"><img class="escudo" src="${ESCUDO}" alt="Escudo del Espartinas CF"><div><h1>${esc(CONFIG.club)}</h1><p>La app del equipo: partidos, liga, goles y votaciones</p></div></div>
     </div>
     <form class="login-body" data-form="login">
       <label for="clave">Clave del equipo</label>
@@ -420,6 +460,7 @@ function entrar(){
   const eq = CONFIG.equipos.find(e => e.id === S.session?.teamId);
   if(!eq){ S.session = null; LS.del("ecf-sesion"); return renderLogin(); }
   S.team = eq;
+  if(S.session.me && !S.session.pinOk){ S.session.me = null; guardarSesion(); }
   S.store?.stop();
   S.store = S.online ? new FireStore(eq.id) : new LocalStore(eq.id);
   let primera = true;
@@ -435,7 +476,8 @@ function entrar(){
 function render(){
   if(!S.team) return;
   const scroll = window.scrollY;
-  const vista = { partidos: vPartidos, liga: vLiga, goles: vGoles, equipo: vEquipo, yo: vYo }[S.tab]();
+  if(S.tab === "goles") S.tab = "ranking";
+  const vista = { partidos: vPartidos, liga: vLiga, ranking: vRanking, equipo: vEquipo, yo: vYo }[S.tab]();
   $("#app").innerHTML = `
     <header class="top">
       <div class="stripes" style="height:10px"></div>
@@ -447,7 +489,7 @@ function render(){
     </header>
     <main>${vista}</main>
     <nav class="tabbar"><div class="tabbar-inner">
-      ${[["partidos","Partidos"],["liga","Liga"],["goles","Goleadores"],["equipo","Equipo"],["yo","Yo"]].map(([k,l]) =>
+      ${[["partidos","Partidos"],["liga","Liga"],["ranking","Ranking"],["equipo","Equipo"],["yo","Yo"]].map(([k,l]) =>
         `<button class="tab ${S.tab === k ? "on" : ""}" data-act="tab" data-tab="${k}" aria-current="${S.tab === k ? "page" : "false"}">${ICON[k]}<span>${l}</span></button>`).join("")}
     </div></nav>`;
   window.scrollTo(0, scroll);
@@ -457,17 +499,21 @@ function itemPartido(p){
   const d = fechaDe(p);
   const [a, b] = equipos(p);
   const r = resultado(p);
-  return `<button class="item" data-act="partido" data-id="${p.id}">
-    <div class="date-chip"><b>${d.getDate()}</b><span>${d.toLocaleDateString("es-ES", { month: "short" })}</span></div>
-    <div class="main"><b>${esc(a)} – ${esc(b)}</b><span>${p.jornada ? "Jornada " + esc(p.jornada) + ", " : ""}${esc(p.hora || "hora por confirmar")}${p.local ? ", en casa" : ", fuera"}</span></div>
-    ${r ? `<span class="score ${r}">${marcador(p)}</span>` : camiseta(p.equipacion, 30)}
-  </button>`;
+  const mapa = !r && mapsUrl(p);
+  return `<div class="item">
+    <button class="item-open" data-act="partido" data-id="${p.id}">
+      <div class="date-chip"><b>${d.getDate()}</b><span>${d.toLocaleDateString("es-ES", { month: "short" })}</span></div>
+      <div class="main"><b>${esc(a)} – ${esc(b)}</b><span>${p.jornada ? "Jornada " + esc(p.jornada) + ", " : ""}${esc(p.hora || "hora por confirmar")}${p.local ? ", en casa" : ", fuera"}</span></div>
+      ${r ? `<span class="score ${r}">${marcador(p)}</span>` : camiseta(p.equipacion, 28)}
+    </button>
+    ${mapa ? `<a class="map-link" href="${esc(mapa)}" target="_blank" rel="noopener" aria-label="Cómo llegar a ${esc(p.campo || destino(p) || "el campo")}" title="Cómo llegar">${ICON.mapa}</a>` : ""}
+  </div>`;
 }
 
 function vPartidos(){
   const prox = proximos(), next = prox[0], jug = jugados(), pend = pendientes();
   const adminBtn = S.session.admin ? `<button class="btn small" data-act="nuevo-partido">Añadir partido</button>` : "";
-  let html = S.online ? "" : `<div class="demo-note">Modo prueba: los datos se guardan solo en este dispositivo.</div>`;
+  let html = (S.online ? "" : `<div class="demo-note">Modo prueba: los datos se guardan solo en este dispositivo.</div>`) + avisoVotos();
   html += `<div class="cols"><div class="col-a">`;
   if(next){
     const [a, b] = equipos(next);
@@ -483,9 +529,11 @@ function vPartidos(){
           <div class="fact"><b>${esc(next.citacion || "–")}</b><span>Hora de llegada</span></div>
           <div class="fact" style="grid-column:1/-1"><b>${esc(next.campo || "Campo por confirmar")}</b><span>${esc(next.direccion || "")}</span></div>
         </div>
+        ${S.session.me && (next.convocados || []).includes(S.session.me) ? `<div class="demo-note" style="margin:0"><b>¡Estás convocado!</b> Nos vemos en el campo.</div>` : ""}
+        ${htmlPrevia(next)}
         <div class="kit">${camiseta(next.equipacion, 40)}<div><b>Equipación</b><div class="muted" style="font-size:.9rem">${nombreKit(next.equipacion)}</div></div></div>
         <div class="row">
-          ${next.direccion || next.campo ? `<a class="btn grow" href="${mapsUrl(next)}" target="_blank" rel="noopener">Cómo llegar</a>` : ""}
+          ${mapsUrl(next) ? `<a class="btn grow" href="${esc(mapsUrl(next))}" target="_blank" rel="noopener">Cómo llegar</a>` : ""}
           <button class="btn ghost grow" data-act="partido" data-id="${next.id}">Ver detalles</button>
         </div>
       </div>
@@ -528,10 +576,30 @@ function vLiga(){
   return html;
 }
 
+function avisoVotos(){
+  const pend = pendientesDeVotar(S.session.me);
+  if(!pend.length) return "";
+  return `<div class="aviso">${ICON.ranking}<div class="grow"><b>Te falta votar en ${pend.length === 1 ? "un partido" : pend.length + " partidos"}</b><span>Hay que votar a todos los compañeros.</span></div>
+    <button class="btn small" data-act="partido" data-id="${pend[0].id}">Votar</button></div>`;
+}
+const filaRanking = (pos, j, valor, sub, clase = "") => `<div class="scorer ${pos === 1 ? "top1" : ""}"><span class="rank">${pos}</span>${avatar(j, 40)}<div class="grow" style="min-width:0"><b>${esc(j.nombre)}</b>${sub ? `<div class="muted" style="font-size:.8rem">${sub}</div>` : ""}</div><span class="goals ${clase}">${valor}</span></div>`;
+function conPosiciones(lista, clave){ let pos = 0, prev = null; return lista.map((x, i) => { if(x[clave] !== prev){ pos = i + 1; prev = x[clave]; } return { ...x, pos }; }); }
+function vRanking(){
+  let html = avisoVotos();
+  const nj = jugados().length;
+  const tabla = conPosiciones(S.jugadores.map(j => ({ j, pts: puntosDe(j.id), mvp: mvpsDe(j.id) }))
+    .sort((a, b) => b.pts - a.pts || b.mvp - a.mvp || a.j.nombre.localeCompare(b.j.nombre)), "pts");
+  html += `<div class="section-h" style="margin-top:6px"><h2>Ranking de votos</h2><span class="muted">${nj} ${nj === 1 ? "partido" : "partidos"}</span></div>`;
+  html += !tabla.some(x => x.pts) ? `<div class="empty"><b>Aún no hay votos</b>Después de cada partido, cada jugador vota a sus compañeros con 3, 4 o 5 estrellas. Aquí se suman todos los puntos.</div>`
+    : `<div class="list">${tabla.map(x => filaRanking(x.pos, x.j, x.pts, x.mvp ? `${x.mvp} ${x.mvp === 1 ? "vez" : "veces"} MVP` : "", "pts")).join("")}</div>
+       <p class="muted" style="font-size:.8rem">Los votos son secretos: solo se ve la suma de puntos. El MVP de cada partido es quien más puntos saca.</p>`;
+  html += vGoles();
+  return html;
+}
 function vGoles(){
   const lista = S.jugadores.map(j => ({ j, g: golesDe(j.id) })).filter(x => x.g > 0).sort((a, b) => b.g - a.g || a.j.nombre.localeCompare(b.j.nombre));
   const total = jugados().reduce((n, p) => n + (+p.gf || 0), 0);
-  let html = `<div class="section-h" style="margin-top:6px"><h2>Goleadores</h2><span class="muted">${total} goles del equipo</span></div>`;
+  let html = `<div class="section-h"><h2>Goleadores</h2><span class="muted">${total} goles del equipo</span></div>`;
   if(!lista.length) return html + `<div class="empty"><b>Todavía no hay goles apuntados</b>Aparecerán aquí en cuanto se metan los resultados.</div>`;
   let pos = 0, prev = null;
   html += `<div class="list">${lista.map((x, i) => { if(x.g !== prev){ pos = i + 1; prev = x.g; }
@@ -549,8 +617,8 @@ function vEquipo(){
       ${j.dorsal ? `<span class="num">${esc(j.dorsal)}</span>` : ""}
       ${avatar(j, 76)}
       <b>${esc(j.nombre)}</b>
-      <div class="stats"><span><strong>${golesDe(j.id)}</strong> goles</span><span><strong>${mvpsDe(j.id)}</strong> MVP</span></div>
-      <div class="stats"><span class="stars">★</span><span><strong>${fmtMedia(mediaDe(j.id))}</strong> media</span></div>
+      <div class="stats"><span><strong>${golesDe(j.id)}</strong> goles</span><span><strong>${puntosDe(j.id)}</strong> puntos</span><span><strong>${mvpsDe(j.id)}</strong> MVP</span></div>
+      ${S.session.admin ? `<div class="stats"><span>${j.pin ? "Tiene PIN propio" : `<strong style="color:var(--ko)">PIN 0000, sin estrenar</strong>`}</span></div>` : ""}
       ${puedeFoto || S.session.admin ? `<div class="actions">
         ${puedeFoto ? `<button class="btn small ghost" data-act="foto" data-id="${j.id}">${j.foto ? "Cambiar foto" : "Subir foto"}</button>` : ""}
         ${S.session.admin ? `<button class="btn small ghost" data-act="editar-jugador" data-id="${j.id}">Editar</button>` : ""}
@@ -563,27 +631,28 @@ function vYo(){
   const me = jug(S.session.me);
   let html = `<div class="block" style="margin-top:6px">`;
   if(me){
-    const misPartidos = jugados().filter(p => S.valoraciones.some(v => v.partido === p.id && v.jugador === me.id)).length;
-    html += `<div class="row">${avatar(me, 64)}<div class="grow"><h3 style="margin:0">${esc(me.nombre)}</h3><span class="muted">Entras como este jugador</span></div></div>
+    const votados = jugados().filter(p => votoCompleto(p.id, me.id)).length;
+    const pos = conPosiciones(S.jugadores.map(j => ({ id: j.id, pts: puntosDe(j.id) })).sort((a, b) => b.pts - a.pts), "pts").find(x => x.id === me.id)?.pos;
+    html += `<div class="row">${avatar(me, 64)}<div class="grow" style="min-width:0"><h3 style="margin:0">${esc(me.nombre)}</h3><span class="muted">Has entrado con tu PIN</span></div></div>
       <div class="facts" style="margin-top:14px">
-        <div class="fact"><b>${golesDe(me.id)}</b><span>Goles</span></div>
+        <div class="fact"><b>${puntosDe(me.id)}</b><span>Puntos de votos${puntosDe(me.id) && pos ? ` (${pos}º)` : ""}</span></div>
         <div class="fact"><b>${mvpsDe(me.id)}</b><span>Veces MVP</span></div>
-        <div class="fact"><b>${fmtMedia(mediaDe(me.id))}</b><span>Mi media de estrellas</span></div>
-        <div class="fact"><b>${misPartidos}</b><span>Partidos valorados</span></div>
+        <div class="fact"><b>${golesDe(me.id)}</b><span>Goles</span></div>
+        <div class="fact"><b>${votados} de ${jugados().length}</b><span>Partidos votados</span></div>
       </div>
       <div class="row wrap" style="margin-top:14px">
         <button class="btn small" data-act="foto" data-id="${me.id}">${me.foto ? "Cambiar mi foto" : "Subir mi foto"}</button>
-        <button class="btn small ghost" data-act="quien">No soy yo</button>
+        <button class="btn small ghost" data-act="no-soy">Cambiar de jugador</button>
       </div>`;
   } else {
-    html += `<h3>¿Quién eres?</h3><p class="muted" style="margin-top:0">Elige tu nombre para valorarte y votar al MVP.</p>
-      <button class="btn" data-act="quien" ${S.jugadores.length ? "" : "disabled"}>Elegir jugador</button>`;
+    html += `<h3>¿Quién eres?</h3><p class="muted" style="margin-top:0">Entra con tu nombre y tu PIN para votar y poner tu foto.</p>
+      <button class="btn" data-act="quien" ${S.jugadores.length ? "" : "disabled"}>Entrar con mi nombre</button>`;
   }
   html += `</div>`;
 
   html += `<div class="block"><h3>Delegado</h3>`;
   if(S.session.admin){
-    html += `<p class="muted" style="margin-top:0">Puedes editar partidos, resultados, goles, plantilla y clasificación.</p>
+    html += `<p class="muted" style="margin-top:0">Puedes editar partidos, convocatorias, resultados, goleadores, plantilla y clasificación, y reiniciar el PIN de un jugador.</p>
       <button class="btn small ghost" data-act="admin-salir">Salir del modo delegado</button>`;
   } else {
     html += `<form data-form="admin" class="row"><input class="input grow" name="clave" type="password" placeholder="Clave de delegado" autocomplete="off"><button class="btn" type="submit">Entrar</button></form>`;
@@ -619,59 +688,91 @@ function htmlPartido(p){
       <div class="fact" style="grid-column:1/-1"><b>${esc(p.campo || "Campo por confirmar")}</b><span>${esc(p.direccion || "")}</span></div>
     </div>
     <div class="kit" style="margin-top:12px">${camiseta(p.equipacion, 40)}<span>${nombreKit(p.equipacion)}</span></div>
+    ${(p.convocados || []).length ? `<h3 style="margin:14px 0 8px">Convocados (${p.convocados.length})</h3><div class="convocados">${jugadoresOrden().filter(j => p.convocados.includes(j.id)).map(j => `<span class="chip">${avatar(j, 26)}<span>${esc(j.nombre)}</span></span>`).join("")}</div>` : ""}
     ${p.notas ? `<p class="muted" style="margin-bottom:0">${esc(p.notas)}</p>` : ""}
-    ${p.direccion || p.campo ? `<a class="btn block" style="margin-top:14px" href="${mapsUrl(p)}" target="_blank" rel="noopener">Cómo llegar con Google Maps</a>` : ""}
+    ${mapsUrl(p) ? `<a class="btn block" style="margin-top:14px" href="${esc(mapsUrl(p))}" target="_blank" rel="noopener">Cómo llegar con Google Maps</a>` : ""}
   </div>`;
 
   if(!jugado(p)){
-    html += `<div class="block"><h3>Valoración y MVP</h3><p class="muted" style="margin:0">Se abren cuando el delegado apunte el resultado.</p></div>`;
+    html += `<div class="block">${htmlPrevia(p)}</div><div class="block"><h3>Votaciones</h3><p class="muted" style="margin:0">Se abren cuando haya resultado.</p></div>`;
   } else {
     const goleadores = Object.entries(p.goles || {}).filter(([, n]) => +n > 0).sort((x, y) => y[1] - x[1]);
     html += `<div class="block"><h3>Goles del Espartinas</h3>${goleadores.length
       ? goleadores.map(([jid, n]) => `<div class="row" style="padding:5px 0">${avatar(jug(jid), 34)}<span class="grow">${esc(jug(jid)?.nombre || "Jugador")}</span><b>${"⚽".repeat(Math.min(+n, 6))}${+n > 6 ? " ×" + n : ""}</b></div>`).join("")
       : `<p class="muted" style="margin:0">${+p.gf ? "Sin goleadores apuntados." : "No marcamos en este partido."}</p>`}</div>`;
 
-    // Autovaloración
-    if(me){
-      const mia = S.valoraciones.find(v => v.partido === p.id && v.jugador === me)?.estrellas;
-      html += `<div class="block"><h3>¿Cómo has jugado?</h3><div class="rate">
-        ${[[3,"Bien"],[4,"Muy bien"],[5,"¡Crack!"]].map(([n, l]) => `<button class="${mia === n ? "on" : ""}" data-act="valorar" data-id="${p.id}" data-n="${n}" aria-pressed="${mia === n}">${estrellas(n)}<span>${l}</span></button>`).join("")}
-      </div></div>`;
-    }
-    const vals = S.valoraciones.filter(v => v.partido === p.id).sort((x, y) => y.estrellas - x.estrellas);
-    if(vals.length){
-      html += `<div class="block"><h3>Así se ven ellos</h3>${vals.map(v => `<div class="row" style="padding:5px 0">${avatar(jug(v.jugador), 34)}<span class="grow">${esc(jug(v.jugador)?.nombre || "Jugador")}</span>${estrellas(v.estrellas)}</div>`).join("")}</div>`;
-    }
-
-    // MVP
-    const tally = votosPartido(p.id), total = Object.values(tally).reduce((x, y) => x + y, 0);
-    const miVoto = me && S.mvp.find(v => v.partido === p.id && v.votante === me);
-    html += `<div class="block"><h3>MVP del partido</h3>`;
-    if(me && !miVoto){
-      const candidatos = jugadoresOrden().filter(j => j.id !== me);
-      html += `<p class="muted" style="margin-top:0">Vota al mejor del partido. No vale votarse a uno mismo.</p><div class="vote-list">${candidatos.map(j =>
-        `<button class="vote" data-act="votar" data-id="${p.id}" data-j="${j.id}">${avatar(j, 34)}<b class="grow">${esc(j.nombre)}</b><span class="muted">Votar</span></button>`).join("")}</div>`;
-    } else if(!me){
-      html += `<p class="muted" style="margin-top:0">Elige quién eres en la pestaña Yo para poder votar.</p>`;
-    }
-    if(total && (miVoto || !me || S.session.admin)){
-      const gan = ganadoresMvp(p.id);
-      html += gan.map(id => `<div class="mvp-win" style="margin-bottom:10px">${avatar(jug(id), 48)}<div><b>${esc(jug(id)?.nombre || "Jugador")}</b><div class="muted" style="font-size:.85rem">${gan.length > 1 ? "Empatado en cabeza" : "Va ganando el MVP"}</div></div></div>`).join("");
-      html += Object.entries(tally).sort((x, y) => y[1] - x[1]).map(([id, n]) =>
-        `<div style="padding:6px 0"><div class="row"><span class="grow">${esc(jug(id)?.nombre || "Jugador")}</span><b>${n} ${n === 1 ? "voto" : "votos"}</b></div><div class="bar"><i style="width:${Math.round(n / total * 100)}%"></i></div></div>`).join("");
-      if(miVoto) html += `<p class="muted" style="font-size:.85rem;margin-bottom:0">Tu voto: ${esc(jug(miVoto.votado)?.nombre || "")}. <button class="btn small line" data-act="quitar-voto" data-id="${p.id}">Cambiar voto</button></p>`;
-    } else if(miVoto){
-      html += `<p class="muted">Gracias por votar.</p>`;
-    } else if(!total && !me){
-      html += `<p class="muted" style="margin:0">Aún no hay votos.</p>`;
-    }
-    html += `</div>`;
+    html += bloqueVotos(p);
   }
   if(S.session.admin){
     html += `<div class="row"><button class="btn grow" data-act="editar-partido" data-id="${p.id}">${jugado(p) ? "Editar partido" : "Editar o poner resultado"}</button><button class="btn red" data-act="borrar-partido" data-id="${p.id}">Borrar</button></div>`;
   }
   return html;
 }
+
+function bloqueVotos(p){
+  const me = S.session.me, total = S.jugadores.length;
+  let html = `<div class="block"><h3>Votaciones</h3>`;
+  if(total < 2) return html + `<p class="muted" style="margin:0">Hacen falta al menos dos jugadores en la plantilla.</p></div>`;
+  const hecho = me && votoCompleto(p.id, me);
+  if(me){
+    const notas = miVoto(p.id, me)?.notas || {}, comp = jugadoresOrden().filter(j => j.id !== me);
+    const llevo = comp.filter(j => notas[j.id]).length;
+    html += `<p class="muted" style="margin-top:0">Vota a todos tus compañeros: 3, 4 o 5 estrellas. Tus votos son secretos.</p>
+      <div class="progreso"><span>${hecho ? "¡Has votado a todos!" : `Llevas ${llevo} de ${comp.length}`}</span><div class="bar"><i style="width:${Math.round(llevo / comp.length * 100)}%"></i></div></div>
+      <div class="vote-list">${comp.map(j => `<div class="vrow">${avatar(j, 34)}<span class="grow vname">${esc(j.nombre)}</span><div class="notas" role="group" aria-label="Nota para ${esc(j.nombre)}">
+        ${[3, 4, 5].map(n => `<button class="${notas[j.id] === n ? "on" : ""}" data-act="nota" data-id="${p.id}" data-j="${j.id}" data-n="${n}" aria-pressed="${notas[j.id] === n}">${n}<span>★</span></button>`).join("")}
+      </div></div>`).join("")}</div>`;
+  } else {
+    html += `<p class="muted" style="margin-top:0">Entra con tu nombre y tu PIN para votar.</p><button class="btn small" data-act="quien">Entrar con mi nombre</button>`;
+  }
+  const hanVotado = votantes(p.id);
+  html += `<p class="muted" style="font-size:.85rem;margin:12px 0 0">Han votado ${hanVotado.length} de ${total}.${S.session.admin && hanVotado.length < total ? " Faltan: " + esc(S.jugadores.filter(j => !hanVotado.includes(j)).map(j => j.nombre).join(", ")) + "." : ""}</p>`;
+  html += `</div>`;
+  // Ranking del partido: se ve cuando has votado a todos (el delegado siempre)
+  const pts = puntosPartido(p.id), lista = Object.entries(pts).sort((x, y) => y[1] - x[1]);
+  if(lista.length && (hecho || S.session.admin)){
+    const max = lista[0][1], mvp = mvpPartido(p.id);
+    html += `<div class="block"><h3>Ranking del partido</h3>
+      ${mvp.map(id => `<div class="mvp-win" style="margin-bottom:10px">${avatar(jug(id), 44)}<div><b>${esc(jug(id)?.nombre || "Jugador")}</b><div class="muted" style="font-size:.8rem">${mvp.length > 1 ? "MVP empatado" : "MVP del partido"}, ${max} puntos</div></div></div>`).join("")}
+      ${lista.map(([id, n]) => `<div style="padding:5px 0"><div class="row"><span class="grow">${esc(jug(id)?.nombre || "Jugador")}</span><b>${n} pts</b></div><div class="bar"><i style="width:${Math.round(n / max * 100)}%"></i></div></div>`).join("")}
+    </div>`;
+  } else if(lista.length && me){
+    html += `<p class="muted" style="font-size:.85rem;text-align:center">Vota a todos para ver el ranking del partido.</p>`;
+  }
+  return html;
+}
+
+// Previa para los niños: cómo llega el rival según la clasificación y una frase de ánimo.
+const ANIMO = [
+  "Lo más importante: correr, pasarse el balón y pasarlo en grande. ¡Vamos, Espartinas!",
+  "Da igual el marcador: si lo dais todo y os divertís, ya habéis ganado. ¡A disfrutar!",
+  "Cada partido es una aventura nueva. Jugad con alegría y animad siempre a los compañeros.",
+  "Un equipo de verdad se ayuda siempre, también cuando algo sale mal. ¡A pasarlo bien!",
+  "Respirad hondo, sonreíd y celebrad cada buen pase. ¡Aúpa Espartinas!",
+  "Hoy toca aprender, jugar juntos y divertirse mucho. ¡Y al final, a saludar al rival y al árbitro!"
+];
+const mismoEquipo = (a, b) => norma(a) === norma(b);
+const norma = s => (s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
+function previa(p){
+  const filas = filasLiga().map((f, i) => ({ ...f, pos: +f.pos || i + 1 }));
+  const r = filas.find(f => mismoEquipo(f.equipo, p.rival)), yo = filas.find(f => /espartinas/i.test(f.equipo));
+  const frases = [];
+  if(!r || !r.pj){
+    frases.push(`El ${p.rival} todavía no ha jugado en la liga, así que será una sorpresa para todos.`);
+  } else {
+    const balance = [r.pg && `${r.pg === 1 ? "ganado uno" : "ganado " + r.pg}`, r.pe && `${r.pe === 1 ? "empatado uno" : "empatado " + r.pe}`, r.pp && `${r.pp === 1 ? "perdido uno" : "perdido " + r.pp}`].filter(Boolean);
+    frases.push(`El ${p.rival} va ${r.pos}º con ${r.pts} ${r.pts === 1 ? "punto" : "puntos"}: ha ${balance.length > 1 ? balance.slice(0, -1).join(", ") + " y " + balance.slice(-1) : balance[0]}.`);
+    if(r.pos <= 3 || (yo && r.pts - yo.pts >= 6)) frases.push("Es de los equipos de arriba: tocará correr mucho, ayudarse en defensa y no rendirse nunca.");
+    else if(yo && yo.pts - r.pts >= 6) frases.push("Es un rival al que le está costando: si movemos rápido el balón tendremos muchas ocasiones, pero hay que respetarle siempre.");
+    else frases.push("Será un partido igualado, de esos en los que cada balón cuenta.");
+    if(r.dg >= 6) frases.push("Marcan bastantes goles, así que ¡atentos atrás y a ayudar al portero!");
+    else if(r.dg <= -6) frases.push("Les están marcando bastantes goles: ¡a probar a puerta siempre que podáis!");
+  }
+  frases.push(p.local ? "Jugamos en casa: ¡que se oiga a nuestra gente!" : "Jugamos fuera: llevamos la alegría del Espartinas a su campo.");
+  const n = [...String(p.id)].reduce((a, c) => a + c.charCodeAt(0), 0);
+  return { texto: frases.join(" "), animo: ANIMO[n % ANIMO.length] };
+}
+const htmlPrevia = p => { const v = previa(p); return `<div class="previa"><h3>La previa</h3><p>${esc(v.texto)}</p><p class="animo">${esc(v.animo)}</p></div>`; };
 
 function formPartido(p){
   const nuevo = !p; p = p || { local: true, equipacion: "azul" };
@@ -690,14 +791,30 @@ function formPartido(p){
       ${f("direccion", "Dirección para Google Maps", p.direccion, "text", "full")}
       <div class="f full"><label for="f-notas">Notas</label><textarea class="input" id="f-notas" name="notas" rows="2">${esc(p.notas || "")}</textarea></div>
     </div></div>
-    <div class="block"><h3>Resultado</h3><p class="muted" style="margin-top:0;font-size:.9rem">Déjalo vacío si aún no se ha jugado.</p>
-      <div class="form-grid">${f("gf", "Goles Espartinas", p.gf, "number")}${f("gc", "Goles rival", p.gc, "number")}</div></div>
-    <div class="block"><h3>Goleadores</h3>${S.jugadores.length ? jugadoresOrden().map(j =>
-      `<div class="goal-row">${avatar(j, 32)}<label class="grow" for="g-${j.id}">${esc(j.nombre)}</label><input class="input" id="g-${j.id}" type="number" min="0" name="g_${j.id}" value="${esc(p.goles?.[j.id] || "")}" placeholder="0"></div>`).join("")
-      : `<p class="muted" style="margin:0">Añade jugadores en la pestaña Equipo para apuntar goleadores.</p>`}</div>
+    <div class="block"><h3>Convocatoria</h3>${S.jugadores.length
+      ? `<p class="muted" style="margin-top:0;font-size:.85rem">Marca los jugadores convocados. Entre ellos se eligen los goleadores.</p>
+        <div class="convoca">${jugadoresOrden().map(j => `<label class="chip"><input type="checkbox" name="conv" value="${j.id}" ${(p.convocados || []).includes(j.id) ? "checked" : ""}>${avatar(j, 26)}<span>${esc(j.nombre)}</span></label>`).join("")}</div>
+        <div class="row" style="margin-top:8px"><button type="button" class="btn small ghost" data-act="conv-todos">Todos</button><button type="button" class="btn small ghost" data-act="conv-nadie">Ninguno</button></div>`
+      : `<p class="muted" style="margin:0">Añade jugadores en la pestaña Equipo.</p>`}</div>
+    <div class="block"><h3>Resultado</h3><p class="muted" style="margin-top:0;font-size:.85rem">Déjalo vacío si aún no se ha jugado.</p>
+      <div class="form-grid">${f("gf", "Goles Espartinas", p.gf, "number")}${f("gc", "Goles rival", p.gc, "number")}</div>
+      <div id="goles-sel" data-goles="${esc(JSON.stringify(Object.entries(p.goles || {}).flatMap(([j, n]) => Array(+n || 0).fill(j))))}"></div></div>
     <button class="btn block" type="submit">Guardar partido</button>
   </form>`);
+  pintarGoles();
 }
+// Un selector por cada gol del Espartinas, con los convocados (o toda la plantilla si no hay convocatoria)
+function pintarGoles(){
+  const fm = $('[data-form="partido"]'), caja = $("#goles-sel"); if(!fm || !caja) return;
+  const elegidos = [...caja.querySelectorAll("select")].map(x => x.value);
+  const previos = elegidos.length ? elegidos : JSON.parse(caja.dataset.goles || "[]");
+  const conv = [...fm.querySelectorAll('[name="conv"]:checked')].map(x => x.value);
+  const opciones = jugadoresOrden().filter(j => !conv.length || conv.includes(j.id) || previos.includes(j.id));
+  const n = Math.min(Math.max(0, parseInt(fm.gf.value, 10) || 0), 30);
+  caja.innerHTML = n ? `<h3 style="margin:14px 0 8px">Goleadores</h3>${[...Array(n)].map((_, i) => `<div class="goal-row"><label for="gol-${i}">Gol ${i + 1}</label>
+      <select class="input grow" id="gol-${i}" name="gol"><option value="">Sin asignar</option>${opciones.map(j => `<option value="${j.id}" ${previos[i] === j.id ? "selected" : ""}>${esc(j.nombre)}</option>`).join("")}</select></div>`).join("")}` : "";
+}
+document.addEventListener("input", e => { if(e.target.closest('[data-form="partido"]') && (e.target.name === "gf" || e.target.name === "conv")) pintarGoles(); });
 
 function formLiga(){
   const t = S.liga.find(x => x.id === "tabla");
@@ -726,7 +843,8 @@ function formJugador(j){
     <div class="block"><div class="form-grid">
       <div class="f full"><label for="j-n">Nombre</label><input class="input" id="j-n" name="nombre" required value="${esc(j.nombre || "")}"></div>
       <div class="f"><label for="j-d">Dorsal</label><input class="input" id="j-d" name="dorsal" type="number" min="0" value="${esc(j.dorsal || "")}"></div>
-    </div></div>
+    </div><p class="muted" style="font-size:.8rem;margin:10px 0 0">${nuevo || !j.pin ? "La primera vez entrará con el PIN 0000 y elegirá el suyo." : "Ya tiene su PIN propio."}</p>
+    ${!nuevo && j.pin ? `<button type="button" class="btn small ghost" style="margin-top:8px" data-act="pin-reset" data-id="${j.id}">Reiniciar su PIN a 0000</button>` : ""}</div>
     <div class="row"><button class="btn grow" type="submit">Guardar</button>${nuevo ? "" : `<button type="button" class="btn red" data-act="borrar-jugador" data-id="${j.id}">Borrar</button>`}</div>
   </form>`);
 }
@@ -734,9 +852,35 @@ function formJugador(j){
 function abrirQuienSoy(){
   if(!S.jugadores.length) return;
   abrirSheet(`${cabecera("¿Quién eres?")}
-    <p class="muted" style="margin-top:0">Elige tu nombre. Así podrás valorarte, votar al MVP y poner tu foto.</p>
+    <p class="muted" style="margin-top:0">Elige tu nombre y escribe tu PIN. Así podrás votar y poner tu foto.</p>
     <div class="vote-list">${jugadoresOrden().map(j => `<button class="vote" data-act="soy" data-id="${j.id}">${avatar(j, 40)}<b class="grow">${esc(j.nombre)}</b>${j.dorsal ? `<span class="muted">${esc(j.dorsal)}</span>` : ""}</button>`).join("")}</div>
     <p class="muted" style="font-size:.85rem">¿No sales? Pide al delegado que te añada.</p>`);
+}
+const PIN_INICIAL = "0000";
+const pinDe = j => j.pin || PIN_INICIAL;
+function abrirPin(j, msg = ""){
+  abrirSheet(`${cabecera("Hola, " + esc(j.nombre))}
+    <form data-form="pin" data-id="${j.id}" class="block">
+      <div class="row" style="margin-bottom:12px">${avatar(j, 48)}<span class="muted">${pinDe(j) === PIN_INICIAL ? "Es tu primera vez: escribe 0000 y luego elegirás tu PIN." : "Escribe tu PIN de 4 cifras."}</span></div>
+      <div class="row"><input class="input grow pin" name="pin" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="••••" aria-label="PIN"><button class="btn" type="submit">Entrar</button></div>
+      <div class="err">${esc(msg)}</div>
+    </form>
+    <p class="muted" style="font-size:.8rem">¿Has olvidado tu PIN? El delegado puede reiniciarlo a 0000.</p>
+    <button class="btn small line" data-act="quien">No soy ${esc(j.nombre)}</button>`);
+  setTimeout(() => $("#sheet-panel .pin")?.focus(), 50);
+}
+function abrirPinNuevo(j, msg = ""){
+  abrirSheet(`${cabecera("Elige tu PIN")}
+    <form data-form="pin-nuevo" data-id="${j.id}" class="block">
+      <p class="muted" style="margin-top:0">Inventa un PIN de 4 cifras que solo sepas tú (y tu familia). Será tu PIN para entrar a partir de ahora.</p>
+      <div class="form-grid">
+        <div class="f"><label for="pn1">PIN nuevo</label><input class="input pin" id="pn1" name="pin1" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="••••"></div>
+        <div class="f"><label for="pn2">Repítelo</label><input class="input pin" id="pn2" name="pin2" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="••••"></div>
+      </div>
+      <div class="err">${esc(msg)}</div>
+      <button class="btn block" type="submit">Guardar mi PIN</button>
+    </form>`);
+  setTimeout(() => $("#pn1")?.focus(), 50);
 }
 
 /* ---------- Fotos ---------- */
@@ -772,26 +916,29 @@ const ACT = {
   "nuevo-partido": () => formPartido(null),
   "editar-partido": t => formPartido(S.partidos.find(x => x.id === t.dataset.id)),
   "borrar-partido": async t => { if(!confirm("¿Borrar este partido?")) return; await S.store.del("partidos", t.dataset.id); cerrarSheet(); toast("Partido borrado"); },
-  valorar: async t => {
-    const me = S.session.me; if(!me) return;
-    await S.store.set("valoraciones", t.dataset.id + "_" + me, { partido: t.dataset.id, jugador: me, estrellas: +t.dataset.n });
-    toast("Valoración guardada");
+  nota: async t => {
+    const me = S.session.me, pid = t.dataset.id, n = +t.dataset.n;
+    if(!me || t.dataset.j === me || ![3, 4, 5].includes(n)) return;
+    const notas = { ...(miVoto(pid, me)?.notas || {}), [t.dataset.j]: n };
+    await S.store.set("votos", pid + "_" + me, { partido: pid, votante: me, notas });
+    if(votoCompleto(pid, me)) toast("¡Has votado a todos!");
   },
-  votar: async t => {
-    const me = S.session.me; if(!me || t.dataset.j === me) return;
-    await S.store.set("mvp", t.dataset.id + "_" + me, { partido: t.dataset.id, votante: me, votado: t.dataset.j });
-    toast("Voto guardado");
+  "conv-todos": () => { document.querySelectorAll('[name="conv"]').forEach(x => x.checked = true); pintarGoles(); },
+  "conv-nadie": () => { document.querySelectorAll('[name="conv"]').forEach(x => x.checked = false); pintarGoles(); },
+  "pin-reset": async t => {
+    const j = jug(t.dataset.id); if(!j || !confirm(`¿Reiniciar el PIN de ${j.nombre}? Volverá a ser 0000 y elegirá uno nuevo al entrar.`)) return;
+    await S.store.set("jugadores", j.id, { ...j, pin: "" }); cerrarSheet(); toast("PIN reiniciado a 0000");
   },
-  "quitar-voto": async t => { await S.store.del("mvp", t.dataset.id + "_" + S.session.me); },
   "editar-liga": formLiga,
   "add-fila": () => $("#filas").insertAdjacentHTML("beforeend", ACT._fila({})),
   "quitar-fila": t => t.closest(".liga-row").remove(),
   "nuevo-jugador": () => formJugador(null),
   "editar-jugador": t => formJugador(jug(t.dataset.id)),
-  "borrar-jugador": async t => { if(!confirm("¿Borrar este jugador?")) return; await S.store.del("jugadores", t.dataset.id); if(S.session.me === t.dataset.id){ S.session.me = null; guardarSesion(); } cerrarSheet(); toast("Jugador borrado"); },
+  "borrar-jugador": async t => { if(!confirm("¿Borrar este jugador?")) return; await S.store.del("jugadores", t.dataset.id); if(S.session.me === t.dataset.id){ S.session.me = null; S.session.pinOk = false; guardarSesion(); } cerrarSheet(); toast("Jugador borrado"); },
   foto: t => { fotoPara = t.dataset.id; $("#foto-input").click(); },
   quien: abrirQuienSoy,
-  soy: t => { S.session.me = t.dataset.id; guardarSesion(); cerrarSheet(); render(); toast("¡Hola, " + (jug(t.dataset.id)?.nombre || "") + "!"); },
+  soy: t => { const j = jug(t.dataset.id); if(j) abrirPin(j); },
+  "no-soy": () => { S.session.me = null; S.session.pinOk = false; guardarSesion(); render(); abrirQuienSoy(); },
   "admin-salir": () => { S.session.admin = false; guardarSesion(); render(); },
   salir: () => { S.store?.stop(); S.store = null; S.team = null; S.session = null; LS.del("ecf-sesion"); S.tab = "partidos"; renderLogin(); }
 };
@@ -816,15 +963,17 @@ const FORMS = {
     const d = Object.fromEntries(new FormData(fm));
     if(!d.rival.trim() || !d.fecha) return toast("Pon al menos el rival y la fecha");
     const goles = {};
-    Object.keys(d).filter(k => k.startsWith("g_")).forEach(k => { const n = parseInt(d[k], 10); if(n > 0) goles[k.slice(2)] = n; });
-    const p = {
+    fm.querySelectorAll('[name="gol"]').forEach(x => { if(x.value) goles[x.value] = (goles[x.value] || 0) + 1; });
+    const convocados = [...fm.querySelectorAll('[name="conv"]:checked')].map(x => x.value);
+    const id = fm.dataset.id || "p" + uid();
+    const { id: _, ...prev } = S.partidos.find(x => x.id === id) || {};
+    const p = { ...prev, convocados,
       rival: d.rival.trim(), fecha: d.fecha, jornada: d.jornada, hora: d.hora, citacion: d.citacion,
       local: d.local === "1", equipacion: d.equipacion, campo: d.campo.trim(), direccion: d.direccion.trim(), notas: d.notas.trim(),
       gf: d.gf === "" ? "" : Math.max(0, +d.gf), gc: d.gc === "" ? "" : Math.max(0, +d.gc), goles
     };
     const suma = Object.values(goles).reduce((a, b) => a + b, 0);
     if(p.gf !== "" && suma > p.gf && !confirm(`Has apuntado ${suma} goles a jugadores pero el marcador dice ${p.gf}. ¿Guardar igualmente?`)) return;
-    const id = fm.dataset.id || "p" + uid();
     await S.store.set("partidos", id, p);
     abrirSheet(htmlPartido({ id, ...p }), { tipo: "partido", id, live: true });
     toast("Partido guardado");
@@ -837,6 +986,21 @@ const FORMS = {
     }).filter(o => o.equipo);
     await S.store.set("liga", "tabla", { filas, actualizado: Date.now() });
     cerrarSheet(); toast("Clasificación guardada");
+  },
+  pin: fm => {
+    const j = jug(fm.dataset.id); if(!j) return;
+    if(fm.pin.value.trim() !== String(pinDe(j))) return abrirPin(j, "Ese PIN no es correcto.");
+    if(pinDe(j) === PIN_INICIAL) return abrirPinNuevo(j);
+    S.session.me = j.id; S.session.pinOk = true; guardarSesion(); cerrarSheet(); render(); toast("¡Hola, " + j.nombre + "!");
+  },
+  "pin-nuevo": async fm => {
+    const j = jug(fm.dataset.id); if(!j) return;
+    const a = fm.pin1.value.trim(), b = fm.pin2.value.trim();
+    if(!/^\d{4}$/.test(a)) return abrirPinNuevo(j, "Tienen que ser 4 cifras.");
+    if(a === PIN_INICIAL) return abrirPinNuevo(j, "Elige uno distinto de 0000.");
+    if(a !== b) return abrirPinNuevo(j, "Los dos PIN no coinciden.");
+    await S.store.set("jugadores", j.id, { ...j, pin: a });
+    S.session.me = j.id; S.session.pinOk = true; guardarSesion(); cerrarSheet(); render(); toast("¡PIN guardado! Hola, " + j.nombre);
   },
   jugador: async fm => {
     const id = fm.dataset.id || "j" + uid();

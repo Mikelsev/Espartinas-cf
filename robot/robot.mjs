@@ -63,9 +63,17 @@ async function guardarPartido(equipo, id, datos) {
 }
 
 // ---- Leer la web ----
-const leerTablas = page => page.evaluate(() =>
-  [...document.querySelectorAll("table")].map(t =>
-    [...t.querySelectorAll("tr")].map(tr => [...tr.querySelectorAll("th,td")].map(c => c.innerText.trim()))));
+// Texto de cada celda. Si la celda tiene un enlace a un mapa (la liga lo pone al publicar la hora),
+// se añade como «[[MAPA:url]]» para que liga.mjs lo recoja.
+const leerTablas = page => page.evaluate(() => {
+  const MAPA = /google\.[a-z.]+\/maps|maps\.google|goo\.gl\/maps|maps\.app\.goo\.gl|maps\.apple|waze\.com|openstreetmap/i;
+  const enlaces = c => [...c.querySelectorAll("a[href]")].map(a => a.href).filter(h => MAPA.test(h)).map(h => ` [[MAPA:${h}]]`).join("");
+  return [...document.querySelectorAll("table")].map(t =>
+    [...t.querySelectorAll("tr")].map(tr => [...tr.querySelectorAll("th,td")].map(c => (c.innerText.trim() + enlaces(c)).trim())));
+});
+// HTML de las filas de nuestros partidos (para ver qué publica la liga en cada una)
+const filasNuestras = page => page.evaluate(() =>
+  [...document.querySelectorAll("tr")].filter(tr => !tr.querySelector("table") && /espartinas/i.test(tr.innerText)).map(tr => tr.outerHTML.replace(/\s+/g, " ")));
 
 async function abrir(page, url) {
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
@@ -89,16 +97,18 @@ for (const { equipo, url } of LIGAS) {
     // Cada jornada tiene su página (desplegable «Jornada N» → ...&num_day=N...)
     const jornadas = await page.$$eval("option", os => [...new Set(os.map(o => o.value).filter(v => /num_day=\d+/.test(v)))]);
     const todas = [...tablas];
-    const copiaJornadas = [];
+    const copiaJornadas = [], copiaFilas = new Set(await filasNuestras(page));
     for (const rel of jornadas) {
       try {
         await abrir(page, new URL(rel, url).href);
         const t = (await leerTablas(page)).filter(t => t.length < 40 && t.every(f => f.every(c => c.length < 200)));
         todas.push(...t);
+        (await filasNuestras(page)).forEach(f => copiaFilas.add(f));
         copiaJornadas.push({ url: rel, tablas: t.filter(t => t.some(f => /Jornada:?\s*\d+\s*\(/.test(f.join(" ")))) });
       } catch (e) { console.warn(`  aviso ${equipo}: no pude abrir ${rel}: ${e.message}`); }
     }
     await fs.writeFile(`copia/${equipo}-jornadas.json`, JSON.stringify(copiaJornadas, null, 1));
+    await fs.writeFile(`copia/${equipo}-filas.html`, [...copiaFilas].join("\n"));
     const partidos = partidosDeTablas(todas, clasificacion.map(f => f.equipo));
     await fs.writeFile(`copia/${equipo}-partidos.json`, JSON.stringify(partidos, null, 1));
     console.log(`  ${equipo}: ${clasificacion.length} equipos, ${jornadas.length} jornadas, ${partidos.length} partidos nuestros`);
