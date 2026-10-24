@@ -4,5 +4,8 @@
   "type": "module",
   "dependencies": {
     "playwright": "1.47.2"
+  },
+  "scripts": {
+    "test": "node --test test/liga.test.mjs"
   }
 }

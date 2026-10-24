@@ -21,6 +21,7 @@ jobs:
         with:
           node-version: 20
       - run: npm install
+      - run: npm test
       - run: npx playwright install --with-deps chromium
       - name: Leer la web y guardar en Firebase
         run: node robot.mjs

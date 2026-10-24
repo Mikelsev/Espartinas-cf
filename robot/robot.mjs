@@ -1,6 +1,7 @@
 // Robot que lee la clasificación de la Liga Educa y la guarda en la app.
 import { chromium } from "playwright";
 import fs from "node:fs/promises";
+import { interpretar } from "./liga.mjs";
 
 // ---- Qué ligas leer: una línea por equipo ----
 const LIGAS = [
@@ -13,45 +14,6 @@ const LIGAS = [
 
 const PROJECT = process.env.FIREBASE_PROJECT_ID;
 const API_KEY = process.env.FIREBASE_API_KEY || "";
-
-const norm = s => (s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z]/g, "");
-const COLUMNAS = {
-  equipo: ["equipo", "equipos", "club", "nombre"],
-  pj: ["pj", "j", "jugados", "partidos", "pjugados"],
-  pg: ["pg", "g", "ganados", "v", "pganados"],
-  pe: ["pe", "e", "empatados", "x", "pempatados"],
-  pp: ["pp", "p", "perdidos", "d", "pperdidos"],
-  gf: ["gf", "favor", "golesfavor", "golesaf", "f"],
-  gc: ["gc", "contra", "golescontra", "golesec", "c"],
-  pts: ["pts", "pt", "puntos", "ptos", "ptos"]
-};
-const num = s => { const n = parseInt(String(s).replace(/[^\d-]/g, ""), 10); return Number.isFinite(n) ? n : null; };
-
-function interpretar(tablas) {
-  let mejor = [];
-  for (const filas of tablas) {
-    const iCab = filas.findIndex(f => f.filter(c => Object.values(COLUMNAS).some(a => a.includes(norm(c)))).length >= 4);
-    if (iCab < 0) continue;
-    const cab = filas[iCab].map(norm);
-    const col = {};
-    for (const [k, alias] of Object.entries(COLUMNAS)) {
-      const i = cab.findIndex(c => alias.includes(c));
-      if (i >= 0) col[k] = i;
-    }
-    if (col.pg == null || col.pts == null) continue;
-    const res = [];
-    for (const f of filas.slice(iCab + 1)) {
-      let nombre = col.equipo != null ? f[col.equipo] : f.find(c => /[a-zA-ZÁÉÍÓÚÑáéíóúñ]{3,}/.test(c));
-      nombre = (nombre || "").replace(/^\s*\d+[.º)]?\s*/, "").replace(/\s+/g, " ").trim();
-      if (!nombre || num(f[col.pg]) == null) continue;
-      const fila = { equipo: nombre };
-      for (const k of ["pj", "pg", "pe", "pp", "gf", "gc", "pts"]) if (col[k] != null) fila[k] = num(f[col[k]]) ?? 0;
-      res.push(fila);
-    }
-    if (res.length > mejor.length) mejor = res;
-  }
-  return mejor;
-}
 
 const valor = x => typeof x === "number" ? { integerValue: String(x) } : { stringValue: String(x) };
 async function guardar(equipo, filas, url) {
@@ -71,12 +33,20 @@ let fallos = 0;
 for (const { equipo, url } of LIGAS) {
   try {
     const page = await navegador.newPage({ locale: "es-ES" });
+    // Guarda también las respuestas JSON/XHR: si la web carga los datos así, es mejor leerlos de ahí.
+    const respuestas = [];
+    page.on("response", async r => {
+      const tipo = r.headers()["content-type"] || "";
+      if (!/json|javascript|xml|text\/plain/.test(tipo) && !["xhr", "fetch"].includes(r.request().resourceType())) return;
+      try { respuestas.push({ url: r.url(), tipo, cuerpo: (await r.text()).slice(0, 200000) }); } catch {}
+    });
     await page.goto(url, { waitUntil: "networkidle", timeout: 60000 });
     await page.waitForTimeout(2000);
     const tablas = await page.evaluate(() =>
       [...document.querySelectorAll("table")].map(t =>
         [...t.querySelectorAll("tr")].map(tr => [...tr.querySelectorAll("th,td")].map(c => c.innerText.trim()))));
     await fs.writeFile(`copia/${equipo}.html`, await page.content());
+    await fs.writeFile(`copia/${equipo}-respuestas.json`, JSON.stringify(respuestas.filter(x => !/javascript/.test(x.tipo) || x.url.includes("educationleague")), null, 1));
     await fs.writeFile(`copia/${equipo}-tablas.json`, JSON.stringify(tablas, null, 1));
     const filas = interpretar(tablas);
     await fs.writeFile(`copia/${equipo}-clasificacion.json`, JSON.stringify(filas, null, 1));
