@@ -1,0 +1,89 @@
+[
+ {
+  "jornada": 1,
+  "local": false,
+  "rival": "La Moneda CF \"Compromiso\"",
+  "gf": 2,
+  "gc": 7,
+  "fecha": "2026-10-16",
+  "estado": "Finalizado",
+  "campo": "La Moneda CF (Fútbol 7)"
+ },
+ {
+  "jornada": 2,
+  "local": true,
+  "rival": "EEMM Villamanrique",
+  "gf": 3,
+  "gc": 4,
+  "fecha": "2026-10-23",
+  "estado": "Finalizado"
+ },
+ {
+  "jornada": 3,
+  "local": true,
+  "rival": "CF Comarca los Alcores \"A\"",
+  "hora": "18:00",
+  "fecha": "2026-10-30",
+  "campo": "Vie 30 18:00"
+ },
+ {
+  "jornada": 4,
+  "local": false,
+  "rival": "EDM Bormujos",
+  "fecha": "2026-11-06"
+ },
+ {
+  "jornada": 5,
+  "local": true,
+  "rival": "AD Los Mares",
+  "fecha": "2026-11-13"
+ },
+ {
+  "jornada": 6,
+  "local": false,
+  "rival": "EMD Burguillos",
+  "fecha": "2026-11-20"
+ },
+ {
+  "jornada": 7,
+  "local": true,
+  "rival": "Real Betis Academy \"Ceballos\"",
+  "fecha": "2026-11-27"
+ },
+ {
+  "jornada": 8,
+  "local": false,
+  "rival": "CD Isidro Reguera",
+  "fecha": "2026-12-11"
+ },
+ {
+  "jornada": 9,
+  "local": true,
+  "rival": "Camino Viejo CF",
+  "fecha": "2026-12-18"
+ },
+ {
+  "jornada": 10,
+  "local": true,
+  "rival": "CD Tor del Rey de Pilas",
+  "fecha": "2027-01-08"
+ },
+ {
+  "jornada": 11,
+  "local": false,
+  "rival": "Real Betis Academy \"Bernal\"",
+  "fecha": "2027-01-15"
+ },
+ {
+  "jornada": 12,
+  "local": true,
+  "rival": "CF Comarca los Alcores \"B\"",
+  "fecha": "2027-01-29"
+ },
+ {
+  "jornada": 13,
+  "local": false,
+  "rival": "CA Aznalcázar",
+  "fecha": "2027-02-12"
+ }
+]

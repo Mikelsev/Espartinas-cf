@@ -1,0 +1,128 @@
+[
+ {
+  "jornada": 1,
+  "local": false,
+  "rival": "CD Tor del Rey de Pilas \"B\"",
+  "gf": 1,
+  "gc": 6,
+  "fecha": "2026-10-16",
+  "estado": "Finalizado"
+ },
+ {
+  "jornada": 2,
+  "local": true,
+  "rival": "EF Ayto. Gines",
+  "gf": 4,
+  "gc": 2,
+  "fecha": "2026-10-23",
+  "estado": "Finalizado"
+ },
+ {
+  "jornada": 3,
+  "local": false,
+  "rival": "CD Isidro Reguera \"A\"",
+  "fecha": "2026-10-30"
+ },
+ {
+  "jornada": 4,
+  "local": true,
+  "rival": "Real Betis Academy \"Fornals\"",
+  "fecha": "2026-11-06"
+ },
+ {
+  "jornada": 5,
+  "local": false,
+  "rival": "Atco. Olivarense",
+  "fecha": "2026-11-13"
+ },
+ {
+  "jornada": 6,
+  "local": true,
+  "rival": "Palomares CF",
+  "fecha": "2026-11-20"
+ },
+ {
+  "jornada": 7,
+  "local": false,
+  "rival": "SD CEU Andalucía",
+  "fecha": "2026-11-27"
+ },
+ {
+  "jornada": 8,
+  "local": true,
+  "rival": "CD Almensilla",
+  "fecha": "2026-12-11"
+ },
+ {
+  "jornada": 9,
+  "local": false,
+  "rival": "UD Loreto",
+  "fecha": "2026-12-18"
+ },
+ {
+  "jornada": 10,
+  "local": true,
+  "rival": "Umbrete CF",
+  "fecha": "2027-01-08"
+ },
+ {
+  "jornada": 11,
+  "local": false,
+  "rival": "CD Atco. San Juan",
+  "fecha": "2027-01-15"
+ },
+ {
+  "jornada": 13,
+  "local": false,
+  "rival": "EF Rio Grande",
+  "fecha": "2027-02-12"
+ },
+ {
+  "jornada": 14,
+  "local": true,
+  "rival": "Benacazón CF",
+  "fecha": "2027-03-05"
+ },
+ {
+  "jornada": 15,
+  "local": false,
+  "rival": "CD Ricosport",
+  "fecha": "2027-03-12"
+ },
+ {
+  "jornada": 16,
+  "local": true,
+  "rival": "CD Tor del Rey de Pilas \"A\"",
+  "fecha": "2027-03-19"
+ },
+ {
+  "jornada": 17,
+  "local": false,
+  "rival": "EDM Bormujos \"A\"",
+  "fecha": "2027-04-02"
+ },
+ {
+  "jornada": 18,
+  "local": true,
+  "rival": "Camino Viejo CF",
+  "fecha": "2027-04-09"
+ },
+ {
+  "jornada": 19,
+  "local": false,
+  "rival": "CDM Gerena",
+  "fecha": "2027-04-23"
+ },
+ {
+  "jornada": 20,
+  "local": true,
+  "rival": "Villanueva Deportiva",
+  "fecha": "2027-04-30"
+ },
+ {
+  "jornada": 21,
+  "local": false,
+  "rival": "CD Casado Sport",
+  "fecha": "2027-05-07"
+ }
+]
