@@ -472,7 +472,26 @@ const fechaDe = p => new Date((p.fecha || "2100-01-01") + "T" + (p.hora || "12:0
 const proximos = () => S.partidos.filter(p => !jugado(p) && (p.fecha || "") >= hoyISO()).sort((a, b) => fechaDe(a) - fechaDe(b));
 const jugados = () => S.partidos.filter(p => jugado(p)).sort((a, b) => fechaDe(b) - fechaDe(a));
 const pendientes = () => S.partidos.filter(p => !jugado(p) && (p.fecha || "") < hoyISO()).sort((a, b) => fechaDe(b) - fechaDe(a));
-const golesDe = jid => S.partidos.reduce((n, p) => n + (Number(p.goles?.[jid]) || 0), 0);
+// Goles: si la liga publica sus goleadores (liga/goleadores, p. ej. gesliga) mandan esos;
+// cada fila se une a un jugador por su «nombre en la liga» o por un nombre parecido.
+const normaNombre = s => (s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/gª/g, "garcia").replace(/[^a-z ]/g, " ").replace(/\s+/g, " ").trim();
+function jugadorDeLiga(nombre){
+  const n = normaNombre(nombre);
+  const exacto = S.jugadores.find(j => normaNombre(j.nombreLiga) === n) || S.jugadores.find(j => normaNombre(j.nombre) === n);
+  if(exacto) return exacto;
+  // «Javi Castellanos» ~ «Javier Castellano»: nombre y último apellido empiezan igual
+  const [a, ...r] = n.split(" "), z = r.pop();
+  if(!z) return null;
+  const parecidos = S.jugadores.filter(j => { const [b, ...q] = normaNombre(j.nombre).split(" "), y = q.pop();
+    return y && (a.startsWith(b) || b.startsWith(a)) && (z.startsWith(y) || y.startsWith(z)); });
+  return parecidos.length === 1 && !normaNombre(parecidos[0].nombreLiga) ? parecidos[0] : null;
+}
+const goleadoresLiga = () => { const d = S.liga.find(x => x.id === "goleadores"); return d?.filas?.length ? d : null; };
+const golesDe = jid => {
+  const gl = goleadoresLiga();
+  if(gl) return gl.filas.filter(f => jugadorDeLiga(f.nombre)?.id === jid).reduce((n, f) => n + (+f.goles || 0), 0);
+  return S.partidos.reduce((n, p) => n + (Number(p.goles?.[jid]) || 0), 0);
+};
 // Votaciones: en cada partido jugado cada convocado da 3, 4 o 5 estrellas a cada compañero convocado
 // (si el partido no tiene convocatoria, participa toda la plantilla). Solo se muestran sumas.
 // Documento votos/{partido}_{votante} = { partido, votante, notas: { [jugador]: 3|4|5 }, enviado }.
@@ -735,13 +754,16 @@ function vRanking(){
   return html;
 }
 function vGoles(){
-  const lista = S.jugadores.map(j => ({ j, g: golesDe(j.id) })).filter(x => x.g > 0).sort((a, b) => b.g - a.g || a.j.nombre.localeCompare(b.j.nombre));
+  const gl = goleadoresLiga();
+  const lista = (gl ? gl.filas.map(f => ({ j: jugadorDeLiga(f.nombre) || { nombre: f.nombre, liga: true }, g: +f.goles || 0 }))
+    : S.jugadores.map(j => ({ j, g: golesDe(j.id) }))).filter(x => x.g > 0).sort((a, b) => b.g - a.g || a.j.nombre.localeCompare(b.j.nombre));
   const total = jugados().reduce((n, p) => n + (+p.gf || 0), 0);
   let html = `<div class="section-h" style="margin-top:6px"><h2>Ranking de goleadores</h2><span class="muted">${total} goles del equipo</span></div>`;
   if(!lista.length) return html + `<div class="empty"><b>Todavía no hay goles apuntados</b>Aparecerán aquí en cuanto se metan los resultados.</div>`;
   let pos = 0, prev = null;
   html += `<div class="list">${lista.map((x, i) => { if(x.g !== prev){ pos = i + 1; prev = x.g; }
-    return `<div class="scorer ${pos === 1 ? "top1" : ""}"><span class="rank">${pos}</span>${avatar(x.j, 44)}<div><b>${esc(x.j.nombre)}</b>${x.j.dorsal ? `<div class="muted" style="font-size:.85rem">Dorsal ${esc(x.j.dorsal)}</div>` : ""}</div><span class="goals">${x.g}</span></div>`; }).join("")}</div>`;
+    return `<div class="scorer ${pos === 1 ? "top1" : ""}"><span class="rank">${pos}</span>${avatar(x.j, 44)}<div><b>${esc(x.j.nombre)}</b>${x.j.liga ? `<div class="muted" style="font-size:.8rem">Así sale en la liga${S.session.admin ? ": ponlo en «Nombre en la liga» del jugador" : ""}</div>` : x.j.dorsal ? `<div class="muted" style="font-size:.85rem">Dorsal ${esc(x.j.dorsal)}</div>` : ""}</div><span class="goals">${x.g}</span></div>`; }).join("")}</div>`;
+  if(gl) html += `<p class="muted" style="font-size:.8rem">Goles oficiales de la web de la liga, actualizados el ${new Date(+gl.actualizado).toLocaleDateString("es-ES", { day: "numeric", month: "long" })}.</p>`;
   return html;
 }
 
@@ -1064,6 +1086,7 @@ function formJugador(j){
     <div class="block"><div class="form-grid">
       <div class="f full"><label for="j-n">Nombre</label><input class="input" id="j-n" name="nombre" required value="${esc(j.nombre || "")}"></div>
       <div class="f"><label for="j-d">Dorsal</label><input class="input" id="j-d" name="dorsal" type="number" min="0" value="${esc(j.dorsal || "")}"></div>
+      ${goleadoresLiga() ? `<div class="f"><label for="j-l">Nombre en la liga</label><input class="input" id="j-l" name="nombreLiga" placeholder="Como sale en la web" value="${esc(j.nombreLiga || "")}"></div>` : ""}
     </div><p class="muted" style="font-size:.8rem;margin:10px 0 0">${nuevo || !j.pin ? "La primera vez entrará con el PIN 0000 y elegirá el suyo." : "Ya tiene su PIN propio."}</p>
     ${!nuevo && j.pin ? `<button type="button" class="btn small ghost" style="margin-top:8px" data-act="pin-reset" data-id="${j.id}">Reiniciar su PIN a 0000</button>` : ""}</div>
     <div class="row"><button class="btn grow" type="submit">Guardar</button>${nuevo ? "" : `<button type="button" class="btn red" data-act="borrar-jugador" data-id="${j.id}">Borrar</button>`}</div>
@@ -1274,7 +1297,7 @@ const FORMS = {
   jugador: async fm => {
     const id = fm.dataset.id || "j" + uid();
     const prev = jug(id) || {};
-    await S.store.set("jugadores", id, { ...prev, nombre: fm.nombre.value.trim(), dorsal: fm.dorsal.value });
+    await S.store.set("jugadores", id, { ...prev, nombre: fm.nombre.value.trim(), dorsal: fm.dorsal.value, ...(fm.nombreLiga ? { nombreLiga: fm.nombreLiga.value.trim() } : {}) });
     cerrarSheet(); toast("Jugador guardado");
   }
 };

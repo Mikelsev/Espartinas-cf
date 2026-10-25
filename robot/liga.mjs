@@ -196,3 +196,16 @@ export function partidosGesliga(tablas, club = /\bcoti\b/i) {
   });
   return res;
 }
+
+// Estadísticas de gesliga: tabla «Nombre, Equipo, Total» con todos los goleadores de la liga.
+// Devuelve solo los de nuestro equipo: [{ nombre, goles }].
+export function goleadoresGesliga(tablas, club = /\bcoti\b/i) {
+  for (const filas of tablas) {
+    const cab = (filas[0] || []).map(norm);
+    const [iN, iE, iT] = ["nombre", "equipo", "total"].map(k => cab.indexOf(k));
+    if (iN < 0 || iE < 0 || iT < 0) continue;
+    return filas.slice(1).filter(f => club.test(f[iE] || "") && num(f[iT]) != null)
+      .map(f => ({ nombre: f[iN].replace(/\s+/g, " ").trim(), goles: num(f[iT]) }));
+  }
+  return [];
+}

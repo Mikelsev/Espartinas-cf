@@ -2,7 +2,7 @@
 // Liga Educa (Espartinas CF) y Gesliga (COTI FC).
 import { chromium } from "playwright";
 import fs from "node:fs/promises";
-import { interpretar, partidosDeTablas, planPartidos, partidosGesliga } from "./liga.mjs";
+import { interpretar, partidosDeTablas, planPartidos, partidosGesliga, goleadoresGesliga } from "./liga.mjs";
 
 // ---- Qué ligas leer: una línea por equipo ----
 const LIGAS = [
@@ -45,6 +45,17 @@ async function guardarTabla(equipo, filas, url) {
     fuente: { stringValue: url }
   }};
   await pedir(conClave(`${BASE()}/equipos/${equipo}/liga/tabla`),
+    { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+}
+
+// Goleadores oficiales de la liga (solo los de nuestro equipo): liga/goleadores
+async function guardarGoleadores(equipo, filas, url) {
+  const body = { fields: {
+    filas: { arrayValue: { values: filas.map(f => ({ mapValue: { fields: campos(f) } })) } },
+    actualizado: { integerValue: String(Date.now()) },
+    fuente: { stringValue: url }
+  }};
+  await pedir(conClave(`${BASE()}/equipos/${equipo}/liga/goleadores`),
     { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
 }
 
@@ -110,10 +121,11 @@ async function explorarGesliga(page, equipo, url){
     catch (e) { console.warn(`  aviso ${equipo}: no pude abrir ${h}: ${e.message}`); }
   }
   // Estadísticas (goleadores por jugador)
-  try { await abrir(page, `https://gesliga.com/Estadisticas.aspx?Liga=${liga}`); await guardar("estadisticas"); }
+  let goleadores = null;
+  try { await abrir(page, `https://gesliga.com/Estadisticas.aspx?Liga=${liga}`); goleadores = goleadoresGesliga((await guardar("estadisticas")).tablas); }
   catch (e) { console.warn(`  aviso ${equipo}: no pude abrir las estadísticas: ${e.message}`); }
   await fs.writeFile(`copia/${equipo}-paginas.json`, JSON.stringify(paginas, null, 1));
-  return { clasificacion: interpretar(todas), partidos: partidosGesliga(cal.tablas) };
+  return { clasificacion: interpretar(todas), partidos: partidosGesliga(cal.tablas), goleadores };
 }
 
 const navegador = await chromium.launch();
@@ -123,7 +135,7 @@ for (const { equipo, url, fuente } of LIGAS) {
   try {
     const page = await navegador.newPage({ locale: "es-ES" });
     if (fuente === "gesliga") {
-      const { clasificacion, partidos } = await explorarGesliga(page, equipo, url);
+      const { clasificacion, partidos, goleadores } = await explorarGesliga(page, equipo, url);
       await fs.writeFile(`copia/${equipo}-clasificacion.json`, JSON.stringify(clasificacion, null, 1));
       await fs.writeFile(`copia/${equipo}-partidos.json`, JSON.stringify(partidos, null, 1));
       console.log(`  ${equipo}: ${clasificacion.length} equipos, ${partidos.length} partidos nuestros`);
@@ -132,7 +144,8 @@ for (const { equipo, url, fuente } of LIGAS) {
       await guardarTabla(equipo, clasificacion, url);
       const plan = planPartidos(partidos, await leerPartidos(equipo));
       for (const { id, campos: datos } of plan) await guardarPartido(equipo, id, datos);
-      console.log(`✔ ${equipo}: clasificación y ${plan.length} partidos guardados`);
+      if (goleadores) await guardarGoleadores(equipo, goleadores, url);
+      console.log(`✔ ${equipo}: clasificación, ${plan.length} partidos y ${goleadores?.length ?? "–"} goleadores guardados`);
       await page.close();
       continue;
     }

@@ -1,0 +1,252 @@
+[
+ [
+  [
+   "Nombre",
+   "Equipo",
+   "Total"
+  ],
+  [
+   "SAVIOLA",
+   "ALCOPONE",
+   "7"
+  ],
+  [
+   "KIKE",
+   "LUNES DE POTRERO",
+   "5"
+  ],
+  [
+   "VICTOR S.",
+   "ALCOPONE",
+   "4"
+  ],
+  [
+   "CARLOS",
+   "CHAVALEO FC",
+   "4"
+  ],
+  [
+   "JAVI CASTELLANOS",
+   "COTI FC",
+   "4"
+  ],
+  [
+   "JORGE",
+   "CORTECONCEPCIÓN",
+   "4"
+  ],
+  [
+   "GABRI PÉREZ",
+   "LOS REMATANDO BAJITO",
+   "3"
+  ],
+  [
+   "JUANMA MORENO",
+   "LOS REMATANDO BAJITO",
+   "3"
+  ],
+  [
+   "WILLY",
+   "LUNES DE POTRERO",
+   "3"
+  ],
+  [
+   "VIOLA",
+   "CHAVALEO FC",
+   "2"
+  ],
+  [
+   "P. PINTINHO",
+   "LUNES DE POTRERO",
+   "2"
+  ],
+  [
+   "PICHARDO",
+   "CHAVALEO FC",
+   "2"
+  ],
+  [
+   "JOSE CANTALAPIEDRA",
+   "ALCOPONE",
+   "2"
+  ],
+  [
+   "EDU",
+   "ALCOPONE",
+   "2"
+  ],
+  [
+   "EDU",
+   "LUNES DE POTRERO",
+   "2"
+  ],
+  [
+   "ENRIQUE ARROYO",
+   "LOS REMATANDO BAJITO",
+   "2"
+  ],
+  [
+   "ANTONIO",
+   "CHAVALEO FC",
+   "2"
+  ],
+  [
+   "ANTONIO Gª ROBLEDO",
+   "COTI FC",
+   "2"
+  ],
+  [
+   "BORJA",
+   "CHAVALEO FC",
+   "1"
+  ],
+  [
+   "CALERO",
+   "LOS REMATANDO BAJITO",
+   "1"
+  ],
+  [
+   "ANTONIO",
+   "CORTECONCEPCIÓN",
+   "1"
+  ],
+  [
+   "DANI",
+   "CHAVALEO FC",
+   "1"
+  ],
+  [
+   "JOSE GÓMEZ",
+   "CORTECONCEPCIÓN",
+   "1"
+  ],
+  [
+   "JOSÉ MADRIGAL",
+   "LOS REMATANDO BAJITO",
+   "1"
+  ],
+  [
+   "JULIO",
+   "LUNES DE POTRERO",
+   "1"
+  ],
+  [
+   "ISAAC",
+   "CHAVALEO FC",
+   "1"
+  ],
+  [
+   "RICARDO",
+   "LUNES DE POTRERO",
+   "1"
+  ],
+  [
+   "RICKY",
+   "CLARET LEGENDS",
+   "1"
+  ],
+  [
+   "PEPE",
+   "CLARET LEGENDS",
+   "1"
+  ],
+  [
+   "PEPE SHOLL",
+   "COTI FC",
+   "1"
+  ],
+  [
+   "LUIS PUIG",
+   "COTI FC",
+   "1"
+  ],
+  [
+   "M. GALLEGO",
+   "ALCOPONE",
+   "1"
+  ],
+  [
+   "MAXI",
+   "LOS REMATANDO BAJITO",
+   "1"
+  ],
+  [
+   "MIGUEL",
+   "CHAVALEO FC",
+   "1"
+  ],
+  [
+   "YISA",
+   "CLARET LEGENDS",
+   "1"
+  ]
+ ],
+ [
+  [
+   "",
+   "Total",
+   "%",
+   "Por partido"
+  ],
+  [
+   "Total Partidos",
+   "42",
+   "",
+   ""
+  ],
+  [
+   "Partidos Pendientes",
+   "32",
+   "76%",
+   ""
+  ],
+  [
+   "Partidos Disputados",
+   "10",
+   "24%",
+   ""
+  ],
+  [
+   "Suspendidos Por No Presentado",
+   "0",
+   "0%",
+   ""
+  ],
+  [
+   "Partidos Ganados Local",
+   "3",
+   "30%",
+   ""
+  ],
+  [
+   "Partidos Ganados Visitante",
+   "6",
+   "60%",
+   ""
+  ],
+  [
+   "Partidos Empatados",
+   "1",
+   "10%",
+   ""
+  ],
+  [
+   "Total Goles",
+   "73",
+   "",
+   "7,3"
+  ],
+  [
+   "Goles Local",
+   "33",
+   "45%",
+   "3,3"
+  ],
+  [
+   "Goles Visitante",
+   "40",
+   "55%",
+   "4,0"
+  ]
+ ]
+]

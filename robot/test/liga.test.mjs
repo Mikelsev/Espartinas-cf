@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { interpretar, partidosDeTablas, planPartidos, partidosGesliga } from "../liga.mjs";
+import { interpretar, partidosDeTablas, planPartidos, partidosGesliga, goleadoresGesliga } from "../liga.mjs";
 
 const leer = p => JSON.parse(fs.readFileSync(new URL(p, import.meta.url), "utf8"));
 // Copia real de la web del Benjamín guardada por el robot el 24/10/2026 (tras la jornada 2).
@@ -103,4 +103,11 @@ test("gesliga: calendario real del COTI (resultados, descansos y fechas provisio
   assert.equal(p.some(x => x.jornada === 5), false);
   assert.deepEqual(p[4], { jornada: 6, local: true, rival: "CLARET LEGENDS", fecha: "2026-11-03", provisional: true });
   assert.equal(planPartidos([p[4]], [])[0].campos.provisional, true);
+});
+
+test("gesliga: goleadores del COTI en la página de estadísticas", () => {
+  assert.deepEqual(goleadoresGesliga(leer("./ejemplos/coti-2026-10-25-estadisticas-tablas.json")), [
+    { nombre: "JAVI CASTELLANOS", goles: 4 }, { nombre: "ANTONIO Gª ROBLEDO", goles: 2 },
+    { nombre: "PEPE SHOLL", goles: 1 }, { nombre: "LUIS PUIG", goles: 1 }
+  ]);
 });
