@@ -393,13 +393,16 @@ async function initFirebase(){
 /* ---------- Estado ---------- */
 const S = {
   online: false, session: LS.get("ecf-sesion", null), team: null, store: null,
-  jugadores: [], partidos: [], votos: [], liga: [],
+  jugadores: [], staff: [], partidos: [], votos: [], liga: [],
   tab: "partidos", sheet: null
 };
 const guardarSesion = () => LS.set("ecf-sesion", S.session);
 
 /* ---------- Utilidades de datos ---------- */
-const jug = id => S.jugadores.find(j => j.id === id);
+const jug = id => S.jugadores.find(j => j.id === id) || S.staff.find(j => j.id === id);
+// El Mister es un usuario de la colección jugadores con rol "mister": entra con nombre y PIN,
+// tiene permisos de delegado y no cuenta como jugador (ni convocatorias, ni votos, ni rankings).
+const esMister = id => jug(id)?.rol === "mister";
 const jugadoresOrden = () => [...S.jugadores].sort((a, b) => (Number(a.dorsal) || 99) - (Number(b.dorsal) || 99) || a.nombre.localeCompare(b.nombre));
 const jugado = p => p.gf !== undefined && p.gf !== null && p.gf !== "";
 const fechaDe = p => new Date((p.fecha || "2100-01-01") + "T" + (p.hora || "12:00"));
@@ -517,7 +520,8 @@ function entrar(){
   S.store = S.online ? new FireStore(eq.id) : new LocalStore(eq.id);
   let primera = true;
   COLLS.forEach(c => S.store.watch(c, rows => {
-    S[c] = rows;
+    if(c === "jugadores"){ S.staff = rows.filter(r => r.rol); S.jugadores = rows.filter(r => !r.rol); }
+    else S[c] = rows;
     render();
     if(S.sheet?.live) refrescarSheet();
     if(primera && c === "jugadores"){ primera = false; if(!S.session.me && rows.length) setTimeout(abrirQuienSoy, 300); }
@@ -537,7 +541,7 @@ function render(){
         <img class="escudo" src="${ESCUDO}" alt="">
         <div><h1>${esc(S.team.nombre)}</h1><small>${esc(CONFIG.club)}, ${esc(S.team.detalle)}</small></div>
         <div class="top-acc">
-          ${S.session.admin ? `<span class="badge-admin">Delegado</span>` : ""}
+          ${S.session.admin ? `<span class="badge-admin">${esMister(S.session.me) ? "Mister" : "Delegado"}</span>` : ""}
           <button class="salir-btn" data-act="cerrar-sesion" title="Cerrar sesión" aria-label="Cerrar sesión">${ICON.salir}<span>Salir</span></button>
         </div>
       </div>
@@ -584,7 +588,7 @@ function vPartidos(){
           <div class="fact"><b>${esc(next.citacion || "–")}</b><span>Hora de llegada</span></div>
           <div class="fact" style="grid-column:1/-1"><b>${esc(next.campo || (next.local ? "Campo del " + CONFIG.club : "Campo por confirmar"))}</b><span>${esc(next.direccion || "")}</span></div>
         </div>
-        ${S.session.me && (next.convocados || []).length ? ((next.convocados.includes(S.session.me))
+        ${S.session.me && !esMister(S.session.me) && (next.convocados || []).length ? ((next.convocados.includes(S.session.me))
           ? `<div class="demo-note" style="margin:0"><b>¡Estás en la convocatoria!</b> ${next.citacion ? "Citación a las " + esc(next.citacion) + "." : "Nos vemos en el campo."}</div>`
           : `<div class="demo-note" style="margin:0"><b>Esta vez descansas.</b> ¡Te esperamos en el vestuario para animar!</div>`) : ""}
         ${htmlPrevia(next)}
@@ -683,13 +687,24 @@ function vEquipo(){
         ${S.session.admin ? `<button class="btn small ghost" data-act="editar-jugador" data-id="${j.id}">Editar</button>` : ""}
       </div>` : ""}
     </div>`; }).join("")}</div>`;
+  if(S.session.admin && S.staff.length){
+    html += `<div class="section-h"><h2>Cuerpo técnico</h2></div><div class="list">${S.staff.map(j => `<div class="scorer">${avatar(j, 40)}<div class="grow" style="min-width:0"><b>${esc(j.nombre)}</b><div class="muted" style="font-size:.8rem">${j.pin ? "Tiene PIN propio" : "PIN 0000, sin estrenar"}</div></div>
+      ${j.pin && j.id !== S.session.me ? `<button class="btn small ghost" data-act="pin-reset" data-id="${j.id}">Reiniciar PIN</button>` : ""}</div>`).join("")}</div>`;
+  }
   return html;
 }
 
 function vYo(){
   const me = jug(S.session.me);
   let html = `<div class="block" style="margin-top:6px">`;
-  if(me){
+  if(me && esMister(me.id)){
+    html += `<div class="row">${avatar(me, 64)}<div class="grow" style="min-width:0"><h3 style="margin:0">${esc(me.nombre)}</h3><span class="muted">Entrenador del ${esc(S.team.nombre)}</span></div></div>
+      <p class="muted" style="margin:12px 0 0">Puedes editar partidos, convocatorias, resultados, goleadores, plantilla y clasificación, y reiniciar el PIN de los jugadores.</p>
+      <div class="row wrap" style="margin-top:14px">
+        <button class="btn small" data-act="foto" data-id="${me.id}">${me.foto ? "Cambiar mi foto" : "Subir mi foto"}</button>
+        <button class="btn small ghost" data-act="no-soy">Cambiar de usuario</button>
+      </div>`;
+  } else if(me){
     const votados = jugados().filter(p => votoCompleto(p.id, me.id)).length;
     const pos = conPosiciones(S.jugadores.map(j => ({ id: j.id, pts: puntosDe(j.id) })).sort((a, b) => b.pts - a.pts), "pts").find(x => x.id === me.id)?.pos;
     html += `<div class="row">${avatar(me, 64)}<div class="grow" style="min-width:0"><h3 style="margin:0">${esc(me.nombre)}</h3><span class="muted">Has entrado con tu PIN</span></div></div>
@@ -801,7 +816,9 @@ function bloqueVotos(p){
   let html = `<div class="block"><h3>Votaciones</h3>`;
   if(total < 2) return html + `<p class="muted" style="margin:0">Hacen falta al menos dos jugadores.</p></div>`;
   const hecho = me && votoCompleto(p.id, me);
-  if(me && !participa(p, me)){
+  if(me && esMister(me)){
+    html += `<p class="muted" style="margin-top:0">Votan los ${total} ${(p.convocados || []).length ? "convocados" : "jugadores"}. El mister no vota.</p>`;
+  } else if(me && !participa(p, me)){
     html += `<p class="muted" style="margin-top:0">En este partido descansabas, así que no votas. Votan los ${total} convocados.</p>`;
   } else if(me){
     const enviado = miVoto(p.id, me), notas = enviado?.notas || borrador(p.id, me);
@@ -944,9 +961,10 @@ function formJugador(j){
 }
 
 function abrirQuienSoy(){
-  if(!S.jugadores.length) return;
+  if(!S.jugadores.length && !S.staff.length) return;
   abrirSheet(`${cabecera("¿Quién eres?")}
     <p class="muted" style="margin-top:0">Elige tu nombre y escribe tu PIN. Así podrás votar y poner tu foto.</p>
+    ${S.staff.length ? `<div class="vote-list" style="margin-bottom:12px">${S.staff.map(j => `<button class="vote" data-act="soy" data-id="${j.id}">${avatar(j, 40)}<b class="grow">${esc(j.nombre)}</b><span class="badge-admin">Entrenador</span></button>`).join("")}</div>` : ""}
     <div class="vote-list">${jugadoresOrden().map(j => `<button class="vote" data-act="soy" data-id="${j.id}">${avatar(j, 40)}<b class="grow">${esc(j.nombre)}</b>${j.dorsal ? `<span class="muted">${esc(j.dorsal)}</span>` : ""}</button>`).join("")}</div>
     <p class="muted" style="font-size:.85rem">¿No sales? Pide al delegado que te añada.</p>`);
 }
@@ -969,7 +987,7 @@ function abrirPinNuevo(j, msg = ""){
       <p class="muted" style="margin-top:0">Pon tu nombre, tu número y un PIN de 4 cifras que solo sepas tú (y tu familia).</p>
       <div class="form-grid">
         <div class="f"><label for="pn-n">Tu nombre</label><input class="input" id="pn-n" name="nombre" required maxlength="30" value="${esc(j.nombre)}"></div>
-        <div class="f"><label for="pn-d">Tu número</label><input class="input" id="pn-d" name="dorsal" inputmode="numeric" maxlength="2" value="${esc(j.dorsal || "")}"></div>
+        <div class="f" ${j.rol ? "hidden" : ""}><label for="pn-d">Tu número</label><input class="input" id="pn-d" name="dorsal" inputmode="numeric" maxlength="2" value="${esc(j.dorsal || "")}"></div>
         <div class="f"><label for="pn1">PIN nuevo</label><input class="input pin" id="pn1" name="pin1" type="password" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="••••"></div>
         <div class="f"><label for="pn2">Repítelo</label><input class="input pin" id="pn2" name="pin2" type="password" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="••••"></div>
       </div>
@@ -1061,7 +1079,7 @@ const ACT = {
       <div class="f"><label for="md-d">Mi número</label><input class="input" id="md-d" name="dorsal" inputmode="numeric" maxlength="2" value="${esc(j.dorsal || "")}"></div>
       </div><div class="err"></div><button class="btn block" type="submit">Guardar</button></form>`);
   },
-  "no-soy": () => { S.session.me = null; S.session.pinOk = false; guardarSesion(); render(); abrirQuienSoy(); },
+  "no-soy": () => { if(esMister(S.session.me)) S.session.admin = false; S.session.me = null; S.session.pinOk = false; guardarSesion(); render(); abrirQuienSoy(); },
   "admin-salir": () => { S.session.admin = false; guardarSesion(); render(); },
   "cerrar-sesion": () => { if(confirm("¿Cerrar sesión? Para volver a entrar necesitarás la clave del equipo" + (S.session.me ? " y tu PIN." : "."))) ACT.salir(); },
   salir: () => { S.store?.stop(); S.store = null; S.team = null; S.session = null; LS.del("ecf-sesion"); S.tab = "partidos"; renderLogin(); }
@@ -1115,7 +1133,7 @@ const FORMS = {
     const j = jug(fm.dataset.id); if(!j) return;
     if(fm.pin.value.trim() !== String(pinDe(j))) return abrirPin(j, "Ese PIN no es correcto.");
     if(pinDe(j) === PIN_INICIAL) return abrirPinNuevo(j);
-    S.session.me = j.id; S.session.pinOk = true; guardarSesion(); cerrarSheet(); render(); toast("¡Hola, " + j.nombre + "!");
+    S.session.me = j.id; S.session.pinOk = true; if(j.rol === "mister") S.session.admin = true; guardarSesion(); cerrarSheet(); render(); toast("¡Hola, " + j.nombre + "!");
   },
   "mis-datos": async fm => {
     const j = jug(S.session.me); if(!j) return;
@@ -1130,7 +1148,7 @@ const FORMS = {
       : !/^\d{4}$/.test(a) ? "El PIN tienen que ser 4 cifras." : a === PIN_INICIAL ? "Elige un PIN distinto de 0000." : a !== b ? "Los dos PIN no coinciden." : "";
     if(error){ fm.querySelector(".err").textContent = error; return; }
     await S.store.set("jugadores", j.id, { ...j, nombre, dorsal, pin: a });
-    S.session.me = j.id; S.session.pinOk = true; guardarSesion(); cerrarSheet(); render(); toast("¡Listo! Hola, " + nombre);
+    S.session.me = j.id; S.session.pinOk = true; if(j.rol === "mister") S.session.admin = true; guardarSesion(); cerrarSheet(); render(); toast("¡Listo! Hola, " + nombre);
   },
   jugador: async fm => {
     const id = fm.dataset.id || "j" + uid();
