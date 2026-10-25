@@ -1,9 +1,8 @@
 // Robot que lee la web de cada liga (clasificación, calendario y resultados) y lo guarda en la app.
-// Liga Educa (Espartinas CF) ya se lee del todo. Gesliga (COTI FC): de momento guarda copias de la web
-// para ver su estructura y, si encuentra la clasificación, la guarda.
+// Liga Educa (Espartinas CF) y Gesliga (COTI FC).
 import { chromium } from "playwright";
 import fs from "node:fs/promises";
-import { interpretar, partidosDeTablas, planPartidos } from "./liga.mjs";
+import { interpretar, partidosDeTablas, planPartidos, partidosGesliga } from "./liga.mjs";
 
 // ---- Qué ligas leer: una línea por equipo ----
 const LIGAS = [
@@ -86,7 +85,7 @@ async function abrir(page, url) {
   await page.waitForTimeout(1000);
 }
 
-// Gesliga: guarda la página del calendario y las que enlace a clasificación, con sus tablas y enlaces.
+// Gesliga: lee el calendario y la clasificación (y guarda copia de las dos páginas).
 async function explorarGesliga(page, equipo, url){
   const paginas = [];
   const guardar = async (nombre) => {
@@ -111,7 +110,7 @@ async function explorarGesliga(page, equipo, url){
     catch (e) { console.warn(`  aviso ${equipo}: no pude abrir ${h}: ${e.message}`); }
   }
   await fs.writeFile(`copia/${equipo}-paginas.json`, JSON.stringify(paginas, null, 1));
-  return interpretar(todas);
+  return { clasificacion: interpretar(todas), partidos: partidosGesliga(cal.tablas) };
 }
 
 const navegador = await chromium.launch();
@@ -121,10 +120,16 @@ for (const { equipo, url, fuente } of LIGAS) {
   try {
     const page = await navegador.newPage({ locale: "es-ES" });
     if (fuente === "gesliga") {
-      const clasificacion = await explorarGesliga(page, equipo, url);
+      const { clasificacion, partidos } = await explorarGesliga(page, equipo, url);
       await fs.writeFile(`copia/${equipo}-clasificacion.json`, JSON.stringify(clasificacion, null, 1));
-      console.log(`  ${equipo}: copia guardada; clasificación con ${clasificacion.length} equipos`);
-      if (clasificacion.length >= 3 && PROJECT) { await guardarTabla(equipo, clasificacion, url); console.log(`✔ ${equipo}: clasificación guardada`); }
+      await fs.writeFile(`copia/${equipo}-partidos.json`, JSON.stringify(partidos, null, 1));
+      console.log(`  ${equipo}: ${clasificacion.length} equipos, ${partidos.length} partidos nuestros`);
+      if (clasificacion.length < 3) throw new Error("No encontré la clasificación");
+      if (!PROJECT) throw new Error("Falta el secreto FIREBASE_PROJECT_ID (la copia sí se ha guardado)");
+      await guardarTabla(equipo, clasificacion, url);
+      const plan = planPartidos(partidos, await leerPartidos(equipo));
+      for (const { id, campos: datos } of plan) await guardarPartido(equipo, id, datos);
+      console.log(`✔ ${equipo}: clasificación y ${plan.length} partidos guardados`);
       await page.close();
       continue;
     }

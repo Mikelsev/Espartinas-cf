@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { interpretar, partidosDeTablas, planPartidos } from "../liga.mjs";
+import { interpretar, partidosDeTablas, planPartidos, partidosGesliga } from "../liga.mjs";
 
 const leer = p => JSON.parse(fs.readFileSync(new URL(p, import.meta.url), "utf8"));
 // Copia real de la web del Benjamín guardada por el robot el 24/10/2026 (tras la jornada 2).
@@ -82,3 +82,25 @@ test("ignora tablas que no son la clasificación", () => {
   assert.deepEqual(interpretar([[["Menú", "Inicio"]], [["Fecha", "Local", "Visitante"]]]), []);
 });
 
+
+// ---- Gesliga (COTI FC): copias reales del 25/10/2026 ----
+const cotiCal = leer("./ejemplos/coti-2026-10-25-calendario-tablas.json");
+const cotiCla = leer("./ejemplos/coti-2026-10-25-clasificacion-tablas.json");
+
+test("gesliga: clasificación real sin columna «Equipo»", () => {
+  const filas = interpretar(cotiCla);
+  assert.equal(filas.length, 7);
+  assert.deepEqual(filas[0], { equipo: "ALCOPONE", pos: 1, pts: 9, dif: 9, gf: 16, gc: 7, pg: 3, pe: 0, pp: 0, pj: 3 });
+  assert.deepEqual(filas[6], { equipo: "COTI FC", pos: 7, pts: 0, dif: -8, gf: 8, gc: 16, pg: 0, pe: 0, pp: 3, pj: 3 });
+});
+
+test("gesliga: calendario real del COTI (resultados, descansos y fechas provisionales)", () => {
+  const p = partidosGesliga(cotiCal);
+  assert.equal(p.length, 12); // 14 jornadas, descansa en la 5 y la 12
+  assert.deepEqual(p[0], { jornada: 1, local: true, rival: "LOS REMATANDO BAJITO", gf: 2, gc: 5, fecha: "2026-09-21", provisional: false, hora: "22:30", campo: "Campo 1" });
+  assert.deepEqual(p[1], { jornada: 2, local: false, rival: "CHAVALEO FC", gf: 1, gc: 5, fecha: "2026-09-28", provisional: false, hora: "21:30", campo: "Campo 1" });
+  assert.deepEqual(p[3], { jornada: 4, local: true, rival: "CORTECONCEPCIÓN", fecha: "2026-10-21", provisional: false, hora: "21:30", campo: "Campo 1" });
+  assert.equal(p.some(x => x.jornada === 5), false);
+  assert.deepEqual(p[4], { jornada: 6, local: true, rival: "CLARET LEGENDS", fecha: "2026-11-03", provisional: true });
+  assert.equal(planPartidos([p[4]], [])[0].campos.provisional, true);
+});

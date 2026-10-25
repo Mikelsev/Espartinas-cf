@@ -1,0 +1,322 @@
+[
+ [
+  [
+   "Clasificación",
+   ""
+  ]
+ ],
+ [
+  [
+   "",
+   "",
+   "Pt",
+   "DG",
+   "GF",
+   "GC",
+   "NP",
+   "PG",
+   "PE",
+   "PP",
+   "PJ",
+   "CG"
+  ],
+  [
+   "1",
+   "ALCOPONE",
+   "9",
+   "+9",
+   "16",
+   "7",
+   "0",
+   "3",
+   "0",
+   "0",
+   "3",
+   "2,29"
+  ],
+  [
+   "2",
+   "CHAVALEO FC",
+   "7",
+   "+3",
+   "14",
+   "11",
+   "0",
+   "2",
+   "1",
+   "1",
+   "4",
+   "1,27"
+  ],
+  [
+   "3",
+   "LUNES DE POTRERO",
+   "6",
+   "+10",
+   "14",
+   "4",
+   "0",
+   "2",
+   "0",
+   "0",
+   "2",
+   "3,50"
+  ],
+  [
+   "4",
+   "LOS REMATANDO BAJITO",
+   "4",
+   "0",
+   "11",
+   "11",
+   "0",
+   "1",
+   "1",
+   "1",
+   "3",
+   "1,00"
+  ],
+  [
+   "5",
+   "CLARET LEGENDS",
+   "3",
+   "-8",
+   "4",
+   "12",
+   "0",
+   "1",
+   "0",
+   "2",
+   "3",
+   "0,33"
+  ],
+  [
+   "6",
+   "CORTECONCEPCIÓN",
+   "0",
+   "-6",
+   "6",
+   "12",
+   "0",
+   "0",
+   "0",
+   "2",
+   "2",
+   "0,50"
+  ],
+  [
+   "7",
+   "COTI FC",
+   "0",
+   "-8",
+   "8",
+   "16",
+   "0",
+   "0",
+   "0",
+   "3",
+   "3",
+   "0,50"
+  ]
+ ],
+ [
+  [
+   "Pt",
+   "=",
+   "Puntos"
+  ],
+  [
+   "DG",
+   "=",
+   "Diferencia de Goles"
+  ],
+  [
+   "GF",
+   "=",
+   "Goles a favor"
+  ],
+  [
+   "GC",
+   "=",
+   "Goles en contra"
+  ],
+  [
+   "NP",
+   "=",
+   "No Presentado"
+  ],
+  [
+   "PG",
+   "=",
+   "Partidos ganados"
+  ],
+  [
+   "PE",
+   "=",
+   "Partidos empatados"
+  ],
+  [
+   "PP",
+   "=",
+   "Partidos perdidos"
+  ],
+  [
+   "PJ",
+   "=",
+   "Partidos jugados"
+  ],
+  [
+   "CG",
+   "=",
+   "Cociente Goles"
+  ]
+ ],
+ [
+  [
+   "CHAVALEO FC",
+   "1-6",
+   "LUNES DE POTRERO",
+   "20/oct/2026",
+   "21:30h",
+   "CAMPO 1",
+   "",
+   ""
+  ],
+  [
+   "ALCOPONE",
+   "5-2",
+   "LOS REMATANDO BAJITO",
+   "20/oct/2026",
+   "22:30h",
+   "CAMPO 1",
+   "",
+   ""
+  ],
+  [
+   "COTI FC",
+   "",
+   "CORTECONCEPCIÓN",
+   "21/oct/2026",
+   "21:30h",
+   "CAMPO 1",
+   "",
+   ""
+  ],
+  [
+   "CLARET LEGENDS",
+   "",
+   "Descansa"
+  ]
+ ],
+ [
+  [
+   "LOS REMATANDO BAJITO",
+   "4-4",
+   "CHAVALEO FC",
+   "06/oct/2026",
+   "22:30h",
+   "CAMPO 1",
+   "",
+   ""
+  ],
+  [
+   "CORTECONCEPCIÓN",
+   "3-4",
+   "CLARET LEGENDS",
+   "07/oct/2026",
+   "22:30h",
+   "CAMPO 2",
+   "",
+   ""
+  ],
+  [
+   "COTI FC",
+   "5-6",
+   "ALCOPONE",
+   "05/oct/2026",
+   "21:30h",
+   "CAMPO 2",
+   "",
+   ""
+  ],
+  [
+   "LUNES DE POTRERO",
+   "",
+   "Descansa"
+  ]
+ ],
+ [
+  [
+   "LOS REMATANDO BAJITO",
+   "",
+   "LUNES DE POTRERO",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ],
+  [
+   "CHAVALEO FC",
+   "5-1",
+   "COTI FC",
+   "28/sep/2026",
+   "21:30h",
+   "CAMPO 1",
+   "",
+   ""
+  ],
+  [
+   "CLARET LEGENDS",
+   "0-5",
+   "ALCOPONE",
+   "28/sep/2026",
+   "20:30h",
+   "CAMPO 1",
+   "",
+   ""
+  ],
+  [
+   "CORTECONCEPCIÓN",
+   "",
+   "Descansa"
+  ]
+ ],
+ [
+  [
+   "LUNES DE POTRERO",
+   "8-3",
+   "CORTECONCEPCIÓN",
+   "23/sep/2026",
+   "21:30h",
+   "CAMPO 1",
+   "",
+   ""
+  ],
+  [
+   "COTI FC",
+   "2-5",
+   "LOS REMATANDO BAJITO",
+   "21/sep/2026",
+   "22:30h",
+   "CAMPO 1",
+   "",
+   ""
+  ],
+  [
+   "CLARET LEGENDS",
+   "0-4",
+   "CHAVALEO FC",
+   "23/sep/2026",
+   "22:30h",
+   "CAMPO 1",
+   "",
+   ""
+  ],
+  [
+   "ALCOPONE",
+   "",
+   "Descansa"
+  ]
+ ]
+]

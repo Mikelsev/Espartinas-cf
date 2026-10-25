@@ -36,6 +36,22 @@ function columnas(cabeceras) {
 export function interpretar(tablas) {
   let mejor = [];
   for (const filas of tablas) {
+    // Gesliga: cabecera sin «Equipo» («, , Pt, DG, GF, GC, NP, PG, PE, PP, PJ, CG») y filas del mismo largo
+    const iSin = filas.findIndex(f => !f.some(c => EQUIPO.includes(norm(c))) && columnas(f).filter(Boolean).length >= 5);
+    if (iSin >= 0) {
+      const cab = filas[iSin], claves = columnas(cab), res = [];
+      for (const f of filas.slice(iSin + 1)) {
+        const iNombre = f.findIndex(tieneLetras);
+        if (iNombre < 0 || f.length !== cab.length) continue;
+        const fila = { equipo: f[iNombre].replace(/\s+/g, " ").trim() };
+        const pos = num(f.slice(0, iNombre).find(c => c !== ""));
+        if (pos != null) fila.pos = pos;
+        claves.forEach((k, i) => { if (k && i > iNombre && num(f[i]) != null) fila[k] = num(f[i]); });
+        if (fila.pg != null && fila.pts != null) res.push(fila);
+      }
+      if (res.length > mejor.length) mejor = res;
+      continue;
+    }
     const iCab = filas.findIndex(f => f.length < 15 && f.some(c => EQUIPO.includes(norm(c))) &&
       f.filter(c => norm(c) === "p" || Object.values(ALIAS).some(a => a.includes(norm(c)))).length >= 4);
     if (iCab < 0) continue;
@@ -141,8 +157,42 @@ export function planPartidos(oficiales, existentes) {
     if (o.hora) campos.hora = o.hora;
     if (o.campo) campos.campo = o.campo;
     if (o.mapa) campos.mapa = o.mapa;
+    if (o.provisional !== undefined) campos.provisional = o.provisional;
     if (o.gf != null) { campos.gf = o.gf; campos.gc = o.gc; }
     else if (!previo) { campos.gf = ""; campos.gc = ""; }
     return { id: previo ? previo.id : id, campos };
   });
+}
+
+// ---- Gesliga (COTI FC) ----
+// Calendario: una tabla por jornada, en orden. Filas: local, «a-b» o vacío, visitante, «23/sep/2026», «21:30h», «CAMPO 1».
+// Si un equipo descansa: [equipo, "", "Descansa"]. Las jornadas aún sin fecha se estiman semana a semana («provisional»).
+const MESES = { ene: 0, feb: 1, mar: 2, abr: 3, may: 4, jun: 5, jul: 6, ago: 7, sep: 8, oct: 9, nov: 10, dic: 11 };
+const fechaGesliga = c => { const m = (c || "").match(/^(\d{1,2})\/([a-z]{3})\/(\d{4})$/i); return m && MESES[m[2].toLowerCase()] != null ? new Date(Date.UTC(+m[3], MESES[m[2].toLowerCase()], +m[1])) : null; };
+const esJornadaGesliga = t => t.length >= 2 && t.every(f => (f.length >= 6 && (f[3] === "" || fechaGesliga(f[3]))) || (f.length >= 3 && norm(f[2]) === "descansa"));
+
+export function partidosGesliga(tablas, club = /\bcoti\b/i) {
+  const jornadas = tablas.filter(esJornadaGesliga);
+  const res = [];
+  let ultima = null; // fecha más temprana de la última jornada con fechas
+  jornadas.forEach((filas, i) => {
+    const jornada = i + 1;
+    const fechas = filas.map(f => fechaGesliga(f[3])).filter(Boolean).sort((a, b) => a - b);
+    const base = fechas[0] || (ultima ? new Date(ultima.getTime() + 7 * 864e5) : null);
+    if (base) ultima = base;
+    const f = filas.find(f => f.length >= 6 && (club.test(f[0]) || club.test(f[2])));
+    if (!f) return; // descansamos
+    const local = club.test(f[0]);
+    const p = { jornada, local, rival: (local ? f[2] : f[0]).trim() };
+    const m = f[1].match(/^(\d+)\s*-\s*(\d+)$/);
+    if (m) { const [a, b] = [+m[1], +m[2]]; [p.gf, p.gc] = local ? [a, b] : [b, a]; }
+    const propia = fechaGesliga(f[3]);
+    if (propia || base) p.fecha = (propia || base).toISOString().slice(0, 10);
+    p.provisional = !propia;
+    const hora = f[4].match(/^(\d{1,2}):(\d{2})/);
+    if (hora) p.hora = hora[1].padStart(2, "0") + ":" + hora[2];
+    if (f[5]) p.campo = f[5].charAt(0) + f[5].slice(1).toLowerCase();
+    res.push(p);
+  });
+  return res;
 }

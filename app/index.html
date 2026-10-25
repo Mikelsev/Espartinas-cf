@@ -631,7 +631,7 @@ function itemPartido(p){
   return `<div class="item">
     <button class="item-open" data-act="partido" data-id="${p.id}">
       <div class="date-chip"><b>${d.getDate()}</b><span>${d.toLocaleDateString("es-ES", { month: "short" })}</span></div>
-      <div class="main"><b>${esc(a)} – ${esc(b)}</b><span>${p.jornada ? "Jornada " + esc(p.jornada) + ", " : ""}${esc(p.hora || "hora por confirmar")}${p.local ? ", en casa" : ", fuera"}</span></div>
+      <div class="main"><b>${esc(a)} – ${esc(b)}</b><span>${p.jornada ? "Jornada " + esc(p.jornada) + ", " : ""}${p.provisional ? "fecha por confirmar" : esc(p.hora || "hora por confirmar")}${p.local ? ", en casa" : ", fuera"}</span></div>
       ${r ? `<span class="score ${r}">${marcador(p)}</span>` : camiseta(p.equipacion, 28)}
     </button>
     ${mapa ? `<a class="map-link" href="${esc(mapa)}" target="_blank" rel="noopener" aria-label="Cómo llegar a ${esc(p.campo || destino(p) || "el campo")}" title="Cómo llegar">${ICON.mapa}</a>` : ""}
@@ -649,7 +649,8 @@ function vPartidos(){
       <div class="hero-top">
         <div class="hero-label">Próximo partido${next.jornada ? ", jornada " + esc(next.jornada) : ""}</div>
         <div class="vs"><div class="t">${esc(a)}</div><div class="x">vs</div><div class="t r">${esc(b)}</div></div>
-        <div class="when cap1">${esc(fechaLarga(next))}</div>
+        <div class="when cap1">${next.provisional ? "Semana del " + esc(fechaDe(next).toLocaleDateString("es-ES", { day: "numeric", month: "long" })) : esc(fechaLarga(next))}</div>
+        ${next.provisional ? `<div class="hero-label" style="margin-top:4px">Fecha aproximada: la liga aún no la ha publicado</div>` : ""}
       </div>
       <div class="hero-body">
         <div class="facts">
@@ -826,7 +827,7 @@ function htmlPartido(p){
   let html = cabecera(r ? `${esc(a)} ${marcador(p)} ${esc(b)}` : `${esc(a)} – ${esc(b)}`);
   html += `<div class="block">
     <div class="facts">
-      <div class="fact" style="grid-column:1/-1"><b class="cap1">${esc(fechaLarga(p))}</b><span>${p.jornada ? "Jornada " + esc(p.jornada) + ", " : ""}${p.local ? "en casa" : "fuera"}</span></div>
+      <div class="fact" style="grid-column:1/-1"><b class="cap1">${p.provisional ? "Semana del " + esc(fechaDe(p).toLocaleDateString("es-ES", { day: "numeric", month: "long" })) + " (por confirmar)" : esc(fechaLarga(p))}</b><span>${p.jornada ? "Jornada " + esc(p.jornada) + ", " : ""}${p.local ? "en casa" : "fuera"}</span></div>
       <div class="fact"><b>${esc(p.hora || "–")}</b><span>Hora del partido</span></div>
       <div class="fact"><b>${esc(p.citacion || "–")}</b><span>Hora de llegada</span></div>
       <div class="fact" style="grid-column:1/-1"><b>${esc(p.campo || (p.local ? "Campo del " + CONFIG.club : "Campo por confirmar"))}</b><span>${esc(p.direccion || "")}</span></div>
