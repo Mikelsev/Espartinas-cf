@@ -15,7 +15,7 @@ Colores del club: azul (#1450B4), marino (#0A2A63). Primera equipación azul a r
 3. Botón **Cómo llegar** → `https://www.google.com/maps/dir/?api=1&destination=<dirección>`.
 4. **Clasificación de la liga**.
 5. El delegado mete la **convocatoria** de cada partido y el **resultado**; cada gol se asigna con un desplegable entre los convocados → **ranking de goleadores** automático.
-6. **Votaciones**: en cada partido jugado, cada jugador vota a **todos** sus compañeros (toda la plantilla, no a sí mismo) con **3, 4 o 5 estrellas**. Los votos son **secretos**: solo se ven sumas. El ranking del partido se ve al terminar de votar (el delegado siempre); el **MVP** es quien más puntos saca. Pestaña **Ranking** con el total acumulado y goleadores. Aviso si te faltan partidos por votar.
+6. **Votaciones**: en cada partido jugado, cada **convocado** vota a **todos** sus compañeros **convocados** (no a sí mismo; si el partido no tiene convocatoria, toda la plantilla) con **3, 4 o 5 estrellas**, y pulsa «Enviar votación» (después no se puede cambiar). Los que descansan no votan ni reciben votos. Los votos son **secretos**: solo se ven sumas. El ranking del partido se ve al terminar de votar (el delegado siempre); el **MVP** es quien más puntos saca. Pestaña **Ranking** con el total acumulado y goleadores. Aviso si te faltan partidos por votar.
 7. Cada niño **entra con su nombre y PIN**: la primera vez usa `0000` y elige su PIN de 4 cifras. El delegado puede reiniciarlo a `0000`.
 8. Cada niño puede **subir su foto** (se recorta a 320×320 JPEG y se guarda en base64 en Firestore; no se usa Firebase Storage porque exige plan de pago).
 9. Alojamiento **gratuito**.

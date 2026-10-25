@@ -407,25 +407,30 @@ const proximos = () => S.partidos.filter(p => !jugado(p) && (p.fecha || "") >= h
 const jugados = () => S.partidos.filter(p => jugado(p)).sort((a, b) => fechaDe(b) - fechaDe(a));
 const pendientes = () => S.partidos.filter(p => !jugado(p) && (p.fecha || "") < hoyISO()).sort((a, b) => fechaDe(b) - fechaDe(a));
 const golesDe = jid => S.partidos.reduce((n, p) => n + (Number(p.goles?.[jid]) || 0), 0);
-// Votaciones: en cada partido jugado cada jugador da 3, 4 o 5 estrellas a cada compañero.
-// Documento votos/{partido}_{votante} = { partido, votante, notas: { [jugador]: 3|4|5 } }. Solo se muestran sumas.
+// Votaciones: en cada partido jugado cada convocado da 3, 4 o 5 estrellas a cada compañero convocado
+// (si el partido no tiene convocatoria, participa toda la plantilla). Solo se muestran sumas.
+// Documento votos/{partido}_{votante} = { partido, votante, notas: { [jugador]: 3|4|5 }, enviado }.
 const miVoto = (pid, jid) => S.votos.find(v => v.partido === pid && v.votante === jid);
-const companeros = jid => S.jugadores.filter(j => j.id !== jid);
+const partidoDe = pid => S.partidos.find(x => x.id === pid);
+const participantes = p => (p?.convocados || []).length ? jugadoresOrden().filter(j => p.convocados.includes(j.id)) : jugadoresOrden();
+const participa = (p, jid) => participantes(p).some(j => j.id === jid);
+const companeros = (p, jid) => participantes(p).filter(j => j.id !== jid);
 // Un voto solo existe en la base de datos cuando se envía (y ya no se puede cambiar).
 // Mientras tanto es un borrador guardado en el propio móvil.
 const votoCompleto = (pid, jid) => !!miVoto(pid, jid);
 const claveBorrador = (pid, jid) => `ecf-borrador-${S.team?.id}-${jid}-${pid}`;
 const borrador = (pid, jid) => LS.get(claveBorrador(pid, jid), {});
 function puntosPartido(pid){
-  const t = {};
-  S.votos.filter(v => v.partido === pid).forEach(v => Object.entries(v.notas || {}).forEach(([j, n]) => { if(jug(j)) t[j] = (t[j] || 0) + (+n || 0); }));
+  const p = partidoDe(pid), t = {};
+  S.votos.filter(v => v.partido === pid && participa(p, v.votante))
+    .forEach(v => Object.entries(v.notas || {}).forEach(([j, n]) => { if(participa(p, j)) t[j] = (t[j] || 0) + (+n || 0); }));
   return t;
 }
 function mvpPartido(pid){ const t = puntosPartido(pid); const max = Math.max(0, ...Object.values(t)); return max ? Object.keys(t).filter(k => t[k] === max) : []; }
 const puntosDe = jid => jugados().reduce((n, p) => n + (puntosPartido(p.id)[jid] || 0), 0);
 const mvpsDe = jid => jugados().filter(p => mvpPartido(p.id).includes(jid)).length;
-const votantes = pid => S.jugadores.filter(j => votoCompleto(pid, j.id));
-const pendientesDeVotar = jid => jid && jug(jid) && S.jugadores.length > 1 ? jugados().filter(p => !votoCompleto(p.id, jid)) : [];
+const votantes = pid => participantes(partidoDe(pid)).filter(j => votoCompleto(pid, j.id));
+const pendientesDeVotar = jid => jid && jug(jid) ? jugados().filter(p => participa(p, jid) && companeros(p, jid).length && !votoCompleto(p.id, jid)) : [];
 const fechaLarga = p => fechaDe(p).toLocaleDateString("es-ES", { weekday: "long", day: "numeric", month: "long" });
 // Ubicación: el enlace de Maps que publica la liga; si no, la dirección que ponga el delegado;
 // en casa, nuestro campo; fuera, el nombre del campo.
@@ -792,13 +797,15 @@ function htmlConvocatoria(p){
 }
 
 function bloqueVotos(p){
-  const me = S.session.me, total = S.jugadores.length;
+  const me = S.session.me, parts = participantes(p), total = parts.length;
   let html = `<div class="block"><h3>Votaciones</h3>`;
-  if(total < 2) return html + `<p class="muted" style="margin:0">Hacen falta al menos dos jugadores en la plantilla.</p></div>`;
+  if(total < 2) return html + `<p class="muted" style="margin:0">Hacen falta al menos dos jugadores.</p></div>`;
   const hecho = me && votoCompleto(p.id, me);
-  if(me){
+  if(me && !participa(p, me)){
+    html += `<p class="muted" style="margin-top:0">En este partido descansabas, así que no votas. Votan los ${total} convocados.</p>`;
+  } else if(me){
     const enviado = miVoto(p.id, me), notas = enviado?.notas || borrador(p.id, me);
-    const comp = jugadoresOrden().filter(j => j.id !== me && (!enviado || notas[j.id]));
+    const comp = companeros(p, me).filter(j => !enviado || notas[j.id]);
     const llevo = comp.filter(j => notas[j.id]).length, completo = llevo === comp.length;
     html += enviado
       ? `<div class="enviado"><b>✓ Votación enviada</b><span>Ya no se puede cambiar. Estos fueron tus votos (solo los ves tú):</span></div>`
@@ -812,7 +819,7 @@ function bloqueVotos(p){
     html += `<p class="muted" style="margin-top:0">Entra con tu nombre y tu PIN para votar.</p><button class="btn small" data-act="quien">Entrar con mi nombre</button>`;
   }
   const hanVotado = votantes(p.id);
-  html += `<p class="muted" style="font-size:.85rem;margin:12px 0 0">Han votado ${hanVotado.length} de ${total}.${S.session.admin && hanVotado.length < total ? " Faltan: " + esc(S.jugadores.filter(j => !hanVotado.includes(j)).map(j => j.nombre).join(", ")) + "." : ""}</p>`;
+  html += `<p class="muted" style="font-size:.85rem;margin:12px 0 0">Han votado ${hanVotado.length} de ${total}${(p.convocados || []).length ? " convocados" : ""}.${S.session.admin && hanVotado.length < total ? " Faltan: " + esc(parts.filter(j => !hanVotado.some(v => v.id === j.id)).map(j => j.nombre).join(", ")) + "." : ""}</p>`;
   html += `</div>`;
   // Ranking del partido: se ve cuando has votado a todos (el delegado siempre)
   const pts = puntosPartido(p.id), lista = Object.entries(pts).sort((x, y) => y[1] - x[1]);
@@ -1006,15 +1013,16 @@ const ACT = {
   "borrar-partido": async t => { if(!confirm("¿Borrar este partido?")) return; await S.store.del("partidos", t.dataset.id); cerrarSheet(); toast("Partido borrado"); },
   nota: t => {
     const me = S.session.me, pid = t.dataset.id, n = +t.dataset.n;
-    if(!me || miVoto(pid, me) || t.dataset.j === me || ![3, 4, 5].includes(n)) return;
+    if(!me || miVoto(pid, me) || t.dataset.j === me || ![3, 4, 5].includes(n) || !participa(partidoDe(pid), t.dataset.j)) return;
     LS.set(claveBorrador(pid, me), { ...borrador(pid, me), [t.dataset.j]: n });
     refrescarSheet();
   },
   "enviar-votos": async t => {
     const me = S.session.me, pid = t.dataset.id;
     if(!me || miVoto(pid, me)) return;
-    const b = borrador(pid, me), notas = Object.fromEntries(companeros(me).filter(j => b[j.id]).map(j => [j.id, b[j.id]]));
-    if(Object.keys(notas).length < companeros(me).length) return toast("Te falta votar a algún compañero");
+    const p = partidoDe(pid); if(!participa(p, me)) return;
+    const comp = companeros(p, me), b = borrador(pid, me), notas = Object.fromEntries(comp.filter(j => b[j.id]).map(j => [j.id, b[j.id]]));
+    if(Object.keys(notas).length < comp.length) return toast("Te falta votar a algún compañero");
     if(!confirm("¿Enviar tu votación? Una vez enviada no podrás cambiarla.")) return;
     try{
       await S.store.set("votos", pid + "_" + me, { partido: pid, votante: me, notas, enviado: Date.now() });
