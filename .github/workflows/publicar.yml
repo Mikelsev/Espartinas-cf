@@ -27,8 +27,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      # La misma app sirve a los dos clubes: la raíz es el Espartinas CF y /coti/ el COTI FC
+      - name: Preparar la web
+        run: |
+          mkdir -p _site/coti
+          cp -r app/. _site/
+          cp app/index.html _site/coti/index.html
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: app
+          path: _site
       - id: despliegue
         uses: actions/deploy-pages@v4

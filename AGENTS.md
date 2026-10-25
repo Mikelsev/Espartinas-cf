@@ -9,6 +9,14 @@ Web app (móvil primero) para dos equipos de fútbol base del **Espartinas CF** 
 
 Colores del club: azul (#1450B4), marino (#0A2A63). Primera equipación azul a rayas blancas; segunda roja (#D62839). Escudo oficial en `app/escudo-original.jpg` (ya incrustado en base64 en `app/index.html`).
 
+## Varios clubes con la misma app
+La misma `app/index.html` sirve a dos clubes; el club se elige por la dirección:
+- **Espartinas CF** (Alevín y Benjamín): raíz de la web. Azul y blanco, textos para niños.
+- **COTI FC** (adultos, fundado en 2024, siempre de negro): `…/coti/` (o `?club=coti`). Un equipo `coti`, clave `CotiFC`, delegado `delegado-coti`. Liga en gesliga.com (`https://gesliga.com/Calendario.aspx?Liga=511988`). Datos en `equipos/coti`.
+- Configuración en `CONFIG_ESPARTINAS` / `CONFIG_COTI` (`club`, `corto`, `patron`, `grito`, `ninos`, `kit`, `animo`, `equipos`…). Tema del COTI con `:root[data-club="coti"]`. `localStorage` separado por club (`ecf-…` / `coti-…`).
+- `publicar.yml` copia `app/index.html` también a `_site/coti/index.html`.
+- Robot: la fuente `gesliga` de momento solo guarda copias (`robot/copia/coti-*`) e intenta leer la clasificación; falta escribir la lectura del calendario cuando se vea la estructura.
+
 ## Requisitos funcionales (todos implementados en `app/index.html`)
 1. Acceso con **clave del equipo** (una por equipo). Clave aparte de **delegado** para editar.
 2. **Calendario** de partidos: fecha, hora, hora de llegada, rival, casa/fuera, campo, dirección, equipación.

@@ -1,4 +1,6 @@
-// Robot que lee la Liga Educa (clasificación, calendario y resultados) y lo guarda en la app.
+// Robot que lee la web de cada liga (clasificación, calendario y resultados) y lo guarda en la app.
+// Liga Educa (Espartinas CF) ya se lee del todo. Gesliga (COTI FC): de momento guarda copias de la web
+// para ver su estructura y, si encuentra la clasificación, la guarda.
 import { chromium } from "playwright";
 import fs from "node:fs/promises";
 import { interpretar, partidosDeTablas, planPartidos } from "./liga.mjs";
@@ -12,6 +14,10 @@ const LIGAS = [
   {
     equipo: "alevin",
     url: "https://www.educationleague.es/?id_lan=1&id_geo=8&id_spo=1&id_com_gro0=439&sea=2026&id_rac=1&id_age=77&id_com_gro1=466&id_com_sea=1832&id_com_sta=2271&id_sec=335"
+  },
+  {
+    equipo: "coti", fuente: "gesliga",
+    url: "https://gesliga.com/Calendario.aspx?Liga=511988"
   },
 ];
 
@@ -80,12 +86,48 @@ async function abrir(page, url) {
   await page.waitForTimeout(1000);
 }
 
+// Gesliga: guarda la página del calendario y las que enlace a clasificación, con sus tablas y enlaces.
+async function explorarGesliga(page, equipo, url){
+  const paginas = [];
+  const guardar = async (nombre) => {
+    const tablas = await leerTablas(page);
+    const enlaces = await page.$$eval("a[href]", as => [...new Set(as.map(a => a.href))]);
+    await fs.writeFile(`copia/${equipo}-${nombre}.html`, await page.content());
+    await fs.writeFile(`copia/${equipo}-${nombre}-tablas.json`, JSON.stringify(tablas, null, 1));
+    await fs.writeFile(`copia/${equipo}-${nombre}-enlaces.json`, JSON.stringify(enlaces, null, 1));
+    paginas.push({ nombre, url: page.url(), tablas: tablas.length });
+    return { tablas, enlaces };
+  };
+  await abrir(page, url);
+  const cal = await guardar("calendario");
+  const liga = new URL(url).searchParams.get("Liga");
+  const candidatas = [...new Set([
+    ...cal.enlaces.filter(h => /clasifica/i.test(h)),
+    `https://gesliga.com/Clasificacion.aspx?Liga=${liga}`
+  ])].slice(0, 3);
+  let todas = [...cal.tablas];
+  for (const [i, h] of candidatas.entries()) {
+    try { await abrir(page, h); todas.push(...(await guardar("clasificacion" + (i || ""))).tablas); }
+    catch (e) { console.warn(`  aviso ${equipo}: no pude abrir ${h}: ${e.message}`); }
+  }
+  await fs.writeFile(`copia/${equipo}-paginas.json`, JSON.stringify(paginas, null, 1));
+  return interpretar(todas);
+}
+
 const navegador = await chromium.launch();
 await fs.mkdir("copia", { recursive: true });
 let fallos = 0;
-for (const { equipo, url } of LIGAS) {
+for (const { equipo, url, fuente } of LIGAS) {
   try {
     const page = await navegador.newPage({ locale: "es-ES" });
+    if (fuente === "gesliga") {
+      const clasificacion = await explorarGesliga(page, equipo, url);
+      await fs.writeFile(`copia/${equipo}-clasificacion.json`, JSON.stringify(clasificacion, null, 1));
+      console.log(`  ${equipo}: copia guardada; clasificación con ${clasificacion.length} equipos`);
+      if (clasificacion.length >= 3 && PROJECT) { await guardarTabla(equipo, clasificacion, url); console.log(`✔ ${equipo}: clasificación guardada`); }
+      await page.close();
+      continue;
+    }
     await abrir(page, url);
     const tablas = await leerTablas(page);
     await fs.writeFile(`copia/${equipo}.html`, await page.content());
