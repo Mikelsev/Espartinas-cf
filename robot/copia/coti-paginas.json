@@ -8,5 +8,10 @@
   "nombre": "clasificacion",
   "url": "https://gesliga.com/Clasificacion.aspx?Liga=511988",
   "tablas": 7
+ },
+ {
+  "nombre": "estadisticas",
+  "url": "https://gesliga.com/Estadisticas.aspx?Liga=511988",
+  "tablas": 2
  }
 ]
