@@ -1,0 +1,100 @@
+[
+ {
+  "jornada": 1,
+  "local": true,
+  "rival": "LOS REMATANDO BAJITO",
+  "gf": 2,
+  "gc": 5,
+  "fecha": "2026-09-21",
+  "provisional": false,
+  "hora": "22:30",
+  "campo": "Campo 1"
+ },
+ {
+  "jornada": 2,
+  "local": false,
+  "rival": "CHAVALEO FC",
+  "gf": 1,
+  "gc": 5,
+  "fecha": "2026-09-28",
+  "provisional": false,
+  "hora": "21:30",
+  "campo": "Campo 1"
+ },
+ {
+  "jornada": 3,
+  "local": true,
+  "rival": "ALCOPONE",
+  "gf": 5,
+  "gc": 6,
+  "fecha": "2026-10-05",
+  "provisional": false,
+  "hora": "21:30",
+  "campo": "Campo 2"
+ },
+ {
+  "jornada": 4,
+  "local": true,
+  "rival": "CORTECONCEPCIÓN",
+  "fecha": "2026-10-21",
+  "provisional": false,
+  "hora": "21:30",
+  "campo": "Campo 1"
+ },
+ {
+  "jornada": 6,
+  "local": true,
+  "rival": "CLARET LEGENDS",
+  "fecha": "2026-11-03",
+  "provisional": true
+ },
+ {
+  "jornada": 7,
+  "local": false,
+  "rival": "LUNES DE POTRERO",
+  "fecha": "2026-11-10",
+  "provisional": true
+ },
+ {
+  "jornada": 8,
+  "local": false,
+  "rival": "LOS REMATANDO BAJITO",
+  "fecha": "2026-11-17",
+  "provisional": true
+ },
+ {
+  "jornada": 9,
+  "local": true,
+  "rival": "CHAVALEO FC",
+  "fecha": "2026-11-24",
+  "provisional": true
+ },
+ {
+  "jornada": 10,
+  "local": false,
+  "rival": "ALCOPONE",
+  "fecha": "2026-12-01",
+  "provisional": true
+ },
+ {
+  "jornada": 11,
+  "local": false,
+  "rival": "CORTECONCEPCIÓN",
+  "fecha": "2026-12-08",
+  "provisional": true
+ },
+ {
+  "jornada": 13,
+  "local": false,
+  "rival": "CLARET LEGENDS",
+  "fecha": "2026-12-22",
+  "provisional": true
+ },
+ {
+  "jornada": 14,
+  "local": true,
+  "rival": "LUNES DE POTRERO",
+  "fecha": "2026-12-29",
+  "provisional": true
+ }
+]

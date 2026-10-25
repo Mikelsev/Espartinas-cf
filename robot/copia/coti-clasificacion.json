@@ -1,1 +1,86 @@
-[]
+[
+ {
+  "equipo": "ALCOPONE",
+  "pos": 1,
+  "pts": 9,
+  "dif": 9,
+  "gf": 16,
+  "gc": 7,
+  "pg": 3,
+  "pe": 0,
+  "pp": 0,
+  "pj": 3
+ },
+ {
+  "equipo": "CHAVALEO FC",
+  "pos": 2,
+  "pts": 7,
+  "dif": 3,
+  "gf": 14,
+  "gc": 11,
+  "pg": 2,
+  "pe": 1,
+  "pp": 1,
+  "pj": 4
+ },
+ {
+  "equipo": "LUNES DE POTRERO",
+  "pos": 3,
+  "pts": 6,
+  "dif": 10,
+  "gf": 14,
+  "gc": 4,
+  "pg": 2,
+  "pe": 0,
+  "pp": 0,
+  "pj": 2
+ },
+ {
+  "equipo": "LOS REMATANDO BAJITO",
+  "pos": 4,
+  "pts": 4,
+  "dif": 0,
+  "gf": 11,
+  "gc": 11,
+  "pg": 1,
+  "pe": 1,
+  "pp": 1,
+  "pj": 3
+ },
+ {
+  "equipo": "CLARET LEGENDS",
+  "pos": 5,
+  "pts": 3,
+  "dif": -8,
+  "gf": 4,
+  "gc": 12,
+  "pg": 1,
+  "pe": 0,
+  "pp": 2,
+  "pj": 3
+ },
+ {
+  "equipo": "CORTECONCEPCIÓN",
+  "pos": 6,
+  "pts": 0,
+  "dif": -6,
+  "gf": 6,
+  "gc": 12,
+  "pg": 0,
+  "pe": 0,
+  "pp": 2,
+  "pj": 2
+ },
+ {
+  "equipo": "COTI FC",
+  "pos": 7,
+  "pts": 0,
+  "dif": -8,
+  "gf": 8,
+  "gc": 16,
+  "pg": 0,
+  "pe": 0,
+  "pp": 3,
+  "pj": 3
+ }
+]
