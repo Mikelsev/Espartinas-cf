@@ -351,6 +351,8 @@ const CONFIG_COTI = {
   ninos: false,
   firebase: CONFIG_ESPARTINAS.firebase,   // mismo proyecto de Firebase, datos en equipos/coti
   mapaCasa: "",
+  // Todos los partidos se juegan en el mismo sitio («Campo 1», «Campo 2»…)
+  sede: "Colegio Claret Sevilla",
   enlaceApp: "",
   // Siempre de negro
   kit: { camisetas: { negra: "Negra" }, pantalones: { negro: "Negro" }, medias: { negras: "Negras" }, combina: { negra: ["negro", "negras"] } },
@@ -500,7 +502,10 @@ const fechaLarga = p => fechaDe(p).toLocaleDateString("es-ES", { weekday: "long"
 // en casa, nuestro campo; fuera, el nombre del campo.
 const destino = p => p.direccion || p.campo || "";
 const rutaA = texto => "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(texto);
-const mapsUrl = p => p.mapa || (p.direccion ? rutaA(p.direccion) : p.local ? CONFIG.mapaCasa : p.campo ? rutaA(p.campo) : "");
+const mapsUrl = p => p.mapa || (p.direccion ? rutaA(p.direccion) : CONFIG.sede ? rutaA(CONFIG.sede) : p.local ? CONFIG.mapaCasa : p.campo ? rutaA(p.campo) : "");
+// Nombre del sitio del partido; con sede fija, «Colegio Claret Sevilla · Campo 1»
+const nombreCampo = (p, porConfirmar = "Campo por confirmar") => CONFIG.sede ? CONFIG.sede + (p.campo ? " · " + p.campo : "")
+  : p.campo || (p.local ? "Campo del " + CONFIG.club : porConfirmar);
 const equipos = p => p.local ? [CONFIG.club, p.rival] : [p.rival, CONFIG.club];
 function resultado(p){ if(!jugado(p)) return ""; const gf = +p.gf, gc = +p.gc; return gf > gc ? "w" : gf < gc ? "l" : "d"; }
 const marcador = p => p.local ? `${p.gf}-${p.gc}` : `${p.gc}-${p.gf}`;
@@ -656,7 +661,7 @@ function vPartidos(){
         <div class="facts">
           <div class="fact"><b>${esc(next.hora || "Por confirmar")}</b><span>Hora del partido</span></div>
           <div class="fact"><b>${esc(next.citacion || "–")}</b><span>Hora de llegada</span></div>
-          <div class="fact" style="grid-column:1/-1"><b>${esc(next.campo || (next.local ? "Campo del " + CONFIG.club : "Campo por confirmar"))}</b><span>${esc(next.direccion || "")}</span></div>
+          <div class="fact" style="grid-column:1/-1"><b>${esc(nombreCampo(next))}</b><span>${esc(next.direccion || "")}</span></div>
         </div>
         ${S.session.me && !esMister(S.session.me) && (next.convocados || []).length && next.lanzada ? ((next.convocados.includes(S.session.me))
           ? `<div class="demo-note" style="margin:0"><b>¡Estás en la convocatoria!</b> ${next.citacion ? "Citación a las " + esc(next.citacion) + "." : "Nos vemos en el campo."}</div>`
@@ -830,7 +835,7 @@ function htmlPartido(p){
       <div class="fact" style="grid-column:1/-1"><b class="cap1">${p.provisional ? "Semana del " + esc(fechaDe(p).toLocaleDateString("es-ES", { day: "numeric", month: "long" })) + " (por confirmar)" : esc(fechaLarga(p))}</b><span>${p.jornada ? "Jornada " + esc(p.jornada) + ", " : ""}${p.local ? "en casa" : "fuera"}</span></div>
       <div class="fact"><b>${esc(p.hora || "–")}</b><span>Hora del partido</span></div>
       <div class="fact"><b>${esc(p.citacion || "–")}</b><span>Hora de llegada</span></div>
-      <div class="fact" style="grid-column:1/-1"><b>${esc(p.campo || (p.local ? "Campo del " + CONFIG.club : "Campo por confirmar"))}</b><span>${esc(p.direccion || "")}</span></div>
+      <div class="fact" style="grid-column:1/-1"><b>${esc(nombreCampo(p))}</b><span>${esc(p.direccion || "")}</span></div>
     </div>
     <div class="kit" style="margin-top:12px">${equipacion(p, 52)}<span>${esc(textoKit(p))}</span></div>
     ${p.notas ? `<p class="muted" style="margin-bottom:0">${esc(p.notas)}</p>` : ""}
@@ -859,7 +864,7 @@ function htmlPartido(p){
 const convocadosDe = p => (p.convocados || []).map(jug).filter(Boolean);
 const descansanDe = p => jugadoresOrden().filter(j => !(p.convocados || []).includes(j.id));
 const convVisible = p => !!(p.lanzada || jugado(p) || S.session.admin);
-function lugarTexto(p){ return p.local ? "en casa" : `${p.campo ? "en " + p.campo : "fuera"}, jugamos como visitantes`; }
+function lugarTexto(p){ return CONFIG.sede ? "en " + nombreCampo(p) : p.local ? "en casa" : `${p.campo ? "en " + p.campo : "fuera"}, jugamos como visitantes`; }
 function textoConvocatoria(p){
   const k = kitDe(p), l = [], desc = descansanDe(p), mapa = mapsUrl(p);
   const fecha = fechaLarga(p); 
@@ -868,7 +873,7 @@ function textoConvocatoria(p){
   l.push(`🆚 ${p.rival || "Rival por confirmar"} (${p.local ? "en casa" : "fuera"})`, "");
   l.push(`🕐 *Citación:* ${p.citacion ? p.citacion + " h" : "por confirmar"}`);
   l.push(`⏱️ *Partido:* ${p.hora ? p.hora + " h" : "por confirmar"}`);
-  l.push(`📍 *Campo:* ${p.campo || (p.local ? "Campo del " + CONFIG.club : "por confirmar")}${p.direccion ? " (" + p.direccion + ")" : ""}`);
+  l.push(`📍 *Campo:* ${nombreCampo(p, "por confirmar")}${p.direccion ? " (" + p.direccion + ")" : ""}`);
   if(mapa) l.push(`🗺️ Cómo llegar: ${mapa}`);
   l.push("", `*Convocados (${convocadosDe(p).length}):*`);
   convocadosDe(p).forEach((j, i) => l.push(`${i + 1}. ${j.nombre}`));
@@ -983,7 +988,7 @@ function previa(p){
     if(r.dg >= 6) frases.push("Marcan bastantes goles, así que ¡atentos atrás y a ayudar al portero!");
     else if(r.dg <= -6) frases.push("Les están marcando bastantes goles: ¡a probar a puerta siempre que podáis!");
   }
-  frases.push(p.local ? "Jugamos en casa: ¡que se oiga a nuestra gente!" : `Jugamos fuera: llevamos la alegría del ${CONFIG.corto} a su campo.`);
+  if(!CONFIG.sede) frases.push(p.local ? "Jugamos en casa: ¡que se oiga a nuestra gente!" : `Jugamos fuera: llevamos la alegría del ${CONFIG.corto} a su campo.`);
   const n = [...String(p.id)].reduce((a, c) => a + c.charCodeAt(0), 0);
   return { texto: frases.join(" "), animo: ANIMO[n % ANIMO.length] };
 }
