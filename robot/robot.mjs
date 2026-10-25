@@ -109,6 +109,9 @@ async function explorarGesliga(page, equipo, url){
     try { await abrir(page, h); todas.push(...(await guardar("clasificacion" + (i || ""))).tablas); }
     catch (e) { console.warn(`  aviso ${equipo}: no pude abrir ${h}: ${e.message}`); }
   }
+  // Estadísticas (goleadores por jugador)
+  try { await abrir(page, `https://gesliga.com/Estadisticas.aspx?Liga=${liga}`); await guardar("estadisticas"); }
+  catch (e) { console.warn(`  aviso ${equipo}: no pude abrir las estadísticas: ${e.message}`); }
   await fs.writeFile(`copia/${equipo}-paginas.json`, JSON.stringify(paginas, null, 1));
   return { clasificacion: interpretar(todas), partidos: partidosGesliga(cal.tablas) };
 }
