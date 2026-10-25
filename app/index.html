@@ -134,6 +134,8 @@ main{max-width:44rem;margin:0 auto;padding:16px 14px 100px}
 .notas button:disabled{cursor:default;opacity:.55}
 .notas button.on:disabled{opacity:1}
 .btn:disabled{opacity:.5;cursor:default}
+.btn.wa{background:#1FA855}
+.conv-texto{font-size:.85rem;line-height:1.4;margin-top:6px;resize:vertical;font-family:var(--body)}
 .vrow{display:flex;align-items:center;gap:10px;padding:4px 0}
 .vname{min-width:0;font-weight:600;font-size:.92rem;overflow-wrap:anywhere}
 .notas{flex:none;display:flex;gap:5px}
@@ -303,6 +305,8 @@ const CONFIG = {
   },
   // Campo del Espartinas en Google Maps: «Cómo llegar» de los partidos en casa.
   mapaCasa: "https://maps.app.goo.gl/SsANTYSx55Wi2okn9",
+  // Enlace corto de la app (va al final del mensaje de la convocatoria)
+  enlaceApp: "https://tinyurl.com/Espartinas",
   equipos: [
     {
       id: "alevin",
@@ -486,6 +490,7 @@ const ICON = {
   goles: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7l4 3-1.5 4.5h-5L8 10z" fill="currentColor" stroke="none"/></svg>',
   ranking: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8 6.6 19.7l1.1-6.1L3.2 9.4l6.1-.8z"/></svg>',
   salir: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M10 17l5-5-5-5M15 12H4"/></svg>',
+  whatsapp: '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg>',
   mapa: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
   equipo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M9 3 5 5 2 9l3 3 2-1.5V21h10V10.5l2 1.5 3-3-3-4-4-2q-3 3-6 0Z"/></svg>',
   yo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>'
@@ -588,7 +593,7 @@ function vPartidos(){
           <div class="fact"><b>${esc(next.citacion || "–")}</b><span>Hora de llegada</span></div>
           <div class="fact" style="grid-column:1/-1"><b>${esc(next.campo || (next.local ? "Campo del " + CONFIG.club : "Campo por confirmar"))}</b><span>${esc(next.direccion || "")}</span></div>
         </div>
-        ${S.session.me && !esMister(S.session.me) && (next.convocados || []).length ? ((next.convocados.includes(S.session.me))
+        ${S.session.me && !esMister(S.session.me) && (next.convocados || []).length && next.lanzada ? ((next.convocados.includes(S.session.me))
           ? `<div class="demo-note" style="margin:0"><b>¡Estás en la convocatoria!</b> ${next.citacion ? "Citación a las " + esc(next.citacion) + "." : "Nos vemos en el campo."}</div>`
           : `<div class="demo-note" style="margin:0"><b>Esta vez descansas.</b> ¡Te esperamos en el vestuario para animar!</div>`) : ""}
         ${htmlPrevia(next)}
@@ -784,31 +789,66 @@ function htmlPartido(p){
   return html;
 }
 
-// Convocatoria con el mismo formato que se manda al grupo de WhatsApp
+// Convocatoria: el Mister o el delegado la prepara (borrador, solo la ven ellos) y la «lanza»:
+// se guarda «lanzada» y se genera el mensaje de WhatsApp con todos los datos.
 const convocadosDe = p => (p.convocados || []).map(jug).filter(Boolean);
 const descansanDe = p => jugadoresOrden().filter(j => !(p.convocados || []).includes(j.id));
+const convVisible = p => !!(p.lanzada || jugado(p) || S.session.admin);
 function lugarTexto(p){ return p.local ? "en casa" : `${p.campo ? "en " + p.campo : "fuera"}, jugamos como visitantes`; }
 function textoConvocatoria(p){
-  const k = kitDe(p), l = [];
-  l.push(`*CONVOCATORIA*${p.citacion ? " " + p.citacion + "h" : ""}`, "");
-  l.push(`${p.hora ? "Partido " + p.hora + " h. " : "Partido "}${lugarTexto(p)}${p.rival ? " contra " + p.rival : ""}`, "");
-  convocadosDe(p).forEach((j, i) => l.push(`${i + 1} ${j.nombre}`));
-  const desc = descansanDe(p);
-  if(desc.length) l.push("", "Descansan:", "", ...desc.map(j => j.nombre));
-  l.push("", `Camiseta *${CAMISETAS[k.camiseta]}*`, `Pantalón *${PANTALONES[k.pantalon]}*`, `Medias *${MEDIAS[k.medias]}*`);
+  const k = kitDe(p), l = [], desc = descansanDe(p), mapa = mapsUrl(p);
+  const fecha = fechaLarga(p); 
+  l.push(`⚽ *CONVOCATORIA – ${CONFIG.club} ${S.team.nombre}*`);
+  l.push(`${p.jornada ? "Jornada " + p.jornada + " · " : ""}${fecha.charAt(0).toUpperCase() + fecha.slice(1)}`);
+  l.push(`🆚 ${p.rival || "Rival por confirmar"} (${p.local ? "en casa" : "fuera"})`, "");
+  l.push(`🕐 *Citación:* ${p.citacion ? p.citacion + " h" : "por confirmar"}`);
+  l.push(`⏱️ *Partido:* ${p.hora ? p.hora + " h" : "por confirmar"}`);
+  l.push(`📍 *Campo:* ${p.campo || (p.local ? "Campo del " + CONFIG.club : "por confirmar")}${p.direccion ? " (" + p.direccion + ")" : ""}`);
+  if(mapa) l.push(`🗺️ Cómo llegar: ${mapa}`);
+  l.push("", `*Convocados (${convocadosDe(p).length}):*`);
+  convocadosDe(p).forEach((j, i) => l.push(`${i + 1}. ${j.nombre}`));
+  if(desc.length) l.push("", "*Descansan:*", ...desc.map(j => j.nombre));
+  l.push("", "*Equipación:*", `👕 Camiseta *${CAMISETAS[k.camiseta]}*`, `🩳 Pantalón *${PANTALONES[k.pantalon]}*`, `🧦 Medias *${MEDIAS[k.medias]}*`);
   if(S.team.notaConvocatoria) l.push("", S.team.notaConvocatoria);
   if(p.notas) l.push("", p.notas);
+  if(CONFIG.enlaceApp) l.push("", `📲 Todo en la app: ${CONFIG.enlaceApp}`);
+  l.push("", "¡Vamos, Espartinas! 💙🤍");
   return l.join("\n");
 }
 function htmlConvocatoria(p){
-  const conv = convocadosDe(p); if(!conv.length) return "";
-  const desc = descansanDe(p), me = S.session.me;
-  return `<div class="block conv"><div class="section-h" style="margin:0 0 8px"><h3 style="margin:0">Convocatoria</h3><button class="btn small ghost" data-act="compartir-conv" data-id="${p.id}">Compartir</button></div>
+  const conv = convocadosDe(p); if(!conv.length || !convVisible(p)) return "";
+  const desc = descansanDe(p), me = S.session.me, admin = S.session.admin, jug_ = jugado(p);
+  const estado = admin && !jug_ ? (p.lanzada
+      ? `<div class="enviado" style="margin:0 0 10px"><b>✓ Convocatoria lanzada</b><span>El ${new Date(+p.lanzada).toLocaleDateString("es-ES", { weekday: "long", day: "numeric", month: "long" })}. Las familias ya la ven.</span></div>`
+      : `<div class="demo-note" style="margin:0 0 10px"><b>Borrador:</b> las familias aún no la ven. Cuando esté lista, pulsa «Lanzar convocatoria».</div>`) : "";
+  const boton = admin && !jug_
+    ? `<button class="btn block wa" style="margin-top:12px" data-act="lanzar-conv" data-id="${p.id}">${ICON.whatsapp}${p.lanzada ? "Volver a enviar por WhatsApp" : "Lanzar convocatoria"}</button>`
+    : "";
+  return `<div class="block conv"><div class="section-h" style="margin:0 0 8px"><h3 style="margin:0">Convocatoria</h3>${!admin ? `<button class="btn small ghost" data-act="compartir-conv" data-id="${p.id}">Compartir</button>` : ""}</div>
+    ${estado}
     <p style="margin:0 0 10px"><b>${p.citacion ? "Citación " + esc(p.citacion) + " h" : "Citación por confirmar"}</b> · ${p.hora ? "partido " + esc(p.hora) + " h" : "hora del partido por confirmar"}, ${esc(lugarTexto(p))}</p>
     <ol class="conv-list">${conv.map(j => `<li class="${j.id === me ? "yo" : ""}">${avatar(j, 26)}<span>${esc(j.nombre)}</span>${j.dorsal ? `<small>${esc(j.dorsal)}</small>` : ""}</li>`).join("")}</ol>
     ${desc.length ? `<p class="muted" style="margin:10px 0 0;font-size:.85rem"><b>Descansan:</b> ${esc(desc.map(j => j.nombre).join(", "))}</p>` : ""}
     ${S.team.notaConvocatoria ? `<p class="muted" style="margin:8px 0 0;font-size:.8rem">${esc(S.team.notaConvocatoria)}</p>` : ""}
+    ${boton}
   </div>`;
+}
+function abrirLanzar(p){
+  const faltan = [!p.citacion && "la hora de citación", !p.hora && "la hora del partido", !p.local && !p.campo && !p.direccion && "el campo"].filter(Boolean);
+  abrirSheet(`${cabecera("Lanzar convocatoria")}
+    <div class="block">
+      ${faltan.length ? `<div class="demo-note" style="margin:0 0 10px">Falta ${faltan.join(" y ")}. Puedes lanzarla igual o <button class="btn small ghost" data-act="editar-partido" data-id="${p.id}">completar el partido</button></div>` : ""}
+      <label class="muted" for="conv-texto" style="font-size:.85rem;font-weight:600">Mensaje para el grupo (puedes retocarlo):</label>
+      <textarea class="input conv-texto" id="conv-texto" rows="16">${esc(textoConvocatoria(p))}</textarea>
+      <button class="btn block wa" style="margin-top:12px" data-act="conv-whatsapp" data-id="${p.id}">${ICON.whatsapp}Enviar por WhatsApp</button>
+      <button class="btn block ghost" style="margin-top:8px" data-act="conv-copiar" data-id="${p.id}">Copiar el mensaje</button>
+      <p class="muted" style="font-size:.8rem;margin:10px 0 0">Al enviarlo o copiarlo, la convocatoria queda lanzada y los niños la verán en la app.</p>
+    </div>`, { tipo: "lanzar", id: p.id });
+}
+async function marcarLanzada(id){
+  const p = S.partidos.find(x => x.id === id); if(!p || p.lanzada) return;
+  const { id: _, ...datos } = p;
+  await S.store.set("partidos", id, { ...datos, lanzada: Date.now() });
 }
 
 function bloqueVotos(p){
@@ -1047,6 +1087,17 @@ const ACT = {
       LS.del(claveBorrador(pid, me));
       toast("¡Votación enviada!");
     }catch(e){ toast("No se pudo enviar. Revisa la conexión y vuelve a intentarlo."); }
+  },
+  "lanzar-conv": t => { const p = S.partidos.find(x => x.id === t.dataset.id); if(p) abrirLanzar(p); },
+  "conv-whatsapp": t => {
+    const texto = $("#conv-texto").value;
+    window.open("https://wa.me/?text=" + encodeURIComponent(texto), "_blank", "noopener");
+    marcarLanzada(t.dataset.id).then(() => toast("Convocatoria lanzada"));
+  },
+  "conv-copiar": async t => {
+    try{ await navigator.clipboard.writeText($("#conv-texto").value); toast("Mensaje copiado: pégalo en el grupo"); }
+    catch(e){ $("#conv-texto").select(); toast("Selecciona el texto y cópialo"); }
+    await marcarLanzada(t.dataset.id);
   },
   "compartir-conv": async t => {
     const p = S.partidos.find(x => x.id === t.dataset.id); if(!p) return;
