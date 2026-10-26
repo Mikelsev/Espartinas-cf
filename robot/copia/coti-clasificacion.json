@@ -48,8 +48,20 @@
   "pj": 3
  },
  {
-  "equipo": "CLARET LEGENDS",
+  "equipo": "CORTECONCEPCIÓN",
   "pos": 5,
+  "pts": 3,
+  "dif": -4,
+  "gf": 12,
+  "gc": 16,
+  "pg": 1,
+  "pe": 0,
+  "pp": 2,
+  "pj": 3
+ },
+ {
+  "equipo": "CLARET LEGENDS",
+  "pos": 6,
   "pts": 3,
   "dif": -8,
   "gf": 4,
@@ -60,27 +72,15 @@
   "pj": 3
  },
  {
-  "equipo": "CORTECONCEPCIÓN",
-  "pos": 6,
-  "pts": 0,
-  "dif": -6,
-  "gf": 6,
-  "gc": 12,
-  "pg": 0,
-  "pe": 0,
-  "pp": 2,
-  "pj": 2
- },
- {
   "equipo": "COTI FC",
   "pos": 7,
   "pts": 0,
-  "dif": -8,
-  "gf": 8,
-  "gc": 16,
+  "dif": -10,
+  "gf": 12,
+  "gc": 22,
   "pg": 0,
   "pe": 0,
-  "pp": 3,
-  "pj": 3
+  "pp": 4,
+  "pj": 4
  }
 ]

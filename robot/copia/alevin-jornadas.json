@@ -155,6 +155,48 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "M-27",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - EF Rio Grande",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\" - Umbrete CF",
+     ""
+    ],
+    [
+     "V-30",
+     "17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena - CD Almensilla",
+     ""
+    ],
+    [
+     "S-31",
+     "10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -164,64 +206,22 @@
     [
      "",
      "",
-     "",
-     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport - Palomares CF",
      ""
     ],
     [
      "",
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva - SD CEU Andalucía",
      ""
     ],
     [
      "",
      "",
-     "",
-     "CDM Gerena - CD Almensilla",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos \"A\" - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - EF Rio Grande",
      ""
     ]
    ]
@@ -383,6 +383,48 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "M-27",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - EF Rio Grande",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\" - Umbrete CF",
+     ""
+    ],
+    [
+     "V-30",
+     "17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena - CD Almensilla",
+     ""
+    ],
+    [
+     "S-31",
+     "10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -392,64 +434,22 @@
     [
      "",
      "",
-     "",
-     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport - Palomares CF",
      ""
     ],
     [
      "",
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva - SD CEU Andalucía",
      ""
     ],
     [
      "",
      "",
-     "",
-     "CDM Gerena - CD Almensilla",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos \"A\" - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - EF Rio Grande",
      ""
     ]
    ]
@@ -461,6 +461,90 @@
    [
     [
      "Alevines - Alevín 2º Año - 2º Año - Grupo 1 -  Jornada: 3 (30/10/2026)"
+    ],
+    [
+     "Mar 27\n17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF",
+     "",
+     "-",
+     "",
+     "EF Rio Grande",
+     "",
+     ""
+    ],
+    [
+     ""
+    ],
+    [
+     "Vie 30\n17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines",
+     "",
+     "-",
+     "",
+     "Real Betis Academy \"Fornals\"",
+     "",
+     ""
+    ],
+    [
+     ""
+    ],
+    [
+     "Vie 30\n17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\"",
+     "",
+     "-",
+     "",
+     "Umbrete CF",
+     "",
+     ""
+    ],
+    [
+     ""
+    ],
+    [
+     "Vie 30\n17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena",
+     "",
+     "-",
+     "",
+     "CD Almensilla",
+     "",
+     ""
+    ],
+    [
+     ""
+    ],
+    [
+     "Sáb 31\n10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\"",
+     "",
+     "-",
+     "",
+     "Atco. Olivarense",
+     "",
+     ""
+    ],
+    [
+     ""
+    ],
+    [
+     "Sáb 31\n12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\"",
+     "",
+     "-",
+     "",
+     "CD Atco. San Juan",
+     "",
+     ""
+    ],
+    [
+     ""
     ],
     [
      "",
@@ -478,35 +562,7 @@
     ],
     [
      "",
-     "",
-     "EF Ayto. Gines",
-     "",
-     "-",
-     "",
-     "Real Betis Academy \"Fornals\"",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\"",
-     "",
-     "-",
-     "",
-     "Atco. Olivarense",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport",
      "",
      "-",
@@ -520,7 +576,7 @@
     ],
     [
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva",
      "",
      "-",
@@ -534,68 +590,12 @@
     ],
     [
      "",
-     "",
-     "CDM Gerena",
-     "",
-     "-",
-     "",
-     "CD Almensilla",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF",
      "",
      "-",
      "",
      "UD Loreto",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
-     "",
-     "EDM Bormujos \"A\"",
-     "",
-     "-",
-     "",
-     "Umbrete CF",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\"",
-     "",
-     "-",
-     "",
-     "CD Atco. San Juan",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
-     "",
-     "Benacazón CF",
-     "",
-     "-",
-     "",
-     "EF Rio Grande",
      "",
      ""
     ],
@@ -611,6 +611,48 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "M-27",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - EF Rio Grande",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\" - Umbrete CF",
+     ""
+    ],
+    [
+     "V-30",
+     "17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena - CD Almensilla",
+     ""
+    ],
+    [
+     "S-31",
+     "10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -620,64 +662,22 @@
     [
      "",
      "",
-     "",
-     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport - Palomares CF",
      ""
     ],
     [
      "",
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva - SD CEU Andalucía",
      ""
     ],
     [
      "",
      "",
-     "",
-     "CDM Gerena - CD Almensilla",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos \"A\" - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - EF Rio Grande",
      ""
     ]
    ]
@@ -839,6 +839,48 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "M-27",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - EF Rio Grande",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\" - Umbrete CF",
+     ""
+    ],
+    [
+     "V-30",
+     "17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena - CD Almensilla",
+     ""
+    ],
+    [
+     "S-31",
+     "10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -848,64 +890,22 @@
     [
      "",
      "",
-     "",
-     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport - Palomares CF",
      ""
     ],
     [
      "",
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva - SD CEU Andalucía",
      ""
     ],
     [
      "",
      "",
-     "",
-     "CDM Gerena - CD Almensilla",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos \"A\" - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - EF Rio Grande",
      ""
     ]
    ]
@@ -1067,6 +1067,48 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "M-27",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - EF Rio Grande",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\" - Umbrete CF",
+     ""
+    ],
+    [
+     "V-30",
+     "17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena - CD Almensilla",
+     ""
+    ],
+    [
+     "S-31",
+     "10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -1076,64 +1118,22 @@
     [
      "",
      "",
-     "",
-     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport - Palomares CF",
      ""
     ],
     [
      "",
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva - SD CEU Andalucía",
      ""
     ],
     [
      "",
      "",
-     "",
-     "CDM Gerena - CD Almensilla",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos \"A\" - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - EF Rio Grande",
      ""
     ]
    ]
@@ -1295,6 +1295,48 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "M-27",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - EF Rio Grande",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\" - Umbrete CF",
+     ""
+    ],
+    [
+     "V-30",
+     "17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena - CD Almensilla",
+     ""
+    ],
+    [
+     "S-31",
+     "10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -1304,64 +1346,22 @@
     [
      "",
      "",
-     "",
-     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport - Palomares CF",
      ""
     ],
     [
      "",
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva - SD CEU Andalucía",
      ""
     ],
     [
      "",
      "",
-     "",
-     "CDM Gerena - CD Almensilla",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos \"A\" - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - EF Rio Grande",
      ""
     ]
    ]
@@ -1523,6 +1523,48 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "M-27",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - EF Rio Grande",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\" - Umbrete CF",
+     ""
+    ],
+    [
+     "V-30",
+     "17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena - CD Almensilla",
+     ""
+    ],
+    [
+     "S-31",
+     "10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -1532,64 +1574,22 @@
     [
      "",
      "",
-     "",
-     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport - Palomares CF",
      ""
     ],
     [
      "",
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva - SD CEU Andalucía",
      ""
     ],
     [
      "",
      "",
-     "",
-     "CDM Gerena - CD Almensilla",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos \"A\" - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - EF Rio Grande",
      ""
     ]
    ]
@@ -1751,6 +1751,48 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "M-27",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - EF Rio Grande",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\" - Umbrete CF",
+     ""
+    ],
+    [
+     "V-30",
+     "17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena - CD Almensilla",
+     ""
+    ],
+    [
+     "S-31",
+     "10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -1760,64 +1802,22 @@
     [
      "",
      "",
-     "",
-     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport - Palomares CF",
      ""
     ],
     [
      "",
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva - SD CEU Andalucía",
      ""
     ],
     [
      "",
      "",
-     "",
-     "CDM Gerena - CD Almensilla",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos \"A\" - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - EF Rio Grande",
      ""
     ]
    ]
@@ -1979,6 +1979,48 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "M-27",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - EF Rio Grande",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\" - Umbrete CF",
+     ""
+    ],
+    [
+     "V-30",
+     "17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena - CD Almensilla",
+     ""
+    ],
+    [
+     "S-31",
+     "10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -1988,64 +2030,22 @@
     [
      "",
      "",
-     "",
-     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport - Palomares CF",
      ""
     ],
     [
      "",
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva - SD CEU Andalucía",
      ""
     ],
     [
      "",
      "",
-     "",
-     "CDM Gerena - CD Almensilla",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos \"A\" - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - EF Rio Grande",
      ""
     ]
    ]
@@ -2207,6 +2207,48 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "M-27",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - EF Rio Grande",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\" - Umbrete CF",
+     ""
+    ],
+    [
+     "V-30",
+     "17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena - CD Almensilla",
+     ""
+    ],
+    [
+     "S-31",
+     "10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -2216,64 +2258,22 @@
     [
      "",
      "",
-     "",
-     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport - Palomares CF",
      ""
     ],
     [
      "",
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva - SD CEU Andalucía",
      ""
     ],
     [
      "",
      "",
-     "",
-     "CDM Gerena - CD Almensilla",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos \"A\" - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - EF Rio Grande",
      ""
     ]
    ]
@@ -2435,6 +2435,48 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "M-27",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - EF Rio Grande",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\" - Umbrete CF",
+     ""
+    ],
+    [
+     "V-30",
+     "17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena - CD Almensilla",
+     ""
+    ],
+    [
+     "S-31",
+     "10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -2444,64 +2486,22 @@
     [
      "",
      "",
-     "",
-     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport - Palomares CF",
      ""
     ],
     [
      "",
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva - SD CEU Andalucía",
      ""
     ],
     [
      "",
      "",
-     "",
-     "CDM Gerena - CD Almensilla",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos \"A\" - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - EF Rio Grande",
      ""
     ]
    ]
@@ -2663,6 +2663,48 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "M-27",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - EF Rio Grande",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\" - Umbrete CF",
+     ""
+    ],
+    [
+     "V-30",
+     "17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena - CD Almensilla",
+     ""
+    ],
+    [
+     "S-31",
+     "10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -2672,64 +2714,22 @@
     [
      "",
      "",
-     "",
-     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport - Palomares CF",
      ""
     ],
     [
      "",
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva - SD CEU Andalucía",
      ""
     ],
     [
      "",
      "",
-     "",
-     "CDM Gerena - CD Almensilla",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos \"A\" - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - EF Rio Grande",
      ""
     ]
    ]
@@ -2891,6 +2891,48 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "M-27",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - EF Rio Grande",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\" - Umbrete CF",
+     ""
+    ],
+    [
+     "V-30",
+     "17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena - CD Almensilla",
+     ""
+    ],
+    [
+     "S-31",
+     "10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -2900,64 +2942,22 @@
     [
      "",
      "",
-     "",
-     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport - Palomares CF",
      ""
     ],
     [
      "",
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva - SD CEU Andalucía",
      ""
     ],
     [
      "",
      "",
-     "",
-     "CDM Gerena - CD Almensilla",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos \"A\" - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - EF Rio Grande",
      ""
     ]
    ]
@@ -3119,6 +3119,48 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "M-27",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - EF Rio Grande",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\" - Umbrete CF",
+     ""
+    ],
+    [
+     "V-30",
+     "17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena - CD Almensilla",
+     ""
+    ],
+    [
+     "S-31",
+     "10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -3128,64 +3170,22 @@
     [
      "",
      "",
-     "",
-     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport - Palomares CF",
      ""
     ],
     [
      "",
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva - SD CEU Andalucía",
      ""
     ],
     [
      "",
      "",
-     "",
-     "CDM Gerena - CD Almensilla",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos \"A\" - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - EF Rio Grande",
      ""
     ]
    ]
@@ -3347,6 +3347,48 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "M-27",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - EF Rio Grande",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\" - Umbrete CF",
+     ""
+    ],
+    [
+     "V-30",
+     "17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena - CD Almensilla",
+     ""
+    ],
+    [
+     "S-31",
+     "10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -3356,64 +3398,22 @@
     [
      "",
      "",
-     "",
-     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport - Palomares CF",
      ""
     ],
     [
      "",
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva - SD CEU Andalucía",
      ""
     ],
     [
      "",
      "",
-     "",
-     "CDM Gerena - CD Almensilla",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos \"A\" - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - EF Rio Grande",
      ""
     ]
    ]
@@ -3575,6 +3575,48 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "M-27",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - EF Rio Grande",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\" - Umbrete CF",
+     ""
+    ],
+    [
+     "V-30",
+     "17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena - CD Almensilla",
+     ""
+    ],
+    [
+     "S-31",
+     "10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -3584,64 +3626,22 @@
     [
      "",
      "",
-     "",
-     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport - Palomares CF",
      ""
     ],
     [
      "",
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva - SD CEU Andalucía",
      ""
     ],
     [
      "",
      "",
-     "",
-     "CDM Gerena - CD Almensilla",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos \"A\" - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - EF Rio Grande",
      ""
     ]
    ]
@@ -3803,6 +3803,48 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "M-27",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - EF Rio Grande",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\" - Umbrete CF",
+     ""
+    ],
+    [
+     "V-30",
+     "17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena - CD Almensilla",
+     ""
+    ],
+    [
+     "S-31",
+     "10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -3812,64 +3854,22 @@
     [
      "",
      "",
-     "",
-     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport - Palomares CF",
      ""
     ],
     [
      "",
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva - SD CEU Andalucía",
      ""
     ],
     [
      "",
      "",
-     "",
-     "CDM Gerena - CD Almensilla",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos \"A\" - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - EF Rio Grande",
      ""
     ]
    ]
@@ -4031,6 +4031,48 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "M-27",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - EF Rio Grande",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\" - Umbrete CF",
+     ""
+    ],
+    [
+     "V-30",
+     "17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena - CD Almensilla",
+     ""
+    ],
+    [
+     "S-31",
+     "10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -4040,64 +4082,22 @@
     [
      "",
      "",
-     "",
-     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport - Palomares CF",
      ""
     ],
     [
      "",
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva - SD CEU Andalucía",
      ""
     ],
     [
      "",
      "",
-     "",
-     "CDM Gerena - CD Almensilla",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos \"A\" - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - EF Rio Grande",
      ""
     ]
    ]
@@ -4259,6 +4259,48 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "M-27",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - EF Rio Grande",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\" - Umbrete CF",
+     ""
+    ],
+    [
+     "V-30",
+     "17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena - CD Almensilla",
+     ""
+    ],
+    [
+     "S-31",
+     "10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -4268,64 +4310,22 @@
     [
      "",
      "",
-     "",
-     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport - Palomares CF",
      ""
     ],
     [
      "",
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva - SD CEU Andalucía",
      ""
     ],
     [
      "",
      "",
-     "",
-     "CDM Gerena - CD Almensilla",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos \"A\" - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - EF Rio Grande",
      ""
     ]
    ]
@@ -4487,6 +4487,48 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "M-27",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - EF Rio Grande",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\" - Umbrete CF",
+     ""
+    ],
+    [
+     "V-30",
+     "17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena - CD Almensilla",
+     ""
+    ],
+    [
+     "S-31",
+     "10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -4496,64 +4538,22 @@
     [
      "",
      "",
-     "",
-     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport - Palomares CF",
      ""
     ],
     [
      "",
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva - SD CEU Andalucía",
      ""
     ],
     [
      "",
      "",
-     "",
-     "CDM Gerena - CD Almensilla",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos \"A\" - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - EF Rio Grande",
      ""
     ]
    ]
@@ -4715,6 +4715,48 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "M-27",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - EF Rio Grande",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
+     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
+     ""
+    ],
+    [
+     "V-30",
+     "17:00",
+     "Estadio Municipal Ciudad Universitaria",
+     "EDM Bormujos \"A\" - Umbrete CF",
+     ""
+    ],
+    [
+     "V-30",
+     "17:45",
+     "Campo Municipal José Juan Romero Gil",
+     "CDM Gerena - CD Almensilla",
+     ""
+    ],
+    [
+     "S-31",
+     "10:30",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "12:00",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -4724,64 +4766,22 @@
     [
      "",
      "",
-     "",
-     "EF Ayto. Gines - Real Betis Academy \"Fornals\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
      "CD Casado Sport - Palomares CF",
      ""
     ],
     [
      "",
      "",
-     "",
+     "Padre Miguel Caballero. Vva Ariscal",
      "Villanueva Deportiva - SD CEU Andalucía",
      ""
     ],
     [
      "",
      "",
-     "",
-     "CDM Gerena - CD Almensilla",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos \"A\" - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Atco. San Juan",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - EF Rio Grande",
      ""
     ]
    ]
