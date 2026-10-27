@@ -113,6 +113,13 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "J-29",
+     "17:30",
+     "",
+     "CA Aznalcázar - EMD Burguillos",
+     ""
+    ],
+    [
      "V-30",
      "18:00",
      "",
@@ -127,38 +134,31 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "Camino Viejo CF - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "V-30",
+     "19:30",
+     "Pabellón municipal pepe flores",
      "CD Isidro Reguera - Real Betis Academy \"Bernal\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "La Moneda CF \"Compromiso\" - AD Los Mares",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "S-31",
+     "11:30",
+     "CD Rafael Gordillo Zona B Campo B2,2",
      "Real Betis Academy \"Ceballos\" - CF Comarca los Alcores \"B\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - EMD Burguillos",
+     "S-31",
+     "12:10",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
+     "Camino Viejo CF - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "S-31",
+     "12:30",
+     "La Moneda CF (Fútbol 7)",
+     "La Moneda CF \"Compromiso\" - AD Los Mares",
      ""
     ]
    ]
@@ -278,6 +278,13 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "J-29",
+     "17:30",
+     "",
+     "CA Aznalcázar - EMD Burguillos",
+     ""
+    ],
+    [
      "V-30",
      "18:00",
      "",
@@ -292,38 +299,31 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "Camino Viejo CF - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "V-30",
+     "19:30",
+     "Pabellón municipal pepe flores",
      "CD Isidro Reguera - Real Betis Academy \"Bernal\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "La Moneda CF \"Compromiso\" - AD Los Mares",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "S-31",
+     "11:30",
+     "CD Rafael Gordillo Zona B Campo B2,2",
      "Real Betis Academy \"Ceballos\" - CF Comarca los Alcores \"B\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - EMD Burguillos",
+     "S-31",
+     "12:10",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
+     "Camino Viejo CF - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "S-31",
+     "12:30",
+     "La Moneda CF (Fútbol 7)",
+     "La Moneda CF \"Compromiso\" - AD Los Mares",
      ""
     ]
    ]
@@ -335,6 +335,20 @@
    [
     [
      "Benjamines - Benjamín 1º Año - 1º Año Grupo Único -  Jornada: 3 (30/10/2026)"
+    ],
+    [
+     "Jue 29\n17:30",
+     "",
+     "CA Aznalcázar",
+     "",
+     "-",
+     "",
+     "EMD Burguillos",
+     "",
+     ""
+    ],
+    [
+     ""
     ],
     [
      "Vie 30\n18:00",
@@ -365,22 +379,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "Camino Viejo CF",
-     "",
-     "-",
-     "",
-     "CD Tor del Rey de Pilas",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
-     "",
+     "Vie 30\n19:30",
+     "Pabellón municipal pepe flores",
      "CD Isidro Reguera",
      "",
      "-",
@@ -393,22 +393,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "La Moneda CF \"Compromiso\"",
-     "",
-     "-",
-     "",
-     "AD Los Mares",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
-     "",
+     "Sáb 31\n11:30",
+     "CD Rafael Gordillo Zona B Campo B2,2",
      "Real Betis Academy \"Ceballos\"",
      "",
      "-",
@@ -421,13 +407,27 @@
      ""
     ],
     [
-     "",
-     "",
-     "CA Aznalcázar",
+     "Sáb 31\n12:10",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
+     "Camino Viejo CF",
      "",
      "-",
      "",
-     "EMD Burguillos",
+     "CD Tor del Rey de Pilas",
+     "",
+     ""
+    ],
+    [
+     ""
+    ],
+    [
+     "Sáb 31\n12:30",
+     "La Moneda CF (Fútbol 7)",
+     "La Moneda CF \"Compromiso\"",
+     "",
+     "-",
+     "",
+     "AD Los Mares",
      "",
      ""
     ],
@@ -441,6 +441,13 @@
     ],
     [
      "Jornada 3 (30/10/2026)"
+    ],
+    [
+     "J-29",
+     "17:30",
+     "",
+     "CA Aznalcázar - EMD Burguillos",
+     ""
     ],
     [
      "V-30",
@@ -457,38 +464,31 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "Camino Viejo CF - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "V-30",
+     "19:30",
+     "Pabellón municipal pepe flores",
      "CD Isidro Reguera - Real Betis Academy \"Bernal\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "La Moneda CF \"Compromiso\" - AD Los Mares",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "S-31",
+     "11:30",
+     "CD Rafael Gordillo Zona B Campo B2,2",
      "Real Betis Academy \"Ceballos\" - CF Comarca los Alcores \"B\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - EMD Burguillos",
+     "S-31",
+     "12:10",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
+     "Camino Viejo CF - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "S-31",
+     "12:30",
+     "La Moneda CF (Fútbol 7)",
+     "La Moneda CF \"Compromiso\" - AD Los Mares",
      ""
     ]
    ]
@@ -608,6 +608,13 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "J-29",
+     "17:30",
+     "",
+     "CA Aznalcázar - EMD Burguillos",
+     ""
+    ],
+    [
      "V-30",
      "18:00",
      "",
@@ -622,38 +629,31 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "Camino Viejo CF - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "V-30",
+     "19:30",
+     "Pabellón municipal pepe flores",
      "CD Isidro Reguera - Real Betis Academy \"Bernal\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "La Moneda CF \"Compromiso\" - AD Los Mares",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "S-31",
+     "11:30",
+     "CD Rafael Gordillo Zona B Campo B2,2",
      "Real Betis Academy \"Ceballos\" - CF Comarca los Alcores \"B\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - EMD Burguillos",
+     "S-31",
+     "12:10",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
+     "Camino Viejo CF - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "S-31",
+     "12:30",
+     "La Moneda CF (Fútbol 7)",
+     "La Moneda CF \"Compromiso\" - AD Los Mares",
      ""
     ]
    ]
@@ -773,6 +773,13 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "J-29",
+     "17:30",
+     "",
+     "CA Aznalcázar - EMD Burguillos",
+     ""
+    ],
+    [
      "V-30",
      "18:00",
      "",
@@ -787,38 +794,31 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "Camino Viejo CF - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "V-30",
+     "19:30",
+     "Pabellón municipal pepe flores",
      "CD Isidro Reguera - Real Betis Academy \"Bernal\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "La Moneda CF \"Compromiso\" - AD Los Mares",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "S-31",
+     "11:30",
+     "CD Rafael Gordillo Zona B Campo B2,2",
      "Real Betis Academy \"Ceballos\" - CF Comarca los Alcores \"B\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - EMD Burguillos",
+     "S-31",
+     "12:10",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
+     "Camino Viejo CF - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "S-31",
+     "12:30",
+     "La Moneda CF (Fútbol 7)",
+     "La Moneda CF \"Compromiso\" - AD Los Mares",
      ""
     ]
    ]
@@ -938,6 +938,13 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "J-29",
+     "17:30",
+     "",
+     "CA Aznalcázar - EMD Burguillos",
+     ""
+    ],
+    [
      "V-30",
      "18:00",
      "",
@@ -952,38 +959,31 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "Camino Viejo CF - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "V-30",
+     "19:30",
+     "Pabellón municipal pepe flores",
      "CD Isidro Reguera - Real Betis Academy \"Bernal\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "La Moneda CF \"Compromiso\" - AD Los Mares",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "S-31",
+     "11:30",
+     "CD Rafael Gordillo Zona B Campo B2,2",
      "Real Betis Academy \"Ceballos\" - CF Comarca los Alcores \"B\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - EMD Burguillos",
+     "S-31",
+     "12:10",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
+     "Camino Viejo CF - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "S-31",
+     "12:30",
+     "La Moneda CF (Fútbol 7)",
+     "La Moneda CF \"Compromiso\" - AD Los Mares",
      ""
     ]
    ]
@@ -1103,6 +1103,13 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "J-29",
+     "17:30",
+     "",
+     "CA Aznalcázar - EMD Burguillos",
+     ""
+    ],
+    [
      "V-30",
      "18:00",
      "",
@@ -1117,38 +1124,31 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "Camino Viejo CF - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "V-30",
+     "19:30",
+     "Pabellón municipal pepe flores",
      "CD Isidro Reguera - Real Betis Academy \"Bernal\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "La Moneda CF \"Compromiso\" - AD Los Mares",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "S-31",
+     "11:30",
+     "CD Rafael Gordillo Zona B Campo B2,2",
      "Real Betis Academy \"Ceballos\" - CF Comarca los Alcores \"B\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - EMD Burguillos",
+     "S-31",
+     "12:10",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
+     "Camino Viejo CF - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "S-31",
+     "12:30",
+     "La Moneda CF (Fútbol 7)",
+     "La Moneda CF \"Compromiso\" - AD Los Mares",
      ""
     ]
    ]
@@ -1268,6 +1268,13 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "J-29",
+     "17:30",
+     "",
+     "CA Aznalcázar - EMD Burguillos",
+     ""
+    ],
+    [
      "V-30",
      "18:00",
      "",
@@ -1282,38 +1289,31 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "Camino Viejo CF - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "V-30",
+     "19:30",
+     "Pabellón municipal pepe flores",
      "CD Isidro Reguera - Real Betis Academy \"Bernal\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "La Moneda CF \"Compromiso\" - AD Los Mares",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "S-31",
+     "11:30",
+     "CD Rafael Gordillo Zona B Campo B2,2",
      "Real Betis Academy \"Ceballos\" - CF Comarca los Alcores \"B\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - EMD Burguillos",
+     "S-31",
+     "12:10",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
+     "Camino Viejo CF - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "S-31",
+     "12:30",
+     "La Moneda CF (Fútbol 7)",
+     "La Moneda CF \"Compromiso\" - AD Los Mares",
      ""
     ]
    ]
@@ -1433,6 +1433,13 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "J-29",
+     "17:30",
+     "",
+     "CA Aznalcázar - EMD Burguillos",
+     ""
+    ],
+    [
      "V-30",
      "18:00",
      "",
@@ -1447,38 +1454,31 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "Camino Viejo CF - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "V-30",
+     "19:30",
+     "Pabellón municipal pepe flores",
      "CD Isidro Reguera - Real Betis Academy \"Bernal\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "La Moneda CF \"Compromiso\" - AD Los Mares",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "S-31",
+     "11:30",
+     "CD Rafael Gordillo Zona B Campo B2,2",
      "Real Betis Academy \"Ceballos\" - CF Comarca los Alcores \"B\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - EMD Burguillos",
+     "S-31",
+     "12:10",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
+     "Camino Viejo CF - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "S-31",
+     "12:30",
+     "La Moneda CF (Fútbol 7)",
+     "La Moneda CF \"Compromiso\" - AD Los Mares",
      ""
     ]
    ]
@@ -1598,6 +1598,13 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "J-29",
+     "17:30",
+     "",
+     "CA Aznalcázar - EMD Burguillos",
+     ""
+    ],
+    [
      "V-30",
      "18:00",
      "",
@@ -1612,38 +1619,31 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "Camino Viejo CF - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "V-30",
+     "19:30",
+     "Pabellón municipal pepe flores",
      "CD Isidro Reguera - Real Betis Academy \"Bernal\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "La Moneda CF \"Compromiso\" - AD Los Mares",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "S-31",
+     "11:30",
+     "CD Rafael Gordillo Zona B Campo B2,2",
      "Real Betis Academy \"Ceballos\" - CF Comarca los Alcores \"B\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - EMD Burguillos",
+     "S-31",
+     "12:10",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
+     "Camino Viejo CF - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "S-31",
+     "12:30",
+     "La Moneda CF (Fútbol 7)",
+     "La Moneda CF \"Compromiso\" - AD Los Mares",
      ""
     ]
    ]
@@ -1763,6 +1763,13 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "J-29",
+     "17:30",
+     "",
+     "CA Aznalcázar - EMD Burguillos",
+     ""
+    ],
+    [
      "V-30",
      "18:00",
      "",
@@ -1777,38 +1784,31 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "Camino Viejo CF - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "V-30",
+     "19:30",
+     "Pabellón municipal pepe flores",
      "CD Isidro Reguera - Real Betis Academy \"Bernal\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "La Moneda CF \"Compromiso\" - AD Los Mares",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "S-31",
+     "11:30",
+     "CD Rafael Gordillo Zona B Campo B2,2",
      "Real Betis Academy \"Ceballos\" - CF Comarca los Alcores \"B\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - EMD Burguillos",
+     "S-31",
+     "12:10",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
+     "Camino Viejo CF - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "S-31",
+     "12:30",
+     "La Moneda CF (Fútbol 7)",
+     "La Moneda CF \"Compromiso\" - AD Los Mares",
      ""
     ]
    ]
@@ -1928,6 +1928,13 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "J-29",
+     "17:30",
+     "",
+     "CA Aznalcázar - EMD Burguillos",
+     ""
+    ],
+    [
      "V-30",
      "18:00",
      "",
@@ -1942,38 +1949,31 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "Camino Viejo CF - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "V-30",
+     "19:30",
+     "Pabellón municipal pepe flores",
      "CD Isidro Reguera - Real Betis Academy \"Bernal\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "La Moneda CF \"Compromiso\" - AD Los Mares",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "S-31",
+     "11:30",
+     "CD Rafael Gordillo Zona B Campo B2,2",
      "Real Betis Academy \"Ceballos\" - CF Comarca los Alcores \"B\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - EMD Burguillos",
+     "S-31",
+     "12:10",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
+     "Camino Viejo CF - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "S-31",
+     "12:30",
+     "La Moneda CF (Fútbol 7)",
+     "La Moneda CF \"Compromiso\" - AD Los Mares",
      ""
     ]
    ]
@@ -2093,6 +2093,13 @@
      "Jornada 3 (30/10/2026)"
     ],
     [
+     "J-29",
+     "17:30",
+     "",
+     "CA Aznalcázar - EMD Burguillos",
+     ""
+    ],
+    [
      "V-30",
      "18:00",
      "",
@@ -2107,38 +2114,31 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "Camino Viejo CF - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "V-30",
+     "19:30",
+     "Pabellón municipal pepe flores",
      "CD Isidro Reguera - Real Betis Academy \"Bernal\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "La Moneda CF \"Compromiso\" - AD Los Mares",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "S-31",
+     "11:30",
+     "CD Rafael Gordillo Zona B Campo B2,2",
      "Real Betis Academy \"Ceballos\" - CF Comarca los Alcores \"B\"",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - EMD Burguillos",
+     "S-31",
+     "12:10",
+     "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
+     "Camino Viejo CF - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "S-31",
+     "12:30",
+     "La Moneda CF (Fútbol 7)",
+     "La Moneda CF \"Compromiso\" - AD Los Mares",
      ""
     ]
    ]

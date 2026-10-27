@@ -162,6 +162,13 @@
      ""
     ],
     [
+     "X-28",
+     "19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - SD CEU Andalucía",
+     ""
+    ],
+    [
      "V-30",
      "17:00",
      "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
@@ -184,9 +191,23 @@
     ],
     [
      "S-31",
+     "10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\" - Espartinas CF",
+     ""
+    ],
+    [
+     "S-31",
      "10:30",
      "",
      "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Palomares CF",
      ""
     ],
     [
@@ -197,29 +218,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CD Isidro Reguera \"A\" - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport - Palomares CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - SD CEU Andalucía",
-     ""
-    ],
-    [
-     "",
-     "",
+     "S-31",
+     "12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
      ""
@@ -390,6 +390,13 @@
      ""
     ],
     [
+     "X-28",
+     "19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - SD CEU Andalucía",
+     ""
+    ],
+    [
      "V-30",
      "17:00",
      "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
@@ -412,9 +419,23 @@
     ],
     [
      "S-31",
+     "10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\" - Espartinas CF",
+     ""
+    ],
+    [
+     "S-31",
      "10:30",
      "",
      "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Palomares CF",
      ""
     ],
     [
@@ -425,29 +446,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CD Isidro Reguera \"A\" - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport - Palomares CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - SD CEU Andalucía",
-     ""
-    ],
-    [
-     "",
-     "",
+     "S-31",
+     "12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
      ""
@@ -470,6 +470,20 @@
      "-",
      "",
      "EF Rio Grande",
+     "",
+     ""
+    ],
+    [
+     ""
+    ],
+    [
+     "Mié 28\n19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva",
+     "",
+     "-",
+     "",
+     "SD CEU Andalucía",
      "",
      ""
     ],
@@ -519,6 +533,20 @@
      ""
     ],
     [
+     "Sáb 31\n10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\"",
+     "",
+     "-",
+     "",
+     "Espartinas CF",
+     "",
+     ""
+    ],
+    [
+     ""
+    ],
+    [
      "Sáb 31\n10:30",
      "",
      "CD Tor del Rey de Pilas \"B\"",
@@ -526,6 +554,20 @@
      "-",
      "",
      "Atco. Olivarense",
+     "",
+     ""
+    ],
+    [
+     ""
+    ],
+    [
+     "Sáb 31\n11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport",
+     "",
+     "-",
+     "",
+     "Palomares CF",
      "",
      ""
     ],
@@ -547,49 +589,7 @@
      ""
     ],
     [
-     "",
-     "",
-     "CD Isidro Reguera \"A\"",
-     "",
-     "-",
-     "",
-     "Espartinas CF",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport",
-     "",
-     "-",
-     "",
-     "Palomares CF",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva",
-     "",
-     "-",
-     "",
-     "SD CEU Andalucía",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
+     "Sáb 31\n12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF",
      "",
@@ -618,6 +618,13 @@
      ""
     ],
     [
+     "X-28",
+     "19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - SD CEU Andalucía",
+     ""
+    ],
+    [
      "V-30",
      "17:00",
      "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
@@ -640,9 +647,23 @@
     ],
     [
      "S-31",
+     "10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\" - Espartinas CF",
+     ""
+    ],
+    [
+     "S-31",
      "10:30",
      "",
      "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Palomares CF",
      ""
     ],
     [
@@ -653,29 +674,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CD Isidro Reguera \"A\" - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport - Palomares CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - SD CEU Andalucía",
-     ""
-    ],
-    [
-     "",
-     "",
+     "S-31",
+     "12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
      ""
@@ -846,6 +846,13 @@
      ""
     ],
     [
+     "X-28",
+     "19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - SD CEU Andalucía",
+     ""
+    ],
+    [
      "V-30",
      "17:00",
      "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
@@ -868,9 +875,23 @@
     ],
     [
      "S-31",
+     "10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\" - Espartinas CF",
+     ""
+    ],
+    [
+     "S-31",
      "10:30",
      "",
      "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Palomares CF",
      ""
     ],
     [
@@ -881,29 +902,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CD Isidro Reguera \"A\" - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport - Palomares CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - SD CEU Andalucía",
-     ""
-    ],
-    [
-     "",
-     "",
+     "S-31",
+     "12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
      ""
@@ -1074,6 +1074,13 @@
      ""
     ],
     [
+     "X-28",
+     "19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - SD CEU Andalucía",
+     ""
+    ],
+    [
      "V-30",
      "17:00",
      "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
@@ -1096,9 +1103,23 @@
     ],
     [
      "S-31",
+     "10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\" - Espartinas CF",
+     ""
+    ],
+    [
+     "S-31",
      "10:30",
      "",
      "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Palomares CF",
      ""
     ],
     [
@@ -1109,29 +1130,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CD Isidro Reguera \"A\" - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport - Palomares CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - SD CEU Andalucía",
-     ""
-    ],
-    [
-     "",
-     "",
+     "S-31",
+     "12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
      ""
@@ -1302,6 +1302,13 @@
      ""
     ],
     [
+     "X-28",
+     "19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - SD CEU Andalucía",
+     ""
+    ],
+    [
      "V-30",
      "17:00",
      "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
@@ -1324,9 +1331,23 @@
     ],
     [
      "S-31",
+     "10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\" - Espartinas CF",
+     ""
+    ],
+    [
+     "S-31",
      "10:30",
      "",
      "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Palomares CF",
      ""
     ],
     [
@@ -1337,29 +1358,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CD Isidro Reguera \"A\" - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport - Palomares CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - SD CEU Andalucía",
-     ""
-    ],
-    [
-     "",
-     "",
+     "S-31",
+     "12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
      ""
@@ -1530,6 +1530,13 @@
      ""
     ],
     [
+     "X-28",
+     "19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - SD CEU Andalucía",
+     ""
+    ],
+    [
      "V-30",
      "17:00",
      "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
@@ -1552,9 +1559,23 @@
     ],
     [
      "S-31",
+     "10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\" - Espartinas CF",
+     ""
+    ],
+    [
+     "S-31",
      "10:30",
      "",
      "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Palomares CF",
      ""
     ],
     [
@@ -1565,29 +1586,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CD Isidro Reguera \"A\" - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport - Palomares CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - SD CEU Andalucía",
-     ""
-    ],
-    [
-     "",
-     "",
+     "S-31",
+     "12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
      ""
@@ -1758,6 +1758,13 @@
      ""
     ],
     [
+     "X-28",
+     "19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - SD CEU Andalucía",
+     ""
+    ],
+    [
      "V-30",
      "17:00",
      "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
@@ -1780,9 +1787,23 @@
     ],
     [
      "S-31",
+     "10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\" - Espartinas CF",
+     ""
+    ],
+    [
+     "S-31",
      "10:30",
      "",
      "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Palomares CF",
      ""
     ],
     [
@@ -1793,29 +1814,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CD Isidro Reguera \"A\" - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport - Palomares CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - SD CEU Andalucía",
-     ""
-    ],
-    [
-     "",
-     "",
+     "S-31",
+     "12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
      ""
@@ -1986,6 +1986,13 @@
      ""
     ],
     [
+     "X-28",
+     "19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - SD CEU Andalucía",
+     ""
+    ],
+    [
      "V-30",
      "17:00",
      "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
@@ -2008,9 +2015,23 @@
     ],
     [
      "S-31",
+     "10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\" - Espartinas CF",
+     ""
+    ],
+    [
+     "S-31",
      "10:30",
      "",
      "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Palomares CF",
      ""
     ],
     [
@@ -2021,29 +2042,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CD Isidro Reguera \"A\" - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport - Palomares CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - SD CEU Andalucía",
-     ""
-    ],
-    [
-     "",
-     "",
+     "S-31",
+     "12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
      ""
@@ -2214,6 +2214,13 @@
      ""
     ],
     [
+     "X-28",
+     "19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - SD CEU Andalucía",
+     ""
+    ],
+    [
      "V-30",
      "17:00",
      "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
@@ -2236,9 +2243,23 @@
     ],
     [
      "S-31",
+     "10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\" - Espartinas CF",
+     ""
+    ],
+    [
+     "S-31",
      "10:30",
      "",
      "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Palomares CF",
      ""
     ],
     [
@@ -2249,29 +2270,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CD Isidro Reguera \"A\" - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport - Palomares CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - SD CEU Andalucía",
-     ""
-    ],
-    [
-     "",
-     "",
+     "S-31",
+     "12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
      ""
@@ -2442,6 +2442,13 @@
      ""
     ],
     [
+     "X-28",
+     "19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - SD CEU Andalucía",
+     ""
+    ],
+    [
      "V-30",
      "17:00",
      "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
@@ -2464,9 +2471,23 @@
     ],
     [
      "S-31",
+     "10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\" - Espartinas CF",
+     ""
+    ],
+    [
+     "S-31",
      "10:30",
      "",
      "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Palomares CF",
      ""
     ],
     [
@@ -2477,29 +2498,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CD Isidro Reguera \"A\" - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport - Palomares CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - SD CEU Andalucía",
-     ""
-    ],
-    [
-     "",
-     "",
+     "S-31",
+     "12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
      ""
@@ -2670,6 +2670,13 @@
      ""
     ],
     [
+     "X-28",
+     "19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - SD CEU Andalucía",
+     ""
+    ],
+    [
      "V-30",
      "17:00",
      "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
@@ -2692,9 +2699,23 @@
     ],
     [
      "S-31",
+     "10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\" - Espartinas CF",
+     ""
+    ],
+    [
+     "S-31",
      "10:30",
      "",
      "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Palomares CF",
      ""
     ],
     [
@@ -2705,29 +2726,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CD Isidro Reguera \"A\" - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport - Palomares CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - SD CEU Andalucía",
-     ""
-    ],
-    [
-     "",
-     "",
+     "S-31",
+     "12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
      ""
@@ -2898,6 +2898,13 @@
      ""
     ],
     [
+     "X-28",
+     "19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - SD CEU Andalucía",
+     ""
+    ],
+    [
      "V-30",
      "17:00",
      "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
@@ -2920,9 +2927,23 @@
     ],
     [
      "S-31",
+     "10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\" - Espartinas CF",
+     ""
+    ],
+    [
+     "S-31",
      "10:30",
      "",
      "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Palomares CF",
      ""
     ],
     [
@@ -2933,29 +2954,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CD Isidro Reguera \"A\" - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport - Palomares CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - SD CEU Andalucía",
-     ""
-    ],
-    [
-     "",
-     "",
+     "S-31",
+     "12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
      ""
@@ -3126,6 +3126,13 @@
      ""
     ],
     [
+     "X-28",
+     "19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - SD CEU Andalucía",
+     ""
+    ],
+    [
      "V-30",
      "17:00",
      "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
@@ -3148,9 +3155,23 @@
     ],
     [
      "S-31",
+     "10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\" - Espartinas CF",
+     ""
+    ],
+    [
+     "S-31",
      "10:30",
      "",
      "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Palomares CF",
      ""
     ],
     [
@@ -3161,29 +3182,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CD Isidro Reguera \"A\" - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport - Palomares CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - SD CEU Andalucía",
-     ""
-    ],
-    [
-     "",
-     "",
+     "S-31",
+     "12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
      ""
@@ -3354,6 +3354,13 @@
      ""
     ],
     [
+     "X-28",
+     "19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - SD CEU Andalucía",
+     ""
+    ],
+    [
      "V-30",
      "17:00",
      "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
@@ -3376,9 +3383,23 @@
     ],
     [
      "S-31",
+     "10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\" - Espartinas CF",
+     ""
+    ],
+    [
+     "S-31",
      "10:30",
      "",
      "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Palomares CF",
      ""
     ],
     [
@@ -3389,29 +3410,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CD Isidro Reguera \"A\" - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport - Palomares CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - SD CEU Andalucía",
-     ""
-    ],
-    [
-     "",
-     "",
+     "S-31",
+     "12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
      ""
@@ -3582,6 +3582,13 @@
      ""
     ],
     [
+     "X-28",
+     "19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - SD CEU Andalucía",
+     ""
+    ],
+    [
      "V-30",
      "17:00",
      "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
@@ -3604,9 +3611,23 @@
     ],
     [
      "S-31",
+     "10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\" - Espartinas CF",
+     ""
+    ],
+    [
+     "S-31",
      "10:30",
      "",
      "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Palomares CF",
      ""
     ],
     [
@@ -3617,29 +3638,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CD Isidro Reguera \"A\" - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport - Palomares CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - SD CEU Andalucía",
-     ""
-    ],
-    [
-     "",
-     "",
+     "S-31",
+     "12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
      ""
@@ -3810,6 +3810,13 @@
      ""
     ],
     [
+     "X-28",
+     "19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - SD CEU Andalucía",
+     ""
+    ],
+    [
      "V-30",
      "17:00",
      "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
@@ -3832,9 +3839,23 @@
     ],
     [
      "S-31",
+     "10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\" - Espartinas CF",
+     ""
+    ],
+    [
+     "S-31",
      "10:30",
      "",
      "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Palomares CF",
      ""
     ],
     [
@@ -3845,29 +3866,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CD Isidro Reguera \"A\" - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport - Palomares CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - SD CEU Andalucía",
-     ""
-    ],
-    [
-     "",
-     "",
+     "S-31",
+     "12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
      ""
@@ -4038,6 +4038,13 @@
      ""
     ],
     [
+     "X-28",
+     "19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - SD CEU Andalucía",
+     ""
+    ],
+    [
      "V-30",
      "17:00",
      "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
@@ -4060,9 +4067,23 @@
     ],
     [
      "S-31",
+     "10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\" - Espartinas CF",
+     ""
+    ],
+    [
+     "S-31",
      "10:30",
      "",
      "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Palomares CF",
      ""
     ],
     [
@@ -4073,29 +4094,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CD Isidro Reguera \"A\" - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport - Palomares CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - SD CEU Andalucía",
-     ""
-    ],
-    [
-     "",
-     "",
+     "S-31",
+     "12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
      ""
@@ -4266,6 +4266,13 @@
      ""
     ],
     [
+     "X-28",
+     "19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - SD CEU Andalucía",
+     ""
+    ],
+    [
      "V-30",
      "17:00",
      "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
@@ -4288,9 +4295,23 @@
     ],
     [
      "S-31",
+     "10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\" - Espartinas CF",
+     ""
+    ],
+    [
+     "S-31",
      "10:30",
      "",
      "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Palomares CF",
      ""
     ],
     [
@@ -4301,29 +4322,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CD Isidro Reguera \"A\" - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport - Palomares CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - SD CEU Andalucía",
-     ""
-    ],
-    [
-     "",
-     "",
+     "S-31",
+     "12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
      ""
@@ -4494,6 +4494,13 @@
      ""
     ],
     [
+     "X-28",
+     "19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - SD CEU Andalucía",
+     ""
+    ],
+    [
      "V-30",
      "17:00",
      "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
@@ -4516,9 +4523,23 @@
     ],
     [
      "S-31",
+     "10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\" - Espartinas CF",
+     ""
+    ],
+    [
+     "S-31",
      "10:30",
      "",
      "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Palomares CF",
      ""
     ],
     [
@@ -4529,29 +4550,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CD Isidro Reguera \"A\" - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport - Palomares CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - SD CEU Andalucía",
-     ""
-    ],
-    [
-     "",
-     "",
+     "S-31",
+     "12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
      ""
@@ -4722,6 +4722,13 @@
      ""
     ],
     [
+     "X-28",
+     "19:30",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - SD CEU Andalucía",
+     ""
+    ],
+    [
      "V-30",
      "17:00",
      "NUEVO ESTADIO SAN JOSÉ (F11-F7)",
@@ -4744,9 +4751,23 @@
     ],
     [
      "S-31",
+     "10:00",
+     "Pabellón municipal pepe flores",
+     "CD Isidro Reguera \"A\" - Espartinas CF",
+     ""
+    ],
+    [
+     "S-31",
      "10:30",
      "",
      "CD Tor del Rey de Pilas \"B\" - Atco. Olivarense",
+     ""
+    ],
+    [
+     "S-31",
+     "11:30",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Palomares CF",
      ""
     ],
     [
@@ -4757,29 +4778,8 @@
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CD Isidro Reguera \"A\" - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
-     "CD Casado Sport - Palomares CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - SD CEU Andalucía",
-     ""
-    ],
-    [
-     "",
-     "",
+     "S-31",
+     "12:10",
      "Polideportivo Municipal José Moreno “Pepillo”, Tomares",
      "Camino Viejo CF - UD Loreto",
      ""
