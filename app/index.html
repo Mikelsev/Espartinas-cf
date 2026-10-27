@@ -339,6 +339,7 @@ const CONFIG_ESPARTINAS = {
       clave: "BenjaminECF",
       claveDelegado: "delegado-benjamin",
       notaConvocatoria: "Cada niño y cada niña, que se lleve su botella de agua.",
+      sinVotos: true,                      // sin votaciones ni puntuaciones; el Ranking solo de goleadores
       ligaUrl: "https://www.educationleague.es/?id_lan=1&id_geo=8&id_spo=1&id_com_gro0=439&sea=2026&id_rac=1&id_age=75&id_com_gro1=465&id_com_sea=1831&id_com_sta=2254&id_sec=335"
     }
   ]
@@ -641,7 +642,7 @@ function render(){
     </header>
     <main>${vista}</main>
     <nav class="tabbar"><div class="tabbar-inner">
-      ${[["partidos","Partidos"],["liga","Liga"],["ranking","Ranking"],["equipo","Equipo"],["yo","Yo"]].map(([k,l]) =>
+      ${[["partidos","Partidos"],["liga","Liga"],["ranking",S.team.sinVotos ? "Goleadores" : "Ranking"],["equipo","Equipo"],["yo","Yo"]].map(([k,l]) =>
         `<button class="tab ${S.tab === k ? "on" : ""}" data-act="tab" data-tab="${k}" aria-current="${S.tab === k ? "page" : "false"}">${ICON[k]}<span>${l}</span></button>`).join("")}
     </div></nav>`;
   window.scrollTo(0, scroll);
@@ -732,6 +733,7 @@ function vLiga(){
 }
 
 function avisoVotos(){
+  if(S.team.sinVotos) return "";
   const pend = pendientesDeVotar(S.session.me);
   if(!pend.length) return "";
   return `<div class="aviso">${ICON.ranking}<div class="grow"><b>Te falta votar en ${pend.length === 1 ? "un partido" : pend.length + " partidos"}</b><span>Hay que votar a todos los compañeros.</span></div>
@@ -740,6 +742,7 @@ function avisoVotos(){
 const filaRanking = (pos, j, valor, sub, clase = "") => `<div class="scorer ${pos === 1 ? "top1" : ""}"><span class="rank">${pos}</span>${avatar(j, 40)}<div class="grow" style="min-width:0"><b>${esc(j.nombre)}</b>${sub ? `<div class="muted" style="font-size:.8rem">${sub}</div>` : ""}</div><span class="goals ${clase}">${valor}</span></div>`;
 function conPosiciones(lista, clave){ let pos = 0, prev = null; return lista.map((x, i) => { if(x[clave] !== prev){ pos = i + 1; prev = x[clave]; } return { ...x, pos }; }); }
 function vRanking(){
+  if(S.team.sinVotos) return vGoles();
   const vista = S.rankVista === "goles" ? "goles" : "puntos";
   let html = avisoVotos() + `<div class="seg" role="tablist">${[["puntos", "Puntuación"], ["goles", "Goleadores"]].map(([k, l]) =>
     `<button role="tab" class="${vista === k ? "on" : ""}" aria-selected="${vista === k}" data-act="rank-vista" data-v="${k}">${l}</button>`).join("")}</div>`;
@@ -777,7 +780,7 @@ function vEquipo(){
       ${j.dorsal ? `<span class="num">${esc(j.dorsal)}</span>` : ""}
       ${avatar(j, 76)}
       <b>${esc(j.nombre)}</b>
-      <div class="stats"><span><strong>${golesDe(j.id)}</strong> goles</span><span><strong>${puntosDe(j.id)}</strong> puntos</span><span><strong>${mvpsDe(j.id)}</strong> MVP</span></div>
+      <div class="stats"><span><strong>${golesDe(j.id)}</strong> goles</span>${S.team.sinVotos ? "" : `<span><strong>${puntosDe(j.id)}</strong> puntos</span><span><strong>${mvpsDe(j.id)}</strong> MVP</span>`}</div>
       ${S.session.admin ? `<div class="stats"><span>${j.pin ? "Tiene PIN propio" : `<strong style="color:var(--ko)">PIN 0000, sin estrenar</strong>`}</span></div>` : ""}
       ${puedeFoto || S.session.admin ? `<div class="actions">
         ${puedeFoto ? `<button class="btn small ghost" data-act="foto" data-id="${j.id}">${j.foto ? "Cambiar foto" : "Subir foto"}</button>` : ""}
@@ -806,10 +809,12 @@ function vYo(){
     const pos = conPosiciones(S.jugadores.map(j => ({ id: j.id, pts: puntosDe(j.id) })).sort((a, b) => b.pts - a.pts), "pts").find(x => x.id === me.id)?.pos;
     html += `<div class="row">${avatar(me, 64)}<div class="grow" style="min-width:0"><h3 style="margin:0">${esc(me.nombre)}</h3><span class="muted">Has entrado con tu PIN</span></div></div>
       <div class="facts" style="margin-top:14px">
+        ${S.team.sinVotos ? `<div class="fact"><b>${golesDe(me.id)}</b><span>Goles</span></div>
+        <div class="fact"><b>${jugados().filter(p => (p.convocados || []).includes(me.id)).length}</b><span>Partidos convocado</span></div>` : `
         <div class="fact"><b>${puntosDe(me.id)}</b><span>Puntos de votos${puntosDe(me.id) && pos ? ` (${pos}º)` : ""}</span></div>
         <div class="fact"><b>${mvpsDe(me.id)}</b><span>Veces MVP</span></div>
         <div class="fact"><b>${golesDe(me.id)}</b><span>Goles</span></div>
-        <div class="fact"><b>${votados} de ${jugados().length}</b><span>Partidos votados</span></div>
+        <div class="fact"><b>${votados} de ${jugados().length}</b><span>Partidos votados</span></div>`}
       </div>
       <div class="row wrap" style="margin-top:14px">
         <button class="btn small" data-act="foto" data-id="${me.id}">${me.foto ? "Cambiar mi foto" : "Subir mi foto"}</button>
@@ -866,14 +871,14 @@ function htmlPartido(p){
 
   html += htmlConvocatoria(p);
   if(!jugado(p)){
-    html += `<div class="block">${htmlPrevia(p)}</div><div class="block"><h3>Votaciones</h3><p class="muted" style="margin:0">Se abren cuando haya resultado.</p></div>`;
+    html += `<div class="block">${htmlPrevia(p)}</div>${S.team.sinVotos ? "" : `<div class="block"><h3>Votaciones</h3><p class="muted" style="margin:0">Se abren cuando haya resultado.</p></div>`}`;
   } else {
     const goleadores = Object.entries(p.goles || {}).filter(([, n]) => +n > 0).sort((x, y) => y[1] - x[1]);
     html += `<div class="block"><h3>Goles del ${esc(CONFIG.corto)}</h3>${goleadores.length
       ? goleadores.map(([jid, n]) => `<div class="row" style="padding:5px 0">${avatar(jug(jid), 34)}<span class="grow">${esc(jug(jid)?.nombre || "Jugador")}</span><b>${"⚽".repeat(Math.min(+n, 6))}${+n > 6 ? " ×" + n : ""}</b></div>`).join("")
       : `<p class="muted" style="margin:0">${+p.gf ? "Sin goleadores apuntados." : "No marcamos en este partido."}</p>`}</div>`;
 
-    html += bloqueVotos(p);
+    if(!S.team.sinVotos) html += bloqueVotos(p);
   }
   if(S.session.admin){
     html += `<div class="row"><button class="btn grow" data-act="editar-partido" data-id="${p.id}">${jugado(p) ? "Editar partido" : "Editar o poner resultado"}</button><button class="btn red" data-act="borrar-partido" data-id="${p.id}">Borrar</button></div>`;
