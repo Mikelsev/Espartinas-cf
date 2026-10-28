@@ -8,7 +8,7 @@
   [
    "SAVIOLA",
    "ALCOPONE",
-   "7"
+   "9"
   ],
   [
    "JORGE",
@@ -21,19 +21,29 @@
    "5"
   ],
   [
+   "VICTOR S.",
+   "ALCOPONE",
+   "5"
+  ],
+  [
    "KIKE",
    "LUNES DE POTRERO",
    "5"
   ],
   [
-   "VICTOR S.",
-   "ALCOPONE",
-   "4"
-  ],
-  [
    "CARLOS",
    "CHAVALEO FC",
    "4"
+  ],
+  [
+   "EDU",
+   "ALCOPONE",
+   "3"
+  ],
+  [
+   "EDU",
+   "LUNES DE POTRERO",
+   "3"
   ],
   [
    "ANTONIO Gª ROBLEDO",
@@ -43,16 +53,6 @@
   [
    "GABRI PÉREZ",
    "LOS REMATANDO BAJITO",
-   "3"
-  ],
-  [
-   "WILLY",
-   "LUNES DE POTRERO",
-   "3"
-  ],
-  [
-   "ROBERTO",
-   "CORTECONCEPCIÓN",
    "3"
   ],
   [
@@ -68,15 +68,30 @@
   [
    "P. PINTINHO",
    "LUNES DE POTRERO",
-   "2"
+   "3"
   ],
   [
-   "VIOLA",
-   "CHAVALEO FC",
+   "WILLY",
+   "LUNES DE POTRERO",
+   "3"
+  ],
+  [
+   "ROBERTO",
+   "CORTECONCEPCIÓN",
+   "3"
+  ],
+  [
+   "RICKY",
+   "CLARET LEGENDS",
    "2"
   ],
   [
    "PICHARDO",
+   "CHAVALEO FC",
+   "2"
+  ],
+  [
+   "VIOLA",
    "CHAVALEO FC",
    "2"
   ],
@@ -88,16 +103,6 @@
   [
    "ANTONIO",
    "CHAVALEO FC",
-   "2"
-  ],
-  [
-   "EDU",
-   "ALCOPONE",
-   "2"
-  ],
-  [
-   "EDU",
-   "LUNES DE POTRERO",
    "2"
   ],
   [
@@ -146,18 +151,13 @@
    "1"
   ],
   [
-   "RICARDO",
-   "LUNES DE POTRERO",
-   "1"
-  ],
-  [
-   "RICKY",
-   "CLARET LEGENDS",
-   "1"
-  ],
-  [
    "YISA",
    "CLARET LEGENDS",
+   "1"
+  ],
+  [
+   "RICARDO",
+   "LUNES DE POTRERO",
    "1"
   ],
   [
@@ -206,14 +206,14 @@
   ],
   [
    "Partidos Pendientes",
-   "31",
-   "74%",
+   "29",
+   "69%",
    ""
   ],
   [
    "Partidos Disputados",
-   "11",
-   "26%",
+   "13",
+   "31%",
    ""
   ],
   [
@@ -224,39 +224,39 @@
   ],
   [
    "Partidos Ganados Local",
-   "3",
-   "27%",
+   "4",
+   "31%",
    ""
   ],
   [
    "Partidos Ganados Visitante",
-   "7",
-   "64%",
+   "8",
+   "62%",
    ""
   ],
   [
    "Partidos Empatados",
    "1",
-   "9%",
+   "8%",
    ""
   ],
   [
    "Total Goles",
-   "83",
+   "90",
    "",
-   "7,5"
+   "6,9"
   ],
   [
    "Goles Local",
-   "37",
-   "45%",
-   "3,4"
+   "39",
+   "43%",
+   "3,0"
   ],
   [
    "Goles Visitante",
-   "46",
-   "55%",
-   "4,2"
+   "51",
+   "57%",
+   "3,9"
   ]
  ]
 ]
