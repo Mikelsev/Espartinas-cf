@@ -22,36 +22,66 @@
  {
   "equipo": "CD Tor del Rey de Pilas \"B\"",
   "pos": 3,
-  "pts": 6,
-  "pj": 2,
-  "pg": 2,
+  "pts": 9,
+  "pj": 3,
+  "pg": 3,
   "pe": 0,
   "pp": 0,
-  "dif": 7
+  "dif": 12
  },
  {
-  "equipo": "EF Rio Grande",
+  "equipo": "CD Isidro Reguera \"A\"",
   "pos": 4,
   "pts": 6,
-  "pj": 2,
+  "pj": 3,
   "pg": 2,
   "pe": 0,
-  "pp": 0,
-  "dif": 7
+  "pp": 1,
+  "dif": 8
  },
  {
-  "equipo": "UD Loreto",
+  "equipo": "CD Atco. San Juan",
   "pos": 5,
   "pts": 6,
   "pj": 2,
   "pg": 2,
   "pe": 0,
   "pp": 0,
-  "dif": 2
+  "dif": 8
+ },
+ {
+  "equipo": "EF Rio Grande",
+  "pos": 6,
+  "pts": 6,
+  "pj": 2,
+  "pg": 2,
+  "pe": 0,
+  "pp": 0,
+  "dif": 7
+ },
+ {
+  "equipo": "Camino Viejo CF",
+  "pos": 7,
+  "pts": 6,
+  "pj": 3,
+  "pg": 2,
+  "pe": 0,
+  "pp": 1,
+  "dif": 4
+ },
+ {
+  "equipo": "CD Casado Sport",
+  "pos": 8,
+  "pts": 6,
+  "pj": 3,
+  "pg": 2,
+  "pe": 0,
+  "pp": 1,
+  "dif": 0
  },
  {
   "equipo": "CDM Gerena",
-  "pos": 6,
+  "pos": 9,
   "pts": 6,
   "pj": 3,
   "pg": 2,
@@ -60,18 +90,18 @@
   "dif": -1
  },
  {
-  "equipo": "Atco. Olivarense",
-  "pos": 7,
-  "pts": 4,
-  "pj": 2,
-  "pg": 1,
-  "pe": 1,
-  "pp": 0,
-  "dif": 2
+  "equipo": "UD Loreto",
+  "pos": 10,
+  "pts": 6,
+  "pj": 3,
+  "pg": 2,
+  "pe": 0,
+  "pp": 1,
+  "dif": -1
  },
  {
   "equipo": "Villanueva Deportiva",
-  "pos": 8,
+  "pos": 11,
   "pts": 4,
   "pj": 3,
   "pg": 1,
@@ -80,38 +110,18 @@
   "dif": -3
  },
  {
-  "equipo": "CD Atco. San Juan",
-  "pos": 9,
-  "pts": 3,
-  "pj": 1,
+  "equipo": "Atco. Olivarense",
+  "pos": 12,
+  "pts": 4,
+  "pj": 3,
   "pg": 1,
-  "pe": 0,
-  "pp": 0,
-  "dif": 5
- },
- {
-  "equipo": "CD Isidro Reguera \"A\"",
-  "pos": 10,
-  "pts": 3,
-  "pj": 2,
-  "pg": 1,
-  "pe": 0,
+  "pe": 1,
   "pp": 1,
-  "dif": 3
- },
- {
-  "equipo": "Camino Viejo CF",
-  "pos": 11,
-  "pts": 3,
-  "pj": 2,
-  "pg": 1,
-  "pe": 0,
-  "pp": 1,
-  "dif": 1
+  "dif": -3
  },
  {
   "equipo": "SD CEU Andalucía",
-  "pos": 12,
+  "pos": 13,
   "pts": 3,
   "pj": 3,
   "pg": 1,
@@ -120,28 +130,8 @@
   "dif": 0
  },
  {
-  "equipo": "CD Casado Sport",
-  "pos": 13,
-  "pts": 3,
-  "pj": 2,
-  "pg": 1,
-  "pe": 0,
-  "pp": 1,
-  "dif": -2
- },
- {
-  "equipo": "Espartinas CF",
-  "pos": 14,
-  "pts": 3,
-  "pj": 2,
-  "pg": 1,
-  "pe": 0,
-  "pp": 1,
-  "dif": -3
- },
- {
   "equipo": "CD Almensilla",
-  "pos": 15,
+  "pos": 14,
   "pts": 3,
   "pj": 3,
   "pg": 1,
@@ -151,7 +141,7 @@
  },
  {
   "equipo": "Umbrete CF",
-  "pos": 16,
+  "pos": 15,
   "pts": 3,
   "pj": 3,
   "pg": 1,
@@ -160,28 +150,28 @@
   "dif": -5
  },
  {
+  "equipo": "Espartinas CF",
+  "pos": 16,
+  "pts": 3,
+  "pj": 3,
+  "pg": 1,
+  "pe": 0,
+  "pp": 2,
+  "dif": -8
+ },
+ {
   "equipo": "Palomares CF",
   "pos": 17,
   "pts": 0,
-  "pj": 2,
+  "pj": 3,
   "pg": 0,
   "pe": 0,
-  "pp": 2,
-  "dif": -4
- },
- {
-  "equipo": "CD Tor del Rey de Pilas \"A\"",
-  "pos": 18,
-  "pts": 0,
-  "pj": 2,
-  "pg": 0,
-  "pe": 0,
-  "pp": 2,
+  "pp": 3,
   "dif": -6
  },
  {
   "equipo": "Benacazón CF",
-  "pos": 19,
+  "pos": 18,
   "pts": 0,
   "pj": 3,
   "pg": 0,
@@ -191,13 +181,23 @@
  },
  {
   "equipo": "CD Ricosport",
-  "pos": 20,
+  "pos": 19,
   "pts": 0,
   "pj": 2,
   "pg": 0,
   "pe": 0,
   "pp": 2,
   "dif": -8
+ },
+ {
+  "equipo": "CD Tor del Rey de Pilas \"A\"",
+  "pos": 20,
+  "pts": 0,
+  "pj": 3,
+  "pg": 0,
+  "pe": 0,
+  "pp": 3,
+  "dif": -9
  },
  {
   "equipo": "EF Ayto. Gines",

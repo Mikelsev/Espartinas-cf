@@ -21,8 +21,10 @@
   "jornada": 3,
   "local": false,
   "rival": "CD Isidro Reguera \"A\"",
-  "hora": "10:00",
-  "fecha": "2026-10-31",
+  "gf": 1,
+  "gc": 6,
+  "fecha": "2026-10-30",
+  "estado": "Finalizado",
   "campo": "Pabellón municipal pepe flores"
  },
  {

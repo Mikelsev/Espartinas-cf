@@ -1,7 +1,17 @@
 [
  {
-  "equipo": "CF Comarca los Alcores \"A\"",
+  "equipo": "CD Tor del Rey de Pilas",
   "pos": 1,
+  "pts": 9,
+  "pj": 3,
+  "pg": 3,
+  "pe": 0,
+  "pp": 0,
+  "dif": 15
+ },
+ {
+  "equipo": "CF Comarca los Alcores \"A\"",
+  "pos": 2,
   "pts": 7,
   "pj": 3,
   "pg": 2,
@@ -10,24 +20,14 @@
   "dif": 5
  },
  {
-  "equipo": "La Moneda CF \"Compromiso\"",
-  "pos": 2,
-  "pts": 6,
-  "pj": 2,
-  "pg": 2,
-  "pe": 0,
-  "pp": 0,
-  "dif": 10
- },
- {
-  "equipo": "CD Tor del Rey de Pilas",
+  "equipo": "AD Los Mares",
   "pos": 3,
   "pts": 6,
-  "pj": 2,
+  "pj": 3,
   "pg": 2,
   "pe": 0,
-  "pp": 0,
-  "dif": 10
+  "pp": 1,
+  "dif": 7
  },
  {
   "equipo": "CA Aznalcázar",
@@ -50,8 +50,18 @@
   "dif": 7
  },
  {
-  "equipo": "EEMM Villamanrique",
+  "equipo": "La Moneda CF \"Compromiso\"",
   "pos": 6,
+  "pts": 6,
+  "pj": 3,
+  "pg": 2,
+  "pe": 0,
+  "pp": 1,
+  "dif": 6
+ },
+ {
+  "equipo": "EEMM Villamanrique",
+  "pos": 7,
   "pts": 6,
   "pj": 3,
   "pg": 2,
@@ -60,24 +70,14 @@
   "dif": 4
  },
  {
-  "equipo": "AD Los Mares",
-  "pos": 7,
-  "pts": 3,
-  "pj": 2,
-  "pg": 1,
+  "equipo": "Real Betis Academy \"Ceballos\"",
+  "pos": 8,
+  "pts": 6,
+  "pj": 3,
+  "pg": 2,
   "pe": 0,
   "pp": 1,
   "dif": 3
- },
- {
-  "equipo": "Camino Viejo CF",
-  "pos": 8,
-  "pts": 3,
-  "pj": 2,
-  "pg": 1,
-  "pe": 0,
-  "pp": 1,
-  "dif": 1
  },
  {
   "equipo": "Real Betis Academy \"Bernal\"",
@@ -90,14 +90,14 @@
   "dif": -1
  },
  {
-  "equipo": "Real Betis Academy \"Ceballos\"",
+  "equipo": "Camino Viejo CF",
   "pos": 10,
   "pts": 3,
-  "pj": 2,
+  "pj": 3,
   "pg": 1,
   "pe": 0,
-  "pp": 1,
-  "dif": -2
+  "pp": 2,
+  "dif": -4
  },
  {
   "equipo": "Espartinas CF",
@@ -110,18 +110,8 @@
   "dif": -6
  },
  {
-  "equipo": "CF Comarca los Alcores \"B\"",
-  "pos": 12,
-  "pts": 0,
-  "pj": 2,
-  "pg": 0,
-  "pe": 0,
-  "pp": 2,
-  "dif": -10
- },
- {
   "equipo": "EDM Bormujos",
-  "pos": 13,
+  "pos": 12,
   "pts": 0,
   "pj": 3,
   "pg": 0,
@@ -131,12 +121,22 @@
  },
  {
   "equipo": "CD Isidro Reguera",
-  "pos": 14,
+  "pos": 13,
   "pts": 0,
   "pj": 3,
   "pg": 0,
   "pe": 0,
   "pp": 3,
   "dif": -14
+ },
+ {
+  "equipo": "CF Comarca los Alcores \"B\"",
+  "pos": 14,
+  "pts": 0,
+  "pj": 3,
+  "pg": 0,
+  "pe": 0,
+  "pp": 3,
+  "dif": -15
  }
 ]
