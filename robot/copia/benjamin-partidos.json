@@ -22,8 +22,10 @@
   "jornada": 3,
   "local": true,
   "rival": "CF Comarca los Alcores \"A\"",
-  "hora": "18:00",
-  "fecha": "2026-10-30"
+  "gf": 4,
+  "gc": 4,
+  "fecha": "2026-10-30",
+  "estado": "Finalizado"
  },
  {
   "jornada": 4,
