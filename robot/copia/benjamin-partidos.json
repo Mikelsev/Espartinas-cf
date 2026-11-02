@@ -31,7 +31,9 @@
   "jornada": 4,
   "local": false,
   "rival": "EDM Bormujos",
-  "fecha": "2026-11-06"
+  "hora": "19:10",
+  "fecha": "2026-11-06",
+  "campo": "Estadio Municipal José Acevedo \"Pepito\""
  },
  {
   "jornada": 5,

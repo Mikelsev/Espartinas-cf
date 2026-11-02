@@ -156,6 +156,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "Atco. Olivarense - CD Isidro Reguera \"A\"",
@@ -176,6 +190,13 @@
      ""
     ],
     [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -186,21 +207,7 @@
      "",
      "",
      "",
-     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Umbrete CF - CDM Gerena",
      ""
     ],
     [
@@ -215,13 +222,6 @@
      "",
      "",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - CD Ricosport",
      ""
     ]
    ]
@@ -384,6 +384,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "Atco. Olivarense - CD Isidro Reguera \"A\"",
@@ -404,6 +418,13 @@
      ""
     ],
     [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -414,21 +435,7 @@
      "",
      "",
      "",
-     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Umbrete CF - CDM Gerena",
      ""
     ],
     [
@@ -443,13 +450,6 @@
      "",
      "",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - CD Ricosport",
      ""
     ]
    ]
@@ -612,6 +612,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "Atco. Olivarense - CD Isidro Reguera \"A\"",
@@ -632,6 +646,13 @@
      ""
     ],
     [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -642,21 +663,7 @@
      "",
      "",
      "",
-     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Umbrete CF - CDM Gerena",
      ""
     ],
     [
@@ -672,13 +679,6 @@
      "",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
      ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - CD Ricosport",
-     ""
     ]
    ]
   ]
@@ -689,6 +689,34 @@
    [
     [
      "Alevines - Alevín 2º Año - 2º Año - Grupo 1 -  Jornada: 4 (06/11/2026)"
+    ],
+    [
+     "Vie 06\n17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF",
+     "",
+     "-",
+     "",
+     "CD Ricosport",
+     "",
+     ""
+    ],
+    [
+     ""
+    ],
+    [
+     "Vie 06\n18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía",
+     "",
+     "-",
+     "",
+     "CD Tor del Rey de Pilas \"B\"",
+     "",
+     ""
+    ],
+    [
+     ""
     ],
     [
      "Vie 06\n18:10",
@@ -733,6 +761,20 @@
      ""
     ],
     [
+     "Sáb 07\n10:40",
+     "",
+     "Umbrete CF",
+     "",
+     "-",
+     "",
+     "CDM Gerena",
+     "",
+     ""
+    ],
+    [
+     ""
+    ],
+    [
      "",
      "",
      "Palomares CF",
@@ -749,39 +791,11 @@
     [
      "",
      "",
-     "SD CEU Andalucía",
-     "",
-     "-",
-     "",
-     "CD Tor del Rey de Pilas \"B\"",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
-     "",
      "UD Loreto",
      "",
      "-",
      "",
      "Villanueva Deportiva",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
-     "",
-     "Umbrete CF",
-     "",
-     "-",
-     "",
-     "CDM Gerena",
      "",
      ""
     ],
@@ -815,20 +829,6 @@
     ],
     [
      ""
-    ],
-    [
-     "",
-     "",
-     "Benacazón CF",
-     "",
-     "-",
-     "",
-     "CD Ricosport",
-     "",
-     ""
-    ],
-    [
-     ""
     ]
    ],
    [
@@ -837,6 +837,20 @@
     ],
     [
      "Jornada 4 (06/11/2026)"
+    ],
+    [
+     "V-06",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
+     ""
     ],
     [
      "V-06",
@@ -860,6 +874,13 @@
      ""
     ],
     [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -870,21 +891,7 @@
      "",
      "",
      "",
-     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Umbrete CF - CDM Gerena",
      ""
     ],
     [
@@ -899,13 +906,6 @@
      "",
      "",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - CD Ricosport",
      ""
     ]
    ]
@@ -1068,6 +1068,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "Atco. Olivarense - CD Isidro Reguera \"A\"",
@@ -1088,6 +1102,13 @@
      ""
     ],
     [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -1098,21 +1119,7 @@
      "",
      "",
      "",
-     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Umbrete CF - CDM Gerena",
      ""
     ],
     [
@@ -1127,13 +1134,6 @@
      "",
      "",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - CD Ricosport",
      ""
     ]
    ]
@@ -1296,6 +1296,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "Atco. Olivarense - CD Isidro Reguera \"A\"",
@@ -1316,6 +1330,13 @@
      ""
     ],
     [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -1326,21 +1347,7 @@
      "",
      "",
      "",
-     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Umbrete CF - CDM Gerena",
      ""
     ],
     [
@@ -1355,13 +1362,6 @@
      "",
      "",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - CD Ricosport",
      ""
     ]
    ]
@@ -1524,6 +1524,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "Atco. Olivarense - CD Isidro Reguera \"A\"",
@@ -1544,6 +1558,13 @@
      ""
     ],
     [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -1554,21 +1575,7 @@
      "",
      "",
      "",
-     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Umbrete CF - CDM Gerena",
      ""
     ],
     [
@@ -1583,13 +1590,6 @@
      "",
      "",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - CD Ricosport",
      ""
     ]
    ]
@@ -1752,6 +1752,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "Atco. Olivarense - CD Isidro Reguera \"A\"",
@@ -1772,6 +1786,13 @@
      ""
     ],
     [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -1782,21 +1803,7 @@
      "",
      "",
      "",
-     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Umbrete CF - CDM Gerena",
      ""
     ],
     [
@@ -1811,13 +1818,6 @@
      "",
      "",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - CD Ricosport",
      ""
     ]
    ]
@@ -1980,6 +1980,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "Atco. Olivarense - CD Isidro Reguera \"A\"",
@@ -2000,6 +2014,13 @@
      ""
     ],
     [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -2010,21 +2031,7 @@
      "",
      "",
      "",
-     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Umbrete CF - CDM Gerena",
      ""
     ],
     [
@@ -2039,13 +2046,6 @@
      "",
      "",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - CD Ricosport",
      ""
     ]
    ]
@@ -2208,6 +2208,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "Atco. Olivarense - CD Isidro Reguera \"A\"",
@@ -2228,6 +2242,13 @@
      ""
     ],
     [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -2238,21 +2259,7 @@
      "",
      "",
      "",
-     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Umbrete CF - CDM Gerena",
      ""
     ],
     [
@@ -2267,13 +2274,6 @@
      "",
      "",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - CD Ricosport",
      ""
     ]
    ]
@@ -2436,6 +2436,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "Atco. Olivarense - CD Isidro Reguera \"A\"",
@@ -2456,6 +2470,13 @@
      ""
     ],
     [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -2466,21 +2487,7 @@
      "",
      "",
      "",
-     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Umbrete CF - CDM Gerena",
      ""
     ],
     [
@@ -2495,13 +2502,6 @@
      "",
      "",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - CD Ricosport",
      ""
     ]
    ]
@@ -2664,6 +2664,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "Atco. Olivarense - CD Isidro Reguera \"A\"",
@@ -2684,6 +2698,13 @@
      ""
     ],
     [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -2694,21 +2715,7 @@
      "",
      "",
      "",
-     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Umbrete CF - CDM Gerena",
      ""
     ],
     [
@@ -2723,13 +2730,6 @@
      "",
      "",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - CD Ricosport",
      ""
     ]
    ]
@@ -2892,6 +2892,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "Atco. Olivarense - CD Isidro Reguera \"A\"",
@@ -2912,6 +2926,13 @@
      ""
     ],
     [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -2922,21 +2943,7 @@
      "",
      "",
      "",
-     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Umbrete CF - CDM Gerena",
      ""
     ],
     [
@@ -2951,13 +2958,6 @@
      "",
      "",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - CD Ricosport",
      ""
     ]
    ]
@@ -3120,6 +3120,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "Atco. Olivarense - CD Isidro Reguera \"A\"",
@@ -3140,6 +3154,13 @@
      ""
     ],
     [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -3150,21 +3171,7 @@
      "",
      "",
      "",
-     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Umbrete CF - CDM Gerena",
      ""
     ],
     [
@@ -3179,13 +3186,6 @@
      "",
      "",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - CD Ricosport",
      ""
     ]
    ]
@@ -3348,6 +3348,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "Atco. Olivarense - CD Isidro Reguera \"A\"",
@@ -3368,6 +3382,13 @@
      ""
     ],
     [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -3378,21 +3399,7 @@
      "",
      "",
      "",
-     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Umbrete CF - CDM Gerena",
      ""
     ],
     [
@@ -3407,13 +3414,6 @@
      "",
      "",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - CD Ricosport",
      ""
     ]
    ]
@@ -3576,6 +3576,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "Atco. Olivarense - CD Isidro Reguera \"A\"",
@@ -3596,6 +3610,13 @@
      ""
     ],
     [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -3606,21 +3627,7 @@
      "",
      "",
      "",
-     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Umbrete CF - CDM Gerena",
      ""
     ],
     [
@@ -3635,13 +3642,6 @@
      "",
      "",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - CD Ricosport",
      ""
     ]
    ]
@@ -3804,6 +3804,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "Atco. Olivarense - CD Isidro Reguera \"A\"",
@@ -3824,6 +3838,13 @@
      ""
     ],
     [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -3834,21 +3855,7 @@
      "",
      "",
      "",
-     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Umbrete CF - CDM Gerena",
      ""
     ],
     [
@@ -3863,13 +3870,6 @@
      "",
      "",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - CD Ricosport",
      ""
     ]
    ]
@@ -4032,6 +4032,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "Atco. Olivarense - CD Isidro Reguera \"A\"",
@@ -4052,6 +4066,13 @@
      ""
     ],
     [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -4062,21 +4083,7 @@
      "",
      "",
      "",
-     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Umbrete CF - CDM Gerena",
      ""
     ],
     [
@@ -4091,13 +4098,6 @@
      "",
      "",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - CD Ricosport",
      ""
     ]
    ]
@@ -4260,6 +4260,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "Atco. Olivarense - CD Isidro Reguera \"A\"",
@@ -4280,6 +4294,13 @@
      ""
     ],
     [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -4290,21 +4311,7 @@
      "",
      "",
      "",
-     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Umbrete CF - CDM Gerena",
      ""
     ],
     [
@@ -4319,13 +4326,6 @@
      "",
      "",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - CD Ricosport",
      ""
     ]
    ]
@@ -4488,6 +4488,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "Atco. Olivarense - CD Isidro Reguera \"A\"",
@@ -4508,6 +4522,13 @@
      ""
     ],
     [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -4518,21 +4539,7 @@
      "",
      "",
      "",
-     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Umbrete CF - CDM Gerena",
      ""
     ],
     [
@@ -4547,13 +4554,6 @@
      "",
      "",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - CD Ricosport",
      ""
     ]
    ]
@@ -4716,6 +4716,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Estadio Municipal Guadiamar",
+     "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "Instalaciones deportivas CEU SAN PABLO",
+     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "Atco. Olivarense - CD Isidro Reguera \"A\"",
@@ -4736,6 +4750,13 @@
      ""
     ],
     [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -4746,21 +4767,7 @@
      "",
      "",
      "",
-     "SD CEU Andalucía - CD Tor del Rey de Pilas \"B\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Umbrete CF - CDM Gerena",
      ""
     ],
     [
@@ -4775,13 +4782,6 @@
      "",
      "",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Benacazón CF - CD Ricosport",
      ""
     ]
    ]

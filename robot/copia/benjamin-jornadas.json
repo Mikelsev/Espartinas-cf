@@ -113,6 +113,20 @@
      "Jornada 4 (06/11/2026)"
     ],
     [
+     "V-06",
+     "18:10",
+     "",
+     "EMD Burguillos - La Moneda CF \"Compromiso\"",
+     ""
+    ],
+    [
+     "V-06",
+     "19:10",
+     "Estadio Municipal José Acevedo \"Pepito\"",
+     "EDM Bormujos - Espartinas CF",
+     ""
+    ],
+    [
      "S-07",
      "11:40",
      "Centro Deportivo Los Mares",
@@ -130,13 +144,6 @@
      "",
      "",
      "",
-     "EDM Bormujos - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
@@ -145,13 +152,6 @@
      "",
      "",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EMD Burguillos - La Moneda CF \"Compromiso\"",
      ""
     ],
     [
@@ -278,6 +278,20 @@
      "Jornada 4 (06/11/2026)"
     ],
     [
+     "V-06",
+     "18:10",
+     "",
+     "EMD Burguillos - La Moneda CF \"Compromiso\"",
+     ""
+    ],
+    [
+     "V-06",
+     "19:10",
+     "Estadio Municipal José Acevedo \"Pepito\"",
+     "EDM Bormujos - Espartinas CF",
+     ""
+    ],
+    [
      "S-07",
      "11:40",
      "Centro Deportivo Los Mares",
@@ -295,13 +309,6 @@
      "",
      "",
      "",
-     "EDM Bormujos - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
@@ -310,13 +317,6 @@
      "",
      "",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EMD Burguillos - La Moneda CF \"Compromiso\"",
      ""
     ],
     [
@@ -443,6 +443,20 @@
      "Jornada 4 (06/11/2026)"
     ],
     [
+     "V-06",
+     "18:10",
+     "",
+     "EMD Burguillos - La Moneda CF \"Compromiso\"",
+     ""
+    ],
+    [
+     "V-06",
+     "19:10",
+     "Estadio Municipal José Acevedo \"Pepito\"",
+     "EDM Bormujos - Espartinas CF",
+     ""
+    ],
+    [
      "S-07",
      "11:40",
      "Centro Deportivo Los Mares",
@@ -454,13 +468,6 @@
      "",
      "",
      "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EDM Bormujos - Espartinas CF",
      ""
     ],
     [
@@ -481,13 +488,6 @@
      "",
      "",
      "",
-     "EMD Burguillos - La Moneda CF \"Compromiso\"",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
      ""
     ]
@@ -500,6 +500,34 @@
    [
     [
      "Benjamines - Benjamín 1º Año - 1º Año Grupo Único -  Jornada: 4 (06/11/2026)"
+    ],
+    [
+     "Vie 06\n18:10",
+     "",
+     "EMD Burguillos",
+     "",
+     "-",
+     "",
+     "La Moneda CF \"Compromiso\"",
+     "",
+     ""
+    ],
+    [
+     ""
+    ],
+    [
+     "Vie 06\n19:10",
+     "Estadio Municipal José Acevedo \"Pepito\"",
+     "EDM Bormujos",
+     "",
+     "-",
+     "",
+     "Espartinas CF",
+     "",
+     ""
+    ],
+    [
+     ""
     ],
     [
      "Sáb 07\n11:40",
@@ -523,20 +551,6 @@
      "-",
      "",
      "CD Tor del Rey de Pilas",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
-     "",
-     "EDM Bormujos",
-     "",
-     "-",
-     "",
-     "Espartinas CF",
      "",
      ""
     ],
@@ -574,20 +588,6 @@
     [
      "",
      "",
-     "EMD Burguillos",
-     "",
-     "-",
-     "",
-     "La Moneda CF \"Compromiso\"",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
-     "",
      "CA Aznalcázar",
      "",
      "-",
@@ -608,6 +608,20 @@
      "Jornada 4 (06/11/2026)"
     ],
     [
+     "V-06",
+     "18:10",
+     "",
+     "EMD Burguillos - La Moneda CF \"Compromiso\"",
+     ""
+    ],
+    [
+     "V-06",
+     "19:10",
+     "Estadio Municipal José Acevedo \"Pepito\"",
+     "EDM Bormujos - Espartinas CF",
+     ""
+    ],
+    [
      "S-07",
      "11:40",
      "Centro Deportivo Los Mares",
@@ -625,13 +639,6 @@
      "",
      "",
      "",
-     "EDM Bormujos - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
@@ -640,13 +647,6 @@
      "",
      "",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EMD Burguillos - La Moneda CF \"Compromiso\"",
      ""
     ],
     [
@@ -773,6 +773,20 @@
      "Jornada 4 (06/11/2026)"
     ],
     [
+     "V-06",
+     "18:10",
+     "",
+     "EMD Burguillos - La Moneda CF \"Compromiso\"",
+     ""
+    ],
+    [
+     "V-06",
+     "19:10",
+     "Estadio Municipal José Acevedo \"Pepito\"",
+     "EDM Bormujos - Espartinas CF",
+     ""
+    ],
+    [
      "S-07",
      "11:40",
      "Centro Deportivo Los Mares",
@@ -790,13 +804,6 @@
      "",
      "",
      "",
-     "EDM Bormujos - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
@@ -805,13 +812,6 @@
      "",
      "",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EMD Burguillos - La Moneda CF \"Compromiso\"",
      ""
     ],
     [
@@ -938,6 +938,20 @@
      "Jornada 4 (06/11/2026)"
     ],
     [
+     "V-06",
+     "18:10",
+     "",
+     "EMD Burguillos - La Moneda CF \"Compromiso\"",
+     ""
+    ],
+    [
+     "V-06",
+     "19:10",
+     "Estadio Municipal José Acevedo \"Pepito\"",
+     "EDM Bormujos - Espartinas CF",
+     ""
+    ],
+    [
      "S-07",
      "11:40",
      "Centro Deportivo Los Mares",
@@ -955,13 +969,6 @@
      "",
      "",
      "",
-     "EDM Bormujos - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
@@ -970,13 +977,6 @@
      "",
      "",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EMD Burguillos - La Moneda CF \"Compromiso\"",
      ""
     ],
     [
@@ -1103,6 +1103,20 @@
      "Jornada 4 (06/11/2026)"
     ],
     [
+     "V-06",
+     "18:10",
+     "",
+     "EMD Burguillos - La Moneda CF \"Compromiso\"",
+     ""
+    ],
+    [
+     "V-06",
+     "19:10",
+     "Estadio Municipal José Acevedo \"Pepito\"",
+     "EDM Bormujos - Espartinas CF",
+     ""
+    ],
+    [
      "S-07",
      "11:40",
      "Centro Deportivo Los Mares",
@@ -1120,13 +1134,6 @@
      "",
      "",
      "",
-     "EDM Bormujos - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
@@ -1135,13 +1142,6 @@
      "",
      "",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EMD Burguillos - La Moneda CF \"Compromiso\"",
      ""
     ],
     [
@@ -1268,6 +1268,20 @@
      "Jornada 4 (06/11/2026)"
     ],
     [
+     "V-06",
+     "18:10",
+     "",
+     "EMD Burguillos - La Moneda CF \"Compromiso\"",
+     ""
+    ],
+    [
+     "V-06",
+     "19:10",
+     "Estadio Municipal José Acevedo \"Pepito\"",
+     "EDM Bormujos - Espartinas CF",
+     ""
+    ],
+    [
      "S-07",
      "11:40",
      "Centro Deportivo Los Mares",
@@ -1285,13 +1299,6 @@
      "",
      "",
      "",
-     "EDM Bormujos - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
@@ -1300,13 +1307,6 @@
      "",
      "",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EMD Burguillos - La Moneda CF \"Compromiso\"",
      ""
     ],
     [
@@ -1433,6 +1433,20 @@
      "Jornada 4 (06/11/2026)"
     ],
     [
+     "V-06",
+     "18:10",
+     "",
+     "EMD Burguillos - La Moneda CF \"Compromiso\"",
+     ""
+    ],
+    [
+     "V-06",
+     "19:10",
+     "Estadio Municipal José Acevedo \"Pepito\"",
+     "EDM Bormujos - Espartinas CF",
+     ""
+    ],
+    [
      "S-07",
      "11:40",
      "Centro Deportivo Los Mares",
@@ -1450,13 +1464,6 @@
      "",
      "",
      "",
-     "EDM Bormujos - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
@@ -1465,13 +1472,6 @@
      "",
      "",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EMD Burguillos - La Moneda CF \"Compromiso\"",
      ""
     ],
     [
@@ -1598,6 +1598,20 @@
      "Jornada 4 (06/11/2026)"
     ],
     [
+     "V-06",
+     "18:10",
+     "",
+     "EMD Burguillos - La Moneda CF \"Compromiso\"",
+     ""
+    ],
+    [
+     "V-06",
+     "19:10",
+     "Estadio Municipal José Acevedo \"Pepito\"",
+     "EDM Bormujos - Espartinas CF",
+     ""
+    ],
+    [
      "S-07",
      "11:40",
      "Centro Deportivo Los Mares",
@@ -1615,13 +1629,6 @@
      "",
      "",
      "",
-     "EDM Bormujos - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
@@ -1630,13 +1637,6 @@
      "",
      "",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EMD Burguillos - La Moneda CF \"Compromiso\"",
      ""
     ],
     [
@@ -1763,6 +1763,20 @@
      "Jornada 4 (06/11/2026)"
     ],
     [
+     "V-06",
+     "18:10",
+     "",
+     "EMD Burguillos - La Moneda CF \"Compromiso\"",
+     ""
+    ],
+    [
+     "V-06",
+     "19:10",
+     "Estadio Municipal José Acevedo \"Pepito\"",
+     "EDM Bormujos - Espartinas CF",
+     ""
+    ],
+    [
      "S-07",
      "11:40",
      "Centro Deportivo Los Mares",
@@ -1780,13 +1794,6 @@
      "",
      "",
      "",
-     "EDM Bormujos - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
@@ -1795,13 +1802,6 @@
      "",
      "",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EMD Burguillos - La Moneda CF \"Compromiso\"",
      ""
     ],
     [
@@ -1928,6 +1928,20 @@
      "Jornada 4 (06/11/2026)"
     ],
     [
+     "V-06",
+     "18:10",
+     "",
+     "EMD Burguillos - La Moneda CF \"Compromiso\"",
+     ""
+    ],
+    [
+     "V-06",
+     "19:10",
+     "Estadio Municipal José Acevedo \"Pepito\"",
+     "EDM Bormujos - Espartinas CF",
+     ""
+    ],
+    [
      "S-07",
      "11:40",
      "Centro Deportivo Los Mares",
@@ -1945,13 +1959,6 @@
      "",
      "",
      "",
-     "EDM Bormujos - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
@@ -1960,13 +1967,6 @@
      "",
      "",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EMD Burguillos - La Moneda CF \"Compromiso\"",
      ""
     ],
     [
@@ -2093,6 +2093,20 @@
      "Jornada 4 (06/11/2026)"
     ],
     [
+     "V-06",
+     "18:10",
+     "",
+     "EMD Burguillos - La Moneda CF \"Compromiso\"",
+     ""
+    ],
+    [
+     "V-06",
+     "19:10",
+     "Estadio Municipal José Acevedo \"Pepito\"",
+     "EDM Bormujos - Espartinas CF",
+     ""
+    ],
+    [
      "S-07",
      "11:40",
      "Centro Deportivo Los Mares",
@@ -2110,13 +2124,6 @@
      "",
      "",
      "",
-     "EDM Bormujos - Espartinas CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
@@ -2125,13 +2132,6 @@
      "",
      "",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "EMD Burguillos - La Moneda CF \"Compromiso\"",
      ""
     ],
     [
