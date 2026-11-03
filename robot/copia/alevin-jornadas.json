@@ -157,8 +157,22 @@
     [
      "V-06",
      "17:30",
+     "",
+     "Palomares CF - EF Ayto. Gines",
+     ""
+    ],
+    [
+     "V-06",
+     "17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "Atco. Olivarense - CD Isidro Reguera \"A\"",
      ""
     ],
     [
@@ -170,9 +184,9 @@
     ],
     [
      "V-06",
-     "18:10",
+     "18:15",
      "",
-     "Atco. Olivarense - CD Isidro Reguera \"A\"",
+     "UD Loreto - Villanueva Deportiva",
      ""
     ],
     [
@@ -191,37 +205,23 @@
     ],
     [
      "S-07",
-     "10:40",
-     "",
-     "Umbrete CF - CDM Gerena",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Palomares CF - EF Ayto. Gines",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
+     ""
+    ],
+    [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
      ""
     ]
    ]
@@ -385,8 +385,22 @@
     [
      "V-06",
      "17:30",
+     "",
+     "Palomares CF - EF Ayto. Gines",
+     ""
+    ],
+    [
+     "V-06",
+     "17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "Atco. Olivarense - CD Isidro Reguera \"A\"",
      ""
     ],
     [
@@ -398,9 +412,9 @@
     ],
     [
      "V-06",
-     "18:10",
+     "18:15",
      "",
-     "Atco. Olivarense - CD Isidro Reguera \"A\"",
+     "UD Loreto - Villanueva Deportiva",
      ""
     ],
     [
@@ -419,37 +433,23 @@
     ],
     [
      "S-07",
-     "10:40",
-     "",
-     "Umbrete CF - CDM Gerena",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Palomares CF - EF Ayto. Gines",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
+     ""
+    ],
+    [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
      ""
     ]
    ]
@@ -613,8 +613,22 @@
     [
      "V-06",
      "17:30",
+     "",
+     "Palomares CF - EF Ayto. Gines",
+     ""
+    ],
+    [
+     "V-06",
+     "17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "Atco. Olivarense - CD Isidro Reguera \"A\"",
      ""
     ],
     [
@@ -626,9 +640,9 @@
     ],
     [
      "V-06",
-     "18:10",
+     "18:15",
      "",
-     "Atco. Olivarense - CD Isidro Reguera \"A\"",
+     "UD Loreto - Villanueva Deportiva",
      ""
     ],
     [
@@ -647,37 +661,23 @@
     ],
     [
      "S-07",
-     "10:40",
-     "",
-     "Umbrete CF - CDM Gerena",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Palomares CF - EF Ayto. Gines",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
+     ""
+    ],
+    [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
      ""
     ]
    ]
@@ -692,12 +692,40 @@
     ],
     [
      "Vie 06\n17:30",
+     "",
+     "Palomares CF",
+     "",
+     "-",
+     "",
+     "EF Ayto. Gines",
+     "",
+     ""
+    ],
+    [
+     ""
+    ],
+    [
+     "Vie 06\n17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF",
      "",
      "-",
      "",
      "CD Ricosport",
+     "",
+     ""
+    ],
+    [
+     ""
+    ],
+    [
+     "Vie 06\n18:00",
+     "",
+     "Atco. Olivarense",
+     "",
+     "-",
+     "",
+     "CD Isidro Reguera \"A\"",
      "",
      ""
     ],
@@ -719,13 +747,13 @@
      ""
     ],
     [
-     "Vie 06\n18:10",
+     "Vie 06\n18:15",
      "",
-     "Atco. Olivarense",
+     "UD Loreto",
      "",
      "-",
      "",
-     "CD Isidro Reguera \"A\"",
+     "Villanueva Deportiva",
      "",
      ""
     ],
@@ -761,50 +789,8 @@
      ""
     ],
     [
-     "Sáb 07\n10:40",
-     "",
-     "Umbrete CF",
-     "",
-     "-",
-     "",
-     "CDM Gerena",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
-     "",
-     "Palomares CF",
-     "",
-     "-",
-     "",
-     "EF Ayto. Gines",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
-     "",
-     "UD Loreto",
-     "",
-     "-",
-     "",
-     "Villanueva Deportiva",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
-     "",
+     "Sáb 07\n09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan",
      "",
      "-",
@@ -817,13 +803,27 @@
      ""
     ],
     [
-     "",
-     "",
+     "Sáb 07\n10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande",
      "",
      "-",
      "",
      "CD Tor del Rey de Pilas \"A\"",
+     "",
+     ""
+    ],
+    [
+     ""
+    ],
+    [
+     "Sáb 07\n10:40",
+     "",
+     "Umbrete CF",
+     "",
+     "-",
+     "",
+     "CDM Gerena",
      "",
      ""
     ],
@@ -841,8 +841,22 @@
     [
      "V-06",
      "17:30",
+     "",
+     "Palomares CF - EF Ayto. Gines",
+     ""
+    ],
+    [
+     "V-06",
+     "17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "Atco. Olivarense - CD Isidro Reguera \"A\"",
      ""
     ],
     [
@@ -854,9 +868,9 @@
     ],
     [
      "V-06",
-     "18:10",
+     "18:15",
      "",
-     "Atco. Olivarense - CD Isidro Reguera \"A\"",
+     "UD Loreto - Villanueva Deportiva",
      ""
     ],
     [
@@ -875,37 +889,23 @@
     ],
     [
      "S-07",
-     "10:40",
-     "",
-     "Umbrete CF - CDM Gerena",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Palomares CF - EF Ayto. Gines",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
+     ""
+    ],
+    [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
      ""
     ]
    ]
@@ -1069,8 +1069,22 @@
     [
      "V-06",
      "17:30",
+     "",
+     "Palomares CF - EF Ayto. Gines",
+     ""
+    ],
+    [
+     "V-06",
+     "17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "Atco. Olivarense - CD Isidro Reguera \"A\"",
      ""
     ],
     [
@@ -1082,9 +1096,9 @@
     ],
     [
      "V-06",
-     "18:10",
+     "18:15",
      "",
-     "Atco. Olivarense - CD Isidro Reguera \"A\"",
+     "UD Loreto - Villanueva Deportiva",
      ""
     ],
     [
@@ -1103,37 +1117,23 @@
     ],
     [
      "S-07",
-     "10:40",
-     "",
-     "Umbrete CF - CDM Gerena",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Palomares CF - EF Ayto. Gines",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
+     ""
+    ],
+    [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
      ""
     ]
    ]
@@ -1297,8 +1297,22 @@
     [
      "V-06",
      "17:30",
+     "",
+     "Palomares CF - EF Ayto. Gines",
+     ""
+    ],
+    [
+     "V-06",
+     "17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "Atco. Olivarense - CD Isidro Reguera \"A\"",
      ""
     ],
     [
@@ -1310,9 +1324,9 @@
     ],
     [
      "V-06",
-     "18:10",
+     "18:15",
      "",
-     "Atco. Olivarense - CD Isidro Reguera \"A\"",
+     "UD Loreto - Villanueva Deportiva",
      ""
     ],
     [
@@ -1331,37 +1345,23 @@
     ],
     [
      "S-07",
-     "10:40",
-     "",
-     "Umbrete CF - CDM Gerena",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Palomares CF - EF Ayto. Gines",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
+     ""
+    ],
+    [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
      ""
     ]
    ]
@@ -1525,8 +1525,22 @@
     [
      "V-06",
      "17:30",
+     "",
+     "Palomares CF - EF Ayto. Gines",
+     ""
+    ],
+    [
+     "V-06",
+     "17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "Atco. Olivarense - CD Isidro Reguera \"A\"",
      ""
     ],
     [
@@ -1538,9 +1552,9 @@
     ],
     [
      "V-06",
-     "18:10",
+     "18:15",
      "",
-     "Atco. Olivarense - CD Isidro Reguera \"A\"",
+     "UD Loreto - Villanueva Deportiva",
      ""
     ],
     [
@@ -1559,37 +1573,23 @@
     ],
     [
      "S-07",
-     "10:40",
-     "",
-     "Umbrete CF - CDM Gerena",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Palomares CF - EF Ayto. Gines",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
+     ""
+    ],
+    [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
      ""
     ]
    ]
@@ -1753,8 +1753,22 @@
     [
      "V-06",
      "17:30",
+     "",
+     "Palomares CF - EF Ayto. Gines",
+     ""
+    ],
+    [
+     "V-06",
+     "17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "Atco. Olivarense - CD Isidro Reguera \"A\"",
      ""
     ],
     [
@@ -1766,9 +1780,9 @@
     ],
     [
      "V-06",
-     "18:10",
+     "18:15",
      "",
-     "Atco. Olivarense - CD Isidro Reguera \"A\"",
+     "UD Loreto - Villanueva Deportiva",
      ""
     ],
     [
@@ -1787,37 +1801,23 @@
     ],
     [
      "S-07",
-     "10:40",
-     "",
-     "Umbrete CF - CDM Gerena",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Palomares CF - EF Ayto. Gines",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
+     ""
+    ],
+    [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
      ""
     ]
    ]
@@ -1981,8 +1981,22 @@
     [
      "V-06",
      "17:30",
+     "",
+     "Palomares CF - EF Ayto. Gines",
+     ""
+    ],
+    [
+     "V-06",
+     "17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "Atco. Olivarense - CD Isidro Reguera \"A\"",
      ""
     ],
     [
@@ -1994,9 +2008,9 @@
     ],
     [
      "V-06",
-     "18:10",
+     "18:15",
      "",
-     "Atco. Olivarense - CD Isidro Reguera \"A\"",
+     "UD Loreto - Villanueva Deportiva",
      ""
     ],
     [
@@ -2015,37 +2029,23 @@
     ],
     [
      "S-07",
-     "10:40",
-     "",
-     "Umbrete CF - CDM Gerena",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Palomares CF - EF Ayto. Gines",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
+     ""
+    ],
+    [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
      ""
     ]
    ]
@@ -2209,8 +2209,22 @@
     [
      "V-06",
      "17:30",
+     "",
+     "Palomares CF - EF Ayto. Gines",
+     ""
+    ],
+    [
+     "V-06",
+     "17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "Atco. Olivarense - CD Isidro Reguera \"A\"",
      ""
     ],
     [
@@ -2222,9 +2236,9 @@
     ],
     [
      "V-06",
-     "18:10",
+     "18:15",
      "",
-     "Atco. Olivarense - CD Isidro Reguera \"A\"",
+     "UD Loreto - Villanueva Deportiva",
      ""
     ],
     [
@@ -2243,37 +2257,23 @@
     ],
     [
      "S-07",
-     "10:40",
-     "",
-     "Umbrete CF - CDM Gerena",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Palomares CF - EF Ayto. Gines",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
+     ""
+    ],
+    [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
      ""
     ]
    ]
@@ -2437,8 +2437,22 @@
     [
      "V-06",
      "17:30",
+     "",
+     "Palomares CF - EF Ayto. Gines",
+     ""
+    ],
+    [
+     "V-06",
+     "17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "Atco. Olivarense - CD Isidro Reguera \"A\"",
      ""
     ],
     [
@@ -2450,9 +2464,9 @@
     ],
     [
      "V-06",
-     "18:10",
+     "18:15",
      "",
-     "Atco. Olivarense - CD Isidro Reguera \"A\"",
+     "UD Loreto - Villanueva Deportiva",
      ""
     ],
     [
@@ -2471,37 +2485,23 @@
     ],
     [
      "S-07",
-     "10:40",
-     "",
-     "Umbrete CF - CDM Gerena",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Palomares CF - EF Ayto. Gines",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
+     ""
+    ],
+    [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
      ""
     ]
    ]
@@ -2665,8 +2665,22 @@
     [
      "V-06",
      "17:30",
+     "",
+     "Palomares CF - EF Ayto. Gines",
+     ""
+    ],
+    [
+     "V-06",
+     "17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "Atco. Olivarense - CD Isidro Reguera \"A\"",
      ""
     ],
     [
@@ -2678,9 +2692,9 @@
     ],
     [
      "V-06",
-     "18:10",
+     "18:15",
      "",
-     "Atco. Olivarense - CD Isidro Reguera \"A\"",
+     "UD Loreto - Villanueva Deportiva",
      ""
     ],
     [
@@ -2699,37 +2713,23 @@
     ],
     [
      "S-07",
-     "10:40",
-     "",
-     "Umbrete CF - CDM Gerena",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Palomares CF - EF Ayto. Gines",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
+     ""
+    ],
+    [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
      ""
     ]
    ]
@@ -2893,8 +2893,22 @@
     [
      "V-06",
      "17:30",
+     "",
+     "Palomares CF - EF Ayto. Gines",
+     ""
+    ],
+    [
+     "V-06",
+     "17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "Atco. Olivarense - CD Isidro Reguera \"A\"",
      ""
     ],
     [
@@ -2906,9 +2920,9 @@
     ],
     [
      "V-06",
-     "18:10",
+     "18:15",
      "",
-     "Atco. Olivarense - CD Isidro Reguera \"A\"",
+     "UD Loreto - Villanueva Deportiva",
      ""
     ],
     [
@@ -2927,37 +2941,23 @@
     ],
     [
      "S-07",
-     "10:40",
-     "",
-     "Umbrete CF - CDM Gerena",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Palomares CF - EF Ayto. Gines",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
+     ""
+    ],
+    [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
      ""
     ]
    ]
@@ -3121,8 +3121,22 @@
     [
      "V-06",
      "17:30",
+     "",
+     "Palomares CF - EF Ayto. Gines",
+     ""
+    ],
+    [
+     "V-06",
+     "17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "Atco. Olivarense - CD Isidro Reguera \"A\"",
      ""
     ],
     [
@@ -3134,9 +3148,9 @@
     ],
     [
      "V-06",
-     "18:10",
+     "18:15",
      "",
-     "Atco. Olivarense - CD Isidro Reguera \"A\"",
+     "UD Loreto - Villanueva Deportiva",
      ""
     ],
     [
@@ -3155,37 +3169,23 @@
     ],
     [
      "S-07",
-     "10:40",
-     "",
-     "Umbrete CF - CDM Gerena",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Palomares CF - EF Ayto. Gines",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
+     ""
+    ],
+    [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
      ""
     ]
    ]
@@ -3349,8 +3349,22 @@
     [
      "V-06",
      "17:30",
+     "",
+     "Palomares CF - EF Ayto. Gines",
+     ""
+    ],
+    [
+     "V-06",
+     "17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "Atco. Olivarense - CD Isidro Reguera \"A\"",
      ""
     ],
     [
@@ -3362,9 +3376,9 @@
     ],
     [
      "V-06",
-     "18:10",
+     "18:15",
      "",
-     "Atco. Olivarense - CD Isidro Reguera \"A\"",
+     "UD Loreto - Villanueva Deportiva",
      ""
     ],
     [
@@ -3383,37 +3397,23 @@
     ],
     [
      "S-07",
-     "10:40",
-     "",
-     "Umbrete CF - CDM Gerena",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Palomares CF - EF Ayto. Gines",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
+     ""
+    ],
+    [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
      ""
     ]
    ]
@@ -3577,8 +3577,22 @@
     [
      "V-06",
      "17:30",
+     "",
+     "Palomares CF - EF Ayto. Gines",
+     ""
+    ],
+    [
+     "V-06",
+     "17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "Atco. Olivarense - CD Isidro Reguera \"A\"",
      ""
     ],
     [
@@ -3590,9 +3604,9 @@
     ],
     [
      "V-06",
-     "18:10",
+     "18:15",
      "",
-     "Atco. Olivarense - CD Isidro Reguera \"A\"",
+     "UD Loreto - Villanueva Deportiva",
      ""
     ],
     [
@@ -3611,37 +3625,23 @@
     ],
     [
      "S-07",
-     "10:40",
-     "",
-     "Umbrete CF - CDM Gerena",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Palomares CF - EF Ayto. Gines",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
+     ""
+    ],
+    [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
      ""
     ]
    ]
@@ -3805,8 +3805,22 @@
     [
      "V-06",
      "17:30",
+     "",
+     "Palomares CF - EF Ayto. Gines",
+     ""
+    ],
+    [
+     "V-06",
+     "17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "Atco. Olivarense - CD Isidro Reguera \"A\"",
      ""
     ],
     [
@@ -3818,9 +3832,9 @@
     ],
     [
      "V-06",
-     "18:10",
+     "18:15",
      "",
-     "Atco. Olivarense - CD Isidro Reguera \"A\"",
+     "UD Loreto - Villanueva Deportiva",
      ""
     ],
     [
@@ -3839,37 +3853,23 @@
     ],
     [
      "S-07",
-     "10:40",
-     "",
-     "Umbrete CF - CDM Gerena",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Palomares CF - EF Ayto. Gines",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
+     ""
+    ],
+    [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
      ""
     ]
    ]
@@ -4033,8 +4033,22 @@
     [
      "V-06",
      "17:30",
+     "",
+     "Palomares CF - EF Ayto. Gines",
+     ""
+    ],
+    [
+     "V-06",
+     "17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "Atco. Olivarense - CD Isidro Reguera \"A\"",
      ""
     ],
     [
@@ -4046,9 +4060,9 @@
     ],
     [
      "V-06",
-     "18:10",
+     "18:15",
      "",
-     "Atco. Olivarense - CD Isidro Reguera \"A\"",
+     "UD Loreto - Villanueva Deportiva",
      ""
     ],
     [
@@ -4067,37 +4081,23 @@
     ],
     [
      "S-07",
-     "10:40",
-     "",
-     "Umbrete CF - CDM Gerena",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Palomares CF - EF Ayto. Gines",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
+     ""
+    ],
+    [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
      ""
     ]
    ]
@@ -4261,8 +4261,22 @@
     [
      "V-06",
      "17:30",
+     "",
+     "Palomares CF - EF Ayto. Gines",
+     ""
+    ],
+    [
+     "V-06",
+     "17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "Atco. Olivarense - CD Isidro Reguera \"A\"",
      ""
     ],
     [
@@ -4274,9 +4288,9 @@
     ],
     [
      "V-06",
-     "18:10",
+     "18:15",
      "",
-     "Atco. Olivarense - CD Isidro Reguera \"A\"",
+     "UD Loreto - Villanueva Deportiva",
      ""
     ],
     [
@@ -4295,37 +4309,23 @@
     ],
     [
      "S-07",
-     "10:40",
-     "",
-     "Umbrete CF - CDM Gerena",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Palomares CF - EF Ayto. Gines",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
+     ""
+    ],
+    [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
      ""
     ]
    ]
@@ -4489,8 +4489,22 @@
     [
      "V-06",
      "17:30",
+     "",
+     "Palomares CF - EF Ayto. Gines",
+     ""
+    ],
+    [
+     "V-06",
+     "17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "Atco. Olivarense - CD Isidro Reguera \"A\"",
      ""
     ],
     [
@@ -4502,9 +4516,9 @@
     ],
     [
      "V-06",
-     "18:10",
+     "18:15",
      "",
-     "Atco. Olivarense - CD Isidro Reguera \"A\"",
+     "UD Loreto - Villanueva Deportiva",
      ""
     ],
     [
@@ -4523,37 +4537,23 @@
     ],
     [
      "S-07",
-     "10:40",
-     "",
-     "Umbrete CF - CDM Gerena",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Palomares CF - EF Ayto. Gines",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
+     ""
+    ],
+    [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
      ""
     ]
    ]
@@ -4717,8 +4717,22 @@
     [
      "V-06",
      "17:30",
+     "",
+     "Palomares CF - EF Ayto. Gines",
+     ""
+    ],
+    [
+     "V-06",
+     "17:30",
      "Estadio Municipal Guadiamar",
      "Benacazón CF - CD Ricosport",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "Atco. Olivarense - CD Isidro Reguera \"A\"",
      ""
     ],
     [
@@ -4730,9 +4744,9 @@
     ],
     [
      "V-06",
-     "18:10",
+     "18:15",
      "",
-     "Atco. Olivarense - CD Isidro Reguera \"A\"",
+     "UD Loreto - Villanueva Deportiva",
      ""
     ],
     [
@@ -4751,37 +4765,23 @@
     ],
     [
      "S-07",
-     "10:40",
-     "",
-     "Umbrete CF - CDM Gerena",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "Palomares CF - EF Ayto. Gines",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "UD Loreto - Villanueva Deportiva",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "09:00",
+     "POLIDEPORTIVO 1° DE MAYO, San Juan de Aznalfarache",
      "CD Atco. San Juan - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "club rio grande crta Mairena del aljarafe-Palomares del rio s/n",
      "EF Rio Grande - CD Tor del Rey de Pilas \"A\"",
+     ""
+    ],
+    [
+     "S-07",
+     "10:40",
+     "",
+     "Umbrete CF - CDM Gerena",
      ""
     ]
    ]

@@ -24,8 +24,20 @@
   "pj": 3
  },
  {
-  "equipo": "CHAVALEO FC",
+  "equipo": "LOS REMATANDO BAJITO",
   "pos": 3,
+  "pts": 7,
+  "dif": 2,
+  "gf": 17,
+  "gc": 15,
+  "pg": 2,
+  "pe": 1,
+  "pp": 1,
+  "pj": 4
+ },
+ {
+  "equipo": "CHAVALEO FC",
+  "pos": 4,
   "pts": 7,
   "dif": -1,
   "gf": 14,
@@ -36,28 +48,16 @@
   "pj": 5
  },
  {
-  "equipo": "LOS REMATANDO BAJITO",
-  "pos": 4,
-  "pts": 4,
-  "dif": 0,
-  "gf": 11,
-  "gc": 11,
-  "pg": 1,
-  "pe": 1,
-  "pp": 1,
-  "pj": 3
- },
- {
   "equipo": "CORTECONCEPCIÓN",
   "pos": 5,
   "pts": 3,
-  "dif": -4,
-  "gf": 12,
-  "gc": 16,
+  "dif": -6,
+  "gf": 16,
+  "gc": 22,
   "pg": 1,
   "pe": 0,
-  "pp": 2,
-  "pj": 3
+  "pp": 3,
+  "pj": 4
  },
  {
   "equipo": "CLARET LEGENDS",

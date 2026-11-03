@@ -114,6 +114,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
+     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "EMD Burguillos - La Moneda CF \"Compromiso\"",
@@ -128,37 +142,23 @@
     ],
     [
      "S-07",
-     "11:40",
-     "Centro Deportivo Los Mares",
-     "AD Los Mares - EEMM Villamanrique",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "10:00",
+     "CD Rafael Gordillo Zona B Campo B2.1",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     "S-07",
+     "11:40",
+     "Centro Deportivo Los Mares",
+     "AD Los Mares - EEMM Villamanrique",
      ""
     ]
    ]
@@ -243,7 +243,7 @@
     ],
     [
      "Finalizado",
-     "CD Rafael Gordillo Zona B Campo B2,2",
+     "",
      "Real Betis Academy \"Bernal\"",
      "",
      "2 - 5",
@@ -279,6 +279,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
+     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "EMD Burguillos - La Moneda CF \"Compromiso\"",
@@ -293,37 +307,23 @@
     ],
     [
      "S-07",
-     "11:40",
-     "Centro Deportivo Los Mares",
-     "AD Los Mares - EEMM Villamanrique",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "10:00",
+     "CD Rafael Gordillo Zona B Campo B2.1",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     "S-07",
+     "11:40",
+     "Centro Deportivo Los Mares",
+     "AD Los Mares - EEMM Villamanrique",
      ""
     ]
    ]
@@ -394,7 +394,7 @@
     ],
     [
      "Finalizado",
-     "CD Rafael Gordillo Zona B Campo B2,2",
+     "",
      "Real Betis Academy \"Ceballos\"",
      "",
      "6 - 1",
@@ -444,6 +444,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
+     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "EMD Burguillos - La Moneda CF \"Compromiso\"",
@@ -458,37 +472,23 @@
     ],
     [
      "S-07",
-     "11:40",
-     "Centro Deportivo Los Mares",
-     "AD Los Mares - EEMM Villamanrique",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "10:00",
+     "CD Rafael Gordillo Zona B Campo B2.1",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     "S-07",
+     "11:40",
+     "Centro Deportivo Los Mares",
+     "AD Los Mares - EEMM Villamanrique",
      ""
     ]
    ]
@@ -500,6 +500,34 @@
    [
     [
      "Benjamines - Benjamín 1º Año - 1º Año Grupo Único -  Jornada: 4 (06/11/2026)"
+    ],
+    [
+     "Vie 06\n17:30",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
+     "CF Comarca los Alcores \"A\"",
+     "",
+     "-",
+     "",
+     "CD Tor del Rey de Pilas",
+     "",
+     ""
+    ],
+    [
+     ""
+    ],
+    [
+     "Vie 06\n18:00",
+     "",
+     "CA Aznalcázar",
+     "",
+     "-",
+     "",
+     "Real Betis Academy \"Ceballos\"",
+     "",
+     ""
+    ],
+    [
+     ""
     ],
     [
      "Vie 06\n18:10",
@@ -530,36 +558,8 @@
      ""
     ],
     [
-     "Sáb 07\n11:40",
-     "Centro Deportivo Los Mares",
-     "AD Los Mares",
-     "",
-     "-",
-     "",
-     "EEMM Villamanrique",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
-     "",
-     "CF Comarca los Alcores \"A\"",
-     "",
-     "-",
-     "",
-     "CD Tor del Rey de Pilas",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
-     "",
+     "Sáb 07\n10:00",
+     "CD Rafael Gordillo Zona B Campo B2.1",
      "Real Betis Academy \"Bernal\"",
      "",
      "-",
@@ -572,8 +572,8 @@
      ""
     ],
     [
-     "",
-     "",
+     "Sáb 07\n10:00",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
      "CF Comarca los Alcores \"B\"",
      "",
      "-",
@@ -586,13 +586,13 @@
      ""
     ],
     [
-     "",
-     "",
-     "CA Aznalcázar",
+     "Sáb 07\n11:40",
+     "Centro Deportivo Los Mares",
+     "AD Los Mares",
      "",
      "-",
      "",
-     "Real Betis Academy \"Ceballos\"",
+     "EEMM Villamanrique",
      "",
      ""
     ],
@@ -606,6 +606,20 @@
     ],
     [
      "Jornada 4 (06/11/2026)"
+    ],
+    [
+     "V-06",
+     "17:30",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
+     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     ""
     ],
     [
      "V-06",
@@ -623,37 +637,23 @@
     ],
     [
      "S-07",
-     "11:40",
-     "Centro Deportivo Los Mares",
-     "AD Los Mares - EEMM Villamanrique",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "10:00",
+     "CD Rafael Gordillo Zona B Campo B2.1",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     "S-07",
+     "11:40",
+     "Centro Deportivo Los Mares",
+     "AD Los Mares - EEMM Villamanrique",
      ""
     ]
    ]
@@ -774,6 +774,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
+     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "EMD Burguillos - La Moneda CF \"Compromiso\"",
@@ -788,37 +802,23 @@
     ],
     [
      "S-07",
-     "11:40",
-     "Centro Deportivo Los Mares",
-     "AD Los Mares - EEMM Villamanrique",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "10:00",
+     "CD Rafael Gordillo Zona B Campo B2.1",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     "S-07",
+     "11:40",
+     "Centro Deportivo Los Mares",
+     "AD Los Mares - EEMM Villamanrique",
      ""
     ]
    ]
@@ -939,6 +939,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
+     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "EMD Burguillos - La Moneda CF \"Compromiso\"",
@@ -953,37 +967,23 @@
     ],
     [
      "S-07",
-     "11:40",
-     "Centro Deportivo Los Mares",
-     "AD Los Mares - EEMM Villamanrique",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "10:00",
+     "CD Rafael Gordillo Zona B Campo B2.1",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     "S-07",
+     "11:40",
+     "Centro Deportivo Los Mares",
+     "AD Los Mares - EEMM Villamanrique",
      ""
     ]
    ]
@@ -1104,6 +1104,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
+     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "EMD Burguillos - La Moneda CF \"Compromiso\"",
@@ -1118,37 +1132,23 @@
     ],
     [
      "S-07",
-     "11:40",
-     "Centro Deportivo Los Mares",
-     "AD Los Mares - EEMM Villamanrique",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "10:00",
+     "CD Rafael Gordillo Zona B Campo B2.1",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     "S-07",
+     "11:40",
+     "Centro Deportivo Los Mares",
+     "AD Los Mares - EEMM Villamanrique",
      ""
     ]
    ]
@@ -1269,6 +1269,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
+     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "EMD Burguillos - La Moneda CF \"Compromiso\"",
@@ -1283,37 +1297,23 @@
     ],
     [
      "S-07",
-     "11:40",
-     "Centro Deportivo Los Mares",
-     "AD Los Mares - EEMM Villamanrique",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "10:00",
+     "CD Rafael Gordillo Zona B Campo B2.1",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     "S-07",
+     "11:40",
+     "Centro Deportivo Los Mares",
+     "AD Los Mares - EEMM Villamanrique",
      ""
     ]
    ]
@@ -1434,6 +1434,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
+     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "EMD Burguillos - La Moneda CF \"Compromiso\"",
@@ -1448,37 +1462,23 @@
     ],
     [
      "S-07",
-     "11:40",
-     "Centro Deportivo Los Mares",
-     "AD Los Mares - EEMM Villamanrique",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "10:00",
+     "CD Rafael Gordillo Zona B Campo B2.1",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     "S-07",
+     "11:40",
+     "Centro Deportivo Los Mares",
+     "AD Los Mares - EEMM Villamanrique",
      ""
     ]
    ]
@@ -1599,6 +1599,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
+     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "EMD Burguillos - La Moneda CF \"Compromiso\"",
@@ -1613,37 +1627,23 @@
     ],
     [
      "S-07",
-     "11:40",
-     "Centro Deportivo Los Mares",
-     "AD Los Mares - EEMM Villamanrique",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "10:00",
+     "CD Rafael Gordillo Zona B Campo B2.1",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     "S-07",
+     "11:40",
+     "Centro Deportivo Los Mares",
+     "AD Los Mares - EEMM Villamanrique",
      ""
     ]
    ]
@@ -1764,6 +1764,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
+     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "EMD Burguillos - La Moneda CF \"Compromiso\"",
@@ -1778,37 +1792,23 @@
     ],
     [
      "S-07",
-     "11:40",
-     "Centro Deportivo Los Mares",
-     "AD Los Mares - EEMM Villamanrique",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "10:00",
+     "CD Rafael Gordillo Zona B Campo B2.1",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     "S-07",
+     "11:40",
+     "Centro Deportivo Los Mares",
+     "AD Los Mares - EEMM Villamanrique",
      ""
     ]
    ]
@@ -1929,6 +1929,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
+     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "EMD Burguillos - La Moneda CF \"Compromiso\"",
@@ -1943,37 +1957,23 @@
     ],
     [
      "S-07",
-     "11:40",
-     "Centro Deportivo Los Mares",
-     "AD Los Mares - EEMM Villamanrique",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "10:00",
+     "CD Rafael Gordillo Zona B Campo B2.1",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     "S-07",
+     "11:40",
+     "Centro Deportivo Los Mares",
+     "AD Los Mares - EEMM Villamanrique",
      ""
     ]
    ]
@@ -2094,6 +2094,20 @@
     ],
     [
      "V-06",
+     "17:30",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
+     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
+     ""
+    ],
+    [
+     "V-06",
+     "18:00",
+     "",
+     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     ""
+    ],
+    [
+     "V-06",
      "18:10",
      "",
      "EMD Burguillos - La Moneda CF \"Compromiso\"",
@@ -2108,37 +2122,23 @@
     ],
     [
      "S-07",
-     "11:40",
-     "Centro Deportivo Los Mares",
-     "AD Los Mares - EEMM Villamanrique",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CF Comarca los Alcores \"A\" - CD Tor del Rey de Pilas",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
+     "10:00",
+     "CD Rafael Gordillo Zona B Campo B2.1",
      "Real Betis Academy \"Bernal\" - Camino Viejo CF",
      ""
     ],
     [
-     "",
-     "",
-     "",
+     "S-07",
+     "10:00",
+     "Campo de futbol Huerto Queri, C/ Alcalde Jose Roldan Vergara 11",
      "CF Comarca los Alcores \"B\" - CD Isidro Reguera",
      ""
     ],
     [
-     "",
-     "",
-     "",
-     "CA Aznalcázar - Real Betis Academy \"Ceballos\"",
+     "S-07",
+     "11:40",
+     "Centro Deportivo Los Mares",
+     "AD Los Mares - EEMM Villamanrique",
      ""
     ]
    ]
