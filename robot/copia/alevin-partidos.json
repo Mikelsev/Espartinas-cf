@@ -31,8 +31,10 @@
   "jornada": 4,
   "local": true,
   "rival": "Real Betis Academy \"Fornals\"",
-  "hora": "19:00",
-  "fecha": "2026-11-06"
+  "gf": 1,
+  "gc": 6,
+  "fecha": "2026-11-06",
+  "estado": "Finalizado"
  },
  {
   "jornada": 5,

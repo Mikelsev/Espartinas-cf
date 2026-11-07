@@ -31,8 +31,10 @@
   "jornada": 4,
   "local": false,
   "rival": "EDM Bormujos",
-  "hora": "19:10",
+  "gf": 6,
+  "gc": 1,
   "fecha": "2026-11-06",
+  "estado": "Finalizado",
   "campo": "Estadio Municipal José Acevedo \"Pepito\""
  },
  {
