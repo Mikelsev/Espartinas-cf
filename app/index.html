@@ -734,8 +734,12 @@ function vLiga(){
 
 function avisoVotos(){
   if(S.team.sinVotos) return "";
-  const pend = pendientesDeVotar(S.session.me);
+  const me = S.session.me, pend = pendientesDeVotar(me);
   if(!pend.length) return "";
+  // Si se corrigió la convocatoria después de votar, se borró su voto y se le explica por qué
+  const rehacer = pend.find(p => (p.votosReiniciados || []).includes(me));
+  if(rehacer) return `<div class="aviso">${ICON.ranking}<div class="grow"><b>Vuelve a votar el partido contra ${esc(rehacer.rival)}</b><span>Ha cambiado la convocatoria después de que votaras, así que tu votación se ha borrado. ¡Perdona las molestias!</span></div>
+    <button class="btn small" data-act="partido" data-id="${rehacer.id}">Votar</button></div>`;
   return `<div class="aviso">${ICON.ranking}<div class="grow"><b>Te falta votar en ${pend.length === 1 ? "un partido" : pend.length + " partidos"}</b><span>Hay que votar a todos los compañeros.</span></div>
     <button class="btn small" data-act="partido" data-id="${pend[0].id}">Votar</button></div>`;
 }
