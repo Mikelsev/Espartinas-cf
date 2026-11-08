@@ -30,8 +30,18 @@
   "dif": 12
  },
  {
-  "equipo": "CF Comarca los Alcores \"A\"",
+  "equipo": "AD Los Mares",
   "pos": 4,
+  "pts": 9,
+  "pj": 4,
+  "pg": 3,
+  "pe": 0,
+  "pp": 1,
+  "dif": 12
+ },
+ {
+  "equipo": "CF Comarca los Alcores \"A\"",
+  "pos": 5,
   "pts": 7,
   "pj": 4,
   "pg": 2,
@@ -40,27 +50,17 @@
   "dif": 2
  },
  {
-  "equipo": "AD Los Mares",
-  "pos": 5,
-  "pts": 6,
-  "pj": 3,
-  "pg": 2,
-  "pe": 0,
-  "pp": 1,
-  "dif": 7
- },
- {
-  "equipo": "EEMM Villamanrique",
+  "equipo": "La Moneda CF \"Compromiso\"",
   "pos": 6,
   "pts": 6,
-  "pj": 3,
+  "pj": 4,
   "pg": 2,
   "pe": 0,
-  "pp": 1,
-  "dif": 4
+  "pp": 2,
+  "dif": 1
  },
  {
-  "equipo": "La Moneda CF \"Compromiso\"",
+  "equipo": "Real Betis Academy \"Bernal\"",
   "pos": 7,
   "pts": 6,
   "pj": 4,
@@ -70,8 +70,18 @@
   "dif": 1
  },
  {
-  "equipo": "Real Betis Academy \"Ceballos\"",
+  "equipo": "EEMM Villamanrique",
   "pos": 8,
+  "pts": 6,
+  "pj": 4,
+  "pg": 2,
+  "pe": 0,
+  "pp": 2,
+  "dif": -1
+ },
+ {
+  "equipo": "Real Betis Academy \"Ceballos\"",
+  "pos": 9,
   "pts": 6,
   "pj": 4,
   "pg": 2,
@@ -81,7 +91,7 @@
  },
  {
   "equipo": "Espartinas CF",
-  "pos": 9,
+  "pos": 10,
   "pts": 4,
   "pj": 4,
   "pg": 1,
@@ -90,44 +100,34 @@
   "dif": -1
  },
  {
-  "equipo": "Real Betis Academy \"Bernal\"",
-  "pos": 10,
-  "pts": 3,
-  "pj": 3,
-  "pg": 1,
-  "pe": 0,
-  "pp": 2,
-  "dif": -1
- },
- {
   "equipo": "Camino Viejo CF",
   "pos": 11,
   "pts": 3,
-  "pj": 3,
+  "pj": 4,
   "pg": 1,
   "pe": 0,
-  "pp": 2,
-  "dif": -4
- },
- {
-  "equipo": "CD Isidro Reguera",
-  "pos": 12,
-  "pts": 0,
-  "pj": 3,
-  "pg": 0,
-  "pe": 0,
   "pp": 3,
-  "dif": -14
+  "dif": -6
  },
  {
   "equipo": "CF Comarca los Alcores \"B\"",
-  "pos": 13,
-  "pts": 0,
-  "pj": 3,
-  "pg": 0,
+  "pos": 12,
+  "pts": 3,
+  "pj": 4,
+  "pg": 1,
   "pe": 0,
   "pp": 3,
-  "dif": -15
+  "dif": -11
+ },
+ {
+  "equipo": "CD Isidro Reguera",
+  "pos": 13,
+  "pts": 0,
+  "pj": 4,
+  "pg": 0,
+  "pe": 0,
+  "pp": 4,
+  "dif": -18
  },
  {
   "equipo": "EDM Bormujos",

@@ -40,8 +40,38 @@
   "dif": 13
  },
  {
-  "equipo": "CD Casado Sport",
+  "equipo": "EF Rio Grande",
   "pos": 5,
+  "pts": 9,
+  "pj": 3,
+  "pg": 3,
+  "pe": 0,
+  "pp": 0,
+  "dif": 12
+ },
+ {
+  "equipo": "CD Atco. San Juan",
+  "pos": 6,
+  "pts": 9,
+  "pj": 3,
+  "pg": 3,
+  "pe": 0,
+  "pp": 0,
+  "dif": 9
+ },
+ {
+  "equipo": "CDM Gerena",
+  "pos": 7,
+  "pts": 9,
+  "pj": 4,
+  "pg": 3,
+  "pe": 0,
+  "pp": 1,
+  "dif": 4
+ },
+ {
+  "equipo": "CD Casado Sport",
+  "pos": 8,
   "pts": 9,
   "pj": 4,
   "pg": 3,
@@ -51,7 +81,7 @@
  },
  {
   "equipo": "Villanueva Deportiva",
-  "pos": 6,
+  "pos": 9,
   "pts": 7,
   "pj": 4,
   "pg": 2,
@@ -60,44 +90,14 @@
   "dif": 2
  },
  {
-  "equipo": "CD Atco. San Juan",
-  "pos": 7,
-  "pts": 6,
-  "pj": 2,
-  "pg": 2,
-  "pe": 0,
-  "pp": 0,
-  "dif": 8
- },
- {
-  "equipo": "EF Rio Grande",
-  "pos": 8,
-  "pts": 6,
-  "pj": 2,
-  "pg": 2,
-  "pe": 0,
-  "pp": 0,
-  "dif": 7
- },
- {
   "equipo": "Camino Viejo CF",
-  "pos": 9,
-  "pts": 6,
-  "pj": 3,
-  "pg": 2,
-  "pe": 0,
-  "pp": 1,
-  "dif": 4
- },
- {
-  "equipo": "CDM Gerena",
   "pos": 10,
   "pts": 6,
-  "pj": 3,
+  "pj": 4,
   "pg": 2,
   "pe": 0,
-  "pp": 1,
-  "dif": -1
+  "pp": 2,
+  "dif": 3
  },
  {
   "equipo": "UD Loreto",
@@ -150,24 +150,24 @@
   "dif": -5
  },
  {
-  "equipo": "Umbrete CF",
-  "pos": 16,
-  "pts": 3,
-  "pj": 3,
-  "pg": 1,
-  "pe": 0,
-  "pp": 2,
-  "dif": -5
- },
- {
   "equipo": "CD Almensilla",
-  "pos": 17,
+  "pos": 16,
   "pts": 3,
   "pj": 4,
   "pg": 1,
   "pe": 0,
   "pp": 3,
   "dif": -7
+ },
+ {
+  "equipo": "Umbrete CF",
+  "pos": 17,
+  "pts": 3,
+  "pj": 4,
+  "pg": 1,
+  "pe": 0,
+  "pp": 3,
+  "dif": -10
  },
  {
   "equipo": "Espartinas CF",
@@ -180,18 +180,8 @@
   "dif": -13
  },
  {
-  "equipo": "CD Tor del Rey de Pilas \"A\"",
-  "pos": 19,
-  "pts": 0,
-  "pj": 3,
-  "pg": 0,
-  "pe": 0,
-  "pp": 3,
-  "dif": -9
- },
- {
   "equipo": "CD Ricosport",
-  "pos": 20,
+  "pos": 19,
   "pts": 0,
   "pj": 3,
   "pg": 0,
@@ -201,6 +191,16 @@
  },
  {
   "equipo": "EF Ayto. Gines",
+  "pos": 20,
+  "pts": 0,
+  "pj": 4,
+  "pg": 0,
+  "pe": 0,
+  "pp": 4,
+  "dif": -14
+ },
+ {
+  "equipo": "CD Tor del Rey de Pilas \"A\"",
   "pos": 21,
   "pts": 0,
   "pj": 4,
