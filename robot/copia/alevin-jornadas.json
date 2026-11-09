@@ -162,6 +162,27 @@
      ""
     ],
     [
+     "V-13",
+     "18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
+     ""
+    ],
+    [
+     "S-14",
+     "10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
+     ""
+    ],
+    [
+     "S-14",
+     "13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Umbrete CF",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -186,20 +207,6 @@
      "",
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Casado Sport - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Villanueva Deportiva - CD Atco. San Juan",
      ""
     ],
@@ -215,13 +222,6 @@
      "",
      "",
      "EDM Bormujos \"A\" - Benacazón CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
      ""
     ]
    ]
@@ -390,6 +390,27 @@
      ""
     ],
     [
+     "V-13",
+     "18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
+     ""
+    ],
+    [
+     "S-14",
+     "10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
+     ""
+    ],
+    [
+     "S-14",
+     "13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Umbrete CF",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -414,20 +435,6 @@
      "",
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Casado Sport - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Villanueva Deportiva - CD Atco. San Juan",
      ""
     ],
@@ -443,13 +450,6 @@
      "",
      "",
      "EDM Bormujos \"A\" - Benacazón CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
      ""
     ]
    ]
@@ -618,6 +618,27 @@
      ""
     ],
     [
+     "V-13",
+     "18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
+     ""
+    ],
+    [
+     "S-14",
+     "10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
+     ""
+    ],
+    [
+     "S-14",
+     "13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Umbrete CF",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -642,20 +663,6 @@
      "",
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Casado Sport - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Villanueva Deportiva - CD Atco. San Juan",
      ""
     ],
@@ -671,13 +678,6 @@
      "",
      "",
      "EDM Bormujos \"A\" - Benacazón CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
      ""
     ]
    ]
@@ -846,6 +846,27 @@
      ""
     ],
     [
+     "V-13",
+     "18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
+     ""
+    ],
+    [
+     "S-14",
+     "10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
+     ""
+    ],
+    [
+     "S-14",
+     "13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Umbrete CF",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -870,20 +891,6 @@
      "",
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Casado Sport - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Villanueva Deportiva - CD Atco. San Juan",
      ""
     ],
@@ -899,13 +906,6 @@
      "",
      "",
      "EDM Bormujos \"A\" - Benacazón CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
      ""
     ]
    ]
@@ -926,6 +926,48 @@
      "-",
      "",
      "Espartinas CF",
+     "",
+     ""
+    ],
+    [
+     ""
+    ],
+    [
+     "Vie 13\n18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\"",
+     "",
+     "-",
+     "",
+     "CD Ricosport",
+     "",
+     ""
+    ],
+    [
+     ""
+    ],
+    [
+     "Sáb 14\n10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\"",
+     "",
+     "-",
+     "",
+     "UD Loreto",
+     "",
+     ""
+    ],
+    [
+     ""
+    ],
+    [
+     "Sáb 14\n13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport",
+     "",
+     "-",
+     "",
+     "Umbrete CF",
      "",
      ""
     ],
@@ -977,34 +1019,6 @@
     [
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\"",
-     "",
-     "-",
-     "",
-     "UD Loreto",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
-     "",
-     "CD Casado Sport",
-     "",
-     "-",
-     "",
-     "Umbrete CF",
-     "",
-     ""
-    ],
-    [
-     ""
-    ],
-    [
-     "",
-     "",
      "Villanueva Deportiva",
      "",
      "-",
@@ -1043,20 +1057,6 @@
     ],
     [
      ""
-    ],
-    [
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\"",
-     "",
-     "-",
-     "",
-     "CD Ricosport",
-     "",
-     ""
-    ],
-    [
-     ""
     ]
    ],
    [
@@ -1071,6 +1071,27 @@
      "18:00",
      "",
      "Atco. Olivarense - Espartinas CF",
+     ""
+    ],
+    [
+     "V-13",
+     "18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
+     ""
+    ],
+    [
+     "S-14",
+     "10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
+     ""
+    ],
+    [
+     "S-14",
+     "13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Umbrete CF",
      ""
     ],
     [
@@ -1098,20 +1119,6 @@
      "",
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Casado Sport - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Villanueva Deportiva - CD Atco. San Juan",
      ""
     ],
@@ -1127,13 +1134,6 @@
      "",
      "",
      "EDM Bormujos \"A\" - Benacazón CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
      ""
     ]
    ]
@@ -1302,6 +1302,27 @@
      ""
     ],
     [
+     "V-13",
+     "18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
+     ""
+    ],
+    [
+     "S-14",
+     "10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
+     ""
+    ],
+    [
+     "S-14",
+     "13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Umbrete CF",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -1326,20 +1347,6 @@
      "",
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Casado Sport - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Villanueva Deportiva - CD Atco. San Juan",
      ""
     ],
@@ -1355,13 +1362,6 @@
      "",
      "",
      "EDM Bormujos \"A\" - Benacazón CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
      ""
     ]
    ]
@@ -1530,6 +1530,27 @@
      ""
     ],
     [
+     "V-13",
+     "18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
+     ""
+    ],
+    [
+     "S-14",
+     "10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
+     ""
+    ],
+    [
+     "S-14",
+     "13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Umbrete CF",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -1554,20 +1575,6 @@
      "",
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Casado Sport - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Villanueva Deportiva - CD Atco. San Juan",
      ""
     ],
@@ -1583,13 +1590,6 @@
      "",
      "",
      "EDM Bormujos \"A\" - Benacazón CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
      ""
     ]
    ]
@@ -1758,6 +1758,27 @@
      ""
     ],
     [
+     "V-13",
+     "18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
+     ""
+    ],
+    [
+     "S-14",
+     "10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
+     ""
+    ],
+    [
+     "S-14",
+     "13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Umbrete CF",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -1782,20 +1803,6 @@
      "",
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Casado Sport - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Villanueva Deportiva - CD Atco. San Juan",
      ""
     ],
@@ -1811,13 +1818,6 @@
      "",
      "",
      "EDM Bormujos \"A\" - Benacazón CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
      ""
     ]
    ]
@@ -1986,6 +1986,27 @@
      ""
     ],
     [
+     "V-13",
+     "18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
+     ""
+    ],
+    [
+     "S-14",
+     "10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
+     ""
+    ],
+    [
+     "S-14",
+     "13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Umbrete CF",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -2010,20 +2031,6 @@
      "",
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Casado Sport - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Villanueva Deportiva - CD Atco. San Juan",
      ""
     ],
@@ -2039,13 +2046,6 @@
      "",
      "",
      "EDM Bormujos \"A\" - Benacazón CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
      ""
     ]
    ]
@@ -2214,6 +2214,27 @@
      ""
     ],
     [
+     "V-13",
+     "18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
+     ""
+    ],
+    [
+     "S-14",
+     "10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
+     ""
+    ],
+    [
+     "S-14",
+     "13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Umbrete CF",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -2238,20 +2259,6 @@
      "",
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Casado Sport - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Villanueva Deportiva - CD Atco. San Juan",
      ""
     ],
@@ -2267,13 +2274,6 @@
      "",
      "",
      "EDM Bormujos \"A\" - Benacazón CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
      ""
     ]
    ]
@@ -2442,6 +2442,27 @@
      ""
     ],
     [
+     "V-13",
+     "18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
+     ""
+    ],
+    [
+     "S-14",
+     "10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
+     ""
+    ],
+    [
+     "S-14",
+     "13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Umbrete CF",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -2466,20 +2487,6 @@
      "",
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Casado Sport - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Villanueva Deportiva - CD Atco. San Juan",
      ""
     ],
@@ -2495,13 +2502,6 @@
      "",
      "",
      "EDM Bormujos \"A\" - Benacazón CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
      ""
     ]
    ]
@@ -2670,6 +2670,27 @@
      ""
     ],
     [
+     "V-13",
+     "18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
+     ""
+    ],
+    [
+     "S-14",
+     "10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
+     ""
+    ],
+    [
+     "S-14",
+     "13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Umbrete CF",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -2694,20 +2715,6 @@
      "",
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Casado Sport - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Villanueva Deportiva - CD Atco. San Juan",
      ""
     ],
@@ -2723,13 +2730,6 @@
      "",
      "",
      "EDM Bormujos \"A\" - Benacazón CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
      ""
     ]
    ]
@@ -2898,6 +2898,27 @@
      ""
     ],
     [
+     "V-13",
+     "18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
+     ""
+    ],
+    [
+     "S-14",
+     "10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
+     ""
+    ],
+    [
+     "S-14",
+     "13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Umbrete CF",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -2922,20 +2943,6 @@
      "",
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Casado Sport - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Villanueva Deportiva - CD Atco. San Juan",
      ""
     ],
@@ -2951,13 +2958,6 @@
      "",
      "",
      "EDM Bormujos \"A\" - Benacazón CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
      ""
     ]
    ]
@@ -3126,6 +3126,27 @@
      ""
     ],
     [
+     "V-13",
+     "18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
+     ""
+    ],
+    [
+     "S-14",
+     "10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
+     ""
+    ],
+    [
+     "S-14",
+     "13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Umbrete CF",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -3150,20 +3171,6 @@
      "",
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Casado Sport - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Villanueva Deportiva - CD Atco. San Juan",
      ""
     ],
@@ -3179,13 +3186,6 @@
      "",
      "",
      "EDM Bormujos \"A\" - Benacazón CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
      ""
     ]
    ]
@@ -3354,6 +3354,27 @@
      ""
     ],
     [
+     "V-13",
+     "18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
+     ""
+    ],
+    [
+     "S-14",
+     "10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
+     ""
+    ],
+    [
+     "S-14",
+     "13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Umbrete CF",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -3378,20 +3399,6 @@
      "",
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Casado Sport - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Villanueva Deportiva - CD Atco. San Juan",
      ""
     ],
@@ -3407,13 +3414,6 @@
      "",
      "",
      "EDM Bormujos \"A\" - Benacazón CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
      ""
     ]
    ]
@@ -3582,6 +3582,27 @@
      ""
     ],
     [
+     "V-13",
+     "18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
+     ""
+    ],
+    [
+     "S-14",
+     "10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
+     ""
+    ],
+    [
+     "S-14",
+     "13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Umbrete CF",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -3606,20 +3627,6 @@
      "",
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Casado Sport - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Villanueva Deportiva - CD Atco. San Juan",
      ""
     ],
@@ -3635,13 +3642,6 @@
      "",
      "",
      "EDM Bormujos \"A\" - Benacazón CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
      ""
     ]
    ]
@@ -3810,6 +3810,27 @@
      ""
     ],
     [
+     "V-13",
+     "18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
+     ""
+    ],
+    [
+     "S-14",
+     "10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
+     ""
+    ],
+    [
+     "S-14",
+     "13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Umbrete CF",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -3834,20 +3855,6 @@
      "",
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Casado Sport - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Villanueva Deportiva - CD Atco. San Juan",
      ""
     ],
@@ -3863,13 +3870,6 @@
      "",
      "",
      "EDM Bormujos \"A\" - Benacazón CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
      ""
     ]
    ]
@@ -4038,6 +4038,27 @@
      ""
     ],
     [
+     "V-13",
+     "18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
+     ""
+    ],
+    [
+     "S-14",
+     "10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
+     ""
+    ],
+    [
+     "S-14",
+     "13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Umbrete CF",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -4062,20 +4083,6 @@
      "",
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Casado Sport - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Villanueva Deportiva - CD Atco. San Juan",
      ""
     ],
@@ -4091,13 +4098,6 @@
      "",
      "",
      "EDM Bormujos \"A\" - Benacazón CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
      ""
     ]
    ]
@@ -4266,6 +4266,27 @@
      ""
     ],
     [
+     "V-13",
+     "18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
+     ""
+    ],
+    [
+     "S-14",
+     "10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
+     ""
+    ],
+    [
+     "S-14",
+     "13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Umbrete CF",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -4290,20 +4311,6 @@
      "",
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Casado Sport - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Villanueva Deportiva - CD Atco. San Juan",
      ""
     ],
@@ -4319,13 +4326,6 @@
      "",
      "",
      "EDM Bormujos \"A\" - Benacazón CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
      ""
     ]
    ]
@@ -4494,6 +4494,27 @@
      ""
     ],
     [
+     "V-13",
+     "18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
+     ""
+    ],
+    [
+     "S-14",
+     "10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
+     ""
+    ],
+    [
+     "S-14",
+     "13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Umbrete CF",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -4518,20 +4539,6 @@
      "",
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Casado Sport - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Villanueva Deportiva - CD Atco. San Juan",
      ""
     ],
@@ -4547,13 +4554,6 @@
      "",
      "",
      "EDM Bormujos \"A\" - Benacazón CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
      ""
     ]
    ]
@@ -4722,6 +4722,27 @@
      ""
     ],
     [
+     "V-13",
+     "18:10",
+     "",
+     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
+     ""
+    ],
+    [
+     "S-14",
+     "10:00",
+     "",
+     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
+     ""
+    ],
+    [
+     "S-14",
+     "13:00",
+     "Polideportivo Alcalde Fernando Suárez (Coria del Río)",
+     "CD Casado Sport - Umbrete CF",
+     ""
+    ],
+    [
      "",
      "",
      "",
@@ -4746,20 +4767,6 @@
      "",
      "",
      "",
-     "CD Tor del Rey de Pilas \"B\" - UD Loreto",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Casado Sport - Umbrete CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
      "Villanueva Deportiva - CD Atco. San Juan",
      ""
     ],
@@ -4775,13 +4782,6 @@
      "",
      "",
      "EDM Bormujos \"A\" - Benacazón CF",
-     ""
-    ],
-    [
-     "",
-     "",
-     "",
-     "CD Tor del Rey de Pilas \"A\" - CD Ricosport",
      ""
     ]
    ]
