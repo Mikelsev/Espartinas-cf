@@ -10,34 +10,34 @@
   "dif": 18
  },
  {
-  "equipo": "EMD Burguillos",
-  "pos": 2,
-  "pts": 9,
-  "pj": 3,
-  "pg": 3,
-  "pe": 0,
-  "pp": 0,
-  "dif": 12
- },
- {
   "equipo": "CA Aznalcázar",
-  "pos": 3,
-  "pts": 9,
-  "pj": 3,
-  "pg": 3,
+  "pos": 2,
+  "pts": 12,
+  "pj": 4,
+  "pg": 4,
   "pe": 0,
   "pp": 0,
-  "dif": 12
+  "dif": 13
  },
  {
   "equipo": "AD Los Mares",
-  "pos": 4,
+  "pos": 3,
   "pts": 9,
   "pj": 4,
   "pg": 3,
   "pe": 0,
   "pp": 1,
   "dif": 12
+ },
+ {
+  "equipo": "EMD Burguillos",
+  "pos": 4,
+  "pts": 9,
+  "pj": 4,
+  "pg": 3,
+  "pe": 0,
+  "pp": 1,
+  "dif": 11
  },
  {
   "equipo": "CF Comarca los Alcores \"A\"",
