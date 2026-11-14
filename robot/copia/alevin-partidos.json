@@ -40,13 +40,16 @@
   "jornada": 5,
   "local": false,
   "rival": "Atco. Olivarense",
-  "hora": "18:00",
-  "fecha": "2026-11-13"
+  "gf": 3,
+  "gc": 2,
+  "fecha": "2026-11-13",
+  "estado": "Finalizado"
  },
  {
   "jornada": 6,
   "local": true,
   "rival": "Palomares CF",
+  "hora": "19:10",
   "fecha": "2026-11-20"
  },
  {

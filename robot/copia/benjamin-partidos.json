@@ -41,8 +41,10 @@
   "jornada": 5,
   "local": true,
   "rival": "AD Los Mares",
-  "hora": "17:00",
-  "fecha": "2026-11-13"
+  "gf": 4,
+  "gc": 2,
+  "fecha": "2026-11-13",
+  "estado": "Finalizado"
  },
  {
   "jornada": 6,

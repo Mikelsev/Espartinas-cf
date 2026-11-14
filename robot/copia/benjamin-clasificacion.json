@@ -20,18 +20,8 @@
   "dif": 13
  },
  {
-  "equipo": "AD Los Mares",
-  "pos": 3,
-  "pts": 9,
-  "pj": 4,
-  "pg": 3,
-  "pe": 0,
-  "pp": 1,
-  "dif": 12
- },
- {
   "equipo": "EMD Burguillos",
-  "pos": 4,
+  "pos": 3,
   "pts": 9,
   "pj": 4,
   "pg": 3,
@@ -40,8 +30,28 @@
   "dif": 11
  },
  {
-  "equipo": "CF Comarca los Alcores \"A\"",
+  "equipo": "AD Los Mares",
+  "pos": 4,
+  "pts": 9,
+  "pj": 5,
+  "pg": 3,
+  "pe": 0,
+  "pp": 2,
+  "dif": 10
+ },
+ {
+  "equipo": "La Moneda CF \"Compromiso\"",
   "pos": 5,
+  "pts": 9,
+  "pj": 5,
+  "pg": 3,
+  "pe": 0,
+  "pp": 2,
+  "dif": 4
+ },
+ {
+  "equipo": "CF Comarca los Alcores \"A\"",
+  "pos": 6,
   "pts": 7,
   "pj": 4,
   "pg": 2,
@@ -50,18 +60,18 @@
   "dif": 2
  },
  {
-  "equipo": "La Moneda CF \"Compromiso\"",
-  "pos": 6,
-  "pts": 6,
-  "pj": 4,
+  "equipo": "Espartinas CF",
+  "pos": 7,
+  "pts": 7,
+  "pj": 5,
   "pg": 2,
-  "pe": 0,
+  "pe": 1,
   "pp": 2,
   "dif": 1
  },
  {
   "equipo": "Real Betis Academy \"Bernal\"",
-  "pos": 7,
+  "pos": 8,
   "pts": 6,
   "pj": 4,
   "pg": 2,
@@ -71,7 +81,7 @@
  },
  {
   "equipo": "EEMM Villamanrique",
-  "pos": 8,
+  "pos": 9,
   "pts": 6,
   "pj": 4,
   "pg": 2,
@@ -81,23 +91,13 @@
  },
  {
   "equipo": "Real Betis Academy \"Ceballos\"",
-  "pos": 9,
+  "pos": 10,
   "pts": 6,
-  "pj": 4,
+  "pj": 5,
   "pg": 2,
   "pe": 0,
-  "pp": 2,
-  "dif": -2
- },
- {
-  "equipo": "Espartinas CF",
-  "pos": 10,
-  "pts": 4,
-  "pj": 4,
-  "pg": 1,
-  "pe": 1,
-  "pp": 2,
-  "dif": -1
+  "pp": 3,
+  "dif": -5
  },
  {
   "equipo": "Camino Viejo CF",
