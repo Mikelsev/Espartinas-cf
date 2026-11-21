@@ -1,23 +1,23 @@
 [
  {
-  "equipo": "CA Aznalcázar",
+  "equipo": "CD Tor del Rey de Pilas",
   "pos": 1,
   "pts": 18,
   "pj": 6,
   "pg": 6,
   "pe": 0,
   "pp": 0,
-  "dif": 23
+  "dif": 26
  },
  {
-  "equipo": "CD Tor del Rey de Pilas",
+  "equipo": "CA Aznalcázar",
   "pos": 2,
-  "pts": 15,
-  "pj": 5,
-  "pg": 5,
+  "pts": 18,
+  "pj": 6,
+  "pg": 6,
   "pe": 0,
   "pp": 0,
-  "dif": 21
+  "dif": 23
  },
  {
   "equipo": "CF Comarca los Alcores \"A\"",
@@ -30,8 +30,18 @@
   "dif": 9
  },
  {
-  "equipo": "EMD Burguillos",
+  "equipo": "AD Los Mares",
   "pos": 4,
+  "pts": 12,
+  "pj": 6,
+  "pg": 4,
+  "pe": 0,
+  "pp": 2,
+  "dif": 15
+ },
+ {
+  "equipo": "EMD Burguillos",
+  "pos": 5,
   "pts": 12,
   "pj": 5,
   "pg": 4,
@@ -41,7 +51,7 @@
  },
  {
   "equipo": "La Moneda CF \"Compromiso\"",
-  "pos": 5,
+  "pos": 6,
   "pts": 12,
   "pj": 6,
   "pg": 4,
@@ -50,33 +60,23 @@
   "dif": 9
  },
  {
-  "equipo": "AD Los Mares",
-  "pos": 6,
+  "equipo": "Real Betis Academy \"Ceballos\"",
+  "pos": 7,
   "pts": 9,
-  "pj": 5,
+  "pj": 6,
   "pg": 3,
   "pe": 0,
-  "pp": 2,
-  "dif": 10
+  "pp": 3,
+  "dif": 0
  },
  {
   "equipo": "Espartinas CF",
-  "pos": 7,
+  "pos": 8,
   "pts": 7,
   "pj": 6,
   "pg": 2,
   "pe": 1,
   "pp": 3,
-  "dif": -1
- },
- {
-  "equipo": "EEMM Villamanrique",
-  "pos": 8,
-  "pts": 6,
-  "pj": 4,
-  "pg": 2,
-  "pe": 0,
-  "pp": 2,
   "dif": -1
  },
  {
@@ -90,18 +90,8 @@
   "dif": -4
  },
  {
-  "equipo": "Real Betis Academy \"Ceballos\"",
-  "pos": 10,
-  "pts": 6,
-  "pj": 5,
-  "pg": 2,
-  "pe": 0,
-  "pp": 3,
-  "dif": -5
- },
- {
   "equipo": "Camino Viejo CF",
-  "pos": 11,
+  "pos": 10,
   "pts": 6,
   "pj": 6,
   "pg": 2,
@@ -110,33 +100,43 @@
   "dif": -6
  },
  {
+  "equipo": "EEMM Villamanrique",
+  "pos": 11,
+  "pts": 6,
+  "pj": 5,
+  "pg": 2,
+  "pe": 0,
+  "pp": 3,
+  "dif": -6
+ },
+ {
   "equipo": "CF Comarca los Alcores \"B\"",
   "pos": 12,
   "pts": 3,
-  "pj": 5,
+  "pj": 6,
   "pg": 1,
   "pe": 0,
-  "pp": 4,
-  "dif": -16
- },
- {
-  "equipo": "EDM Bormujos",
-  "pos": 13,
-  "pts": 0,
-  "pj": 5,
-  "pg": 0,
-  "pe": 0,
   "pp": 5,
-  "dif": -24
+  "dif": -21
  },
  {
   "equipo": "CD Isidro Reguera",
-  "pos": 14,
+  "pos": 13,
   "pts": 0,
   "pj": 6,
   "pg": 0,
   "pe": 0,
   "pp": 6,
   "dif": -28
+ },
+ {
+  "equipo": "EDM Bormujos",
+  "pos": 14,
+  "pts": 0,
+  "pj": 6,
+  "pg": 0,
+  "pe": 0,
+  "pp": 6,
+  "dif": -29
  }
 ]
