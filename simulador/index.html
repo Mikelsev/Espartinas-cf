@@ -1,0 +1,1247 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulador de Campañas</title>
+<meta name="description" content="Simula cómo reacciona una población sintética a una campaña publicitaria, con grupo de control y estadística.">
+<style>
+:root{
+  --fondo:#f5f6f8; --panel:#ffffff; --texto:#1b1f24; --suave:#5b6472; --borde:#dde1e7;
+  --acento:#2a78d6; --acento2:#0a2a63; --ok:#0ca30c; --aviso:#b87900; --mal:#d03b3b;
+  --var1:#2a78d6; --var2:#eb6834; --var3:#1baf7a; --control:#8a8f98;
+  --pos:#2a78d6; --neg:#e34948; --neutro:#f0efec;
+  --sombra:0 1px 3px rgba(0,0,0,.08);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --fondo:#121314; --panel:#1a1a19; --texto:#eceef0; --suave:#a3a9b2; --borde:#33363a;
+    --acento:#3987e5; --acento2:#9fc1f0; --ok:#0ca30c; --aviso:#eda100; --mal:#e66767;
+    --var1:#3987e5; --var2:#d95926; --var3:#199e70; --control:#8a8f98;
+    --pos:#3987e5; --neg:#e66767; --neutro:#383835; --sombra:none;
+  }
+}
+:root[data-theme="dark"]{
+  --fondo:#121314; --panel:#1a1a19; --texto:#eceef0; --suave:#a3a9b2; --borde:#33363a;
+  --acento:#3987e5; --acento2:#9fc1f0; --ok:#0ca30c; --aviso:#eda100; --mal:#e66767;
+  --var1:#3987e5; --var2:#d95926; --var3:#199e70; --control:#8a8f98;
+  --pos:#3987e5; --neg:#e66767; --neutro:#383835; --sombra:none;
+}
+*{box-sizing:border-box}
+a{color:var(--acento)}
+body{margin:0;background:var(--fondo);color:var(--texto);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{background:var(--acento2);color:#fff;padding:14px 16px}
+:root[data-theme="dark"] header{color:#0b1220}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) header{color:#0b1220}}
+header h1{margin:0;font-size:19px}
+header p{margin:2px 0 0;font-size:13px;opacity:.85}
+.envoltorio{max-width:1100px;margin:0 auto;padding:0 16px 60px}
+nav.pasos{display:flex;gap:6px;overflow-x:auto;padding:12px 0;position:sticky;top:0;background:var(--fondo);z-index:5}
+nav.pasos button{flex:0 0 auto;border:1px solid var(--borde);background:var(--panel);color:var(--texto);border-radius:20px;padding:7px 13px;font-size:14px;cursor:pointer}
+nav.pasos button.activo{background:var(--acento);border-color:var(--acento);color:#fff}
+nav.pasos button .n{display:inline-block;width:20px;height:20px;border-radius:50%;background:var(--fondo);color:var(--texto);font-size:12px;line-height:20px;text-align:center;margin-right:5px}
+.panel{background:var(--panel);border:1px solid var(--borde);border-radius:12px;padding:16px;margin:12px 0;box-shadow:var(--sombra)}
+.panel h2{margin:0 0 4px;font-size:18px}
+.panel h3{margin:14px 0 6px;font-size:15px}
+.ayuda{color:var(--suave);font-size:13px;margin:0 0 10px}
+label{display:block;font-size:13px;font-weight:600;margin:10px 0 4px}
+input[type=text],input[type=number],input[type=password],select,textarea{width:100%;padding:9px 10px;border:1px solid var(--borde);border-radius:8px;background:var(--fondo);color:var(--texto);font:inherit}
+textarea{min-height:80px;resize:vertical}
+.fila{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 14px}
+.btn{display:inline-block;border:0;border-radius:8px;padding:10px 16px;font:inherit;font-weight:600;cursor:pointer;background:var(--acento);color:#fff;margin:10px 8px 0 0}
+.btn.sec{background:transparent;color:var(--acento);border:1px solid var(--acento)}
+.btn.peligro{background:var(--mal)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--borde);border-radius:16px;padding:4px 10px;font-size:13px;background:var(--fondo);cursor:pointer;user-select:none}
+.chip input{margin:0}
+.aviso{border-left:4px solid var(--aviso);background:var(--fondo);padding:8px 12px;border-radius:6px;font-size:13px;margin:10px 0}
+.aviso.ok{border-color:var(--ok)}
+.aviso.mal{border-color:var(--mal)}
+.variante{border:1px solid var(--borde);border-radius:10px;padding:10px 12px;margin:10px 0;position:relative}
+.variante .marca{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.variante .quitar{position:absolute;top:8px;right:8px;background:none;border:0;color:var(--mal);cursor:pointer;font-size:13px}
+.miniatura{max-width:160px;max-height:160px;border-radius:8px;display:block;margin-top:6px;border:1px solid var(--borde)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:6px 8px;border-bottom:1px solid var(--borde);text-align:left;vertical-align:top}
+th{color:var(--suave);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tabla-scroll{overflow-x:auto}
+.barra{height:10px;background:var(--fondo);border-radius:6px;overflow:hidden;border:1px solid var(--borde)}
+.barra>div{height:100%;background:var(--acento);width:0;transition:width .3s}
+.estado{font-size:13px;color:var(--suave);margin-top:6px}
+.mundo{max-height:420px;overflow-y:auto;border:1px solid var(--borde);border-radius:10px;padding:6px;background:var(--fondo)}
+.post{background:var(--panel);border:1px solid var(--borde);border-radius:10px;padding:8px 10px;margin:6px 0;font-size:13px}
+.post .quien{font-weight:600}
+.post .meta{color:var(--suave);font-size:12px}
+.etq{display:inline-block;font-size:11px;padding:1px 7px;border-radius:10px;border:1px solid var(--borde);color:var(--suave);margin-left:4px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:10px 0}
+.kpi{background:var(--fondo);border:1px solid var(--borde);border-radius:10px;padding:10px}
+.kpi .v{font-size:22px;font-weight:700}
+.kpi .t{font-size:12px;color:var(--suave)}
+.mapa td.celda{text-align:center;font-variant-numeric:tabular-nums;border:2px solid var(--panel);border-radius:4px;cursor:default;min-width:70px}
+.informe-md h1{font-size:20px}.informe-md h2{font-size:17px;margin-top:18px}.informe-md h3{font-size:15px}
+.informe-md blockquote{margin:8px 0;padding:6px 12px;border-left:3px solid var(--acento);background:var(--fondo);border-radius:4px}
+.chat{border:1px solid var(--borde);border-radius:10px;padding:8px;max-height:380px;overflow-y:auto;background:var(--fondo)}
+.msg{margin:6px 0;padding:8px 10px;border-radius:10px;max-width:85%;white-space:pre-wrap}
+.msg.yo{background:var(--acento);color:#fff;margin-left:auto}
+.msg.el{background:var(--panel);border:1px solid var(--borde)}
+.entrada-chat{display:flex;gap:8px;margin-top:8px}
+.entrada-chat input{flex:1}
+.entrada-chat .btn{margin:0}
+.grafo text{font-size:11px;fill:var(--texto)}
+.grafo line{stroke:var(--borde);stroke-width:1.5}
+.tooltip{position:fixed;pointer-events:none;background:var(--panel);color:var(--texto);border:1px solid var(--borde);border-radius:8px;padding:6px 9px;font-size:12px;box-shadow:0 2px 8px rgba(0,0,0,.15);z-index:50;display:none;max-width:260px}
+.leyenda{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--suave);margin:4px 0}
+.leyenda span i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.oculto{display:none!important}
+footer{color:var(--suave);font-size:12px;text-align:center;padding:20px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Simulador de Campañas</h1>
+  <p>Población sintética · grupo de control · estadística por segmentos</p>
+</header>
+<div class="envoltorio">
+  <nav class="pasos" id="pasos"></nav>
+  <main id="vista"></main>
+</div>
+<div class="tooltip" id="tooltip"></div>
+<footer>Las respuestas son simuladas: sirven para comparar versiones y segmentos, no para predecir cifras reales. Calibra con campañas pasadas antes de tomar decisiones.</footer>
+
+<script>
+"use strict";
+/* =========================================================================
+   Simulador de Campañas — funcionamiento inspirado en MiroFish:
+   1) Semilla: la campaña se convierte en un mapa de entidades y relaciones.
+   2) Entorno: se crea una población sintética por cuotas (edad × perfil),
+      con datos aproximados del INE, y una red social entre los agentes.
+   3) Simulación: reparto aleatorio a control / variantes, exposición en un
+      feed y rondas sociales (ven lo que comentan y comparten sus contactos).
+   4) Informe: estadística (Welch, Newcombe, Holm) y un agente redactor
+      que consulta los datos y entrevista a los agentes.
+   5) Interacción: conversar con cualquier agente o con el redactor.
+   Sin clave de API funciona en «modo prueba» con un modelo estadístico local.
+   ========================================================================= */
+
+const SDK_URL = "https://cdn.jsdelivr.net/npm/@anthropic-ai/sdk@1.4.0/+esm";
+const MODELOS = {
+  "claude-opus-5-5":   { nombre: "Claude Opus 5.5 (máxima calidad)", ent: 4.00, sal: 20.00, fallback: true },
+  "claude-sonnet-5-5": { nombre: "Claude Sonnet 5.5 (equilibrado)",  ent: 2.00, sal: 10.00, fallback: true },
+  "claude-haiku-5-5":  { nombre: "Claude Haiku 5.5 (el más barato)", ent: 0.10, sal: 0.50,  fallback: false },
+};
+const CLAVE_LS = "sim-";
+const COLORES_VAR = ["var(--var1)", "var(--var2)", "var(--var3)"];
+const LETRAS = ["A", "B", "C"];
+
+/* ---------------- utilidades ---------------- */
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const fmt = (x, d = 2) => (x == null || !isFinite(x)) ? "–" : x.toLocaleString("es-ES", { minimumFractionDigits: d, maximumFractionDigits: d });
+const pct = (x, d = 1) => (x == null || !isFinite(x)) ? "–" : (x * 100).toLocaleString("es-ES", { minimumFractionDigits: d, maximumFractionDigits: d }) + " %";
+const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+function lsGet(k, def) { try { const v = localStorage.getItem(CLAVE_LS + k); return v == null ? def : JSON.parse(v); } catch { return def; } }
+function lsSet(k, v) { try { localStorage.setItem(CLAVE_LS + k, JSON.stringify(v)); return true; } catch { return false; } }
+function mulberry32(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function hash(s) { let h = 2166136261; for (const c of String(s)) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; }
+let rnd = mulberry32(1);
+const azar = () => rnd();
+function elegir(arr) { return arr[Math.floor(azar() * arr.length)]; }
+function ponderado(obj) { const e = Object.entries(obj); const t = e.reduce((s, [, w]) => s + w, 0); let r = azar() * t; for (const [k, w] of e) { r -= w; if (r <= 0) return k; } return e[e.length - 1][0]; }
+function normal() { let u = 0, v = 0; while (!u) u = azar(); while (!v) v = azar(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+function barajar(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(azar() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function quitarAcentos(s) { return s.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); }
+
+/* ---------------- datos de población (aproximación al INE) ---------------- */
+const EDADES = [
+  { id: "18-24", min: 18, max: 24, peso: 9.0 }, { id: "25-34", min: 25, max: 34, peso: 14.0 },
+  { id: "35-44", min: 35, max: 44, peso: 18.5 }, { id: "45-54", min: 45, max: 54, peso: 19.0 },
+  { id: "55-64", min: 55, max: 64, peso: 16.0 }, { id: "65+", min: 65, max: 85, peso: 23.5 },
+];
+const PROVINCIAS = { "Madrid": 14.3, "Barcelona": 11.9, "Valencia": 5.5, "Sevilla": 4.1, "Alicante": 4.0, "Málaga": 3.6, "Murcia": 3.2, "Cádiz": 2.6, "Vizcaya": 2.4, "Baleares": 2.6, "Las Palmas": 2.4, "La Coruña": 2.4, "Santa Cruz de Tenerife": 2.2, "Asturias": 2.1, "Zaragoza": 2.1, "Pontevedra": 2.0, "Granada": 1.9, "Tarragona": 1.7, "Córdoba": 1.6, "Gerona": 1.6, "Guipúzcoa": 1.5, "Toledo": 1.5, "Almería": 1.6, "Badajoz": 1.4, "Navarra": 1.4, "Jaén": 1.3, "Cantabria": 1.2, "Castellón": 1.2, "Huelva": 1.1, "Valladolid": 1.1, "Ciudad Real": 1.0, "León": 0.9, "Lérida": 0.9, "Cáceres": 0.8, "Albacete": 0.8, "Burgos": 0.7, "Salamanca": 0.7, "Lugo": 0.7, "Orense": 0.6, "La Rioja": 0.7, "Álava": 0.7, "Guadalajara": 0.6, "Huesca": 0.5, "Cuenca": 0.4, "Zamora": 0.4, "Ávila": 0.3, "Palencia": 0.3, "Segovia": 0.3, "Teruel": 0.3, "Soria": 0.2 };
+const NOMBRES = {
+  mujer: { joven: ["Lucía", "Martina", "Paula", "Sara", "Daniela", "Carla", "Alba", "Noa", "Claudia", "Irene", "Julia", "Laura"], media: ["María", "Laura", "Cristina", "Marta", "Ana", "Sandra", "Raquel", "Elena", "Beatriz", "Silvia", "Patricia", "Natalia"], mayor: ["Carmen", "Pilar", "Dolores", "Isabel", "Josefa", "Rosario", "Mercedes", "Antonia", "Francisca", "Manuela", "Teresa", "Concepción"] },
+  hombre: { joven: ["Hugo", "Pablo", "Alejandro", "Daniel", "Adrián", "Álvaro", "Mario", "Diego", "Javier", "Marcos", "Iker", "Sergio"], media: ["David", "Javier", "Carlos", "Raúl", "Sergio", "Rubén", "Iván", "Óscar", "Alberto", "Fernando", "Jorge", "Miguel"], mayor: ["Antonio", "José", "Manuel", "Francisco", "Juan", "Ángel", "Rafael", "Luis", "Pedro", "Ramón", "Jesús", "Andrés"] },
+};
+const APELLIDOS = ["García", "Rodríguez", "González", "Fernández", "López", "Martínez", "Sánchez", "Pérez", "Gómez", "Martín", "Jiménez", "Ruiz", "Hernández", "Díaz", "Moreno", "Muñoz", "Álvarez", "Romero", "Alonso", "Gutiérrez", "Navarro", "Torres", "Domínguez", "Vázquez", "Ramos", "Gil", "Serrano", "Blanco", "Molina", "Castro"];
+const PROFESIONES = {
+  trabaja: ["administrativa/o", "dependienta/e", "enfermera/o", "profesor/a", "ingeniera/o", "camarera/o", "conductor/a", "técnica/o informática", "comercial", "autónoma/o con negocio propio", "operaria/o de fábrica", "médica/o", "abogada/o", "cocinera/o", "electricista", "agricultor/a", "funcionaria/o", "diseñadora/or gráfica/o", "repartidor/a", "contable"],
+  estudia: ["estudiante universitaria/o", "estudiante de FP", "estudiante de máster"],
+  paro: ["en paro, buscando empleo"], hogar: ["se dedica al hogar y la familia"], jubilado: ["jubilada/o"],
+};
+const INTERESES = {
+  "deporte": ["deporte", "futbol", "gimnasio", "correr", "fitness", "entrenar", "bici", "padel", "zapatillas", "deportiva"],
+  "tecnología": ["tecnologia", "movil", "app", "digital", "online", "gadget", "ordenador", "inteligente", "5g", "internet"],
+  "moda": ["moda", "ropa", "estilo", "tendencia", "look", "coleccion", "zapatos"],
+  "belleza": ["belleza", "piel", "crema", "maquillaje", "cosmetica", "cuidado", "natural"],
+  "cocina": ["cocina", "receta", "comida", "sabor", "comer", "alimentacion", "delicioso", "restaurante"],
+  "salud": ["salud", "saludable", "bienestar", "sano", "energia", "vitaminas", "descanso"],
+  "viajes": ["viaje", "viajar", "vacaciones", "escapada", "hotel", "playa", "destino", "vuelo"],
+  "videojuegos": ["videojuego", "gaming", "consola", "jugar", "gamer"],
+  "música": ["musica", "concierto", "festival", "cancion", "spotify"],
+  "cine y series": ["cine", "serie", "pelicula", "streaming", "estreno"],
+  "familia": ["familia", "hijos", "niños", "bebe", "colegio", "padres", "casa", "hogar"],
+  "motor": ["coche", "moto", "motor", "conducir", "electrico", "km", "concesionario"],
+  "finanzas": ["ahorro", "ahorrar", "dinero", "banco", "inversion", "hipoteca", "cuenta", "seguro"],
+  "naturaleza": ["naturaleza", "medio ambiente", "sostenible", "ecologico", "reciclar", "verde", "planeta"],
+  "lectura": ["libro", "leer", "lectura", "novela"],
+  "mascotas": ["perro", "gato", "mascota", "pienso"],
+  "bricolaje y hogar": ["hogar", "casa", "muebles", "decoracion", "bricolaje", "jardin"],
+};
+const PLATAFORMAS = ["Instagram", "TikTok", "YouTube", "Facebook", "X", "WhatsApp", "TV", "Prensa/radio"];
+const USO_PLAT = { // probabilidad aproximada de uso habitual por edad
+  "Instagram": [.85, .78, .62, .45, .28, .10], "TikTok": [.75, .52, .30, .18, .09, .03], "YouTube": [.90, .85, .78, .68, .55, .35],
+  "Facebook": [.20, .38, .55, .62, .58, .38], "X": [.30, .28, .22, .18, .12, .05], "WhatsApp": [.97, .97, .96, .95, .92, .80],
+  "TV": [.35, .50, .62, .72, .85, .95], "Prensa/radio": [.10, .20, .32, .45, .55, .65],
+};
+const DIMENSIONES = {
+  ninguno: { nombre: "Solo edad", valores: ["Todos"] },
+  habitat: { nombre: "Tamaño del municipio", valores: ["Gran ciudad", "Ciudad media", "Pueblo"] },
+  renta: { nombre: "Nivel de renta del hogar", valores: ["Renta baja", "Renta media", "Renta alta"] },
+  hogar: { nombre: "Hijos en casa", valores: ["Con hijos menores", "Sin hijos menores"] },
+  ocupacion: { nombre: "Ocupación", valores: ["Trabaja", "Estudia", "En paro", "Jubilado/a o en el hogar"] },
+  sexo: { nombre: "Sexo", valores: ["Mujer", "Hombre"] },
+};
+const CANALES = { "Instagram": "Instagram", "TikTok": "TikTok", "YouTube": "YouTube", "Facebook": "Facebook", "TV": "TV", "Prensa/radio": "Prensa/radio", "Exterior (marquesina, valla)": null };
+const PLACEBO = { marca: "Hidratante Aqualis", texto: "Agua mineral natural de manantial. Botella de 1,5 L. Disponible en tu supermercado.", producto: "agua mineral" };
+const POSTS_ORGANICOS = {
+  "deporte": ["Hoy 10 km antes del trabajo, ¡vamos!", "Vaya partido el de anoche…", "Nueva rutina de pádel con los del barrio"],
+  "tecnología": ["¿Alguien ha probado ya el nuevo móvil plegable?", "Truco para que dure más la batería", "La IA está en todas partes, ¿no?"],
+  "moda": ["Look de hoy para la boda de mi prima", "Rebajas: ¿merece la pena madrugar?", "Vuelven los pantalones de campana"],
+  "belleza": ["Mi rutina de noche en 3 pasos", "¿Protector solar en invierno? Sí", "Probando un sérum nuevo"],
+  "cocina": ["Tortilla con o sin cebolla: debate eterno", "Receta de lentejas de mi abuela", "Brunch del domingo"],
+  "salud": ["Una semana durmiendo 8 horas y otra persona", "Caminar 30 minutos al día cambia mucho", "Cita con el fisio, por fin"],
+  "viajes": ["Escapada a Cádiz, qué atardeceres", "Busco ideas para el puente", "Vuelo barato a Oporto encontrado"],
+  "videojuegos": ["Por fin me pasé el jefe final", "¿Consola o PC? Opiniones", "Torneo online esta noche"],
+  "música": ["Cartel del festival de verano, ¡qué ganas!", "Esta canción no sale de mi cabeza", "Concierto en el Palacio de Deportes"],
+  "cine y series": ["Recomendadme una serie corta", "La peli del sábado, sin spoilers", "Maratón de documentales"],
+  "familia": ["Primer día de cole, qué nervios", "Planes con niños para el finde", "Cumpleaños de la peque en el parque"],
+  "motor": ["ITV pasada a la primera", "¿Eléctrico o híbrido? Dudas", "Ruta en moto por la sierra"],
+  "finanzas": ["Cómo ahorro 100 € al mes", "La hipoteca me está matando", "¿Fondos indexados? Explicadlo fácil"],
+  "naturaleza": ["Ruta por la sierra con niebla", "Limpieza de playa este sábado", "Mi huerto urbano crece"],
+  "lectura": ["Terminé la novela en dos días", "Club de lectura del barrio", "Libros para el verano"],
+  "mascotas": ["Mi perro ha aprendido a dar la pata", "¿Pienso o comida casera?", "Adoptad, no compréis"],
+  "bricolaje y hogar": ["He pintado el salón yo solo", "Ideas para balcones pequeños", "Restaurando una silla antigua"],
+};
+
+/* ---------------- estado ---------------- */
+const nuevoProyecto = () => ({
+  campana: { nombre: "", marca: "", producto: "", canal: "Instagram", objetivo: "", pregunta: "", variantes: [{ titulo: "", texto: "", cta: "", imagen: "" }] },
+  mapa: null,
+  config: { dimension: "habitat", edades: EDADES.map(e => e.id), valores: null, nPorGrupo: 20, rondas: 2, control: "placebo", semilla: 2026, enriquecer: false },
+  poblacion: [], pesos: {}, red: {},
+  sim: null, // { ronda, hechas, total, eventos:[] }
+  informe: null, chats: {},
+});
+const S = {
+  paso: lsGet("paso", 0),
+  ajustes: lsGet("ajustes", { clave: "", modelo: "claude-haiku-5-5", concurrencia: 4, recordar: false }),
+  p: lsGet("proyecto", null) || nuevoProyecto(),
+  uso: lsGet("uso", { entrada: 0, salida: 0, cacheLeida: 0, cacheEscrita: 0, llamadas: 0 }),
+  corriendo: false, parar: false,
+};
+function guardar() {
+  if (!lsSet("proyecto", S.p)) avisoGuardado = true;
+  lsSet("paso", S.paso); lsSet("uso", S.uso);
+  const a = { ...S.ajustes }; if (!a.recordar) a.clave = ""; lsSet("ajustes", a);
+}
+let avisoGuardado = false;
+const modoPrueba = () => !S.ajustes.clave;
+
+/* ---------------- motor de IA (Claude) ---------------- */
+let _cliente = null, _claveCliente = null;
+async function cliente() {
+  if (_cliente && _claveCliente === S.ajustes.clave) return _cliente;
+  const mod = await import(SDK_URL);
+  const Anthropic = mod.default || mod.Anthropic;
+  _cliente = new Anthropic({ apiKey: S.ajustes.clave, dangerouslyAllowBrowser: true, maxRetries: 4 });
+  _claveCliente = S.ajustes.clave;
+  return _cliente;
+}
+function contarUso(u) {
+  if (!u) return;
+  S.uso.entrada += u.input_tokens || 0; S.uso.salida += u.output_tokens || 0;
+  S.uso.cacheLeida += u.cache_read_input_tokens || 0; S.uso.cacheEscrita += u.cache_creation_input_tokens || 0;
+  S.uso.llamadas++;
+}
+function costeUso() {
+  const m = MODELOS[S.ajustes.modelo];
+  return (S.uso.entrada * m.ent + S.uso.cacheEscrita * m.ent * 1.25 + S.uso.cacheLeida * m.ent * 0.1 + S.uso.salida * m.sal) / 1e6;
+}
+async function peticion(params) {
+  const c = await cliente();
+  const m = MODELOS[S.ajustes.modelo];
+  const p = { model: S.ajustes.modelo, ...params };
+  const r = m.fallback
+    ? await c.beta.messages.create({ ...p, betas: ["server-side-fallback-2026-07-01"], fallbacks: "default" })
+    : await c.messages.create(p);
+  contarUso(r.usage);
+  if (r.stop_reason === "refusal") throw new Error("El modelo no ha querido responder a esta petición.");
+  return r;
+}
+const textoDe = r => r.content.filter(b => b.type === "text").map(b => b.text).join("");
+async function pedirJSON({ system, content, schema, maxTokens = 2000, esfuerzo = "low" }) {
+  const r = await peticion({
+    max_tokens: maxTokens, system,
+    messages: [{ role: "user", content }],
+    output_config: { effort: esfuerzo, format: { type: "json_schema", schema } },
+  });
+  if (r.stop_reason === "max_tokens") throw new Error("Respuesta cortada (demasiado larga).");
+  return JSON.parse(textoDe(r));
+}
+const obj = (props, req) => ({ type: "object", properties: props, required: req || Object.keys(props), additionalProperties: false });
+const PMF = obj({ p1: { type: "number" }, p2: { type: "number" }, p3: { type: "number" }, p4: { type: "number" }, p5: { type: "number" } });
+function normalizarPMF(d) {
+  const v = [d.p1, d.p2, d.p3, d.p4, d.p5].map(x => Math.max(0, +x || 0));
+  const s = v.reduce((a, b) => a + b, 0);
+  return s > 0 ? v.map(x => x / s) : [.2, .2, .2, .2, .2];
+}
+const esperanza = pmf => pmf.reduce((s, p, i) => s + p * (i + 1), 0);
+function muestrear(pmf, r) { let x = r; for (let i = 0; i < 5; i++) { x -= pmf[i]; if (x <= 0) return i + 1; } return 5; }
+async function enParalelo(tareas, n, alAvanzar) {
+  let i = 0, hechas = 0; const errores = [];
+  async function trabajador() {
+    while (i < tareas.length && !S.parar) {
+      const t = tareas[i++];
+      try { await t(); } catch (e) { errores.push(e); if (errores.length > 8) { S.parar = true; } }
+      hechas++; alAvanzar && alAvanzar(hechas, tareas.length);
+    }
+  }
+  await Promise.all(Array.from({ length: Math.max(1, n) }, trabajador));
+  return errores;
+}
+
+/* ---------------- fase 1: semilla → mapa de la campaña ---------------- */
+const VACIAS = new Set("de la el en y a los las del que con por para un una su sus es al lo como mas más o se tu tus te ya no si sí este esta estos estas todo toda todos todas ahora hoy muy sin sobre entre desde hasta nuestro nuestra nuestros cada tan solo".split(" "));
+function palabras(t) { return quitarAcentos(String(t || "").toLowerCase()).match(/[a-zñ0-9%€]+/g) || []; }
+function textoVariante(v) { return [v.titulo, v.texto, v.cta].filter(Boolean).join(" · "); }
+function mapaLocal(c) {
+  const todo = [c.producto, c.objetivo, ...c.variantes.map(textoVariante)].join(" ");
+  const ws = palabras(todo).filter(w => w.length > 3 && !VACIAS.has(w));
+  const intereses = Object.entries(INTERESES).map(([k, kws]) => [k, kws.filter(kw => ws.some(w => w.startsWith(quitarAcentos(kw)))).length]).filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1]).map(([k]) => k).slice(0, 4);
+  const t = quitarAcentos(todo.toLowerCase());
+  const oferta = /\d+ ?%|descuento|oferta|gratis|rebaja|2x1|promocion|regalo/.test(t);
+  const publico = [];
+  if (/joven|jovenes|estudiante|universit|gen z/.test(t)) publico.push("jóvenes");
+  if (/familia|hijos|niños|ninos|bebe|padres|madres/.test(t)) publico.push("familias con hijos");
+  if (/mayor|jubilad|senior|abuel/.test(t)) publico.push("mayores");
+  if (/premium|lujo|exclusiv|alta gama/.test(t)) publico.push("renta alta");
+  if (/barato|ahorr|precio|economic/.test(t)) publico.push("sensibles al precio");
+  const tono = /!|¡|increible|brutal|flipa/.test(t) ? "entusiasta" : /exclusiv|premium|elegan/.test(t) ? "aspiracional" : /ahorr|precio|oferta/.test(t) ? "racional / precio" : "informativo";
+  return {
+    resumen: `Campaña de ${c.marca || "la marca"} para ${c.producto || "su producto"} en ${c.canal}.`,
+    entidades: [
+      { nombre: c.marca || "Marca", tipo: "marca" }, { nombre: c.producto || "Producto", tipo: "producto" },
+      ...(oferta ? [{ nombre: "Oferta / precio", tipo: "oferta" }] : []),
+      { nombre: `Tono ${tono}`, tipo: "tono" },
+      ...intereses.map(i => ({ nombre: i, tipo: "interés" })),
+      ...publico.map(p => ({ nombre: p, tipo: "público" })),
+    ],
+    relaciones: [],
+    intereses, publico, oferta, tono,
+    riesgos: oferta ? ["Que la oferta parezca letra pequeña"] : [],
+    hipotesis: publico.length ? [`Debería funcionar mejor en: ${publico.join(", ")}`] : ["Sin público claro: puede diluirse"],
+  };
+}
+async function mapaIA(c) {
+  const content = [];
+  c.variantes.forEach((v, i) => { if (v.imagen) content.push({ type: "image", source: { type: "base64", media_type: "image/jpeg", data: v.imagen.split(",")[1] } }, { type: "text", text: `(Imagen de la versión ${LETRAS[i]})` }); });
+  content.push({ type: "text", text: descripcionCampana(c) + "\n\nAnaliza la campaña como lo haría un planificador de medios. Extrae las entidades clave (marca, producto, promesa, oferta, tono, emociones, públicos implícitos, intereses relacionados, competidores), sus relaciones, los riesgos de interpretación y las hipótesis sobre qué público reaccionará mejor y por qué. Además, elige de esta lista los intereses relacionados: " + Object.keys(INTERESES).join(", ") + "." });
+  const m = await pedirJSON({
+    system: "Eres un analista de publicidad. Respondes en español de España, con frases breves.",
+    content, esfuerzo: "medium", maxTokens: 4000,
+    schema: obj({
+      resumen: { type: "string" },
+      entidades: { type: "array", items: obj({ nombre: { type: "string" }, tipo: { type: "string", enum: ["marca", "producto", "promesa", "oferta", "tono", "emoción", "público", "interés", "competidor", "otro"] } }) },
+      relaciones: { type: "array", items: obj({ de: { type: "string" }, a: { type: "string" }, relacion: { type: "string" } }) },
+      intereses: { type: "array", items: { type: "string" } },
+      publico: { type: "array", items: { type: "string" } },
+      oferta: { type: "boolean" }, tono: { type: "string" },
+      riesgos: { type: "array", items: { type: "string" } },
+      hipotesis: { type: "array", items: { type: "string" } },
+    }),
+  });
+  m.intereses = (m.intereses || []).filter(i => INTERESES[i]);
+  return m;
+}
+function descripcionCampana(c) {
+  return [
+    `Marca: ${c.marca || "(sin indicar)"}`, `Producto o servicio: ${c.producto || "(sin indicar)"}`, `Canal: ${c.canal}`,
+    c.objetivo ? `Objetivo de la campaña: ${c.objetivo}` : "",
+    ...c.variantes.map((v, i) => `Versión ${LETRAS[i]}: ${textoVariante(v) || "(solo imagen)"}${v.imagen ? " [incluye imagen]" : ""}`),
+  ].filter(Boolean).join("\n");
+}
+
+/* ---------------- fase 2: población sintética ---------------- */
+function generarAgente(id, edadGrupo, dim, valor) {
+  const g = EDADES.find(e => e.id === edadGrupo); const gi = EDADES.indexOf(g);
+  const edad = g.min + Math.floor(azar() * (g.max - g.min + 1));
+  let sexo = azar() < (gi === 5 ? .56 : .5) ? "mujer" : "hombre";
+  if (dim === "sexo") sexo = valor === "Mujer" ? "mujer" : "hombre";
+  let ocup;
+  if (gi === 0) ocup = ponderado({ estudia: 52, trabaja: 33, paro: 15 });
+  else if (gi === 5) ocup = ponderado({ jubilado: 88, hogar: 9, trabaja: 3 });
+  else if (gi === 4) ocup = ponderado({ trabaja: 60, paro: 11, hogar: 11, jubilado: 18 });
+  else ocup = ponderado({ trabaja: 76, paro: 11, hogar: 7, estudia: gi === 1 ? 6 : 1 });
+  if (dim === "ocupacion") ocup = { "Trabaja": "trabaja", "Estudia": "estudia", "En paro": "paro", "Jubilado/a o en el hogar": edad >= 63 ? "jubilado" : "hogar" }[valor];
+  let habitat = ponderado({ "Gran ciudad": 40, "Ciudad media": 40, "Pueblo": 20 });
+  if (dim === "habitat") habitat = valor;
+  const estudios = ponderado(gi <= 2 ? { "universitarios": 44, "FP o bachillerato": 38, "obligatorios": 18 } : gi <= 4 ? { "universitarios": 30, "FP o bachillerato": 35, "obligatorios": 35 } : { "universitarios": 15, "FP o bachillerato": 20, "obligatorios": 65 });
+  let renta = ponderado(estudios === "universitarios" ? { "Renta baja": 15, "Renta media": 50, "Renta alta": 35 } : estudios === "obligatorios" ? { "Renta baja": 45, "Renta media": 45, "Renta alta": 10 } : { "Renta baja": 28, "Renta media": 55, "Renta alta": 17 });
+  if (ocup === "paro") renta = ponderado({ "Renta baja": 65, "Renta media": 32, "Renta alta": 3 });
+  if (dim === "renta") renta = valor;
+  const pHijos = [.06, .33, .66, .55, .18, .03][gi];
+  let hijos = azar() < pHijos;
+  if (dim === "hogar") hijos = valor === "Con hijos menores";
+  const pareja = azar() < [.15, .55, .72, .74, .72, .6][gi];
+  const generacion = edad < 35 ? "joven" : edad < 60 ? "media" : "mayor";
+  const nombre = `${elegir(NOMBRES[sexo][generacion])} ${elegir(APELLIDOS)}`;
+  const pesosInt = {};
+  for (const k of Object.keys(INTERESES)) {
+    let w = 1;
+    if (k === "videojuegos") w = [3, 2, 1.2, .6, .3, .1][gi] * (sexo === "hombre" ? 1.6 : .6);
+    if (k === "familia") w = hijos ? 4 : (gi >= 4 ? 1.5 : .5);
+    if (k === "moda" || k === "belleza") w = (sexo === "mujer" ? 2 : .6) * (gi <= 2 ? 1.3 : .8);
+    if (k === "motor") w = sexo === "hombre" ? 1.8 : .6;
+    if (k === "deporte") w = [2, 1.8, 1.5, 1.1, .8, .5][gi];
+    if (k === "salud") w = [.6, .8, 1, 1.3, 1.7, 2.2][gi];
+    if (k === "finanzas") w = renta === "Renta alta" ? 1.8 : 1;
+    if (k === "música") w = [2.2, 1.6, 1.1, .9, .7, .5][gi];
+    w *= .6 + azar() * .8; pesosInt[k] = w;
+  }
+  const intereses = []; const tmp = { ...pesosInt };
+  for (let i = 0; i < 3 + (azar() < .5 ? 1 : 0); i++) { const k = ponderado(tmp); intereses.push(k); delete tmp[k]; }
+  const plataformas = PLATAFORMAS.filter(p => azar() < USO_PLAT[p][gi]);
+  const profesionLista = PROFESIONES[ocup];
+  const profesion = elegir(profesionLista);
+  const provincia = ponderado(PROVINCIAS);
+  const escepticismo = clamp(Math.round(2.6 + normal() * 1 + (estudios === "universitarios" ? .4 : 0) + (gi >= 4 ? .3 : 0)), 1, 5);
+  const usuario = quitarAcentos(nombre.toLowerCase()).replace(/[^a-z ]/g, "").replace(/ /g, "_") + "_" + (100 + Math.floor(azar() * 900));
+  const segmento = edadGrupo + (dim === "ninguno" ? "" : " · " + valor);
+  const ag = {
+    id, usuario, nombre, edad, edadGrupo, sexo, provincia, habitat, estudios, ocupacion: ocup, profesion, renta, hijos, pareja,
+    intereses, plataformas, escepticismo, perfil: dim === "ninguno" ? "Todos" : valor, segmento,
+    seguidores: Math.round(Math.exp(4 + normal() * 1.1 + (gi <= 1 ? .5 : 0))),
+    bio: "", grupo: null, memoria: [], respuestas: [],
+  };
+  ag.bio = bioLocal(ag);
+  return ag;
+}
+function bioLocal(a) {
+  const o = { estudia: "estudia", trabaja: "trabaja", paro: "está buscando trabajo", hogar: "se ocupa de la casa", jubilado: "está jubilada/o" }[a.ocupacion];
+  const r = { "Renta baja": "llega justa a fin de mes", "Renta media": "tiene una economía normal", "Renta alta": "vive con holgura" }[a.renta];
+  const e = ["", "Se cree casi todo lo que ve", "Da cierta credibilidad a los anuncios", "Mira los anuncios con distancia", "Desconfía de la publicidad", "No soporta la publicidad y la salta siempre"][a.escepticismo];
+  return `${a.nombre}, ${a.edad} años, de ${a.provincia} (${a.habitat.toLowerCase()}). ${a.profesion[0].toUpperCase() + a.profesion.slice(1)}; ${o === "estudia" ? "" : o + ", "}${r}.${a.hijos ? " Tiene hijos pequeños." : ""} Le interesa: ${a.intereses.join(", ")}. Usa: ${a.plataformas.join(", ") || "poco las redes"}. ${e}.`;
+}
+function generarPoblacion() {
+  const p = S.p, c = p.config;
+  rnd = mulberry32(c.semilla);
+  const dim = c.dimension, valores = c.valores || DIMENSIONES[dim].valores;
+  const brazos = ["control", ...p.campana.variantes.map((_, i) => LETRAS[i])];
+  const pob = []; let id = 1;
+  for (const e of c.edades) for (const v of valores) {
+    const grupo = [];
+    for (let k = 0; k < c.nPorGrupo * brazos.length; k++) grupo.push(generarAgente(id++, e, dim, v));
+    // reparto aleatorio estratificado: mismo número por brazo dentro de cada segmento
+    barajar(grupo).forEach((a, k) => { a.grupo = brazos[k % brazos.length]; });
+    pob.push(...grupo);
+  }
+  p.poblacion = pob;
+  // pesos reales de cada segmento en la población (simulación de 20.000 personas sin forzar)
+  const cuenta = {}; let tot = 0;
+  for (let k = 0; k < 20000; k++) {
+    const eg = ponderado(Object.fromEntries(EDADES.map(x => [x.id, x.peso])));
+    if (!c.edades.includes(eg)) continue;
+    const a = generarAgente(0, eg, "ninguno", "Todos");
+    const val = valorDe(a, dim);
+    if (!valores.includes(val)) continue;
+    const seg = eg + (dim === "ninguno" ? "" : " · " + val);
+    cuenta[seg] = (cuenta[seg] || 0) + 1; tot++;
+  }
+  p.pesos = Object.fromEntries(Object.entries(cuenta).map(([k, n]) => [k, n / tot]));
+  // red social dentro de cada brazo (así el control no se contamina): homofilia por segmento
+  p.red = {};
+  for (const b of brazos) {
+    const miembros = pob.filter(a => a.grupo === b);
+    for (const a of miembros) {
+      const mismos = miembros.filter(x => x.segmento === a.segmento && x.id !== a.id);
+      const otros = miembros.filter(x => x.segmento !== a.segmento);
+      const sigue = new Set();
+      for (let k = 0; k < 6; k++) { const src = azar() < .65 && mismos.length ? mismos : (otros.length ? otros : mismos); if (src.length) sigue.add(elegir(src).id); }
+      p.red[a.id] = [...sigue];
+    }
+  }
+  p.sim = null; p.informe = null; p.chats = {}; p.enriquecida = false;
+}
+function valorDe(a, dim) {
+  if (dim === "ninguno") return "Todos";
+  if (dim === "habitat") return a.habitat;
+  if (dim === "renta") return a.renta;
+  if (dim === "hogar") return a.hijos ? "Con hijos menores" : "Sin hijos menores";
+  if (dim === "sexo") return a.sexo === "mujer" ? "Mujer" : "Hombre";
+  if (dim === "ocupacion") return { trabaja: "Trabaja", estudia: "Estudia", paro: "En paro", hogar: "Jubilado/a o en el hogar", jubilado: "Jubilado/a o en el hogar" }[a.ocupacion];
+}
+async function enriquecerIA(onAv) {
+  const pob = S.p.poblacion; const lotes = [];
+  for (let i = 0; i < pob.length; i += 8) lotes.push(pob.slice(i, i + 8));
+  return enParalelo(lotes.map(l => async () => {
+    const r = await pedirJSON({
+      system: "Creas perfiles verosímiles y variados de personas que viven en España. Nada de estereotipos exagerados: gente normal, con matices y alguna contradicción. Español de España.",
+      content: [{ type: "text", text: "Para cada persona escribe una bio de 2 o 3 frases en tercera persona (vida diaria, preocupaciones, cómo compra, qué le hace gracia o le molesta de la publicidad). Respeta todos los datos.\n\n" + l.map(a => `id ${a.id}: ${bioLocal(a)}`).join("\n") }],
+      schema: obj({ perfiles: { type: "array", items: obj({ id: { type: "integer" }, bio: { type: "string" } }) } }), maxTokens: 4000,
+    });
+    for (const x of r.perfiles || []) { const a = pob.find(y => y.id === x.id); if (a && x.bio) a.bio = `${bioLocal(a)} ${x.bio}`; }
+  }), S.ajustes.concurrencia, onAv);
+}
+
+/* ---------------- fase 3: simulación ---------------- */
+const SISTEMA_AGENTE = `Eres un simulador de comportamiento de consumidores en España. En cada petición interpretas a UNA persona concreta y respondes como reaccionaría ELLA de verdad, no como un publicista.
+Reglas de realismo:
+- La mayoría de la gente pasa de largo de la mayoría de anuncios. En un feed real se mira un anuncio 1–2 segundos; menos del 5 % hace clic y muy pocos comentan o comparten.
+- La intención de compra real es baja y prudente: sin necesidad, sin dinero o sin interés, lo normal es «seguramente no».
+- Ten en cuenta edad, renta, hijos, intereses, redes que usa y su desconfianza hacia la publicidad. Si el anuncio no va con ella, dilo.
+- No seas complaciente ni educado de más. Usa su forma de hablar (edad, zona). Frases cortas.
+- La intención de compra se da como probabilidades de 5 respuestas (p1 = seguro que no, p2 = probablemente no, p3 = puede que sí puede que no, p4 = probablemente sí, p5 = seguro que sí) que sumen 1.`;
+function bloqueCampana(v, esControl) {
+  const c = S.p.campana; const out = [];
+  if (esControl) {
+    out.push({ type: "text", text: `ANUNCIO QUE APARECE EN EL FEED (${c.canal}):\n${S.p.config.control === "placebo" ? `${PLACEBO.marca}: «${PLACEBO.texto}»` : "(ningún anuncio en este momento)"}` });
+  } else {
+    if (v.imagen) out.push({ type: "image", source: { type: "base64", media_type: "image/jpeg", data: v.imagen.split(",")[1] } });
+    out.push({ type: "text", text: `ANUNCIO QUE APARECE EN EL FEED (${c.canal}) — marca ${c.marca || "(sin indicar)"}, producto ${c.producto || "(sin indicar)"}:\n${textoVariante(v) || "(solo imagen)"}` });
+  }
+  out[out.length - 1].cache_control = { type: "ephemeral" };
+  return out;
+}
+function pregunta() { const c = S.p.campana; return c.pregunta || `¿Qué probabilidad hay de que compres o pruebes ${c.producto || "este producto"}${c.marca ? " de " + c.marca : ""} en los próximos 3 meses?`; }
+function feedOrganico(a) { const posts = []; for (const i of a.intereses.slice(0, 3)) posts.push(elegir(POSTS_ORGANICOS[i] || ["Buenos días"])); return posts; }
+const SCHEMA_R1 = obj({
+  se_fija: { type: "boolean" }, segundos: { type: "number" }, primera_impresion: { type: "string" },
+  agrado: { type: "integer" }, entiende_mensaje: { type: "boolean" }, recuerda_marca: { type: "boolean" },
+  accion: { type: "string", enum: ["ignorar", "ocultar", "me_gusta", "comentar", "compartir", "clic"] },
+  comentario: { type: "string" }, intencion: PMF, motivo: { type: "string" },
+});
+const SCHEMA_RS = obj({
+  lee_comentarios: { type: "boolean" },
+  accion: { type: "string", enum: ["nada", "me_gusta", "responder", "compartir", "clic"] },
+  respuesta: { type: "string" }, intencion: PMF, cambio: { type: "string" },
+});
+function textoPersona(a) { return `PERSONA QUE INTERPRETAS:\n${a.bio}\nDesconfianza hacia la publicidad: ${a.escepticismo}/5. Seguidores: ${a.seguidores}.`; }
+async function rondaExposicionIA(a) {
+  const esC = a.grupo === "control"; const v = esC ? null : S.p.campana.variantes[LETRAS.indexOf(a.grupo)];
+  const feed = feedOrganico(a);
+  const r = await pedirJSON({
+    system: SISTEMA_AGENTE, maxTokens: 1500,
+    content: [...bloqueCampana(v, esC), { type: "text", text: `${textoPersona(a)}\n\nSITUACIÓN: está mirando ${S.p.campana.canal} un rato. Antes y después del anuncio ve estas publicaciones de sus contactos:\n- ${feed.join("\n- ")}\n\nDescribe qué hace con el anuncio (si ni se fija, se_fija=false y accion=ignorar). «agrado» de 1 a 5. Si comenta, escribe el comentario tal cual lo publicaría; si no, deja comentario vacío.\nAl terminar, una encuesta le pregunta: «${pregunta()}». Da las probabilidades.` }],
+    schema: SCHEMA_R1,
+  });
+  r.pmf = normalizarPMF(r.intencion); r.agrado = clamp(Math.round(r.agrado || 3), 1, 5);
+  return r;
+}
+async function rondaSocialIA(a, ronda, vistos) {
+  const v = S.p.campana.variantes[LETRAS.indexOf(a.grupo)];
+  const previa = a.respuestas[a.respuestas.length - 1];
+  const r = await pedirJSON({
+    system: SISTEMA_AGENTE, maxTokens: 1200,
+    content: [...bloqueCampana(v, false), { type: "text", text: `${textoPersona(a)}\n\nLO QUE YA HIZO ANTES:\n${a.memoria.slice(-4).join("\n")}\n\nRONDA ${ronda}: unos días después vuelve a ver el anuncio. ${vistos.length ? "Además ve lo que han hecho personas a las que sigue:\n" + vistos.map(x => `- @${x.usuario}: ${x.texto}`).join("\n") : "Ninguno de sus contactos ha dicho nada del anuncio."}\n\n¿Qué hace ahora? Si responde a alguien, escribe la respuesta. Después vuelve a contestar: «${pregunta()}» (su respuesta anterior tenía media ${fmt(esperanza(previa.pmf), 1)} sobre 5; puede mantenerla).` }],
+    schema: SCHEMA_RS,
+  });
+  r.pmf = normalizarPMF(r.intencion);
+  return r;
+}
+// modelo local (modo prueba): utilidad latente → logit ordinal
+function rasgosCampana() {
+  const m = S.p.mapa || mapaLocal(S.p.campana);
+  return S.p.campana.variantes.map(v => {
+    const ws = palabras(textoVariante(v) + " " + S.p.campana.producto);
+    const t = quitarAcentos(textoVariante(v).toLowerCase());
+    return {
+      oferta: /\d+ ?%|descuento|oferta|gratis|rebaja|2x1|regalo/.test(t),
+      urgencia: /hoy|ultim|solo hasta|ya|ahora/.test(t), premium: /premium|exclusiv|lujo/.test(t),
+      emocion: /!|¡|familia|amor|feliz|sueño|disfruta/.test(t), cta: !!v.cta, imagen: !!v.imagen,
+      largo: ws.length, ws, publico: m.publico || [],
+      intereses: [...new Set([...(m.intereses || []), ...Object.entries(INTERESES).filter(([, kws]) => kws.some(kw => ws.some(w => w.startsWith(quitarAcentos(kw))))).map(([k]) => k)])],
+    };
+  });
+}
+function pmfLogit(u) {
+  const cortes = [-.6, .7, 1.9, 3.0]; const F = x => 1 / (1 + Math.exp(-x));
+  const c = cortes.map(k => F(k - u));
+  return [c[0], c[1] - c[0], c[2] - c[1], c[3] - c[2], 1 - c[3]];
+}
+function utilidadBase(a, R) {
+  const gi = EDADES.findIndex(e => e.id === a.edadGrupo);
+  let u = -.3 + .45 * a.intereses.filter(i => R.intereses.includes(i)).length;
+  const pub = R.publico.join(" ");
+  if (/joven/.test(pub)) u += [.6, .35, 0, -.2, -.35, -.5][gi];
+  if (/familia/.test(pub)) u += a.hijos ? .55 : -.25;
+  if (/mayor/.test(pub)) u += gi >= 4 ? .5 : -.3;
+  if (/renta alta/.test(pub)) u += a.renta === "Renta alta" ? .45 : a.renta === "Renta baja" ? -.45 : 0;
+  if (/precio/.test(pub)) u += a.renta === "Renta baja" ? .35 : 0;
+  return u;
+}
+function rondaExposicionLocal(a, R) {
+  const esC = a.grupo === "control"; const r0 = R[0];
+  const base = utilidadBase(a, r0) - .25 * a.escepticismo + normal() * .7;
+  if (esC) {
+    return { se_fija: azar() < .4, segundos: 1, primera_impresion: "", agrado: 3, entiende_mensaje: true, recuerda_marca: azar() < .04, accion: "ignorar", comentario: "", pmf: pmfLogit(base), u: base, motivo: "" };
+  }
+  const v = R[LETRAS.indexOf(a.grupo)];
+  const canal = CANALES[S.p.campana.canal];
+  const pAtencion = clamp((canal ? (a.plataformas.includes(canal) ? .55 : .15) : .35) + (v.imagen ? .1 : 0) + (v.emocion ? .05 : 0) - .04 * a.escepticismo + (v.largo > 40 ? -.08 : 0), .03, .95);
+  const fija = azar() < pAtencion;
+  const encaje = utilidadBase(a, v) - utilidadBase(a, r0);
+  let efecto = fija ? .35 + encaje + (v.oferta ? (a.renta === "Renta baja" ? .45 : .2) : 0) + (v.premium ? (a.renta === "Renta alta" ? .35 : -.25) : 0) + (v.urgencia ? .1 : 0) + (v.cta ? .12 : 0) + (v.emocion ? .1 : 0) - .08 * a.escepticismo : 0;
+  const u = base + efecto;
+  const agrado = clamp(Math.round(3 + efecto * 1.2 + normal() * .7), 1, 5);
+  const pmf = pmfLogit(u);
+  const e = esperanza(pmf);
+  let accion = "ignorar";
+  if (fija) { const x = azar(); accion = x < .015 + .02 * (e - 1) ? "clic" : x < .03 + .03 * (e - 1) ? "compartir" : x < .07 + .03 * (e - 1) ? "comentar" : x < .2 + .04 * (agrado - 1) ? "me_gusta" : (agrado <= 2 && x > .93 ? "ocultar" : "ignorar"); }
+  const comentario = accion === "comentar" || accion === "compartir" ? comentarioLocal(a, agrado) : "";
+  return { se_fija: fija, segundos: fija ? 1 + Math.round(azar() * 4) : 0, primera_impresion: fija ? (agrado >= 4 ? "Me llama la atención" : agrado <= 2 ? "No va conmigo" : "Normalito") : "", agrado, entiende_mensaje: azar() < .85, recuerda_marca: fija && azar() < .5 + .08 * agrado, accion, comentario, pmf, u, motivo: fija ? (encaje > .2 ? "Encaja con lo que me interesa." : encaje < -.2 ? "No es para alguien como yo." : "Ni fu ni fa.") : "" };
+}
+function comentarioLocal(a, agrado) {
+  const pos = ["¡Me encanta! ¿Dónde se compra?", "Esto lo necesito ya 😍", "Mira @amiga, justo lo que buscábamos", "Pinta muy bien, a ver si es verdad", "Lo probé y está genial"];
+  const neg = ["Otra vez este anuncio…", "Seguro que es caro", "No me lo creo", "¿Y la letra pequeña?", "Paso"];
+  const neu = ["¿Cuánto cuesta?", "¿Hay en mi ciudad?", "¿Alguien lo ha probado?", "Interesante"];
+  return elegir(agrado >= 4 ? pos : agrado <= 2 ? neg : neu);
+}
+function rondaSocialLocal(a, vistos) {
+  const previa = a.respuestas[a.respuestas.length - 1];
+  const tono = vistos.length ? vistos.reduce((s, x) => s + (x.agrado - 3), 0) / vistos.length : 0;
+  const u = (previa.u ?? 0) + .25 * tono + .05 + normal() * .25; // repetición + influencia social
+  const pmf = pmfLogit(u);
+  const x = azar(); const e = esperanza(pmf);
+  const accion = x < .01 + .015 * (e - 1) ? "clic" : x < .02 + .02 * (e - 1) ? "compartir" : vistos.length && x < .08 ? "responder" : x < .18 ? "me_gusta" : "nada";
+  return { lee_comentarios: vistos.length > 0, accion, respuesta: accion === "responder" || accion === "compartir" ? comentarioLocal(a, tono > 0 ? 4 : tono < 0 ? 2 : 3) : "", pmf, u, cambio: tono > .3 ? "Los comentarios me animan" : tono < -.3 ? "Los comentarios me echan para atrás" : "Sigo igual" };
+}
+function textoAccion(acc, r) {
+  return { ignorar: "pasó de largo", ocultar: "ocultó el anuncio", me_gusta: "le dio a me gusta", comentar: `comentó: «${r.comentario}»`, compartir: `lo compartió${r.comentario ? ": «" + r.comentario + "»" : ""}`, clic: "hizo clic para ver más", nada: "no hizo nada", responder: `respondió: «${r.respuesta}»` }[acc] || acc;
+}
+function estimarLlamadas() {
+  const c = S.p.config; const nSeg = c.edades.length * (c.valores || DIMENSIONES[c.dimension].valores).length;
+  const nVar = S.p.campana.variantes.length; const total = nSeg * c.nPorGrupo * (1 + nVar);
+  const trat = nSeg * c.nPorGrupo * nVar;
+  return { agentes: total, llamadas: total + trat * (c.rondas - 1) + (c.enriquecer ? Math.ceil(total / 8) : 0) };
+}
+function estimarCoste() {
+  const { llamadas } = estimarLlamadas(); const m = MODELOS[S.ajustes.modelo];
+  const tieneImg = S.p.campana.variantes.some(v => v.imagen);
+  const ent = 900 + (tieneImg ? 1100 : 0), sal = 450;
+  return llamadas * (ent * m.ent * .7 + sal * m.sal) / 1e6;
+}
+async function simular() {
+  const p = S.p; if (!p.poblacion.length) return;
+  S.corriendo = true; S.parar = false;
+  rnd = mulberry32(p.config.semilla + 7);
+  for (const a of p.poblacion) { a.respuestas = []; a.memoria = []; }
+  p.sim = { ronda: 1, hechas: 0, total: 0, eventos: [], errores: 0, modo: modoPrueba() ? "prueba" : S.ajustes.modelo, inicio: Date.now() };
+  p.sim.total = estimarLlamadas().llamadas;
+  p.informe = null;
+  const R = rasgosCampana();
+  const ev = (a, ronda, texto, extra = {}) => { p.sim.eventos.push({ id: a.id, usuario: a.usuario, segmento: a.segmento, grupo: a.grupo, ronda, texto, ...extra }); };
+  pintar();
+  try {
+    if (!modoPrueba() && p.config.enriquecer && !p.enriquecida) {
+      p.sim.fase = "Enriqueciendo perfiles con IA"; pintarProgreso(0, 1);
+      await enriquecerIA((h, t) => pintarProgreso(h, t));
+      p.enriquecida = true;
+    }
+    for (let ronda = 1; ronda <= p.config.rondas && !S.parar; ronda++) {
+      p.sim.ronda = ronda;
+      p.sim.fase = ronda === 1 ? "Ronda 1: exposición al anuncio" : `Ronda ${ronda}: conversación y repetición`;
+      const agentes = ronda === 1 ? p.poblacion : p.poblacion.filter(a => a.grupo !== "control");
+      const visibles = {}; // lo publicado en la ronda anterior, por agente
+      if (ronda > 1) for (const e of p.sim.eventos.filter(e => e.ronda === ronda - 1 && e.publico)) (visibles[e.id] ||= []).push(e);
+      const tareas = agentes.map(a => async () => {
+        let r;
+        if (ronda === 1) {
+          r = modoPrueba() ? rondaExposicionLocal(a, R) : await rondaExposicionIA(a);
+          r.intencionMuestra = muestrear(r.pmf, azar());
+          a.respuestas.push({ ronda, ...r });
+          const t = a.grupo === "control" ? `vio su feed${p.config.control === "placebo" ? " con un anuncio de agua mineral" : ""}` : textoAccion(r.accion, r);
+          a.memoria.push(`Ronda 1: ${a.grupo === "control" ? "no vio el anuncio de la marca" : (r.se_fija ? `vio el anuncio (${r.primera_impresion || "sin opinión"}) y ${t}` : "no se fijó en el anuncio")}. Intención: ${fmt(esperanza(r.pmf), 1)}/5.`);
+          ev(a, ronda, t, { publico: ["comentar", "compartir"].includes(r.accion), agrado: r.agrado, accion: r.accion });
+        } else {
+          const vistos = (p.red[a.id] || []).flatMap(id => (visibles[id] || []).map(e => ({ usuario: e.usuario, texto: e.texto, agrado: e.agrado ?? 3 }))).slice(0, 4);
+          r = modoPrueba() ? rondaSocialLocal(a, vistos) : await rondaSocialIA(a, ronda, vistos);
+          r.intencionMuestra = muestrear(r.pmf, azar());
+          a.respuestas.push({ ronda, ...r });
+          const t = textoAccion(r.accion, r);
+          a.memoria.push(`Ronda ${ronda}: ${vistos.length ? `leyó ${vistos.length} comentarios de sus contactos y ` : ""}${t}. ${r.cambio || ""} Intención: ${fmt(esperanza(r.pmf), 1)}/5.`);
+          const agr = r.accion === "responder" || r.accion === "compartir" ? (esperanza(r.pmf) >= 3.2 ? 4 : esperanza(r.pmf) <= 1.8 ? 2 : 3) : 3;
+          ev(a, ronda, t, { publico: ["responder", "compartir"].includes(r.accion), agrado: agr, accion: r.accion });
+        }
+      });
+      const base = p.sim.hechas;
+      const errores = await enParalelo(tareas, modoPrueba() ? 1 : S.ajustes.concurrencia, (h) => { p.sim.hechas = base + h; if (h % (modoPrueba() ? 50 : 1) === 0 || h === tareas.length) pintarProgreso(p.sim.hechas, p.sim.total || estimarLlamadas().llamadas); });
+      p.sim.errores += errores.length;
+      if (errores.length) p.sim.ultimoError = String(errores[0]?.message || errores[0]);
+      guardar();
+    }
+  } catch (e) { p.sim.ultimoError = String(e.message || e); }
+  p.sim.fin = Date.now(); p.sim.parado = S.parar;
+  S.corriendo = false; guardar(); pintar();
+}
+
+/* ---------------- fase 4: estadística ---------------- */
+function lgamma(x) { const g = [76.18009172947146, -86.50532032941677, 24.01409824083091, -1.231739572450155, .1208650973866179e-2, -.5395239384953e-5]; let y = x, t = x + 5.5; t -= (x + .5) * Math.log(t); let s = 1.000000000190015; for (const c of g) s += c / ++y; return -t + Math.log(2.5066282746310005 * s / x); }
+function betacf(a, b, x) { let qab = a + b, qap = a + 1, qam = a - 1, c = 1, d = 1 - qab * x / qap; if (Math.abs(d) < 1e-30) d = 1e-30; d = 1 / d; let h = d; for (let m = 1; m <= 200; m++) { const m2 = 2 * m; let aa = m * (b - m) * x / ((qam + m2) * (a + m2)); d = 1 + aa * d; if (Math.abs(d) < 1e-30) d = 1e-30; c = 1 + aa / c; if (Math.abs(c) < 1e-30) c = 1e-30; d = 1 / d; h *= d * c; aa = -(a + m) * (qab + m) * x / ((a + m2) * (qap + m2)); d = 1 + aa * d; if (Math.abs(d) < 1e-30) d = 1e-30; c = 1 + aa / c; if (Math.abs(c) < 1e-30) c = 1e-30; d = 1 / d; const del = d * c; h *= del; if (Math.abs(del - 1) < 3e-12) break; } return h; }
+function ibeta(x, a, b) { if (x <= 0) return 0; if (x >= 1) return 1; const bt = Math.exp(lgamma(a + b) - lgamma(a) - lgamma(b) + a * Math.log(x) + b * Math.log(1 - x)); return x < (a + 1) / (a + b + 2) ? bt * betacf(a, b, x) / a : 1 - bt * betacf(b, a, 1 - x) / b; }
+const pT = (t, df) => ibeta(df / (df + t * t), df / 2, .5); // p bilateral
+function tCrit(df, alfa = .05) { let lo = 0, hi = 50; for (let i = 0; i < 60; i++) { const m = (lo + hi) / 2; if (pT(m, df) > alfa) lo = m; else hi = m; } return (lo + hi) / 2; }
+function normCDF(z) { return .5 * (1 + Math.sign(z) * Math.sqrt(1 - Math.exp(-z * z * (4 / Math.PI + .147 * z * z) / (1 + .147 * z * z)))); }
+const media = x => x.reduce((a, b) => a + b, 0) / x.length;
+const varianza = x => { const m = media(x); return x.reduce((s, v) => s + (v - m) ** 2, 0) / (x.length - 1); };
+function welch(x, y) { // x = tratamiento, y = control
+  const n1 = x.length, n2 = y.length; if (n1 < 2 || n2 < 2) return null;
+  const m1 = media(x), m2 = media(y), v1 = varianza(x), v2 = varianza(y);
+  const se = Math.sqrt(v1 / n1 + v2 / n2) || 1e-9;
+  const df = (v1 / n1 + v2 / n2) ** 2 / ((v1 / n1) ** 2 / (n1 - 1) + (v2 / n2) ** 2 / (n2 - 1)) || (n1 + n2 - 2);
+  const d = m1 - m2, tc = tCrit(df);
+  const sp = Math.sqrt(((n1 - 1) * v1 + (n2 - 1) * v2) / (n1 + n2 - 2)) || 1e-9;
+  return { m1, m2, d, lo: d - tc * se, hi: d + tc * se, p: pT(d / se, df), df, cohen: d / sp, n1, n2 };
+}
+function wilson(k, n, z = 1.96) { if (!n) return [0, 0]; const p = k / n, den = 1 + z * z / n, c = p + z * z / (2 * n), r = z * Math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)); return [(c - r) / den, (c + r) / den]; }
+function newcombe(k1, n1, k2, n2) {
+  const p1 = k1 / n1, p2 = k2 / n2, [l1, u1] = wilson(k1, n1), [l2, u2] = wilson(k2, n2), d = p1 - p2;
+  const pp = (k1 + k2) / (n1 + n2), se = Math.sqrt(pp * (1 - pp) * (1 / n1 + 1 / n2)) || 1e-9;
+  return { p1, p2, d, lo: d - Math.sqrt((p1 - l1) ** 2 + (u2 - p2) ** 2), hi: d + Math.sqrt((u1 - p1) ** 2 + (p2 - l2) ** 2), p: 2 * (1 - normCDF(Math.abs(d / se))) };
+}
+function holm(ps) { const idx = ps.map((p, i) => [p, i]).sort((a, b) => a[0] - b[0]); const m = ps.length, adj = new Array(m); let mx = 0; idx.forEach(([p, i], k) => { mx = Math.max(mx, Math.min(1, (m - k) * p)); adj[i] = mx; }); return adj; }
+function finales(a) { const r = a.respuestas; if (!r.length) return null; const ult = r[r.length - 1], pri = r[0]; return { intencion: ult.intencionMuestra, esperada: esperanza(ult.pmf), alta: ult.intencionMuestra >= 4 ? 1 : 0, fija: pri.se_fija ? 1 : 0, agrado: pri.agrado, clic: r.some(x => x.accion === "clic") ? 1 : 0, interactua: r.some(x => ["me_gusta", "comentar", "compartir", "clic", "responder"].includes(x.accion)) ? 1 : 0, recuerda: pri.recuerda_marca ? 1 : 0, inicial: esperanza(pri.pmf) }; }
+function analizar() {
+  const p = S.p; const vars = p.campana.variantes.map((_, i) => LETRAS[i]);
+  const segs = [...new Set(p.poblacion.map(a => a.segmento))];
+  const datos = {}; // datos[seg][grupo] = [finales]
+  for (const a of p.poblacion) { const f = finales(a); if (!f) continue; ((datos[a.segmento] ||= {})[a.grupo] ||= []).push(f); }
+  const filas = [];
+  for (const s of segs) for (const v of vars) {
+    const T = datos[s]?.[v] || [], C = datos[s]?.control || [];
+    const w = welch(T.map(f => f.intencion), C.map(f => f.intencion));
+    const t2 = T.length && C.length ? newcombe(T.reduce((a, f) => a + f.alta, 0), T.length, C.reduce((a, f) => a + f.alta, 0), C.length) : null;
+    filas.push({ segmento: s, variante: v, nT: T.length, nC: C.length, w, t2, ctr: T.length ? media(T.map(f => f.clic)) : null, interaccion: T.length ? media(T.map(f => f.interactua)) : null, atencion: T.length ? media(T.map(f => f.fija)) : null, agrado: T.length ? media(T.map(f => f.agrado)) : null, recuerdo: T.length ? media(T.map(f => f.recuerda)) : null, intencionC: C.length ? media(C.map(f => f.intencion)) : null });
+  }
+  const ps = filas.map(f => f.w?.p ?? 1), adj = holm(ps); filas.forEach((f, i) => f.pAjustado = adj[i]);
+  // global ponderado (post-estratificación con pesos reales de cada segmento)
+  const global = vars.map(v => {
+    let d = 0, varz = 0, wt = 0, mt = 0, mc = 0, nT = 0, nC = 0, ctr = 0;
+    for (const s of segs) {
+      const f = filas.find(x => x.segmento === s && x.variante === v); if (!f?.w) continue;
+      const w = p.pesos[s] ?? 1 / segs.length; wt += w;
+      d += w * f.w.d; const se = (f.w.hi - f.w.lo) / (2 * tCrit(f.w.df)); varz += w * w * se * se;
+      mt += w * f.w.m1; mc += w * f.w.m2; nT += f.nT; nC += f.nC; ctr += w * (f.ctr || 0);
+    }
+    if (!wt) return { variante: v };
+    d /= wt; mt /= wt; mc /= wt; ctr /= wt; const se = Math.sqrt(varz) / wt;
+    return { variante: v, d, lo: d - 1.96 * se, hi: d + 1.96 * se, p: 2 * (1 - normCDF(Math.abs(d / (se || 1e-9)))), mt, mc, nT, nC, ctr };
+  });
+  // comparación entre variantes (todas las personas tratadas, ponderado simple)
+  const entreVariantes = [];
+  for (let i = 0; i < vars.length; i++) for (let j = i + 1; j < vars.length; j++) {
+    const A = segs.flatMap(s => datos[s]?.[vars[i]] || []), B = segs.flatMap(s => datos[s]?.[vars[j]] || []);
+    const w = welch(A.map(f => f.intencion), B.map(f => f.intencion));
+    const k = A.length && B.length ? newcombe(A.reduce((s, f) => s + f.clic, 0), A.length, B.reduce((s, f) => s + f.clic, 0), B.length) : null;
+    entreVariantes.push({ a: vars[i], b: vars[j], w, clic: k });
+  }
+  const sd = (() => { const all = Object.values(datos).flatMap(g => (g.control || []).map(f => f.intencion)); return all.length > 2 ? Math.sqrt(varianza(all)) : 1.1; })();
+  const n = p.config.nPorGrupo;
+  const mde = 2.8 * sd * Math.sqrt(2 / n); // diferencia mínima detectable (80 % potencia, α=5 %)
+  const ranking = filas.filter(f => f.w).sort((a, b) => b.w.lo - a.w.lo);
+  return { filas, global, entreVariantes, ranking, segs, vars, mde, sd, n, significativos: filas.filter(f => f.pAjustado < .05 && f.w?.d > 0).length };
+}
+
+/* ---------------- fase 4b: agente redactor (como el ReportAgent de MiroFish) ---------------- */
+const HERRAMIENTAS = [
+  { name: "estadisticas", description: "Devuelve los resultados estadísticos por segmento y versión: intención de compra frente al grupo de control (diferencia, intervalo de confianza 95 %, p ajustado por Holm), clics, interacción, atención y agrado. Filtra opcionalmente.", input_schema: obj({ segmento: { type: "string", description: "Nombre exacto del segmento, o vacío para todos" }, variante: { type: "string", description: "A, B, C o vacío" } }) },
+  { name: "comentarios", description: "Devuelve frases reales que escribieron los agentes (comentarios, respuestas, motivos y primeras impresiones) para un segmento y versión.", input_schema: obj({ segmento: { type: "string" }, variante: { type: "string" }, limite: { type: "integer" } }) },
+  { name: "entrevistar", description: "Hace una pregunta a varios agentes del mundo simulado y devuelve sus respuestas (máximo 5 agentes). Úsalo para entender el porqué.", input_schema: obj({ segmento: { type: "string" }, variante: { type: "string", description: "A, B, C o control" }, pregunta: { type: "string" }, n: { type: "integer" } }) },
+];
+function filtrarAgentes(seg, v) { return S.p.poblacion.filter(a => (!seg || a.segmento === seg) && (!v || a.grupo === v) && a.respuestas.length); }
+async function ejecutarHerramienta(nombre, inp, an) {
+  if (nombre === "estadisticas") {
+    return JSON.stringify(an.filas.filter(f => (!inp.segmento || f.segmento === inp.segmento) && (!inp.variante || f.variante === inp.variante)).map(f => ({ segmento: f.segmento, version: f.variante, n_tratados: f.nT, n_control: f.nC, intencion_tratados: f.w && +f.w.m1.toFixed(2), intencion_control: f.w && +f.w.m2.toFixed(2), diferencia: f.w && +f.w.d.toFixed(2), ic95: f.w && [+f.w.lo.toFixed(2), +f.w.hi.toFixed(2)], p_holm: +f.pAjustado.toFixed(3), top2_tratados: f.t2 && +f.t2.p1.toFixed(3), top2_control: f.t2 && +f.t2.p2.toFixed(3), clic: f.ctr, interaccion: f.interaccion, atencion: f.atencion, agrado: f.agrado })));
+  }
+  if (nombre === "comentarios") {
+    const ags = filtrarAgentes(inp.segmento, inp.variante); const out = [];
+    for (const a of ags) for (const r of a.respuestas) for (const t of [r.comentario, r.respuesta, r.motivo, r.primera_impresion, r.cambio]) if (t && t.length > 3) out.push(`@${a.usuario} (${a.edad}, ${a.segmento}, versión ${a.grupo}): ${t}`);
+    return JSON.stringify(barajar(out).slice(0, clamp(inp.limite || 15, 1, 40)));
+  }
+  if (nombre === "entrevistar") {
+    const ags = barajar(filtrarAgentes(inp.segmento, inp.variante)).slice(0, clamp(inp.n || 3, 1, 5));
+    const res = await Promise.all(ags.map(async a => `@${a.usuario} (${a.edad}, ${a.segmento}, versión ${a.grupo}): ${await responderAgente(a, inp.pregunta, [])}`));
+    return JSON.stringify(res);
+  }
+  return "Herramienta desconocida";
+}
+function resumenParaInforme(an) {
+  const c = S.p.campana;
+  return `${descripcionCampana(c)}\nPregunta de intención: «${pregunta()}» (escala 1–5).\nObjetivo del estudio: ${c.objetivo || "ver en qué público funciona mejor"}.\nDiseño: ${S.p.poblacion.length} agentes, ${an.segs.length} segmentos (${DIMENSIONES[S.p.config.dimension].nombre} × edad), ${an.n} por grupo y segmento, reparto aleatorio a control (${S.p.config.control === "placebo" ? "anuncio placebo" : "sin anuncio"}) y versiones ${an.vars.join(", ")}. ${S.p.config.rondas} rondas (exposición + conversación).\nDiferencia mínima detectable por segmento ≈ ${fmt(an.mde, 2)} puntos. Comparaciones significativas tras Holm: ${an.significativos} de ${an.filas.length}.\nGlobal ponderado: ${an.global.map(g => `versión ${g.variante}: ${fmt(g.d, 2)} [${fmt(g.lo, 2)}; ${fmt(g.hi, 2)}]`).join("; ")}.\nMejor segmento (límite inferior del IC): ${an.ranking.slice(0, 3).map(f => `${f.segmento} v${f.variante} ${fmt(f.w.d, 2)} [${fmt(f.w.lo, 2)}; ${fmt(f.w.hi, 2)}]`).join("; ")}.`;
+}
+async function redactarInformeIA(an, alPaso) {
+  const system = `Eres el redactor de informes de un simulador de campañas publicitarias (al estilo de MiroFish). Escribes en español de España, claro y para alguien que no es estadístico.
+Antes de escribir, usa las herramientas: consulta las estadísticas, lee comentarios de los agentes y entrevista a algunos para entender el porqué (al menos 3 consultas, como mucho 8).
+Luego escribe el informe en Markdown con estas secciones (## ): Resumen en 3 frases; Dónde funciona mejor; Por qué (con citas literales de agentes en > blockquote); Qué versión elegir; Qué cambiaría; Fiabilidad del resultado.
+Reglas: no inventes cifras, usa solo las de las herramientas. Una diferencia cuyo intervalo cruza 0 o con p ajustado ≥ 0,05 NO es un resultado: dilo. Recuerda que es una simulación: sirve para comparar, no para predecir ventas, y conviene calibrarla con campañas pasadas.`;
+  const messages = [{ role: "user", content: resumenParaInforme(an) + "\n\nInvestiga y redacta el informe." }];
+  for (let i = 0; i < 12; i++) {
+    const r = await peticion({ max_tokens: 16000, system, messages, tools: HERRAMIENTAS, output_config: { effort: "medium" } });
+    messages.push({ role: "assistant", content: r.content });
+    const usos = r.content.filter(b => b.type === "tool_use");
+    if (r.stop_reason !== "tool_use" || !usos.length) return textoDe(r);
+    const resultados = [];
+    for (const u of usos) {
+      alPaso && alPaso(`${u.name}: ${JSON.stringify(u.input).slice(0, 120)}`);
+      let out, err = false;
+      try { out = await ejecutarHerramienta(u.name, u.input || {}, an); } catch (e) { out = String(e.message || e); err = true; }
+      resultados.push({ type: "tool_result", tool_use_id: u.id, content: out, ...(err ? { is_error: true } : {}) });
+    }
+    messages.push({ role: "user", content: resultados });
+  }
+  return "No se pudo terminar el informe (demasiadas consultas).";
+}
+function informeLocal(an) {
+  const c = S.p.campana; const mejor = an.ranking[0]; const peor = an.ranking[an.ranking.length - 1];
+  const gl = an.global.filter(g => g.d != null).sort((a, b) => b.d - a.d);
+  const citas = (seg, v) => { const t = JSON.parse(ejecutarHerramientaSync("comentarios", { segmento: seg, variante: v, limite: 3 })); return t.map(x => `> ${x}`).join("\n"); };
+  const sig = f => f.pAjustado < .05 ? "**significativo**" : "no concluyente";
+  return `## Resumen en 3 frases
+La campaña de ${(c.marca || "la marca")} se ha probado con ${S.p.poblacion.length} personas sintéticas en ${an.segs.length} segmentos. ${gl.length ? `En conjunto, la versión ${gl[0].variante} sube la intención de compra ${fmt(gl[0].d, 2)} puntos sobre 5 frente al grupo de control (IC 95 %: ${fmt(gl[0].lo, 2)} a ${fmt(gl[0].hi, 2)}).` : ""} ${mejor ? `El segmento donde mejor funciona es **${mejor.segmento}** con la versión ${mejor.variante} (${fmt(mejor.w.d, 2)} puntos, ${sig(mejor)}).` : ""}
+
+## Dónde funciona mejor
+${an.ranking.slice(0, 3).map((f, i) => `${i + 1}. **${f.segmento}**, versión ${f.variante}: ${fmt(f.w.m1, 2)} frente a ${fmt(f.w.m2, 2)} del control (diferencia ${fmt(f.w.d, 2)}, IC ${fmt(f.w.lo, 2)} a ${fmt(f.w.hi, 2)}; ${sig(f)}).`).join("\n")}
+
+Donde peor funciona: **${(peor?.segmento || "–")}** (${fmt(peor?.w?.d, 2)}).
+
+## Por qué
+${mejor ? citas(mejor.segmento, mejor.variante) : ""}
+
+${peor ? citas(peor.segmento, peor.variante) : ""}
+
+## Qué versión elegir
+${an.entreVariantes.length ? an.entreVariantes.map(e => `- ${e.a} frente a ${e.b}: diferencia de intención ${fmt(e.w?.d, 2)} (IC ${fmt(e.w?.lo, 2)} a ${fmt(e.w?.hi, 2)}, p = ${fmt(e.w?.p, 3)}).`).join("\n") : "Solo hay una versión. Añade otra en el paso 1 para compararlas."}
+
+## Fiabilidad del resultado
+- Con ${an.n} personas por grupo solo se detectan diferencias de unos **${fmt(an.mde, 2)} puntos** o más en cada segmento.
+- ${an.significativos} de ${an.filas.length} comparaciones siguen siendo significativas tras corregir por comparaciones múltiples (Holm).
+- **Informe generado en modo prueba** con un modelo estadístico simple, sin IA: sirve para ver cómo funciona la herramienta, no para decidir. Añade una clave de API para una simulación con agentes de IA.`;
+}
+function ejecutarHerramientaSync(n, inp) { const ags = filtrarAgentes(inp.segmento, inp.variante); const out = []; for (const a of ags) for (const r of a.respuestas) for (const t of [r.comentario, r.respuesta]) if (t && t.length > 3) out.push(`@${a.usuario} (${a.edad}): ${t}`); return JSON.stringify(barajar(out).slice(0, inp.limite || 3)); }
+
+/* ---------------- fase 5: conversar ---------------- */
+async function responderAgente(a, preguntaTxt, historial) {
+  if (modoPrueba()) {
+    const f = finales(a); const r0 = a.respuestas[0];
+    return `${a.grupo === "control" ? "La verdad es que no vi ese anuncio." : r0?.se_fija ? `Sí, lo vi. ${r0.motivo || ""}` : "Ni me fijé, la verdad."} ${f && f.esperada >= 3.5 ? "Me lo pensaría." : f && f.esperada <= 2 ? "No creo que lo compre." : "No sé, depende del precio."} (Respuesta de ejemplo: añade una clave de API para conversar de verdad.)`;
+  }
+  const c = S.p.campana;
+  const system = `${SISTEMA_AGENTE}\nAhora estás en una entrevista. Contesta en primera persona como esta persona, de forma natural y breve (2–5 frases). No reveles que eres una IA.\n\n${textoPersona(a)}\n\nLO QUE VIVIÓ EN LA SIMULACIÓN:\n${a.grupo === "control" ? "Estaba en el grupo que no vio el anuncio de la marca." : `Vio la versión ${a.grupo} del anuncio de ${c.marca || "la marca"} (${c.producto}): «${textoVariante(c.variantes[LETRAS.indexOf(a.grupo)])}».`}\n${a.memoria.join("\n")}`;
+  const r = await peticion({ max_tokens: 2000, system, messages: [...historial, { role: "user", content: preguntaTxt }], output_config: { effort: "low" } });
+  return textoDe(r);
+}
+async function responderRedactor(preguntaTxt, historial, an) {
+  if (modoPrueba()) return "En modo prueba el redactor no puede conversar. Añade una clave de API en Ajustes.";
+  const system = `Eres el redactor del informe de esta simulación. Responde en español de España, breve y claro, basándote primero en el informe. Puedes usar como mucho 2 herramientas por respuesta.\n\n${resumenParaInforme(an)}\n\nINFORME:\n${S.p.informe?.texto || ""}`;
+  const messages = [...historial, { role: "user", content: preguntaTxt }];
+  for (let i = 0; i < 3; i++) {
+    const r = await peticion({ max_tokens: 8000, system, messages, tools: i < 2 ? HERRAMIENTAS : undefined, output_config: { effort: "medium" } });
+    messages.push({ role: "assistant", content: r.content });
+    const usos = r.content.filter(b => b.type === "tool_use");
+    if (r.stop_reason !== "tool_use" || !usos.length) return textoDe(r);
+    const res = [];
+    for (const u of usos) { let out, err = false; try { out = await ejecutarHerramienta(u.name, u.input || {}, an); } catch (e) { out = String(e.message || e); err = true; } res.push({ type: "tool_result", tool_use_id: u.id, content: out, ...(err ? { is_error: true } : {}) }); }
+    messages.push({ role: "user", content: res });
+  }
+  return "No he podido responder.";
+}
+
+/* ---------------- Markdown mínimo y seguro ---------------- */
+function md(t) {
+  const lineas = String(t || "").split("\n"); let h = "", lista = null;
+  const inl = s => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>");
+  const cerrar = () => { if (lista) { h += `</${lista}>`; lista = null; } };
+  for (const l of lineas) {
+    let m;
+    if ((m = l.match(/^(#{1,3})\s+(.*)/))) { cerrar(); h += `<h${m[1].length}>${inl(m[2])}</h${m[1].length}>`; }
+    else if ((m = l.match(/^>\s?(.*)/))) { cerrar(); h += `<blockquote>${inl(m[1])}</blockquote>`; }
+    else if ((m = l.match(/^\s*[-*]\s+(.*)/))) { if (lista !== "ul") { cerrar(); h += "<ul>"; lista = "ul"; } h += `<li>${inl(m[1])}</li>`; }
+    else if ((m = l.match(/^\s*\d+\.\s+(.*)/))) { if (lista !== "ol") { cerrar(); h += "<ol>"; lista = "ol"; } h += `<li>${inl(m[1])}</li>`; }
+    else if (!l.trim()) cerrar();
+    else { cerrar(); h += `<p>${inl(l)}</p>`; }
+  }
+  cerrar(); return h;
+}
+
+/* ---------------- interfaz ---------------- */
+const PASOS = ["Campaña", "Población", "Simulación", "Informe", "Entrevistas", "Ajustes"];
+function pintarPasos() {
+  $("#pasos").innerHTML = PASOS.map((n, i) => `<button class="${i === S.paso ? "activo" : ""}" data-paso="${i}">${i < 5 ? `<span class="n">${i + 1}</span>` : "⚙️ "}${n}</button>`).join("");
+  $("#pasos").onclick = e => { const b = e.target.closest("button"); if (b) { S.paso = +b.dataset.paso; guardar(); pintar(); window.scrollTo(0, 0); } };
+}
+function pintar() {
+  pintarPasos();
+  const v = [vistaCampana, vistaPoblacion, vistaSimulacion, vistaInforme, vistaEntrevistas, vistaAjustes][S.paso];
+  $("#vista").innerHTML = v();
+  ({ 0: enlazarCampana, 1: enlazarPoblacion, 2: enlazarSimulacion, 3: enlazarInforme, 4: enlazarEntrevistas, 5: enlazarAjustes })[S.paso]?.();
+}
+function bannerModo() {
+  return modoPrueba() ? `<div class="aviso">Estás en <strong>modo prueba</strong>: sin clave de API las reacciones las genera un modelo estadístico sencillo. Sirve para conocer la herramienta. Para usar agentes de IA, ve a <a href="#" data-ir="5">Ajustes</a>.</div>` : `<div class="aviso ok">Agentes de IA activados con <strong>${esc(MODELOS[S.ajustes.modelo].nombre)}</strong>. Gasto acumulado: ${S.uso.llamadas} llamadas, unos ${fmt(costeUso(), 2)} $.</div>`;
+}
+document.addEventListener("click", e => { const a = e.target.closest("[data-ir]"); if (a) { e.preventDefault(); S.paso = +a.dataset.ir; guardar(); pintar(); } });
+
+/* paso 1: campaña */
+function vistaCampana() {
+  const c = S.p.campana; const m = S.p.mapa;
+  return `${bannerModo()}
+  <section class="panel"><h2>1 · La campaña (la «semilla»)</h2>
+    <p class="ayuda">Igual que MiroFish parte de un documento semilla, aquí partimos de tu anuncio. Puedes poner hasta 3 versiones para compararlas (por ejemplo, cambiando solo el titular).</p>
+    <div class="fila">
+      <div><label for="c-nombre">Nombre del estudio</label><input type="text" id="c-nombre" value="${esc(c.nombre)}" placeholder="Lanzamiento zapatillas otoño"></div>
+      <div><label for="c-marca">Marca</label><input type="text" id="c-marca" value="${esc(c.marca)}" placeholder="RunFast"></div>
+      <div><label for="c-producto">Producto o servicio</label><input type="text" id="c-producto" value="${esc(c.producto)}" placeholder="zapatillas de correr"></div>
+      <div><label for="c-canal">Dónde se verá</label><select id="c-canal">${Object.keys(CANALES).map(k => `<option ${k === c.canal ? "selected" : ""}>${k}</option>`).join("")}</select></div>
+    </div>
+    <label for="c-objetivo">¿Qué quieres averiguar? (en tus palabras)</label>
+    <textarea id="c-objetivo" placeholder="Quiero saber si funciona mejor con jóvenes de ciudad o con familias, y si el descuento ayuda.">${esc(c.objetivo)}</textarea>
+    <label for="c-pregunta">Pregunta de intención (opcional)</label>
+    <input type="text" id="c-pregunta" value="${esc(c.pregunta)}" placeholder="${esc(pregunta())}">
+    <h3>Versiones del anuncio</h3>
+    <div id="variantes">${c.variantes.map((v, i) => `
+      <div class="variante" data-i="${i}">
+        <strong><span class="marca" style="background:${COLORES_VAR[i]}"></span>Versión ${LETRAS[i]}</strong>
+        ${c.variantes.length > 1 ? `<button class="quitar" data-quitar="${i}">Quitar</button>` : ""}
+        <label>Titular</label><input type="text" data-campo="titulo" value="${esc(v.titulo)}" placeholder="Corre más, cansa menos">
+        <label>Texto</label><textarea data-campo="texto" placeholder="Nuevas RunFast Air con un 20 % de descuento solo esta semana.">${esc(v.texto)}</textarea>
+        <label>Llamada a la acción</label><input type="text" data-campo="cta" value="${esc(v.cta)}" placeholder="Compra ya">
+        <label>Imagen (opcional)</label><input type="file" accept="image/*" data-imagen="${i}">
+        ${v.imagen ? `<img class="miniatura" src="${v.imagen}" alt="Imagen de la versión ${LETRAS[i]}"><button class="btn sec" data-quitarimg="${i}">Quitar imagen</button>` : ""}
+      </div>`).join("")}
+    </div>
+    ${c.variantes.length < 3 ? `<button class="btn sec" id="c-add">+ Añadir versión</button>` : ""}
+    <button class="btn sec" id="c-ejemplo">Cargar un ejemplo</button>
+    <button class="btn" id="c-mapa">Analizar campaña</button>
+    <div class="estado" id="c-estado"></div>
+  </section>
+  ${m ? `<section class="panel"><h2>Mapa de la campaña</h2><p class="ayuda">${esc(m.resumen)}</p>${grafoSVG(m)}
+    <div class="fila"><div><h3>Hipótesis</h3><ul>${(m.hipotesis || []).map(h => `<li>${esc(h)}</li>`).join("")}</ul></div>
+    <div><h3>Riesgos</h3><ul>${(m.riesgos || []).map(h => `<li>${esc(h)}</li>`).join("") || "<li>Ninguno detectado</li>"}</ul></div></div>
+    <button class="btn" data-ir="1">Siguiente: crear la población →</button></section>` : ""}`;
+}
+function grafoSVG(m) {
+  const ents = (m.entidades || []).slice(0, 16); const W = 640, H = 300, cx = W / 2, cy = H / 2;
+  const centro = ents.findIndex(e => e.tipo === "producto"); const ci = centro >= 0 ? centro : 0;
+  const pos = ents.map((e, i) => { if (i === ci) return [cx, cy]; const k = i < ci ? i : i - 1, n = ents.length - 1; const ang = 2 * Math.PI * k / Math.max(1, n) - Math.PI / 2; return [cx + Math.cos(ang) * 250, cy + Math.sin(ang) * 115]; });
+  const col = { marca: "var(--var2)", producto: "var(--var1)", oferta: "var(--var3)", "público": "var(--aviso)", "interés": "var(--acento2)" };
+  const idx = n => ents.findIndex(e => e.nombre.toLowerCase() === String(n).toLowerCase());
+  const rel = (m.relaciones || []).map(r => [idx(r.de), idx(r.a), r.relacion]).filter(([a, b]) => a >= 0 && b >= 0);
+  const lineas = rel.length ? rel : ents.map((_, i) => [ci, i, ""]).filter(([a, b]) => a !== b);
+  return `<svg class="grafo" viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Mapa de entidades de la campaña">
+    ${lineas.map(([a, b]) => `<line x1="${pos[a][0]}" y1="${pos[a][1]}" x2="${pos[b][0]}" y2="${pos[b][1]}"/>`).join("")}
+    ${ents.map((e, i) => `<g><circle cx="${pos[i][0]}" cy="${pos[i][1]}" r="${i === ci ? 9 : 6}" fill="${col[e.tipo] || "var(--suave)"}" stroke="var(--panel)" stroke-width="2"><title>${esc(e.tipo)}: ${esc(e.nombre)}</title></circle>
+      <text x="${pos[i][0]}" y="${pos[i][1] + (pos[i][1] < cy ? -12 : 20)}" text-anchor="middle">${esc(e.nombre.slice(0, 26))}</text></g>`).join("")}
+  </svg><div class="leyenda">${Object.entries(col).map(([k, c]) => `<span><i style="background:${c}"></i>${k}</span>`).join("")}<span><i style="background:var(--suave)"></i>otros</span></div>`;
+}
+function leerCampana() {
+  const c = S.p.campana;
+  c.nombre = $("#c-nombre").value.trim(); c.marca = $("#c-marca").value.trim(); c.producto = $("#c-producto").value.trim();
+  c.canal = $("#c-canal").value; c.objetivo = $("#c-objetivo").value.trim(); c.pregunta = $("#c-pregunta").value.trim();
+  document.querySelectorAll(".variante").forEach(el => { const v = c.variantes[+el.dataset.i]; el.querySelectorAll("[data-campo]").forEach(i => v[i.dataset.campo] = i.value.trim()); });
+}
+function enlazarCampana() {
+  document.querySelectorAll("#vista input[type=text], #vista textarea, #vista select").forEach(el => el.addEventListener("change", () => { leerCampana(); guardar(); }));
+  $("#c-add")?.addEventListener("click", () => { leerCampana(); S.p.campana.variantes.push({ titulo: "", texto: "", cta: "", imagen: "" }); guardar(); pintar(); });
+  document.querySelectorAll("[data-quitar]").forEach(b => b.onclick = () => { leerCampana(); S.p.campana.variantes.splice(+b.dataset.quitar, 1); guardar(); pintar(); });
+  document.querySelectorAll("[data-quitarimg]").forEach(b => b.onclick = () => { leerCampana(); S.p.campana.variantes[+b.dataset.quitarimg].imagen = ""; guardar(); pintar(); });
+  document.querySelectorAll("[data-imagen]").forEach(inp => inp.onchange = async () => {
+    const f = inp.files[0]; if (!f) return; leerCampana();
+    S.p.campana.variantes[+inp.dataset.imagen].imagen = await reducirImagen(f, 1024);
+    guardar(); pintar();
+  });
+  $("#c-ejemplo").onclick = () => {
+    S.p.campana = { nombre: "Zapatillas RunFast Air", marca: "RunFast", producto: "zapatillas de correr RunFast Air", canal: "Instagram", objetivo: "Quiero saber en qué edades funciona mejor y si el mensaje de descuento funciona mejor que el emocional, según el tamaño del municipio.", pregunta: "", variantes: [
+      { titulo: "Corre más, cansa menos", texto: "Nuevas RunFast Air: amortiguación ligera para entrenar cada día. 20 % de descuento solo esta semana.", cta: "Compra ya", imagen: "" },
+      { titulo: "Tu primera carrera empieza hoy", texto: "Da igual tu ritmo: con RunFast Air cada kilómetro se disfruta. Únete a la comunidad runner de tu barrio.", cta: "Descúbrelas", imagen: "" }] };
+    S.p.mapa = null; guardar(); pintar();
+  };
+  $("#c-mapa").onclick = async () => {
+    leerCampana(); const c = S.p.campana;
+    if (!c.variantes.some(v => textoVariante(v) || v.imagen)) { $("#c-estado").textContent = "Escribe al menos el texto de una versión."; return; }
+    $("#c-mapa").disabled = true; $("#c-estado").textContent = modoPrueba() ? "Analizando…" : "La IA está analizando la campaña…";
+    try { S.p.mapa = modoPrueba() ? mapaLocal(c) : await mapaIA(c); guardar(); pintar(); }
+    catch (e) { $("#c-estado").textContent = "Error: " + e.message; $("#c-mapa").disabled = false; }
+  };
+}
+function reducirImagen(file, max) {
+  return new Promise((ok, mal) => { const img = new Image(); img.onload = () => { const k = Math.min(1, max / Math.max(img.width, img.height)); const cv = document.createElement("canvas"); cv.width = Math.round(img.width * k); cv.height = Math.round(img.height * k); cv.getContext("2d").drawImage(img, 0, 0, cv.width, cv.height); ok(cv.toDataURL("image/jpeg", .82)); URL.revokeObjectURL(img.src); }; img.onerror = mal; img.src = URL.createObjectURL(file); });
+}
+
+/* paso 2: población */
+function vistaPoblacion() {
+  const c = S.p.config; const d = DIMENSIONES[c.dimension]; const vals = c.valores || d.valores;
+  const est = estimarLlamadas(); const pob = S.p.poblacion;
+  const nNec = Math.ceil(2 * ((1.96 + .84) * 1.1 / .4) ** 2);
+  return `${bannerModo()}
+  <section class="panel"><h2>2 · La población sintética (el «entorno»)</h2>
+    <p class="ayuda">Se crean personas ficticias por cuotas, con distribuciones aproximadas a las del INE (edad, sexo, provincia, estudios, renta, hijos, redes que usa…). Cada segmento se divide al azar en grupo de control y un grupo por versión.</p>
+    <label>Grupos de edad</label>
+    <div class="chips">${EDADES.map(e => `<label class="chip"><input type="checkbox" data-edad="${e.id}" ${c.edades.includes(e.id) ? "checked" : ""}> ${e.id}</label>`).join("")}</div>
+    <div class="fila">
+      <div><label for="p-dim">Perfil para cruzar con la edad</label><select id="p-dim">${Object.entries(DIMENSIONES).map(([k, x]) => `<option value="${k}" ${k === c.dimension ? "selected" : ""}>${x.nombre}</option>`).join("")}</select></div>
+      <div><label for="p-n">Personas por grupo y segmento</label><input type="number" id="p-n" min="5" max="400" value="${c.nPorGrupo}"></div>
+      <div><label for="p-rondas">Rondas de simulación</label><select id="p-rondas">${[1, 2, 3].map(n => `<option value="${n}" ${n === c.rondas ? "selected" : ""}>${n === 1 ? "1 (solo exposición)" : n + " (exposición + conversación)"}</option>`).join("")}</select></div>
+      <div><label for="p-control">Grupo de control</label><select id="p-control"><option value="placebo" ${c.control === "placebo" ? "selected" : ""}>Ve un anuncio neutro (placebo)</option><option value="nada" ${c.control === "nada" ? "selected" : ""}>No ve ningún anuncio</option></select></div>
+      <div><label for="p-semilla">Semilla (para repetir igual)</label><input type="number" id="p-semilla" value="${c.semilla}"></div>
+    </div>
+    ${c.dimension !== "ninguno" ? `<label>Valores de «${esc(d.nombre)}»</label><div class="chips">${d.valores.map(v => `<label class="chip"><input type="checkbox" data-valor="${esc(v)}" ${vals.includes(v) ? "checked" : ""}> ${esc(v)}</label>`).join("")}</div>` : ""}
+    <label class="chip" style="margin-top:10px;width:max-content"><input type="checkbox" id="p-enriquecer" ${c.enriquecer ? "checked" : ""} ${modoPrueba() ? "disabled" : ""}> Enriquecer los perfiles con IA (más realistas, algo más de coste)</label>
+    <div class="kpis">
+      <div class="kpi"><div class="v">${c.edades.length * vals.length}</div><div class="t">segmentos</div></div>
+      <div class="kpi"><div class="v">${est.agentes.toLocaleString("es-ES")}</div><div class="t">personas simuladas</div></div>
+      <div class="kpi"><div class="v">${modoPrueba() ? "0" : est.llamadas.toLocaleString("es-ES")}</div><div class="t">llamadas a la IA</div></div>
+      <div class="kpi"><div class="v">${modoPrueba() ? "0 $" : "≈ " + fmt(estimarCoste(), 2) + " $"}</div><div class="t">coste estimado (${esc(MODELOS[S.ajustes.modelo].nombre.split(" (")[0])})</div></div>
+    </div>
+    <div class="aviso">Para detectar con fiabilidad una mejora de 0,4 puntos (sobre 5) en un segmento hacen falta unas <strong>${nNec} personas por grupo</strong>. Con ${c.nPorGrupo} solo verás diferencias de unos ${fmt(2.8 * 1.1 * Math.sqrt(2 / c.nPorGrupo), 2)} puntos o más. Menos segmentos = más personas en cada uno con el mismo coste.</div>
+    <button class="btn" id="p-generar">${pob.length ? "Volver a generar" : "Generar población"}</button>
+    ${pob.length ? `<button class="btn" data-ir="2">Siguiente: simular →</button>` : ""}
+  </section>
+  ${pob.length ? `<section class="panel"><h2>Muestra de la población (${pob.length.toLocaleString("es-ES")} personas)</h2>
+    <div class="tabla-scroll"><table><thead><tr><th>Usuario</th><th>Segmento</th><th>Grupo</th><th>Perfil</th></tr></thead><tbody>
+    ${pob.slice(0, 1).concat(barajarCopia(pob).slice(0, 11)).map(a => `<tr><td>@${esc(a.usuario)}</td><td>${esc(a.segmento)}</td><td>${a.grupo === "control" ? "Control" : "Versión " + a.grupo}</td><td>${esc(a.bio)}</td></tr>`).join("")}
+    </tbody></table></div></section>` : ""}`;
+}
+function barajarCopia(a) { const r = mulberry32(42), c = a.slice(); for (let i = c.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [c[i], c[j]] = [c[j], c[i]]; } return c; }
+function leerPoblacion() {
+  const c = S.p.config;
+  c.edades = [...document.querySelectorAll("[data-edad]")].filter(x => x.checked).map(x => x.dataset.edad);
+  const dimNueva = $("#p-dim").value;
+  if (dimNueva !== c.dimension) { c.dimension = dimNueva; c.valores = null; }
+  else if (dimNueva !== "ninguno") { const v = [...document.querySelectorAll("[data-valor]")].filter(x => x.checked).map(x => x.dataset.valor); c.valores = v.length ? v : null; }
+  c.nPorGrupo = clamp(parseInt($("#p-n").value) || 20, 5, 400); c.rondas = +$("#p-rondas").value; c.control = $("#p-control").value;
+  c.semilla = parseInt($("#p-semilla").value) || 1; c.enriquecer = $("#p-enriquecer").checked;
+  if (!c.edades.length) c.edades = ["25-34"];
+}
+function enlazarPoblacion() {
+  $("#vista").querySelectorAll("input,select").forEach(el => el.addEventListener("change", () => { leerPoblacion(); guardar(); pintar(); }));
+  $("#p-generar").onclick = () => { leerPoblacion(); generarPoblacion(); guardar(); pintar(); };
+}
+
+/* paso 3: simulación */
+function vistaSimulacion() {
+  const p = S.p, s = p.sim;
+  if (!p.poblacion.length) return `<section class="panel"><h2>3 · Simulación</h2><p>Primero genera la población en el <a href="#" data-ir="1">paso 2</a>.</p></section>`;
+  const est = estimarLlamadas();
+  return `${bannerModo()}
+  <section class="panel"><h2>3 · Simulación del mundo</h2>
+    <p class="ayuda">Ronda 1: cada persona ve su feed con el anuncio (o con el placebo si es del grupo de control) y responde. Rondas siguientes: los que vieron el anuncio lo vuelven a ver y leen lo que han comentado o compartido las personas a las que siguen (como en las redes de MiroFish/OASIS).</p>
+    ${!modoPrueba() ? `<div class="aviso">Se harán unas <strong>${est.llamadas.toLocaleString("es-ES")} llamadas</strong> (≈ ${fmt(estimarCoste(), 2)} $). Puedes parar cuando quieras: lo hecho se conserva.</div>` : ""}
+    <button class="btn" id="s-empezar" ${S.corriendo ? "disabled" : ""}>${s ? "Repetir simulación" : "Empezar simulación"}</button>
+    <button class="btn peligro ${S.corriendo ? "" : "oculto"}" id="s-parar">Parar</button>
+    ${s && !S.corriendo ? `<button class="btn" data-ir="3">Ver informe →</button>` : ""}
+    <div style="margin-top:12px" class="barra"><div id="s-barra"></div></div>
+    <div class="estado" id="s-estado">${s ? estadoSim() : "Lista para empezar."}</div>
+  </section>
+  ${s ? `<section class="panel"><h2>El mundo simulado</h2>
+    <div class="fila"><div><label for="s-filtro">Ver</label><select id="s-filtro"><option value="">Todo</option><option value="publico">Solo comentarios y compartidos</option>${p.campana.variantes.map((_, i) => `<option value="${LETRAS[i]}">Versión ${LETRAS[i]}</option>`).join("")}<option value="control">Control</option></select></div></div>
+    <div class="mundo" id="s-mundo">${pintarMundo("")}</div></section>` : ""}`;
+}
+function estadoSim() {
+  const s = S.p.sim; if (!s) return "";
+  const t = s.fin ? `Terminada${s.parado ? " (parada a mano)" : ""} en ${Math.round((s.fin - s.inicio) / 1000)} s.` : (s.fase || "");
+  return `${t} ${s.errores ? `· ${s.errores} errores (${esc(s.ultimoError || "")})` : ""} ${s.modo === "prueba" ? "· modo prueba" : ""}`;
+}
+function pintarProgreso(h, t) {
+  const b = $("#s-barra"); if (b) b.style.width = Math.min(100, 100 * h / Math.max(1, t)) + "%";
+  const e = $("#s-estado"); if (e) e.textContent = `${S.p.sim?.fase || ""} · ${h.toLocaleString("es-ES")} / ${t.toLocaleString("es-ES")} · gasto ≈ ${fmt(costeUso(), 2)} $`;
+  const m = $("#s-mundo"); if (m && S.corriendo) m.innerHTML = pintarMundo($("#s-filtro")?.value || "");
+}
+function pintarMundo(f) {
+  let ev = S.p.sim?.eventos || [];
+  if (f === "publico") ev = ev.filter(e => e.publico); else if (f) ev = ev.filter(e => e.grupo === f);
+  ev = ev.filter(e => e.accion !== "ignorar" || f).slice(-120).reverse();
+  if (!ev.length) return `<p class="ayuda">Aún no hay actividad.</p>`;
+  return ev.map(e => `<div class="post"><span class="quien">@${esc(e.usuario)}</span><span class="etq">${esc(e.segmento)}</span><span class="etq">${e.grupo === "control" ? "control" : "versión " + e.grupo}</span><span class="etq">ronda ${e.ronda}</span><div>${esc(e.texto)}</div></div>`).join("");
+}
+function enlazarSimulacion() {
+  $("#s-empezar") && ($("#s-empezar").onclick = () => simular());
+  $("#s-parar") && ($("#s-parar").onclick = () => { S.parar = true; $("#s-estado").textContent = "Parando…"; });
+  $("#s-filtro") && ($("#s-filtro").onchange = e => { $("#s-mundo").innerHTML = pintarMundo(e.target.value); });
+  if (S.p.sim) { const s = S.p.sim; pintarProgreso(s.fin ? 1 : s.hechas, s.fin ? 1 : estimarLlamadas().llamadas); $("#s-estado").innerHTML = estadoSim(); }
+}
+
+/* paso 4: informe */
+let _an = null;
+function vistaInforme() {
+  const p = S.p;
+  if (!p.sim || !p.poblacion.some(a => a.respuestas.length)) return `<section class="panel"><h2>4 · Informe</h2><p>Primero haz la simulación en el <a href="#" data-ir="2">paso 3</a>.</p></section>`;
+  const an = _an = analizar(); const segs = an.segs, vars = an.vars;
+  const maxAbs = Math.max(.3, ...an.filas.map(f => Math.abs(f.w?.d || 0)));
+  const colorCelda = d => { if (d == null) return "var(--neutro)"; const k = Math.min(1, Math.abs(d) / maxAbs); return `color-mix(in srgb, ${d >= 0 ? "var(--pos)" : "var(--neg)"} ${Math.round(k * 85)}%, var(--neutro))`; };
+  const tinta = d => d != null && Math.abs(d) / maxAbs > .55 ? "#fff" : "var(--texto)";
+  const dim = p.config.dimension; const edades = p.config.edades; const valores = p.config.valores || DIMENSIONES[dim].valores;
+  const gl = an.global;
+  return `${bannerModo()}
+  <section class="panel"><h2>4 · Resultados</h2>
+    <p class="ayuda">Medida principal: intención de compra (1 = seguro que no … 5 = seguro que sí), comparada con el grupo de control de cada segmento. El «global» pondera cada segmento por su peso real en la población.</p>
+    <div class="kpis">${gl.map((g, i) => `<div class="kpi"><div class="t"><span class="marca" style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${COLORES_VAR[i]}"></span> Versión ${g.variante} · efecto global</div><div class="v">${g.d >= 0 ? "+" : ""}${fmt(g.d, 2)}</div><div class="t">IC 95 %: ${fmt(g.lo, 2)} a ${fmt(g.hi, 2)} · ${g.lo > 0 ? "mejora clara" : g.hi < 0 ? "empeora" : "no concluyente"}</div></div>`).join("")}
+      <div class="kpi"><div class="t">Mejor segmento</div><div class="v" style="font-size:17px">${esc(an.ranking[0]?.segmento || "–")}</div><div class="t">versión ${an.ranking[0]?.variante || "–"} · ${an.ranking[0] ? (an.ranking[0].pAjustado < .05 ? "significativo" : "no concluyente") : ""}</div></div>
+      <div class="kpi"><div class="t">Diferencia mínima detectable</div><div class="v">${fmt(an.mde, 2)}</div><div class="t">puntos por segmento (n = ${an.n})</div></div>
+    </div>
+    ${barrasSVG(an)}
+  </section>
+  ${vars.map((v, vi) => `<section class="panel"><h2>Mapa de calor · versión ${v}</h2>
+    <p class="ayuda">Diferencia de intención frente al control. Azul = el anuncio ayuda, rojo = perjudica, gris = sin efecto. Pasa el dedo o el ratón por una celda para ver el detalle. ★ = significativo tras corregir por comparaciones múltiples.</p>
+    <div class="tabla-scroll"><table class="mapa"><thead><tr><th>Edad</th>${valores.map(x => `<th class="num">${esc(x)}</th>`).join("")}</tr></thead><tbody>
+    ${edades.map(e => `<tr><th>${e}</th>${valores.map(x => { const seg = e + (dim === "ninguno" ? "" : " · " + x); const f = an.filas.find(r => r.segmento === seg && r.variante === v); const d = f?.w?.d; return `<td class="celda" style="background:${colorCelda(d)};color:${tinta(d)}" data-tip="${esc(seg)} · versión ${v}|Intención ${fmt(f?.w?.m1, 2)} vs control ${fmt(f?.w?.m2, 2)}|IC 95 %: ${fmt(f?.w?.lo, 2)} a ${fmt(f?.w?.hi, 2)}|p ajustado: ${fmt(f?.pAjustado, 3)}|Clic: ${pct(f?.ctr)} · Atención: ${pct(f?.atencion, 0)}">${d == null ? "–" : (d >= 0 ? "+" : "") + fmt(d, 2)}${f?.pAjustado < .05 ? " ★" : ""}</td>`; }).join("")}</tr>`).join("")}
+    </tbody></table></div>
+    <div class="leyenda"><span><i style="background:var(--neg)"></i>perjudica</span><span><i style="background:var(--neutro);border:1px solid var(--borde)"></i>sin efecto</span><span><i style="background:var(--pos)"></i>ayuda</span></div>
+  </section>`).join("")}
+  <section class="panel"><h2>Tabla completa</h2>
+    <div class="tabla-scroll"><table><thead><tr><th>Segmento</th><th>Versión</th><th class="num">n</th><th class="num">Intención</th><th class="num">Control</th><th class="num">Diferencia (IC 95 %)</th><th class="num">p ajust.</th><th class="num">% 4–5 vs control</th><th class="num">Atención</th><th class="num">Agrado</th><th class="num">Clic</th><th class="num">Interacción</th></tr></thead><tbody>
+    ${an.ranking.concat(an.filas.filter(f => !f.w)).map(f => `<tr><td>${esc(f.segmento)}</td><td>${f.variante}</td><td class="num">${f.nT}/${f.nC}</td><td class="num">${fmt(f.w?.m1)}</td><td class="num">${fmt(f.w?.m2)}</td><td class="num">${f.w ? `${f.w.d >= 0 ? "+" : ""}${fmt(f.w.d)} (${fmt(f.w.lo)}; ${fmt(f.w.hi)})` : "–"}</td><td class="num">${fmt(f.pAjustado, 3)}${f.pAjustado < .05 ? " ★" : ""}</td><td class="num">${f.t2 ? pct(f.t2.p1, 0) + " vs " + pct(f.t2.p2, 0) : "–"}</td><td class="num">${pct(f.atencion, 0)}</td><td class="num">${fmt(f.agrado, 1)}</td><td class="num">${pct(f.ctr)}</td><td class="num">${pct(f.interaccion, 0)}</td></tr>`).join("")}
+    </tbody></table></div>
+    ${an.entreVariantes.length ? `<h3>Versiones entre sí</h3><ul>${an.entreVariantes.map(e => `<li>${e.a} frente a ${e.b}: intención ${e.w ? (e.w.d >= 0 ? "+" : "") + fmt(e.w.d) + ` (IC ${fmt(e.w.lo)}; ${fmt(e.w.hi)}, p = ${fmt(e.w.p, 3)})` : "–"} · clics ${e.clic ? pct(e.clic.p1) + " vs " + pct(e.clic.p2) + ` (p = ${fmt(e.clic.p, 3)})` : "–"}</li>`).join("")}</ul>` : ""}
+    <button class="btn sec" id="i-csv">Descargar datos (CSV)</button>
+    <button class="btn sec" id="i-json">Guardar proyecto (JSON)</button>
+  </section>
+  <section class="panel"><h2>Informe del agente redactor</h2>
+    <p class="ayuda">Como el ReportAgent de MiroFish: consulta las estadísticas, lee comentarios y entrevista a agentes antes de escribir.</p>
+    <button class="btn" id="i-redactar">${p.informe ? "Volver a redactar" : "Redactar informe"}</button>
+    <div class="estado" id="i-estado"></div>
+    <div class="informe-md" id="i-texto">${p.informe ? md(p.informe.texto) : ""}</div>
+  </section>`;
+}
+function barrasSVG(an) {
+  // intención media global ponderada por grupo, con IC del efecto
+  const g = an.global.filter(x => x.mt != null); if (!g.length) return "";
+  const barras = [{ et: "Control", v: g[0].mc, col: "var(--control)" }, ...g.map((x, i) => ({ et: "Versión " + x.variante, v: x.mt, col: COLORES_VAR[an.vars.indexOf(x.variante)], lo: x.mc + x.lo, hi: x.mc + x.hi }))];
+  const W = 560, H = 210, mx = 70, top = 16, base = H - 34, esc5 = v => base - (v - 1) / 4 * (base - top);
+  const bw = Math.min(70, (W - mx - 20) / barras.length - 24);
+  return `<h3>Intención de compra media (global ponderado)</h3><svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Intención media por grupo">
+    ${[1, 2, 3, 4, 5].map(t => `<line x1="${mx}" x2="${W - 10}" y1="${esc5(t)}" y2="${esc5(t)}" stroke="var(--borde)" stroke-width="1"/><text x="${mx - 8}" y="${esc5(t) + 4}" text-anchor="end" font-size="11" fill="var(--suave)">${t}</text>`).join("")}
+    ${barras.map((b, i) => { const x = mx + 16 + i * (bw + 24); const y = esc5(b.v); return `<g data-tip="${esc(b.et)}|Intención media: ${fmt(b.v, 2)}${b.lo != null ? `|IC del efecto: ${fmt(b.lo, 2)} a ${fmt(b.hi, 2)}` : ""}"><rect x="${x - 8}" y="${top}" width="${bw + 16}" height="${base - top}" fill="transparent"/><path d="M${x},${base} V${y + 4} q0,-4 4,-4 h${bw - 8} q4,0 4,4 V${base} Z" fill="${b.col}"/>
+      ${b.lo != null ? `<line x1="${x + bw / 2}" x2="${x + bw / 2}" y1="${esc5(b.lo)}" y2="${esc5(b.hi)}" stroke="var(--texto)" stroke-width="2"/><line x1="${x + bw / 2 - 6}" x2="${x + bw / 2 + 6}" y1="${esc5(b.lo)}" y2="${esc5(b.lo)}" stroke="var(--texto)" stroke-width="2"/><line x1="${x + bw / 2 - 6}" x2="${x + bw / 2 + 6}" y1="${esc5(b.hi)}" y2="${esc5(b.hi)}" stroke="var(--texto)" stroke-width="2"/>` : ""}
+      <text x="${x + bw / 2}" y="${y - 6 - (b.lo != null ? Math.max(0, y - esc5(b.hi)) : 0)}" text-anchor="middle" font-size="12" fill="var(--texto)">${fmt(b.v, 2)}</text>
+      <text x="${x + bw / 2}" y="${base + 16}" text-anchor="middle" font-size="12" fill="var(--suave)">${esc(b.et)}</text></g>`; }).join("")}
+  </svg>`;
+}
+function descargar(nombre, texto, tipo) { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([texto], { type: tipo })); a.download = nombre; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000); }
+function enlazarInforme() {
+  $("#i-csv") && ($("#i-csv").onclick = () => {
+    const cab = ["id", "usuario", "edad", "sexo", "provincia", "segmento", "grupo", "renta", "hijos", "escepticismo", "ronda", "se_fija", "agrado", "accion", "intencion_esperada", "intencion", "comentario"];
+    const filas = [cab.join(";")];
+    for (const a of S.p.poblacion) for (const r of a.respuestas) filas.push([a.id, a.usuario, a.edad, a.sexo, a.provincia, a.segmento, a.grupo, a.renta, a.hijos ? 1 : 0, a.escepticismo, r.ronda, r.se_fija ?? "", r.agrado ?? "", r.accion, esperanza(r.pmf).toFixed(3).replace(".", ","), r.intencionMuestra, (r.comentario || r.respuesta || "").replace(/[;\n"]/g, " ")].join(";"));
+    descargar("simulacion.csv", "\ufeff" + filas.join("\n"), "text/csv");
+  });
+  $("#i-json") && ($("#i-json").onclick = () => descargar((S.p.campana.nombre || "proyecto") + ".json", JSON.stringify(S.p), "application/json"));
+  $("#i-redactar") && ($("#i-redactar").onclick = async () => {
+    const b = $("#i-redactar"); b.disabled = true; const est = $("#i-estado");
+    try {
+      let texto;
+      if (modoPrueba()) texto = informeLocal(_an);
+      else { est.textContent = "El redactor está investigando…"; texto = await redactarInformeIA(_an, t => est.textContent = "Consultando · " + t); }
+      S.p.informe = { texto, fecha: Date.now() }; guardar(); est.textContent = ""; $("#i-texto").innerHTML = md(texto);
+    } catch (e) { est.textContent = "Error: " + e.message; }
+    b.disabled = false;
+  });
+  enlazarTooltips();
+}
+function enlazarTooltips() {
+  const tt = $("#tooltip");
+  document.querySelectorAll("[data-tip]").forEach(el => {
+    const mostrar = ev => { const p = ev.touches ? ev.touches[0] : ev; tt.innerHTML = el.dataset.tip.split("|").map((l, i) => i ? esc(l) : `<strong>${esc(l)}</strong>`).join("<br>"); tt.style.display = "block"; const x = Math.min(p.clientX + 12, innerWidth - tt.offsetWidth - 8); tt.style.left = x + "px"; tt.style.top = (p.clientY + 14) + "px"; };
+    el.addEventListener("mousemove", mostrar); el.addEventListener("touchstart", mostrar, { passive: true });
+    el.addEventListener("mouseleave", () => tt.style.display = "none");
+  });
+}
+document.addEventListener("touchstart", e => { if (!e.target.closest("[data-tip]")) $("#tooltip").style.display = "none"; }, { passive: true });
+
+/* paso 5: entrevistas */
+let _quien = "redactor";
+function vistaEntrevistas() {
+  const p = S.p;
+  if (!p.sim) return `<section class="panel"><h2>5 · Entrevistas</h2><p>Primero haz la simulación en el <a href="#" data-ir="2">paso 3</a>.</p></section>`;
+  const ags = p.poblacion.filter(a => a.respuestas.length);
+  const chat = p.chats[_quien] || [];
+  const a = ags.find(x => String(x.id) === String(_quien));
+  return `${bannerModo()}
+  <section class="panel"><h2>5 · Conversa con el mundo simulado</h2>
+    <p class="ayuda">Pregunta a cualquier persona simulada qué pensó del anuncio, o al redactor del informe por los datos.</p>
+    <label for="e-quien">Con quién hablas</label>
+    <select id="e-quien"><option value="redactor" ${_quien === "redactor" ? "selected" : ""}>📊 Redactor del informe</option>
+      ${ags.map(x => `<option value="${x.id}" ${String(x.id) === String(_quien) ? "selected" : ""}>@${esc(x.usuario)} · ${x.edad} años · ${esc(x.segmento)} · ${x.grupo === "control" ? "control" : "versión " + x.grupo}</option>`).join("")}</select>
+    ${a ? `<p class="ayuda" style="margin-top:8px">${esc(a.bio)}<br><em>${esc(a.memoria.join(" "))}</em></p>` : ""}
+    <div class="chat" id="e-chat">${chat.map(m => m.role === "user" ? `<div class="msg yo">${esc(m.content)}</div>` : `<div class="msg el informe-md" style="white-space:normal">${md(m.content)}</div>`).join("") || `<p class="ayuda">Escribe una pregunta. Por ejemplo: «¿Qué te hizo pensar el anuncio?» o «¿Qué cambiarías para que te convenza?»</p>`}</div>
+    <form class="entrada-chat" id="e-form"><input type="text" id="e-texto" placeholder="Escribe tu pregunta…" autocomplete="off"><button class="btn" type="submit">Enviar</button></form>
+    <button class="btn sec" id="e-borrar">Borrar conversación</button>
+  </section>`;
+}
+function enlazarEntrevistas() {
+  if (!$("#e-quien")) return;
+  $("#e-quien").onchange = e => { _quien = e.target.value; pintar(); };
+  $("#e-borrar").onclick = () => { delete S.p.chats[_quien]; guardar(); pintar(); };
+  const ch = $("#e-chat"); ch.scrollTop = ch.scrollHeight;
+  $("#e-form").onsubmit = async ev => {
+    ev.preventDefault(); const t = $("#e-texto").value.trim(); if (!t) return;
+    const hist = S.p.chats[_quien] ||= [];
+    const previo = hist.slice(-12);
+    hist.push({ role: "user", content: t }); pintar();
+    $("#e-chat").insertAdjacentHTML("beforeend", `<div class="msg el" id="e-pensando">…</div>`);
+    try {
+      const resp = _quien === "redactor" ? await responderRedactor(t, previo, _an || analizar()) : await responderAgente(S.p.poblacion.find(x => String(x.id) === String(_quien)), t, previo);
+      hist.push({ role: "assistant", content: resp });
+    } catch (e) { hist.push({ role: "assistant", content: "Error: " + e.message }); }
+    guardar(); pintar(); $("#e-texto")?.focus();
+  };
+}
+
+/* ajustes */
+function vistaAjustes() {
+  const a = S.ajustes;
+  return `<section class="panel"><h2>⚙️ Ajustes</h2>
+    <p class="ayuda">Sin clave, la app funciona en modo prueba. Con una clave de la API de Anthropic, cada persona simulada es un agente de IA (Claude).</p>
+    <label for="a-clave">Clave de API de Anthropic</label>
+    <input type="password" id="a-clave" value="${esc(a.clave)}" placeholder="sk-ant-..." autocomplete="off">
+    <label class="chip" style="margin-top:8px;width:max-content"><input type="checkbox" id="a-recordar" ${a.recordar ? "checked" : ""}> Recordar la clave en este navegador</label>
+    <div class="aviso mal">La clave se usa directamente desde tu navegador y nunca se sube al repositorio. Aun así, crea una clave solo para esto y ponle un <strong>límite de gasto</strong> en la consola de Anthropic. No la uses en ordenadores compartidos.</div>
+    <div class="fila">
+      <div><label for="a-modelo">Modelo</label><select id="a-modelo">${Object.entries(MODELOS).map(([k, m]) => `<option value="${k}" ${k === a.modelo ? "selected" : ""}>${m.nombre} · ${m.ent} $/${m.sal} $ por millón de tokens</option>`).join("")}</select></div>
+      <div><label for="a-conc">Llamadas en paralelo</label><input type="number" id="a-conc" min="1" max="16" value="${a.concurrencia}"></div>
+    </div>
+    <p class="ayuda">Para poblaciones grandes, Haiku es mucho más barato. Opus da reacciones más matizadas; úsalo para validar con una muestra pequeña.</p>
+    <button class="btn" id="a-guardar">Guardar</button>
+    <h3>Gasto de esta sesión</h3>
+    <p>${S.uso.llamadas.toLocaleString("es-ES")} llamadas · ${S.uso.entrada.toLocaleString("es-ES")} tokens de entrada · ${S.uso.salida.toLocaleString("es-ES")} de salida · ${S.uso.cacheLeida.toLocaleString("es-ES")} leídos de caché · ≈ ${fmt(costeUso(), 2)} $</p>
+    <button class="btn sec" id="a-reset-uso">Poner contador a cero</button>
+    <h3>Proyecto</h3>
+    <button class="btn sec" id="a-importar">Abrir proyecto (JSON)</button><input type="file" id="a-fichero" accept="application/json" class="oculto">
+    <button class="btn peligro" id="a-nuevo">Empezar un proyecto nuevo</button>
+    ${avisoGuardado ? `<div class="aviso mal">El proyecto es demasiado grande para guardarse solo en el navegador. Descárgalo en JSON desde el informe para no perderlo.</div>` : ""}
+    <h3>Cómo funciona (inspirado en MiroFish)</h3>
+    <ol class="ayuda">
+      <li><strong>Semilla:</strong> la campaña se convierte en un mapa de entidades (marca, oferta, tono, públicos…).</li>
+      <li><strong>Entorno:</strong> población sintética por cuotas y una red social entre las personas de cada grupo.</li>
+      <li><strong>Simulación:</strong> reparto aleatorio a control y versiones, exposición en el feed y rondas de conversación.</li>
+      <li><strong>Informe:</strong> estadística (prueba t de Welch, intervalos de Newcombe, corrección de Holm, ponderación por peso real del segmento) y un agente redactor con herramientas.</li>
+      <li><strong>Interacción:</strong> conversación con cualquier agente o con el redactor.</li>
+    </ol>
+    <p class="ayuda">Para que el resultado sea fiable: prueba antes 5–10 campañas pasadas cuyo resultado real conozcas y comprueba que el simulador las ordena bien. Si acierta el orden, puedes fiarte de sus comparaciones.</p>
+  </section>`;
+}
+function enlazarAjustes() {
+  $("#a-guardar").onclick = () => {
+    S.ajustes.clave = $("#a-clave").value.trim(); S.ajustes.recordar = $("#a-recordar").checked;
+    S.ajustes.modelo = $("#a-modelo").value; S.ajustes.concurrencia = clamp(parseInt($("#a-conc").value) || 4, 1, 16);
+    guardar(); pintar();
+  };
+  $("#a-reset-uso").onclick = () => { S.uso = { entrada: 0, salida: 0, cacheLeida: 0, cacheEscrita: 0, llamadas: 0 }; guardar(); pintar(); };
+  $("#a-nuevo").onclick = () => { if (confirm("¿Borrar el proyecto actual? Si no lo has guardado en JSON, se perderá.")) { S.p = nuevoProyecto(); S.paso = 0; guardar(); pintar(); } };
+  $("#a-importar").onclick = () => $("#a-fichero").click();
+  $("#a-fichero").onchange = async e => { try { const d = JSON.parse(await e.target.files[0].text()); if (!d.campana) throw new Error("No parece un proyecto"); S.p = { ...nuevoProyecto(), ...d }; S.paso = 0; guardar(); pintar(); } catch (err) { alert("No se pudo abrir: " + err.message); } };
+}
+
+pintar();
+</script>
+</body>
+</html>

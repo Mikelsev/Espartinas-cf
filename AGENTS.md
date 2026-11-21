@@ -68,3 +68,12 @@ Ruta base: `equipos/{equipoId}` con `equipoId` = `alevin` | `benjamin`.
 - Estrellas solo 3–5. Textos de la interfaz en español, tono cercano.
 - Accesible y responsive; modo claro y oscuro (variables CSS en `:root`).
 - Antes de terminar: `node --check robot/robot.mjs` y abrir `app/index.html` en un navegador para comprobar que carga.
+
+## Simulador de campañas (`simulador/index.html`)
+Proyecto independiente de la app del club (no comparte datos ni `CONFIG`). Archivo único sin build, publicado en `/simulador/` por `publicar.yml`. Funcionamiento calcado de MiroFish (semilla → entorno → simulación → informe → interacción):
+- **Semilla**: `mapaIA()` / `mapaLocal()` extraen entidades, relaciones, públicos, riesgos e hipótesis de la campaña (hasta 3 versiones A/B/C con imagen opcional, reducida a 1024 px).
+- **Entorno**: `generarPoblacion()` crea agentes por cuotas edad × dimensión (`DIMENSIONES`) con distribuciones aproximadas al INE; reparto aleatorio estratificado a `control`/A/B/C; pesos reales por segmento (`p.pesos`, 20.000 sorteos) para la post-estratificación; red social de 6 contactos con homofilia **dentro de cada brazo** (el control no se contamina). Semilla fija (`mulberry32`) → reproducible.
+- **Simulación**: ronda 1 de exposición en el feed (control: placebo o nada) y rondas sociales solo para tratados. Cada agente responde intención como **distribución p1..p5** (se guarda la esperanza y una muestra) con salida estructurada (`output_config.format`). Memoria por agente en `a.memoria`.
+- **Informe**: `analizar()` → Welch (t de Student exacta vía beta incompleta), Newcombe para «% 4–5», Holm, efecto global ponderado, diferencia mínima detectable. `redactarInformeIA()` es un bucle manual de herramientas (`estadisticas`, `comentarios`, `entrevistar`) como el ReportAgent.
+- **IA**: SDK oficial `@anthropic-ai/sdk@1.4.0` por jsDelivr con `dangerouslyAllowBrowser`; la clave la pone el usuario en Ajustes (nunca en el repo). Opus/Sonnet 5.5 usan `fallbacks: "default"` (beta `server-side-fallback-2026-07-01`). Sin clave → modo prueba con un modelo logit ordinal local; no romperlo.
+- `localStorage` con prefijo `sim-`.
