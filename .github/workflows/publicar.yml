@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "app/**"
+      - "simulador/**"
       - ".github/workflows/publicar.yml"
   workflow_dispatch:          # botón para publicarla a mano
 
@@ -33,6 +34,9 @@ jobs:
           mkdir -p _site/coti
           cp -r app/. _site/
           cp app/index.html _site/coti/index.html
+          # Simulador de campañas publicitarias (independiente de la app del club)
+          mkdir -p _site/simulador
+          cp -r simulador/. _site/simulador/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
