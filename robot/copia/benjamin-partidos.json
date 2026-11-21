@@ -50,8 +50,10 @@
   "jornada": 6,
   "local": false,
   "rival": "EMD Burguillos",
-  "hora": "19:50",
+  "gf": 6,
+  "gc": 8,
   "fecha": "2026-11-20",
+  "estado": "Finalizado",
   "campo": "Campo de Fútbol Municipal Fco. Lozano - c/ Cañada Real, S/N"
  },
  {
