@@ -58,7 +58,9 @@
   "jornada": 7,
   "local": false,
   "rival": "SD CEU Andalucía",
-  "fecha": "2026-11-27"
+  "hora": "18:45",
+  "fecha": "2026-11-27",
+  "campo": "Instalaciones deportivas CEU SAN PABLO"
  },
  {
   "jornada": 8,
