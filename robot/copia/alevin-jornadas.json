@@ -155,13 +155,6 @@
      "Jornada 7 (27/11/2026)"
     ],
     [
-     "J-26",
-     "18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - CD Ricosport",
-     ""
-    ],
-    [
      "V-27",
      "18:00",
      "",
@@ -222,6 +215,13 @@
      "16:20",
      "Pabellón municipal pepe flores",
      "CD Isidro Reguera \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
+     "X-02",
+     "19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - CD Ricosport",
      ""
     ]
    ]
@@ -383,13 +383,6 @@
      "Jornada 7 (27/11/2026)"
     ],
     [
-     "J-26",
-     "18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - CD Ricosport",
-     ""
-    ],
-    [
      "V-27",
      "18:00",
      "",
@@ -450,6 +443,13 @@
      "16:20",
      "Pabellón municipal pepe flores",
      "CD Isidro Reguera \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
+     "X-02",
+     "19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - CD Ricosport",
      ""
     ]
    ]
@@ -611,13 +611,6 @@
      "Jornada 7 (27/11/2026)"
     ],
     [
-     "J-26",
-     "18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - CD Ricosport",
-     ""
-    ],
-    [
      "V-27",
      "18:00",
      "",
@@ -678,6 +671,13 @@
      "16:20",
      "Pabellón municipal pepe flores",
      "CD Isidro Reguera \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
+     "X-02",
+     "19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - CD Ricosport",
      ""
     ]
    ]
@@ -839,13 +839,6 @@
      "Jornada 7 (27/11/2026)"
     ],
     [
-     "J-26",
-     "18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - CD Ricosport",
-     ""
-    ],
-    [
      "V-27",
      "18:00",
      "",
@@ -906,6 +899,13 @@
      "16:20",
      "Pabellón municipal pepe flores",
      "CD Isidro Reguera \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
+     "X-02",
+     "19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - CD Ricosport",
      ""
     ]
    ]
@@ -1067,13 +1067,6 @@
      "Jornada 7 (27/11/2026)"
     ],
     [
-     "J-26",
-     "18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - CD Ricosport",
-     ""
-    ],
-    [
      "V-27",
      "18:00",
      "",
@@ -1134,6 +1127,13 @@
      "16:20",
      "Pabellón municipal pepe flores",
      "CD Isidro Reguera \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
+     "X-02",
+     "19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - CD Ricosport",
      ""
     ]
    ]
@@ -1295,13 +1295,6 @@
      "Jornada 7 (27/11/2026)"
     ],
     [
-     "J-26",
-     "18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - CD Ricosport",
-     ""
-    ],
-    [
      "V-27",
      "18:00",
      "",
@@ -1363,6 +1356,13 @@
      "Pabellón municipal pepe flores",
      "CD Isidro Reguera \"A\" - CD Atco. San Juan",
      ""
+    ],
+    [
+     "X-02",
+     "19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - CD Ricosport",
+     ""
     ]
    ]
   ]
@@ -1373,20 +1373,6 @@
    [
     [
      "Alevines - Alevín 2º Año - 2º Año - Grupo 1 -  Jornada: 7 (27/11/2026)"
-    ],
-    [
-     "Jue 26\n18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva",
-     "",
-     "-",
-     "",
-     "CD Ricosport",
-     "",
-     ""
-    ],
-    [
-     ""
     ],
     [
      "Vie 27\n18:00",
@@ -1513,6 +1499,20 @@
     ],
     [
      ""
+    ],
+    [
+     "Mié 02\n19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva",
+     "",
+     "-",
+     "",
+     "CD Ricosport",
+     "",
+     ""
+    ],
+    [
+     ""
     ]
    ],
    [
@@ -1521,13 +1521,6 @@
     ],
     [
      "Jornada 7 (27/11/2026)"
-    ],
-    [
-     "J-26",
-     "18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - CD Ricosport",
-     ""
     ],
     [
      "V-27",
@@ -1590,6 +1583,13 @@
      "16:20",
      "Pabellón municipal pepe flores",
      "CD Isidro Reguera \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
+     "X-02",
+     "19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - CD Ricosport",
      ""
     ]
    ]
@@ -1751,13 +1751,6 @@
      "Jornada 7 (27/11/2026)"
     ],
     [
-     "J-26",
-     "18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - CD Ricosport",
-     ""
-    ],
-    [
      "V-27",
      "18:00",
      "",
@@ -1818,6 +1811,13 @@
      "16:20",
      "Pabellón municipal pepe flores",
      "CD Isidro Reguera \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
+     "X-02",
+     "19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - CD Ricosport",
      ""
     ]
    ]
@@ -1979,13 +1979,6 @@
      "Jornada 7 (27/11/2026)"
     ],
     [
-     "J-26",
-     "18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - CD Ricosport",
-     ""
-    ],
-    [
      "V-27",
      "18:00",
      "",
@@ -2046,6 +2039,13 @@
      "16:20",
      "Pabellón municipal pepe flores",
      "CD Isidro Reguera \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
+     "X-02",
+     "19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - CD Ricosport",
      ""
     ]
    ]
@@ -2207,13 +2207,6 @@
      "Jornada 7 (27/11/2026)"
     ],
     [
-     "J-26",
-     "18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - CD Ricosport",
-     ""
-    ],
-    [
      "V-27",
      "18:00",
      "",
@@ -2274,6 +2267,13 @@
      "16:20",
      "Pabellón municipal pepe flores",
      "CD Isidro Reguera \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
+     "X-02",
+     "19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - CD Ricosport",
      ""
     ]
    ]
@@ -2435,13 +2435,6 @@
      "Jornada 7 (27/11/2026)"
     ],
     [
-     "J-26",
-     "18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - CD Ricosport",
-     ""
-    ],
-    [
      "V-27",
      "18:00",
      "",
@@ -2502,6 +2495,13 @@
      "16:20",
      "Pabellón municipal pepe flores",
      "CD Isidro Reguera \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
+     "X-02",
+     "19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - CD Ricosport",
      ""
     ]
    ]
@@ -2663,13 +2663,6 @@
      "Jornada 7 (27/11/2026)"
     ],
     [
-     "J-26",
-     "18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - CD Ricosport",
-     ""
-    ],
-    [
      "V-27",
      "18:00",
      "",
@@ -2730,6 +2723,13 @@
      "16:20",
      "Pabellón municipal pepe flores",
      "CD Isidro Reguera \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
+     "X-02",
+     "19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - CD Ricosport",
      ""
     ]
    ]
@@ -2891,13 +2891,6 @@
      "Jornada 7 (27/11/2026)"
     ],
     [
-     "J-26",
-     "18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - CD Ricosport",
-     ""
-    ],
-    [
      "V-27",
      "18:00",
      "",
@@ -2958,6 +2951,13 @@
      "16:20",
      "Pabellón municipal pepe flores",
      "CD Isidro Reguera \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
+     "X-02",
+     "19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - CD Ricosport",
      ""
     ]
    ]
@@ -3119,13 +3119,6 @@
      "Jornada 7 (27/11/2026)"
     ],
     [
-     "J-26",
-     "18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - CD Ricosport",
-     ""
-    ],
-    [
      "V-27",
      "18:00",
      "",
@@ -3186,6 +3179,13 @@
      "16:20",
      "Pabellón municipal pepe flores",
      "CD Isidro Reguera \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
+     "X-02",
+     "19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - CD Ricosport",
      ""
     ]
    ]
@@ -3347,13 +3347,6 @@
      "Jornada 7 (27/11/2026)"
     ],
     [
-     "J-26",
-     "18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - CD Ricosport",
-     ""
-    ],
-    [
      "V-27",
      "18:00",
      "",
@@ -3414,6 +3407,13 @@
      "16:20",
      "Pabellón municipal pepe flores",
      "CD Isidro Reguera \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
+     "X-02",
+     "19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - CD Ricosport",
      ""
     ]
    ]
@@ -3575,13 +3575,6 @@
      "Jornada 7 (27/11/2026)"
     ],
     [
-     "J-26",
-     "18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - CD Ricosport",
-     ""
-    ],
-    [
      "V-27",
      "18:00",
      "",
@@ -3642,6 +3635,13 @@
      "16:20",
      "Pabellón municipal pepe flores",
      "CD Isidro Reguera \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
+     "X-02",
+     "19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - CD Ricosport",
      ""
     ]
    ]
@@ -3803,13 +3803,6 @@
      "Jornada 7 (27/11/2026)"
     ],
     [
-     "J-26",
-     "18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - CD Ricosport",
-     ""
-    ],
-    [
      "V-27",
      "18:00",
      "",
@@ -3870,6 +3863,13 @@
      "16:20",
      "Pabellón municipal pepe flores",
      "CD Isidro Reguera \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
+     "X-02",
+     "19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - CD Ricosport",
      ""
     ]
    ]
@@ -4031,13 +4031,6 @@
      "Jornada 7 (27/11/2026)"
     ],
     [
-     "J-26",
-     "18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - CD Ricosport",
-     ""
-    ],
-    [
      "V-27",
      "18:00",
      "",
@@ -4098,6 +4091,13 @@
      "16:20",
      "Pabellón municipal pepe flores",
      "CD Isidro Reguera \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
+     "X-02",
+     "19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - CD Ricosport",
      ""
     ]
    ]
@@ -4259,13 +4259,6 @@
      "Jornada 7 (27/11/2026)"
     ],
     [
-     "J-26",
-     "18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - CD Ricosport",
-     ""
-    ],
-    [
      "V-27",
      "18:00",
      "",
@@ -4326,6 +4319,13 @@
      "16:20",
      "Pabellón municipal pepe flores",
      "CD Isidro Reguera \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
+     "X-02",
+     "19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - CD Ricosport",
      ""
     ]
    ]
@@ -4487,13 +4487,6 @@
      "Jornada 7 (27/11/2026)"
     ],
     [
-     "J-26",
-     "18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - CD Ricosport",
-     ""
-    ],
-    [
      "V-27",
      "18:00",
      "",
@@ -4554,6 +4547,13 @@
      "16:20",
      "Pabellón municipal pepe flores",
      "CD Isidro Reguera \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
+     "X-02",
+     "19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - CD Ricosport",
      ""
     ]
    ]
@@ -4715,13 +4715,6 @@
      "Jornada 7 (27/11/2026)"
     ],
     [
-     "J-26",
-     "18:30",
-     "Padre Miguel Caballero. Vva Ariscal",
-     "Villanueva Deportiva - CD Ricosport",
-     ""
-    ],
-    [
      "V-27",
      "18:00",
      "",
@@ -4782,6 +4775,13 @@
      "16:20",
      "Pabellón municipal pepe flores",
      "CD Isidro Reguera \"A\" - CD Atco. San Juan",
+     ""
+    ],
+    [
+     "X-02",
+     "19:00",
+     "Padre Miguel Caballero. Vva Ariscal",
+     "Villanueva Deportiva - CD Ricosport",
      ""
     ]
    ]
