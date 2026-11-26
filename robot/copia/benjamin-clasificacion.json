@@ -20,8 +20,18 @@
   "dif": 23
  },
  {
-  "equipo": "CF Comarca los Alcores \"A\"",
+  "equipo": "EMD Burguillos",
   "pos": 3,
+  "pts": 15,
+  "pj": 6,
+  "pg": 5,
+  "pe": 0,
+  "pp": 1,
+  "dif": 18
+ },
+ {
+  "equipo": "CF Comarca los Alcores \"A\"",
+  "pos": 4,
   "pts": 13,
   "pj": 6,
   "pg": 4,
@@ -31,23 +41,13 @@
  },
  {
   "equipo": "AD Los Mares",
-  "pos": 4,
+  "pos": 5,
   "pts": 12,
   "pj": 6,
   "pg": 4,
   "pe": 0,
   "pp": 2,
   "dif": 15
- },
- {
-  "equipo": "EMD Burguillos",
-  "pos": 5,
-  "pts": 12,
-  "pj": 5,
-  "pg": 4,
-  "pe": 0,
-  "pp": 1,
-  "dif": 13
  },
  {
   "equipo": "La Moneda CF \"Compromiso\"",
@@ -133,10 +133,10 @@
   "equipo": "EDM Bormujos",
   "pos": 14,
   "pts": 0,
-  "pj": 6,
+  "pj": 7,
   "pg": 0,
   "pe": 0,
-  "pp": 6,
-  "dif": -29
+  "pp": 7,
+  "dif": -34
  }
 ]
